@@ -11,6 +11,7 @@ Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-
 - [TM](https://bulbapedia.bulbagarden.net/wiki/TM)
 - [HM](https://bulbapedia.bulbagarden.net/wiki/HM)
 - [Ability](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Ability)
+- [Pokemon Type](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)
 
 ### To be used:
 - https://bulbapedia.bulbagarden.net/wiki/Category:Hoenn_locations
