@@ -12,13 +12,13 @@ Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-
 - [HM](https://bulbapedia.bulbagarden.net/wiki/HM)
 - [Ability](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Ability)
 - [Pokemon Type](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)
+- [Egg Groups]( https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_Egg_cycles)
+- [Experience Type](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type)
+- [Exp. Yield](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield)
 
 ### To be used:
 - https://bulbapedia.bulbagarden.net/wiki/Category:Hoenn_locations
 - https://bulbapedia.bulbagarden.net/wiki/Hoenn
 - https://bulbapedia.bulbagarden.net/wiki/List_of_routes
-- https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_Egg_cycles
-- https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type
-- https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield
 - https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_gender_ratio
 - https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Trainer
