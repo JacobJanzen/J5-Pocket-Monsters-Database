@@ -10,12 +10,12 @@ Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-
 - [Types](https://bulbapedia.bulbagarden.net/wiki/List_of_moves)
 - [TM](https://bulbapedia.bulbagarden.net/wiki/TM)
 - [HM](https://bulbapedia.bulbagarden.net/wiki/HM)
+- [Ability](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Ability)
 
 ### To be used:
 - https://bulbapedia.bulbagarden.net/wiki/Category:Hoenn_locations
 - https://bulbapedia.bulbagarden.net/wiki/Hoenn
 - https://bulbapedia.bulbagarden.net/wiki/List_of_routes
-- https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Ability
 - https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_Egg_cycles
 - https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type
 - https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield
