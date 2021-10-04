@@ -1,6 +1,6 @@
 # used to turn 3 column CSV into 2 column CSV
 
-file = open('data/pokemon_type.csv')
+file = open('data/egg.csv')
 Lines = file.readlines()
 
 for line in Lines:
