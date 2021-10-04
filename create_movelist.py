@@ -1,5 +1,4 @@
-# Very rough script to convert a specific json file to CSV.
-# Used to convert data about Pokemon in Pokemon Showdown source code into csv file.
+# Used to convert table from Bulbapedia into CSV
 file = open('./moves', 'r')
 Lines = file.readlines()
 
