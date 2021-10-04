@@ -1,3 +1,5 @@
+# Very rough script to convert a specific json file to CSV.
+# Used to convert data about Pokemon in Pokemon Showdown source code into csv file.
 file = open('./pokedex.ts', 'r')
 Lines = file.readlines()
 
