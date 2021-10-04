@@ -1,168 +1,168 @@
 NDex#,Ability
-001,Overgrow
-002,Overgrow
-003,Overgrow
-004,Blaze
-005,Blaze
-006,Blaze
-007,Torrent
-008,Torrent
-009,Torrent
-010,Shield Dust
-011,Shed Skin
-012,Compound Eyes
-013,Shield Dust
-014,Shed Skin
-015,Swarm
-016,Keen Eye
-016,Tangled Feet
-017,Keen Eye
-017,Tangled Feet
-018,Keen Eye
-018,Tangled Feet
-019,Run Away
-019,Guts
-020,Run Away
-020,Guts
-021,Keen Eye
-022,Keen Eye
-023,Intimidate
-023,Shed Skin
-024,Intimidate
-024,Shed Skin
-025,Static
-026,Static
-027,Sand Veil
-028,Sand Veil
-029,Poison Point
-029,Rivalry
-030,Poison Point
-030,Rivalry
-031,Poison Point
-031,Rivalry
-032,Poison Point
-032,Rivalry
-033,Poison Point
-033,Rivalry
-034,Poison Point
-034,Rivalry
-035,Cute Charm
-035,Magic Guard
-036,Cute Charm
-036,Magic Guard
-037,Flash Fire
-038,Flash Fire
-039,Cute Charm
-039,Competitive
-040,Cute Charm
-040,Competitive
-041,Inner Focus
-042,Inner Focus
-043,Chlorophyll
-044,Chlorophyll
-045,Chlorophyll
-046,Effect Spore
-046,Dry Skin
-047,Effect Spore
-047,Dry Skin
-048,Compound Eyes
-048,Tinted Lens
-049,Shield Dust
-049,Tinted Lens
-050,Sand Veil
-050,Arena Trap
-051,Sand Veil
-051,Arena Trap
-052,Pickup
-052,Technician
-053,Limber
-053,Technician
-054,Damp
-054,Cloud Nine
-055,Damp
-055,Cloud Nine
-056,Vital Spirit
-056,Anger Point
-057,Vital Spirit
-057,Anger Point
-058,Intimidate
-058,Flash Fire
-059,Intimidate
-059,Flash Fire
-060,Water Absorb
-060,Damp
-061,Water Absorb
-061,Damp
-062,Water Absorb
-062,Damp
-063,Synchronize
-063,Inner Focus
-064,Synchronize
-064,Inner Focus
-065,Synchronize
-065,Inner Focus
-066,Guts
-066,No Guard
-067,Guts
-067,No Guard
-068,Guts
-068,No Guard
-069,Chlorophyll
-070,Chlorophyll
-071,Chlorophyll
-072,Clear Body
-072,Liquid Ooze
-073,Clear Body
-073,Liquid Ooze
-074,Rock Head
-074,Sturdy
-075,Rock Head
-075,Sturdy
-076,Rock Head
-076,Sturdy
-077,Run Away
-077,Flash Fire
-078,Run Away
-078,Flash Fire
-079,Oblivious
-079,Own Tempo
-080,Oblivious
-080,Own Tempo
-081,Magnet Pull
-081,Sturdy
-082,Magnet Pull
-082,Sturdy
-083,Keen Eye
-083,Inner Focus
-084,Run Away
-084,Early Bird
-085,Run Away
-085,Early Bird
-086,Thick Fat
-086,Hydration
-087,Thick Fat
-087,Hydration
-088,Stench
-088,Sticky Hold
-089,Stench
-089,Sticky Hold
-090,Shell Armor
-090,Skill Link
-091,Shell Armor
-091,Skill Link
-092,Levitate
-093,Levitate
-094,Cursed Body
-095,Rock Head
-095,Sturdy
-096,Insomnia
-096,Forewarn
-097,Insomnia
-097,Forewarn
-098,Hyper Cutter
-098,Shell Armor
-099,Hyper Cutter
-099,Shell Armor
+1,Overgrow
+2,Overgrow
+3,Overgrow
+4,Blaze
+5,Blaze
+6,Blaze
+7,Torrent
+8,Torrent
+9,Torrent
+10,Shield Dust
+11,Shed Skin
+12,Compound Eyes
+13,Shield Dust
+14,Shed Skin
+15,Swarm
+16,Keen Eye
+16,Tangled Feet
+17,Keen Eye
+17,Tangled Feet
+18,Keen Eye
+18,Tangled Feet
+19,Run Away
+19,Guts
+20,Run Away
+20,Guts
+21,Keen Eye
+22,Keen Eye
+23,Intimidate
+23,Shed Skin
+24,Intimidate
+24,Shed Skin
+25,Static
+26,Static
+27,Sand Veil
+28,Sand Veil
+29,Poison Point
+29,Rivalry
+30,Poison Point
+30,Rivalry
+31,Poison Point
+31,Rivalry
+32,Poison Point
+32,Rivalry
+33,Poison Point
+33,Rivalry
+34,Poison Point
+34,Rivalry
+35,Cute Charm
+35,Magic Guard
+36,Cute Charm
+36,Magic Guard
+37,Flash Fire
+38,Flash Fire
+39,Cute Charm
+39,Competitive
+40,Cute Charm
+40,Competitive
+41,Inner Focus
+42,Inner Focus
+43,Chlorophyll
+44,Chlorophyll
+45,Chlorophyll
+46,Effect Spore
+46,Dry Skin
+47,Effect Spore
+47,Dry Skin
+48,Compound Eyes
+48,Tinted Lens
+49,Shield Dust
+49,Tinted Lens
+50,Sand Veil
+50,Arena Trap
+51,Sand Veil
+51,Arena Trap
+52,Pickup
+52,Technician
+53,Limber
+53,Technician
+54,Damp
+54,Cloud Nine
+55,Damp
+55,Cloud Nine
+56,Vital Spirit
+56,Anger Point
+57,Vital Spirit
+57,Anger Point
+58,Intimidate
+58,Flash Fire
+59,Intimidate
+59,Flash Fire
+60,Water Absorb
+60,Damp
+61,Water Absorb
+61,Damp
+62,Water Absorb
+62,Damp
+63,Synchronize
+63,Inner Focus
+64,Synchronize
+64,Inner Focus
+65,Synchronize
+65,Inner Focus
+66,Guts
+66,No Guard
+67,Guts
+67,No Guard
+68,Guts
+68,No Guard
+69,Chlorophyll
+70,Chlorophyll
+71,Chlorophyll
+72,Clear Body
+72,Liquid Ooze
+73,Clear Body
+73,Liquid Ooze
+74,Rock Head
+74,Sturdy
+75,Rock Head
+75,Sturdy
+76,Rock Head
+76,Sturdy
+77,Run Away
+77,Flash Fire
+78,Run Away
+78,Flash Fire
+79,Oblivious
+79,Own Tempo
+80,Oblivious
+80,Own Tempo
+81,Magnet Pull
+81,Sturdy
+82,Magnet Pull
+82,Sturdy
+83,Keen Eye
+83,Inner Focus
+84,Run Away
+84,Early Bird
+85,Run Away
+85,Early Bird
+86,Thick Fat
+86,Hydration
+87,Thick Fat
+87,Hydration
+88,Stench
+88,Sticky Hold
+89,Stench
+89,Sticky Hold
+90,Shell Armor
+90,Skill Link
+91,Shell Armor
+91,Skill Link
+92,Levitate
+93,Levitate
+94,Cursed Body
+95,Rock Head
+95,Sturdy
+96,Insomnia
+96,Forewarn
+97,Insomnia
+97,Forewarn
+98,Hyper Cutter
+98,Shell Armor
+99,Hyper Cutter
+99,Shell Armor
 100,Soundproof
 100,Static
 101,Soundproof
