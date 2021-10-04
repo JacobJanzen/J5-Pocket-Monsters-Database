@@ -1,0 +1,504 @@
+Monster,1
+Grass,1
+Monster,2
+Grass,2
+Monster,3
+Grass,3
+Monster,4
+Dragon,4
+Monster,5
+Dragon,5
+Monster,6
+Dragon,6
+Monster,7
+Water 1,7
+Monster,8
+Water 1,8
+Monster,9
+Water 1,9
+Bug,10
+Bug,11
+Bug,12
+Bug,13
+Bug,14
+Bug,15
+Flying,16
+Flying,17
+Flying,18
+Field,19
+Field,20
+Flying,21
+Flying,22
+Field,23
+Dragon,23
+Field,24
+Dragon,24
+Field,25
+Fairy,25
+Field,26
+Fairy,26
+Field,27
+Field,28
+Monster,29
+Field,29
+Undiscovered,30
+Undiscovered,31
+Monster,32
+Field,32
+Monster,33
+Field,33
+Monster,34
+Field,34
+Fairy,35
+Fairy,36
+Field,37
+Field,38
+Fairy,39
+Fairy,40
+Flying,41
+Flying,42
+Grass,43
+Grass,44
+Grass,45
+Bug,46
+Grass,46
+Bug,47
+Grass,47
+Bug,48
+Bug,49
+Field,50
+Field,51
+Field,52
+Field,53
+Water 1,54
+Field,54
+Water 1,55
+Field,55
+Field,56
+Field,57
+Field,58
+Field,59
+Water 1,60
+Water 1,61
+Water 1,62
+Human-Like,63
+Human-Like,64
+Human-Like,65
+Human-Like,66
+Human-Like,67
+Human-Like,68
+Grass,69
+Grass,70
+Grass,71
+Water 3,72
+Water 3,73
+Mineral,74
+Mineral,75
+Mineral,76
+Field,77
+Field,78
+Monster,79
+Water 1,79
+Monster,80
+Water 1,80
+Mineral,81
+Mineral,82
+Flying,83
+Field,83
+Flying,84
+Flying,85
+Water 1,86
+Field,86
+Water 1,87
+Field,87
+Amorphous,88
+Amorphous,89
+Water 3,90
+Water 3,91
+Amorphous,92
+Amorphous,93
+Amorphous,94
+Mineral,95
+Human-Like,96
+Human-Like,97
+Water 3,98
+Water 3,99
+Mineral,100
+Mineral,101
+Grass,102
+Grass,103
+Monster,104
+Monster,105
+Human-Like,106
+Human-Like,107
+Monster,108
+Amorphous,109
+Amorphous,110
+Monster,111
+Field,111
+Monster,112
+Field,112
+Fairy,113
+Grass,114
+Monster,115
+Water 1,116
+Dragon,116
+Water 1,117
+Dragon,117
+Water 2,118
+Water 2,119
+Water 3,120
+Water 3,121
+Human-Like,122
+Bug,123
+Human-Like,124
+Human-Like,125
+Human-Like,126
+Bug,127
+Field,128
+Water 2,129
+Dragon,129
+Water 2,130
+Dragon,130
+Monster,131
+Water 1,131
+Ditto,132
+Field,133
+Field,134
+Field,135
+Field,136
+Mineral,137
+Water 1,138
+Water 3,138
+Water 1,139
+Water 3,139
+Water 1,140
+Water 3,140
+Water 1,141
+Water 3,141
+Flying,142
+Monster,143
+Undiscovered,144
+Undiscovered,145
+Undiscovered,146
+Water 1,147
+Dragon,147
+Water 1,148
+Dragon,148
+Water 1,149
+Dragon,149
+Undiscovered,150
+Undiscovered,151
+Monster,152
+Grass,152
+Monster,153
+Grass,153
+Monster,154
+Grass,154
+Field,155
+Field,156
+Field,157
+Monster,158
+Water 1,158
+Monster,159
+Water 1,159
+Monster,160
+Water 1,160
+Field,161
+Field,162
+Flying,163
+Flying,164
+Bug,165
+Bug,166
+Bug,167
+Bug,168
+Flying,169
+Water 2,170
+Water 2,171
+Undiscovered,172
+Undiscovered,173
+Undiscovered,174
+Undiscovered,175
+Flying,176
+Fairy,176
+Flying,177
+Flying,178
+Monster,179
+Field,179
+Monster,180
+Field,180
+Monster,181
+Field,181
+Grass,182
+Water 1,183
+Fairy,183
+Water 1,184
+Fairy,184
+Mineral,185
+Water 1,186
+Fairy,187
+Grass,187
+Fairy,188
+Grass,188
+Fairy,189
+Grass,189
+Field,190
+Grass,191
+Grass,192
+Bug,193
+Water 1,194
+Field,194
+Water 1,195
+Field,195
+Field,196
+Field,197
+Flying,198
+Monster,199
+Water 1,199
+Amorphous,200
+Undiscovered,201
+Amorphous,202
+Field,203
+Bug,204
+Bug,205
+Field,206
+Bug,207
+Mineral,208
+Field,209
+Fairy,209
+Field,210
+Fairy,210
+Water 2,211
+Bug,212
+Bug,213
+Bug,214
+Field,215
+Field,216
+Field,217
+Amorphous,218
+Amorphous,219
+Field,220
+Field,221
+Water 1,222
+Water 3,222
+Water 1,223
+Water 2,223
+Water 1,224
+Water 2,224
+Water 1,225
+Field,225
+Water 1,226
+Flying,227
+Field,228
+Field,229
+Water 1,230
+Dragon,230
+Field,231
+Field,232
+Mineral,233
+Field,234
+Field,235
+Undiscovered,236
+Human-Like,237
+Undiscovered,238
+Undiscovered,239
+Undiscovered,240
+Field,241
+Fairy,242
+Undiscovered,243
+Undiscovered,244
+Undiscovered,245
+Monster,246
+Monster,247
+Monster,248
+Undiscovered,249
+Undiscovered,250
+Undiscovered,251
+Monster,252
+Dragon,252
+Monster,253
+Dragon,253
+Monster,254
+Dragon,254
+Field,255
+Field,256
+Field,257
+Monster,258
+Water 1,258
+Monster,259
+Water 1,259
+Monster,260
+Water 1,260
+Field,261
+Field,262
+Field,263
+Field,264
+Bug,265
+Bug,266
+Bug,267
+Bug,268
+Bug,269
+Water 1,270
+Grass,270
+Water 1,271
+Grass,271
+Water 1,272
+Grass,272
+Field,273
+Grass,273
+Field,274
+Grass,274
+Field,275
+Grass,275
+Flying,276
+Flying,277
+Water 1,278
+Flying,278
+Water 1,279
+Flying,279
+Human-Like,280
+Amorphous,280
+Human-Like,281
+Amorphous,281
+Human-Like,282
+Amorphous,282
+Water 1,283
+Bug,283
+Water 1,284
+Bug,284
+Fairy,285
+Grass,285
+Fairy,286
+Grass,286
+Field,287
+Field,288
+Field,289
+Bug,290
+Bug,291
+Mineral,292
+Monster,293
+Field,293
+Monster,294
+Field,294
+Monster,295
+Field,295
+Human-Like,296
+Human-Like,297
+Undiscovered,298
+Mineral,299
+Field,300
+Fairy,300
+Field,301
+Fairy,301
+Human-Like,302
+Field,303
+Fairy,303
+Monster,304
+Monster,305
+Monster,306
+Human-Like,307
+Human-Like,308
+Field,309
+Field,310
+Fairy,311
+Fairy,312
+Bug,313
+Human-Like,313
+Bug,314
+Human-Like,314
+Fairy,315
+Grass,315
+Amorphous,316
+Amorphous,317
+Water 2,318
+Water 2,319
+Field,320
+Water 2,320
+Field,321
+Water 2,321
+Field,322
+Field,323
+Field,324
+Field,325
+Field,326
+Field,327
+Human-Like,327
+Bug,328
+Dragon,328
+Bug,329
+Dragon,329
+Bug,330
+Dragon,330
+Grass,331
+Human-Like,331
+Grass,332
+Human-Like,332
+Flying,333
+Dragon,333
+Flying,334
+Dragon,334
+Field,335
+Field,336
+Dragon,336
+Mineral,337
+Mineral,338
+Water 2,339
+Water 2,340
+Water 1,341
+Water 3,341
+Water 1,342
+Water 3,342
+Mineral,343
+Mineral,344
+Water 3,345
+Water 3,346
+Water 3,347
+Water 3,348
+Water 1,349
+Dragon,349
+Water 1,350
+Dragon,350
+Fairy,351
+Amorphous,351
+Field,352
+Amorphous,353
+Amorphous,354
+Amorphous,355
+Amorphous,356
+Monster,357
+Grass,357
+Amorphous,358
+Field,359
+Undiscovered,360
+Fairy,361
+Mineral,361
+Fairy,362
+Mineral,362
+Water 1,363
+Field,363
+Water 1,364
+Field,364
+Water 1,365
+Field,365
+Water 1,366
+Water 1,367
+Water 1,368
+Water 1,369
+Water 2,369
+Water 2,370
+Dragon,371
+Dragon,372
+Dragon,373
+Mineral,374
+Mineral,375
+Mineral,376
+Undiscovered,377
+Undiscovered,378
+Undiscovered,379
+Undiscovered,380
+Undiscovered,381
+Undiscovered,382
+Undiscovered,383
+Undiscovered,384
+Undiscovered,385
+Undiscovered,386
