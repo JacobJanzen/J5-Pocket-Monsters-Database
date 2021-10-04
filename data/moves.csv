@@ -1,353 +1,353 @@
-1,"Pound","Normal",35,100
-2,"Karate,Chop","Fighting",25,100
-3,"Double,Slap","Normal",10,85
-4,"Comet,Punch","Normal",15,85
-5,"Mega,Punch","Normal",20,85
-6,"Pay,Day","Normal",20,100
-7,"Fire,Punch","Fire",15,100
-8,"Ice,Punch","Ice",15,100
-9,"Thunder,Punch","Electric",15,100
-10,"Scratch","Normal",35,100
-11,"Vise,Grip","Normal",30,100
-12,"Guillotine","Normal",5,30
-13,"Razor,Wind","Normal",10,100
-14,"Swords,Dance","Normal",30,NULL
-15,"Cut","Normal",30,95
-16,"Gust","Flying",35,100
-17,"Wing,Attack","Flying",35,100
-18,"Whirlwind","Normal",20,100
-19,"Fly","Flying",15,95
-20,"Bind","Normal",20,75
-21,"Slam","Normal",20,75
-22,"Vine,Whip","Grass",10,100
-23,"Stomp","Normal",20,100
-24,"Double,Kick","Fighting",30,100
-25,"Mega,Kick","Normal",5,75
-26,"Jump,Kick","Fighting",25,95
-27,"Rolling,Kick","Fighting",15,85
-28,"Sand,Attack","Ground",15,100
-29,"Headbutt","Normal",15,100
-30,"Horn,Attack","Normal",25,100
-31,"Fury,Attack","Normal",20,85
-32,"Horn,Drill","Normal",5,30
-33,"Tackle","Normal",35,95
-34,"Body,Slam","Normal",15,100
-35,"Wrap","Normal",20,85
-36,"Take,Down","Normal",20,85
-37,"Thrash","Normal",20,100
-38,"Double-Edge","Normal",15,100
-39,"Tail,Whip","Normal",30,100
-40,"Poison,Sting","Poison",35,100
-41,"Twineedle","Bug",20,100
-42,"Pin,Missile","Bug",20,85
-43,"Leer","Normal",30,100
-44,"Bite","Dark",25,100
-45,"Growl","Normal",40,100
-46,"Roar","Normal",20,100
-47,"Sing","Normal",15,55
-48,"Supersonic","Normal",20,55
-49,"Sonic,Boom","Normal",20,90
-50,"Disable","Normal",20,55
-51,"Acid","Poison",30,100
-52,"Ember","Fire",25,100
-53,"Flamethrower","Fire",15,100
-54,"Mist","Ice",30,NULL
-55,"Water,Gun","Water",25,100
-56,"Hydro,Pump","Water",5,80
-57,"Surf","Water",15,100
-58,"Ice,Beam","Ice",10,100
-59,"Blizzard","Ice",5,70
-60,"Psybeam","Psychic",20,100
-61,"Bubble,Beam","Water",20,100
-62,"Aurora,Beam","Ice",20,100
-63,"Hyper,Beam","Normal",5,90
-64,"Peck","Flying",35,100
-65,"Drill,Peck","Flying",20,100
-66,"Submission","Fighting",25,80
-67,"Low,Kick","Fighting",20,100
-68,"Counter","Fighting",20,100
-69,"Seismic,Toss","Fighting",20,100
-70,"Strength","Normal",15,100
-71,"Absorb","Grass",20,100
-72,"Mega,Drain","Grass",10,100
-73,"Leech,Seed","Grass",10,90
-74,"Growth","Normal",40,NULL
-75,"Razor,Leaf","Grass",25,95
-76,"Solar,Beam","Grass",10,100
-77,"Poison,Powder","Poison",35,75
-78,"Stun,Spore","Grass",30,75
-79,"Sleep,Powder","Grass",15,75
-80,"Petal,Dance","Grass",20,100
-81,"String,Shot","Bug",40,95
-82,"Dragon,Rage","Dragon",10,100
-83,"Fire,Spin","Fire",15,70
-84,"Thunder,Shock","Electric",30,100
-85,"Thunderbolt","Electric",15,100
-86,"Thunder,Wave","Electric",20,100
-87,"Thunder","Electric",10,70
-88,"Rock,Throw","Rock",15,90
-89,"Earthquake","Ground",10,100
-90,"Fissure","Ground",5,30
-91,"Dig","Ground",10,100
-92,"Toxic","Poison",10,85
-93,"Confusion","Psychic",25,100
-94,"Psychic","Psychic",10,100
-95,"Hypnosis","Psychic",20,60
-96,"Meditate","Psychic",40,NULL
-97,"Agility","Psychic",30,NULL
-98,"Quick,Attack","Normal",30,100
-99,"Rage","Normal",20,100
-100,"Teleport","Psychic",20,NULL
-101,"Night,Shade","Ghost",15,100
-102,"Mimic","Normal",10,NULL
-103,"Screech","Normal",40,85
-104,"Double,Team","Normal",15,NULL
-105,"Recover","Normal",20,NULL
-106,"Harden","Normal",30,NULL
-107,"Minimize","Normal",20,NULL
-108,"Smokescreen","Normal",20,100
-109,"Confuse,Ray","Ghost",10,100
-110,"Withdraw","Water",40,NULL
-111,"Defense,Curl","Normal",40,NULL
-112,"Barrier","Psychic",30,NULL
-113,"Light,Screen","Psychic",30,NULL
-114,"Haze","Ice",30,NULL
-115,"Reflect","Psychic",20,NULL
-116,"Focus,Energy","Normal",30,NULL
-117,"Bide","Normal",10,100
-118,"Metronome","Normal",10,NULL
-119,"Mirror,Move","Flying",20,NULL
-120,"Self-Destruct","Normal",5,100
-121,"Egg,Bomb","Normal",10,75
-122,"Lick","Ghost",30,100
-123,"Smog","Poison",20,70
-124,"Sludge","Poison",20,100
-125,"Bone,Club","Ground",20,85
-126,"Fire,Blast","Fire",5,85
-127,"Waterfall","Water",15,100
-128,"Clamp","Water",10,75
-129,"Swift","Normal",20,NULL
-130,"Skull,Bash","Normal",15,100
-131,"Spike,Cannon","Normal",15,100
-132,"Constrict","Normal",35,100
-133,"Amnesia","Psychic",20,NULL
-134,"Kinesis","Psychic",15,80
-135,"Soft-Boiled","Normal",10,NULL
-136,"High,Jump,Kick","Fighting",20,90
-137,"Glare","Normal",30,75
-138,"Dream,Eater","Psychic",15,100
-139,"Poison,Gas","Poison",40,55
-140,"Barrage","Normal",20,85
-141,"Leech,Life","Bug",15,100
-142,"Lovely,Kiss","Normal",10,75
-143,"Sky,Attack","Flying",5,90
-144,"Transform","Normal",10,NULL
-145,"Bubble","Water",30,100
-146,"Dizzy,Punch","Normal",10,100
-147,"Spore","Grass",15,100
-148,"Flash","Normal",20,70
-149,"Psywave","Psychic",15,80
-150,"Splash","Normal",40,NULL
-151,"Acid,Armor","Poison",40,NULL
-152,"Crabhammer","Water",10,85
-153,"Explosion","Normal",5,100
-154,"Fury,Swipes","Normal",15,80
-155,"Bonemerang","Ground",10,90
-156,"Rest","Psychic",10,NULL
-157,"Rock,Slide","Rock",10,90
-158,"Hyper,Fang","Normal",15,90
-159,"Sharpen","Normal",30,NULL
-160,"Conversion","Normal",30,NULL
-161,"Tri,Attack","Normal",10,100
-162,"Super,Fang","Normal",10,90
-163,"Slash","Normal",20,100
-164,"Substitute","Normal",10,NULL
-165,"Struggle","Normal",1,100
-166,"Sketch","Normal",1,NULL
-167,"Triple,Kick","Fighting",10,90
-168,"Thief","Dark",10,100
-169,"Spider,Web","Bug",10,NULL
-170,"Mind,Reader","Normal",5,100
-171,"Nightmare","Ghost",15,100
-172,"Flame,Wheel","Fire",25,100
-173,"Snore","Normal",15,100
-174,"Curse","???",10,NULL
-175,"Flail","Normal",15,100
-176,"Conversion,2","Normal",30,NULL
-177,"Aeroblast","Flying",5,95
-178,"Cotton,Spore","Grass",40,85
-179,"Reversal","Fighting",15,100
-180,"Spite","Ghost",10,100
-181,"Powder,Snow","Ice",25,100
-182,"Protect","Normal",10,NULL
-183,"Mach,Punch","Fighting",30,100
-184,"Scary,Face","Normal",10,90
-185,"Feint,Attack","Dark",20,NULL
-186,"Sweet,Kiss","Normal",10,75
-187,"Belly,Drum","Normal",10,NULL
-188,"Sludge,Bomb","Poison",10,100
-189,"Mud-Slap","Ground",10,100
-190,"Octazooka","Water",10,85
-191,"Spikes","Ground",20,NULL
-192,"Zap,Cannon","Electric",5,50
-193,"Foresight","Normal",40,100
-194,"Destiny,Bond","Ghost",5,NULL
-195,"Perish,Song","Normal",5,NULL
-196,"Icy,Wind","Ice",15,95
-197,"Detect","Fighting",5,NULL
-198,"Bone,Rush","Ground",10,80
-199,"Lock-On","Normal",5,100
-200,"Outrage","Dragon",15,100
-201,"Sandstorm","Rock",10,NULL
-202,"Giga,Drain","Grass",5,100
-203,"Endure","Normal",10,NULL
-204,"Charm","Normal",20,100
-205,"Rollout","Rock",20,90
-206,"False,Swipe","Normal",40,100
-207,"Swagger","Normal",15,90
-208,"Milk,Drink","Normal",10,NULL
-209,"Spark","Electric",20,100
-210,"Fury,Cutter","Bug",20,95
-211,"Steel,Wing","Steel",25,90
-212,"Mean,Look","Normal",5,NULL
-213,"Attract","Normal",15,100
-214,"Sleep,Talk","Normal",10,NULL
-215,"Heal,Bell","Normal",5,NULL
-216,"Return","Normal",20,100
-217,"Present","Normal",15,90
-218,"Frustration","Normal",20,100
-219,"Safeguard","Normal",25,NULL
-220,"Pain,Split","Normal",20,NULL
-221,"Sacred,Fire","Fire",5,95
-222,"Magnitude","Ground",30,100
-223,"Dynamic,Punch","Fighting",5,50
-224,"Megahorn","Bug",10,85
-225,"Dragon,Breath","Dragon",20,100
-226,"Baton,Pass","Normal",40,NULL
-227,"Encore","Normal",5,100
-228,"Pursuit","Dark",20,100
-229,"Rapid,Spin","Normal",40,100
-230,"Sweet,Scent","Normal",20,100
-231,"Iron,Tail","Steel",15,75
-232,"Metal,Claw","Steel",35,95
-233,"Vital,Throw","Fighting",10,NULL
-234,"Morning,Sun","Normal",5,NULL
-235,"Synthesis","Grass",5,NULL
-236,"Moonlight","Normal",5,NULL
-237,"Hidden,Power","Normal",15,100
-238,"Cross,Chop","Fighting",5,80
-239,"Twister","Dragon",20,100
-240,"Rain,Dance","Water",5,NULL
-241,"Sunny,Day","Fire",5,NULL
-242,"Crunch","Dark",15,100
-243,"Mirror,Coat","Psychic",20,100
-244,"Psych,Up","Normal",10,NULL
-245,"Extreme,Speed","Normal",5,100
-246,"Ancient,Power","Rock",5,100
-247,"Shadow,Ball","Ghost",15,100
-248,"Future,Sight","Psychic",15,90
-249,"Rock,Smash","Fighting",15,100
-250,"Whirlpool","Water",15,70
-251,"Beat,Up","Dark",10,100
-252,"Fake,Out","Normal",10,100
-253,"Uproar","Normal",10,100
-254,"Stockpile","Normal",10,NULL
-255,"Spit,Up","Normal",10,100
-256,"Swallow","Normal",10,NULL
-257,"Heat,Wave","Fire",10,90
-258,"Hail","Ice",10,NULL
-259,"Torment","Dark",15,100
-260,"Flatter","Dark",15,100
-261,"Will-O-Wisp","Fire",15,75
-262,"Memento","Dark",10,100
-263,"Facade","Normal",20,100
-264,"Focus,Punch","Fighting",20,100
-265,"Smelling,Salts","Normal",10,100
-266,"Follow,Me","Normal",20,NULL
-267,"Nature,Power","Normal",20,NULL
-268,"Charge","Electric",20,NULL
-269,"Taunt","Dark",20,100
-270,"Helping,Hand","Normal",20,NULL
-271,"Trick","Psychic",10,100
-272,"Role,Play","Psychic",10,NULL
-273,"Wish","Normal",10,NULL
-274,"Assist","Normal",20,NULL
-275,"Ingrain","Grass",20,NULL
-276,"Superpower","Fighting",5,100
-277,"Magic,Coat","Psychic",15,NULL
-279,"Revenge","Fighting",10,100
-280,"Brick,Break","Fighting",15,100
-281,"Yawn","Normal",10,NULL
-282,"Knock,Off","Dark",20,100
-283,"Endeavor","Normal",5,100
-284,"Eruption","Fire",5,100
-285,"Skill,Swap","Psychic",10,NULL
-286,"Imprison","Psychic",10,NULL
-287,"Refresh","Normal",20,NULL
-288,"Grudge","Ghost",5,NULL
-289,"Snatch","Dark",10,NULL
-290,"Secret,Power","Normal",20,100
-291,"Dive","Water",10,100
-292,"Arm,Thrust","Fighting",20,100
-293,"Camouflage","Normal",20,NULL
-294,"Tail,Glow","Bug",20,NULL
-295,"Luster,Purge","Psychic",5,100
-296,"Mist,Ball","Psychic",5,100
-297,"Feather,Dance","Flying",15,100
-298,"Teeter,Dance","Normal",20,100
-299,"Blaze,Kick","Fire",10,90
-300,"Mud,Sport","Ground",15,NULL
-301,"Ice,Ball","Ice",20,90
-302,"Needle,Arm","Grass",15,100
-303,"Slack,Off","Normal",10,NULL
-304,"Hyper,Voice","Normal",10,100
-305,"Poison,Fang","Poison",15,100
-306,"Crush,Claw","Normal",10,95
-307,"Blast,Burn","Fire",5,90
-308,"Hydro,Cannon","Water",5,90
-309,"Meteor,Mash","Steel",10,85
-310,"Astonish","Ghost",15,100
-311,"Weather,Ball","Normal",10,100
-312,"Aromatherapy","Grass",5,NULL
-313,"Fake,Tears","Dark",20,100
-314,"Air,Cutter","Flying",25,95
-315,"Overheat","Fire",5,90
-316,"Odor,Sleuth","Normal",40,100
-317,"Rock,Tomb","Rock",10,80
-318,"Silver,Wind","Bug",5,100
-319,"Metal,Sound","Steel",40,85
-320,"Grass,Whistle","Grass",15,55
-321,"Tickle","Normal",20,100
-322,"Cosmic,Power","Psychic",20,NULL
-323,"Water,Spout","Water",5,100
-324,"Signal,Beam","Bug",15,100
-325,"Shadow,Punch","Ghost",20,NULL
-326,"Extrasensory","Psychic",30,100
-327,"Sky,Uppercut","Fighting",15,90
-328,"Sand,Tomb","Ground",15,70
-329,"Sheer,Cold","Ice",5,30
-330,"Muddy,Water","Water",10,85
-331,"Bullet,Seed","Grass",30,100
-332,"Aerial,Ace","Flying",20,NULL
-333,"Icicle,Spear","Ice",30,100
-334,"Iron,Defense","Steel",15,NULL
-335,"Block","Normal",5,NULL
-336,"Howl","Normal",40,NULL
-337,"Dragon,Claw","Dragon",15,100
-338,"Frenzy,Plant","Grass",5,90
-339,"Bulk,Up","Fighting",20,NULL
-340,"Bounce","Flying",5,85
-341,"Mud,Shot","Ground",15,95
-342,"Poison,Tail","Poison",25,100
-343,"Covet","Normal",40,100
-344,"Volt,Tackle","Electric",15,100
-345,"Magical,Leaf","Grass",20,NULL
-346,"Water,Sport","Water",15,NULL
-347,"Calm,Mind","Psychic",20,NULL
-348,"Leaf,Blade","Grass",15,100
-349,"Dragon,Dance","Dragon",20,NULL
-350,"Rock,Blast","Rock",10,80
-351,"Shock,Wave","Electric",20,NULL
-352,"Water,Pulse","Water",20,100
-353,"Doom,Desire","Steel",5,85
-354,"Psycho,Boost","Psychic",5,90
+1,"Pound","Normal",35,40,100,I
+2,"Karate Chop","Fighting",25,50,100,I
+3,"Double Slap","Normal",10,15,85,I
+4,"Comet Punch","Normal",15,18,85,I
+5,"Mega Punch","Normal",20,80,85,I
+6,"Pay Day","Normal",20,40,100,I
+7,"Fire Punch","Fire",15,75,100,I
+8,"Ice Punch","Ice",15,75,100,I
+9,"Thunder Punch","Electric",15,75,100,I
+10,"Scratch","Normal",35,40,100,I
+11,"Vise Grip","Normal",30,55,100,I
+12,"Guillotine","Normal",5,NULL,30,I
+13,"Razor Wind","Normal",10,80,100,I
+14,"Swords Dance","Normal",30,NULL,NULL,I
+15,"Cut","Normal",30,50,95,I
+16,"Gust","Flying",35,40,100,I
+17,"Wing Attack","Flying",35,60,100,I
+18,"Whirlwind","Normal",20,NULL,100,I
+19,"Fly","Flying",15,70,95,I
+20,"Bind","Normal",20,15,75,I
+21,"Slam","Normal",20,80,75,I
+22,"Vine Whip","Grass",10,35,100,I
+23,"Stomp","Normal",20,65,100,I
+24,"Double Kick","Fighting",30,30,100,I
+25,"Mega Kick","Normal",5,120,75,I
+26,"Jump Kick","Fighting",25,70,95,I
+27,"Rolling Kick","Fighting",15,60,85,I
+28,"Sand Attack","Ground",15,NULL,100,I
+29,"Headbutt","Normal",15,70,100,I
+30,"Horn Attack","Normal",25,65,100,I
+31,"Fury Attack","Normal",20,15,85,I
+32,"Horn Drill","Normal",5,NULL,30,I
+33,"Tackle","Normal",35,35,95,I
+34,"Body Slam","Normal",15,85,100,I
+35,"Wrap","Normal",20,15,85,I
+36,"Take Down","Normal",20,90,85,I
+37,"Thrash","Normal",20,90,100,I
+38,"Double-Edge","Normal",15,120,100,I
+39,"Tail Whip","Normal",30,NULL,100,I
+40,"Poison Sting","Poison",35,15,100,I
+41,"Twineedle","Bug",20,25,100,I
+42,"Pin Missile","Bug",20,14,85,I
+43,"Leer","Normal",30,NULL,100,I
+44,"Bite","Dark",25,60,100,I
+45,"Growl","Normal",40,NULL,100,I
+46,"Roar","Normal",20,NULL,100,I
+47,"Sing","Normal",15,NULL,55,I
+48,"Supersonic","Normal",20,NULL,55,I
+49,"Sonic Boom","Normal",20,NULL,90,I
+50,"Disable","Normal",20,NULL,55,I
+51,"Acid","Poison",30,40,100,I
+52,"Ember","Fire",25,40,100,I
+53,"Flamethrower","Fire",15,95,100,I
+54,"Mist","Ice",30,NULL,NULL,I
+55,"Water Gun","Water",25,40,100,I
+56,"Hydro Pump","Water",5,120,80,I
+57,"Surf","Water",15,95,100,I
+58,"Ice Beam","Ice",10,95,100,I
+59,"Blizzard","Ice",5,120,70,I
+60,"Psybeam","Psychic",20,65,100,I
+61,"Bubble Beam","Water",20,65,100,I
+62,"Aurora Beam","Ice",20,65,100,I
+63,"Hyper Beam","Normal",5,150,90,I
+64,"Peck","Flying",35,35,100,I
+65,"Drill Peck","Flying",20,80,100,I
+66,"Submission","Fighting",25,80,80,I
+67,"Low Kick","Fighting",20,NULL,100,I
+68,"Counter","Fighting",20,NULL,100,I
+69,"Seismic Toss","Fighting",20,NULL,100,I
+70,"Strength","Normal",15,80,100,I
+71,"Absorb","Grass",20,20,100,I
+72,"Mega Drain","Grass",10,40,100,I
+73,"Leech Seed","Grass",10,NULL,90,I
+74,"Growth","Normal",40,NULL,NULL,I
+75,"Razor Leaf","Grass",25,55,95,I
+76,"Solar Beam","Grass",10,120,100,I
+77,"Poison Powder","Poison",35,NULL,75,I
+78,"Stun Spore","Grass",30,NULL,75,I
+79,"Sleep Powder","Grass",15,NULL,75,I
+80,"Petal Dance","Grass",20,70,100,I
+81,"String Shot","Bug",40,NULL,95,I
+82,"Dragon Rage","Dragon",10,NULL,100,I
+83,"Fire Spin","Fire",15,15,70,I
+84,"Thunder Shock","Electric",30,40,100,I
+85,"Thunderbolt","Electric",15,95,100,I
+86,"Thunder Wave","Electric",20,NULL,100,I
+87,"Thunder","Electric",10,120,70,I
+88,"Rock Throw","Rock",15,50,90,I
+89,"Earthquake","Ground",10,100,100,I
+90,"Fissure","Ground",5,NULL,30,I
+91,"Dig","Ground",10,60,100,I
+92,"Toxic","Poison",10,NULL,85,I
+93,"Confusion","Psychic",25,50,100,I
+94,"Psychic","Psychic",10,90,100,I
+95,"Hypnosis","Psychic",20,NULL,60,I
+96,"Meditate","Psychic",40,NULL,NULL,I
+97,"Agility","Psychic",30,NULL,NULL,I
+98,"Quick Attack","Normal",30,40,100,I
+99,"Rage","Normal",20,20,100,I
+100,"Teleport","Psychic",20,NULL,NULL,I
+101,"Night Shade","Ghost",15,NULL,100,I
+102,"Mimic","Normal",10,NULL,NULL,I
+103,"Screech","Normal",40,NULL,85,I
+104,"Double Team","Normal",15,NULL,NULL,I
+105,"Recover","Normal",20,NULL,NULL,I
+106,"Harden","Normal",30,NULL,NULL,I
+107,"Minimize","Normal",20,NULL,NULL,I
+108,"Smokescreen","Normal",20,NULL,100,I
+109,"Confuse Ray","Ghost",10,NULL,100,I
+110,"Withdraw","Water",40,NULL,NULL,I
+111,"Defense Curl","Normal",40,NULL,NULL,I
+112,"Barrier","Psychic",30,NULL,NULL,I
+113,"Light Screen","Psychic",30,NULL,NULL,I
+114,"Haze","Ice",30,NULL,NULL,I
+115,"Reflect","Psychic",20,NULL,NULL,I
+116,"Focus Energy","Normal",30,NULL,NULL,I
+117,"Bide","Normal",10,NULL,100,I
+118,"Metronome","Normal",10,NULL,NULL,I
+119,"Mirror Move","Flying",20,NULL,NULL,I
+120,"Self-Destruct","Normal",5,200,100,I
+121,"Egg Bomb","Normal",10,100,75,I
+122,"Lick","Ghost",30,20,100,I
+123,"Smog","Poison",20,20,70,I
+124,"Sludge","Poison",20,65,100,I
+125,"Bone Club","Ground",20,65,85,I
+126,"Fire Blast","Fire",5,120,85,I
+127,"Waterfall","Water",15,80,100,I
+128,"Clamp","Water",10,35,75,I
+129,"Swift","Normal",20,60,NULL,I
+130,"Skull Bash","Normal",15,100,100,I
+131,"Spike Cannon","Normal",15,20,100,I
+132,"Constrict","Normal",35,10,100,I
+133,"Amnesia","Psychic",20,NULL,NULL,I
+134,"Kinesis","Psychic",15,NULL,80,I
+135,"Soft-Boiled","Normal",10,NULL,NULL,I
+136,"High Jump Kick","Fighting",20,85,90,I
+137,"Glare","Normal",30,NULL,75,I
+138,"Dream Eater","Psychic",15,100,100,I
+139,"Poison Gas","Poison",40,NULL,55,I
+140,"Barrage","Normal",20,15,85,I
+141,"Leech Life","Bug",15,20,100,I
+142,"Lovely Kiss","Normal",10,NULL,75,I
+143,"Sky Attack","Flying",5,140,90,I
+144,"Transform","Normal",10,NULL,NULL,I
+145,"Bubble","Water",30,20,100,I
+146,"Dizzy Punch","Normal",10,70,100,I
+147,"Spore","Grass",15,NULL,100,I
+148,"Flash","Normal",20,NULL,70,I
+149,"Psywave","Psychic",15,NULL,80,I
+150,"Splash","Normal",40,NULL,NULL,I
+151,"Acid Armor","Poison",40,NULL,NULL,I
+152,"Crabhammer","Water",10,90,85,I
+153,"Explosion","Normal",5,250,100,I
+154,"Fury Swipes","Normal",15,18,80,I
+155,"Bonemerang","Ground",10,50,90,I
+156,"Rest","Psychic",10,NULL,NULL,I
+157,"Rock Slide","Rock",10,75,90,I
+158,"Hyper Fang","Normal",15,80,90,I
+159,"Sharpen","Normal",30,NULL,NULL,I
+160,"Conversion","Normal",30,NULL,NULL,I
+161,"Tri Attack","Normal",10,80,100,I
+162,"Super Fang","Normal",10,NULL,90,I
+163,"Slash","Normal",20,70,100,I
+164,"Substitute","Normal",10,NULL,NULL,I
+165,"Struggle","Normal",1,50,100,I
+166,"Sketch","Normal",1,NULL,NULL,II
+167,"Triple Kick","Fighting",10,10,90,II
+168,"Thief","Dark",10,40,100,II
+169,"Spider Web","Bug",10,NULL,NULL,II
+170,"Mind Reader","Normal",5,NULL,100,II
+171,"Nightmare","Ghost",15,NULL,100,II
+172,"Flame Wheel","Fire",25,60,100,II
+173,"Snore","Normal",15,40,100,II
+174,"Curse","???",10,NULL,NULL,II
+175,"Flail","Normal",15,NULL,100,II
+176,"Conversion 2","Normal",30,NULL,NULL,II
+177,"Aeroblast","Flying",5,100,95,II
+178,"Cotton Spore","Grass",40,NULL,85,II
+179,"Reversal","Fighting",15,NULL,100,II
+180,"Spite","Ghost",10,NULL,100,II
+181,"Powder Snow","Ice",25,40,100,II
+182,"Protect","Normal",10,NULL,NULL,II
+183,"Mach Punch","Fighting",30,40,100,II
+184,"Scary Face","Normal",10,NULL,90,II
+185,"Feint Attack","Dark",20,60,NULL,II
+186,"Sweet Kiss","Normal",10,NULL,75,II
+187,"Belly Drum","Normal",10,NULL,NULL,II
+188,"Sludge Bomb","Poison",10,90,100,II
+189,"Mud-Slap","Ground",10,20,100,II
+190,"Octazooka","Water",10,65,85,II
+191,"Spikes","Ground",20,NULL,NULL,II
+192,"Zap Cannon","Electric",5,100,50,II
+193,"Foresight","Normal",40,NULL,100,II
+194,"Destiny Bond","Ghost",5,NULL,NULL,II
+195,"Perish Song","Normal",5,NULL,NULL,II
+196,"Icy Wind","Ice",15,55,95,II
+197,"Detect","Fighting",5,NULL,NULL,II
+198,"Bone Rush","Ground",10,25,80,II
+199,"Lock-On","Normal",5,NULL,100,II
+200,"Outrage","Dragon",15,90,100,II
+201,"Sandstorm","Rock",10,NULL,NULL,II
+202,"Giga Drain","Grass",5,60,100,II
+203,"Endure","Normal",10,NULL,NULL,II
+204,"Charm","Normal",20,NULL,100,II
+205,"Rollout","Rock",20,30,90,II
+206,"False Swipe","Normal",40,40,100,II
+207,"Swagger","Normal",15,NULL,90,II
+208,"Milk Drink","Normal",10,NULL,NULL,II
+209,"Spark","Electric",20,65,100,II
+210,"Fury Cutter","Bug",20,10,95,II
+211,"Steel Wing","Steel",25,70,90,II
+212,"Mean Look","Normal",5,NULL,NULL,II
+213,"Attract","Normal",15,NULL,100,II
+214,"Sleep Talk","Normal",10,NULL,NULL,II
+215,"Heal Bell","Normal",5,NULL,NULL,II
+216,"Return","Normal",20,NULL,100,II
+217,"Present","Normal",15,NULL,90,II
+218,"Frustration","Normal",20,NULL,100,II
+219,"Safeguard","Normal",25,NULL,NULL,II
+220,"Pain Split","Normal",20,NULL,NULL,II
+221,"Sacred Fire","Fire",5,100,95,II
+222,"Magnitude","Ground",30,NULL,100,II
+223,"Dynamic Punch","Fighting",5,100,50,II
+224,"Megahorn","Bug",10,120,85,II
+225,"Dragon Breath","Dragon",20,60,100,II
+226,"Baton Pass","Normal",40,NULL,NULL,II
+227,"Encore","Normal",5,NULL,100,II
+228,"Pursuit","Dark",20,40,100,II
+229,"Rapid Spin","Normal",40,20,100,II
+230,"Sweet Scent","Normal",20,NULL,100,II
+231,"Iron Tail","Steel",15,100,75,II
+232,"Metal Claw","Steel",35,50,95,II
+233,"Vital Throw","Fighting",10,70,NULL,II
+234,"Morning Sun","Normal",5,NULL,NULL,II
+235,"Synthesis","Grass",5,NULL,NULL,II
+236,"Moonlight","Normal",5,NULL,NULL,II
+237,"Hidden Power","Normal",15,NULL,100,II
+238,"Cross Chop","Fighting",5,100,80,II
+239,"Twister","Dragon",20,40,100,II
+240,"Rain Dance","Water",5,NULL,NULL,II
+241,"Sunny Day","Fire",5,NULL,NULL,II
+242,"Crunch","Dark",15,80,100,II
+243,"Mirror Coat","Psychic",20,NULL,100,II
+244,"Psych Up","Normal",10,NULL,NULL,II
+245,"Extreme Speed","Normal",5,80,100,II
+246,"Ancient Power","Rock",5,60,100,II
+247,"Shadow Ball","Ghost",15,80,100,II
+248,"Future Sight","Psychic",15,80,90,II
+249,"Rock Smash","Fighting",15,20,100,II
+250,"Whirlpool","Water",15,15,70,II
+251,"Beat Up","Dark",10,10,100,II
+252,"Fake Out","Normal",10,40,100,III
+253,"Uproar","Normal",10,50,100,III
+254,"Stockpile","Normal",10,NULL,NULL,III
+255,"Spit Up","Normal",10,NULL,100,III
+256,"Swallow","Normal",10,NULL,NULL,III
+257,"Heat Wave","Fire",10,100,90,III
+258,"Hail","Ice",10,NULL,NULL,III
+259,"Torment","Dark",15,NULL,100,III
+260,"Flatter","Dark",15,NULL,100,III
+261,"Will-O-Wisp","Fire",15,NULL,75,III
+262,"Memento","Dark",10,NULL,100,III
+263,"Facade","Normal",20,70,100,III
+264,"Focus Punch","Fighting",20,150,100,III
+265,"Smelling Salts","Normal",10,60,100,III
+266,"Follow Me","Normal",20,NULL,NULL,III
+267,"Nature Power","Normal",20,NULL,NULL,III
+268,"Charge","Electric",20,NULL,NULL,III
+269,"Taunt","Dark",20,NULL,100,III
+270,"Helping Hand","Normal",20,NULL,NULL,III
+271,"Trick","Psychic",10,NULL,100,III
+272,"Role Play","Psychic",10,NULL,NULL,III
+273,"Wish","Normal",10,NULL,NULL,III
+274,"Assist","Normal",20,NULL,NULL,III
+275,"Ingrain","Grass",20,NULL,NULL,III
+276,"Superpower","Fighting",5,120,100,III
+277,"Magic Coat","Psychic",15,NULL,NULL,III
+279,"Revenge","Fighting",10,60,100,III
+280,"Brick Break","Fighting",15,75,100,III
+281,"Yawn","Normal",10,NULL,NULL,III
+282,"Knock Off","Dark",20,20,100,III
+283,"Endeavor","Normal",5,NULL,100,III
+284,"Eruption","Fire",5,150,100,III
+285,"Skill Swap","Psychic",10,NULL,NULL,III
+286,"Imprison","Psychic",10,NULL,NULL,III
+287,"Refresh","Normal",20,NULL,NULL,III
+288,"Grudge","Ghost",5,NULL,NULL,III
+289,"Snatch","Dark",10,NULL,NULL,III
+290,"Secret Power","Normal",20,70,100,III
+291,"Dive","Water",10,60,100,III
+292,"Arm Thrust","Fighting",20,15,100,III
+293,"Camouflage","Normal",20,NULL,NULL,III
+294,"Tail Glow","Bug",20,NULL,NULL,III
+295,"Luster Purge","Psychic",5,70,100,III
+296,"Mist Ball","Psychic",5,70,100,III
+297,"Feather Dance","Flying",15,NULL,100,III
+298,"Teeter Dance","Normal",20,NULL,100,III
+299,"Blaze Kick","Fire",10,85,90,III
+300,"Mud Sport","Ground",15,NULL,NULL,III
+301,"Ice Ball","Ice",20,30,90,III
+302,"Needle Arm","Grass",15,60,100,III
+303,"Slack Off","Normal",10,NULL,NULL,III
+304,"Hyper Voice","Normal",10,90,100,III
+305,"Poison Fang","Poison",15,50,100,III
+306,"Crush Claw","Normal",10,75,95,III
+307,"Blast Burn","Fire",5,150,90,III
+308,"Hydro Cannon","Water",5,150,90,III
+309,"Meteor Mash","Steel",10,100,85,III
+310,"Astonish","Ghost",15,30,100,III
+311,"Weather Ball","Normal",10,50,100,III
+312,"Aromatherapy","Grass",5,NULL,NULL,III
+313,"Fake Tears","Dark",20,NULL,100,III
+314,"Air Cutter","Flying",25,55,95,III
+315,"Overheat","Fire",5,140,90,III
+316,"Odor Sleuth","Normal",40,NULL,100,III
+317,"Rock Tomb","Rock",10,50,80,III
+318,"Silver Wind","Bug",5,60,100,III
+319,"Metal Sound","Steel",40,NULL,85,III
+320,"Grass Whistle","Grass",15,NULL,55,III
+321,"Tickle","Normal",20,NULL,100,III
+322,"Cosmic Power","Psychic",20,NULL,NULL,III
+323,"Water Spout","Water",5,150,100,III
+324,"Signal Beam","Bug",15,75,100,III
+325,"Shadow Punch","Ghost",20,60,NULL,III
+326,"Extrasensory","Psychic",30,80,100,III
+327,"Sky Uppercut","Fighting",15,85,90,III
+328,"Sand Tomb","Ground",15,15,70,III
+329,"Sheer Cold","Ice",5,NULL,30,III
+330,"Muddy Water","Water",10,95,85,III
+331,"Bullet Seed","Grass",30,10,100,III
+332,"Aerial Ace","Flying",20,60,NULL,III
+333,"Icicle Spear","Ice",30,10,100,III
+334,"Iron Defense","Steel",15,NULL,NULL,III
+335,"Block","Normal",5,NULL,NULL,III
+336,"Howl","Normal",40,NULL,NULL,III
+337,"Dragon Claw","Dragon",15,80,100,III
+338,"Frenzy Plant","Grass",5,150,90,III
+339,"Bulk Up","Fighting",20,NULL,NULL,III
+340,"Bounce","Flying",5,85,85,III
+341,"Mud Shot","Ground",15,55,95,III
+342,"Poison Tail","Poison",25,50,100,III
+343,"Covet","Normal",40,40,100,III
+344,"Volt Tackle","Electric",15,120,100,III
+345,"Magical Leaf","Grass",20,60,NULL,III
+346,"Water Sport","Water",15,NULL,NULL,III
+347,"Calm Mind","Psychic",20,NULL,NULL,III
+348,"Leaf Blade","Grass",15,70,100,III
+349,"Dragon Dance","Dragon",20,NULL,NULL,III
+350,"Rock Blast","Rock",10,25,80,III
+351,"Shock Wave","Electric",20,60,NULL,III
+352,"Water Pulse","Water",20,60,100,III
+353,"Doom Desire","Steel",5,120,85,III
+354,"Psycho Boost","Psychic",5,140,90,III
