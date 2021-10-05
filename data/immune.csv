@@ -1,8 +1,8 @@
-Attacking,Defending
-Normal,Ghost
-Fighting,Ghost
-Poison,Steel
-Ground,Flying
-Ghost,Normal
-Electric,Ground
-Psychic,Dark
+AttackingType,DefendingType
+"Normal","Ghost"
+"Fighting","Ghost"
+"Poison","Steel"
+"Ground","Flying"
+"Ghost","Normal"
+"Electric","Ground"
+"Psychic","Dark"

@@ -1,4 +1,4 @@
-Name,Type,PP,Power,Accuracy
+Move,Type,PP,Power,Accuracy
 "Pound","Normal",35,40,100
 "Karate Chop","Fighting",25,50,100
 "Double Slap","Normal",10,15,85
