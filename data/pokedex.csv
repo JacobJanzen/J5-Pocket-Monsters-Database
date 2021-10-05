@@ -81,7 +81,7 @@ NDex#,name,HP,Atk,Def,SpA,SpD,Spe,height,weight,Exp Yield,EggCycles,Experience T
 80,"Slowbro",95,75,110,100,80,30,1.6,78.5,172,20,Medium Fast,75,79,0.5
 81,"Magnemite",25,35,70,95,55,45,0.3,6,65,20,Medium Fast,190,NULL,NULL
 82,"Magneton",50,60,95,120,70,70,1,60,163,20,Medium Fast,60,81,NULL
-83,"Farfetch\u2019d",52,90,55,58,62,60,0.8,15,132,20,Medium Fast,45,NULL,0.5
+83,"Farfetch'd",52,90,55,58,62,60,0.8,15,132,20,Medium Fast,45,NULL,0.5
 84,"Doduo",35,85,45,35,35,75,1.4,39.2,62,20,Medium Fast,190,NULL,0.5
 85,"Dodrio",60,110,70,60,60,110,1.8,85.2,165,20,Medium Fast,45,84,0.5
 86,"Seel",65,45,55,45,70,45,1.1,90,65,20,Medium Fast,190,NULL,0.5
