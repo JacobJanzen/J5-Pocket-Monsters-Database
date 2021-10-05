@@ -16,6 +16,7 @@ Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-
 - [Experience Type](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type)
 - [Exp. Yield](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield)
 - [Catch Rate](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate)
+- [Previous Evolution](https://github.com/smogon/pokemon-showdown/blob/master/data/pokedex.ts)
 
 ### To be used:
 - https://bulbapedia.bulbagarden.net/wiki/Category:Hoenn_locations
