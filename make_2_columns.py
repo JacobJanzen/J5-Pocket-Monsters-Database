@@ -1,5 +1,5 @@
 # Used to convert consecutive lines into 2 columns of CSV
-file = open('data/catch_rate','r')
+file = open('data/pokedex.ts','r')
 while True:
     line1 = file.readline()
     line2 = file.readline()
