@@ -8,6 +8,7 @@ Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-
 
 ## Sources:  
 - <a href="https://github.com/smogon/pokemon-showdown/blob/master/data/pokedex.ts" target="_blank">Pokemon List/Previous Evolution</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family" target="_blank">Evolution Methods</a>
 - <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_moves" target="_blank">Moves</a>
 - <a href="https://bulbapedia.bulbagarden.net/wiki/Type" target="_blank">Types</a>
 - <a href="https://bulbapedia.bulbagarden.net/wiki/TM" target="_blank">TM</a>
