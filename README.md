@@ -6,7 +6,7 @@ Tracking data about Pokémon.
 
 Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-showdown) and [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).
 
-## Sources: 
+## Sources:  
 - <a href="https://github.com/smogon/pokemon-showdown/blob/master/data/pokedex.ts" target="_blank">Pokemon List/Previous Evolution</a>
 - <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_moves" target="_blank">Moves</a>
 - <a href="https://bulbapedia.bulbagarden.net/wiki/Type" target="_blank">Types</a>
