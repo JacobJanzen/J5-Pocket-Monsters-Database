@@ -6,20 +6,20 @@ Tracking data about Pokémon.
 
 Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-showdown) and [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).
 
-## Sources: 
-- [Pokemon List/Previous Evolution](https://github.com/smogon/pokemon-showdown/blob/master/data/pokedex.ts)
-- [Moves](https://bulbapedia.bulbagarden.net/wiki/List_of_moves)
-- [Types](https://bulbapedia.bulbagarden.net/wiki/Type)
-- [TM](https://bulbapedia.bulbagarden.net/wiki/TM)
-- [HM](https://bulbapedia.bulbagarden.net/wiki/HM)
-- [Ability](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Ability)
-- [Pokemon Type](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)
-- [Egg Groups]( https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_Egg_cycles)
-- [Experience Type](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type)
-- [Exp. Yield](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield)
-- [Catch Rate](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate)
-- [Gender Ratio](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_gender_ratio)
-- [Learnsets](https://github.com/smogon/pokemon-showdown/blob/master/data/learnsets.ts)
+## Sources:  
+- <a href="https://github.com/smogon/pokemon-showdown/blob/master/data/pokedex.ts" target="_blank">Pokemon List/Previous Evolution</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_moves" target="_blank">Moves</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/Type" target="_blank">Types</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/TM" target="_blank">TM</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/HM" target="_blank">HM</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Ability" target="_blank">Ability</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number" target="_blank">Pokemon Type</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_Egg_cycles" target="_blank">Egg Groups</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_experience_type" target="_blank">Experience Type</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield" target="_blank">Exp. Yield</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate" target="_blank">Catch Rate</a>
+- <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_gender_ratio" target="_blank">Gender Ratio</a>
+- <a href="https://github.com/smogon/pokemon-showdown/blob/master/data/learnsets.ts" target="_blank">Learnsets</a>
 
 ### To be used:
 - https://bulbapedia.bulbagarden.net/wiki/Category:Hoenn_locations
