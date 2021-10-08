@@ -1,6 +1,6 @@
 import requests
 import re
-file = open('../data/location_urls','r')
+file = open('../other_files/location_urls','r')
 Lines = file.readlines()
 
 for url in Lines:
