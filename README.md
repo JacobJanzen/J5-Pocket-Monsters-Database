@@ -1,6 +1,6 @@
 # Pokémon Database
 
-Tracking data about Pokémon.
+Tracking data about Pokémon Emerald.
 
 ![EER](./diagrams/EER.png)
 
@@ -21,9 +21,4 @@ Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-
 - [Catch Rate](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate)
 - [Gender Ratio](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_gender_ratio)
 - [Learnsets](https://github.com/smogon/pokemon-showdown/blob/master/data/learnsets.ts)
-
-### To be used:
-- https://bulbapedia.bulbagarden.net/wiki/Category:Hoenn_locations
-- https://bulbapedia.bulbagarden.net/wiki/Hoenn
-- https://bulbapedia.bulbagarden.net/wiki/List_of_routes
-- https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Trainer
+- [Pokemon Locations](./other_files/location_urls) (Note this file contains a url for each location in Pokémon Emerald)
