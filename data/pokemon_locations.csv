@@ -1,3 +1,4 @@
+Location,NDex#,Method,MinLevel,MaxLevel,EncounterRate
 "Abandoned Ship",72,"Surf",5,35,99
 "Abandoned Ship",73,"Surf",30,35,1
 "Abandoned Ship",72,"Fish Old",5,10,30
