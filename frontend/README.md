@@ -1,4 +1,4 @@
-# electron-test
+# frontend
 **We'll have to verify DB2 is actually accessible via electron before we get too far into frontend**  
 
 To install electron node modules for your system, run ```npm install --save-dev electron``` in the *frontend* directory.  
