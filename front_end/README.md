@@ -1,5 +1,5 @@
 # front_end
-
+I really got no idea whats going on with this but just wanted somewhere to play around with vue and electron together  
 ## Project setup
 In order to install electron node modules
 ```
