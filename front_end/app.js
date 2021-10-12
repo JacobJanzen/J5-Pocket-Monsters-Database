@@ -15,3 +15,14 @@ app.on('ready', () => {
   let window = new BrowserWindow({width: 800, height: 600})
   window.loadURL(url)
 })
+
+//For production - https://medium.com/@mikeal/vue-js-electron-the-easy-way-adc3ca09234a
+module.exports = {
+	configureWebpack: config => {
+	  if (process.env.NODE_ENV === 'production') {
+		config.output.publicPath = `${process.cwd()}/dist/`
+	  }
+	}
+  }
+
+  
