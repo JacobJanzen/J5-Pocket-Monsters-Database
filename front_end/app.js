@@ -1,3 +1,5 @@
+
+
 const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -13,12 +15,3 @@ app.on('ready', () => {
   let window = new BrowserWindow({width: 800, height: 600})
   window.loadURL(url)
 })
-
-//For Production Build - https://bit.ly/3ADYhpC
-module.exports = {
-	configureWebpack: config => {
-	  if (process.env.NODE_ENV === 'production') {
-		config.output.publicPath = `${process.cwd()}/dist/`
-	  }
-	}
-  }

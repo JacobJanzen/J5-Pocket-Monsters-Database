@@ -1,11 +1,16 @@
-# vue_app
+# front_end
 
 ## Project setup
+In order to install the Vue.js CLI:
 ```
 npm install -g @vue/cli
 ```
+In order to install electron node modules
+```
+npm install electron
+```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development (in electron)
 ```
 npm run dev
 ```
