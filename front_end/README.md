@@ -1,5 +1,6 @@
 # Front End
 Basically only set up Electron and Vue, no content has been started (Oct15).  
+Anyone wishing to view/work with the front end must install the node modules (listed below) in the front_end directory locally.  
 ## Project setup
 In order to install electron node modules
 ```
