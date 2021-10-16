@@ -1,4 +1,5 @@
-# front_end
+# Front End
+Basically only set up Electron and Vue, no content has been started (Oct15).  
 ## Project setup
 In order to install electron node modules
 ```
@@ -8,9 +9,9 @@ In order to install Vue2
 ```
 npm install --save vue
 ```
-It'll probably have a some errors
+**It'll probably have a some errors**
 
-### Compiles and hot-reloads for development (in electron)
+## Compiles and hot-reloads for development (in electron)
 ```
 npm run start
 ```
