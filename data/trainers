@@ -1,0 +1,3443 @@
+"Abandoned Ship"
+{{trainerentry|Spr RS Beauty.png|Beauty|Thalia|2000&lt;br/>&lt;small>Potential [[Double Battle]] with Demetrius&lt;/small>|2|320|Wailmer|♀|25||116|Horsea|♀|25||36=ショウ|37=Shō|38=Nav}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Demetrius|400&lt;br/>&lt;small>Potential [[Double Battle]] with Thalia&lt;/small>|2|263|Zigzagoon|♂|25||309|Electrike|♂|25||36=フミタケ|37=Fumitake}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Duncan|800|2|363|Spheal|♂|25||067|Machoke|♂|25||36=ヒデフミ|37=Hidefumi}}
+{{trainerentry|Spr RS Tuber M.png|Tuber|Charlie|104|1|183|Marill|♂|26||36=マナブ|37=Manabu}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Garrison|1560&lt;br/>&lt;small>Potential [[Double Battle]] with Jani&lt;/small>|1|028|Sandslash|♂|26||36=ツネヤス|37=Tsuneyasu}}
+{{trainerentry|Spr RS Tuber F.png|Tuber|Jani|104&lt;br/>&lt;small>Potential [[Double Battle]] with Garrison&lt;/small>|1|183|Marill|♀|26||36=マミ|37=Mami}}
+{{trainerentry|Spr RS Young Couple.png|Young Couple|Kira &amp; Dan|1600|2|313|Volbeat|♂|25||314|Illumise|♀|25||36=ナツとフミ|37=Natsu and Fumi|38=Nav}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Thalia{{tt|*|First rematch}}|2720|2|320|Wailmer|♀|34||116|Horsea|♀|34|36=ショウ|37=Shō|38=Nav}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Thalia{{tt|*|Second and third rematch}}|{{tt|2880|Second rematch}}/{{tt|3040|Third rematch}}|3|370|Luvdisc|♀|{{tt|36|Second rematch}}/{{tt|38|Third rematch}}||320|Wailmer|♀|{{tt|36|Second rematch}}/{{tt|38|Third rematch}}||117|Seadra|♀|{{tt|36|Second rematch}}/{{tt|38|Third rematch}}|36=ショウ|37=Shō|38=Nav}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Thalia{{tt|*|Fourth rematch onwards}}|3200|3|370|Luvdisc|♀|40||321|Wailord|♀|40||230|Kingdra|♀|40|36=ショウ|37=Shō|38=Nav}}
+{{trainerentry|Spr RS Young Couple.png|Young Couple|Kira &amp; Dan|{{tt|1920|First rematch}}/{{tt|2112|Second rematch}}/{{tt|2304|Third rematch}}/{{tt|2496|Fourth rematch onwards}}|2|313|Volbeat|♂|{{tt|30|First rematch}}/{{tt|33|Second rematch}}/{{tt|36|Third rematch}}/{{tt|39|Fourth rematch onwards}}||314|Illumise|♀|{{tt|30|First rematch}}/{{tt|33|Second rematch}}/{{tt|36|Third rematch}}/{{tt|39|Fourth rematch onwards}}||36=ナツとフミ|37=Natsu and Fumi|38=Nav}}
+
+"Ever Grande City"
+{{Party/Single
+|color={{dark color}}
+|headcolor={{dark color light}}
+|bordercolor={{dark color dark}}
+|sprite=Spr RS Sidney.png
+|prize={{PDollar}}4900
+|class=Elite Four
+|classlink=Elite Four
+|name={{color2|000|Sidney}}
+|game=E
+|location=Ever Grande City
+|pokemon=5}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=262
+|pokemon=Mightyena
+|ability=Intimidate
+|gender=male
+|level=46
+|type1=Dark
+|move1=Roar|move1type=Normal
+|move2=Double-Edge|move2type=Normal
+|move3=Sand-Attack|move3type=Ground
+|move4=Crunch|move4type=Dark}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=275
+|pokemon=Shiftry
+|ability=Chlorophyll
+|gender=male
+|level=48
+|type1=Grass|type2=Dark
+|move1=Torment|move1type=Dark
+|move2=Double Team|move2type=Normal
+|move3=Swagger|move3type=Normal
+|move4=Extrasensory|move4type=Psychic}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=332
+|pokemon=Cacturne
+|ability=Sand Veil
+|gender=male
+|level=46
+|type1=Grass|type2=Dark
+|move1=Leech Seed|move1type=Grass
+|move2=Faint Attack|move2type=Dark
+|move3=Needle Arm|move3type=Grass
+|move4=Cotton Spore|move4type=Grass}}
+{{Party/Div|color={{dark color}}}}
+| style="margin:auto" |
+{{Pokémon/3
+|game=Emerald
+|ndex=342
+|pokemon=Crawdaunt
+|ability=Hyper Cutter
+|gender=male
+|level=48
+|type1=Water|type2=Dark
+|move1=Surf|move1type=Water
+|move2=Swords Dance|move2type=Normal
+|move3=Strength|move3type=Normal
+|move4=Facade|move4type=Normal}}
+| style="margin:auto" |
+{{Pokémon/3
+|game=Emerald
+|ndex=359
+|pokemon=Absol
+|ability=Pressure
+|held=Sitrus Berry
+|gender=male
+|level=49
+|type1=Dark
+|move1=Aerial Ace|move1type=Flying
+|move2=Rock Slide|move2type=Rock
+|move3=Swords Dance|move3type=Normal
+|move4=Slash|move4type=Normal}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{ghost color}}
+|bordercolor={{ghost color dark}}
+|headcolor={{ghost color light}}
+|sprite=Spr RS Phoebe.png
+|prize={{PDollar}}5100
+|class=Elite Four
+|classlink=Elite Four
+|name={{color2|000|Phoebe}}
+|game=E
+|location=Ever Grande City
+|pokemon=5}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=356
+|pokemon=Dusclops
+|ability=Pressure
+|gender=female
+|level=48
+|type1=Ghost
+|move1=Shadow Punch|move1type=Ghost
+|move2=Confuse Ray|move2type=Ghost
+|move3=Curse|move3type=???
+|move4=Protect|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=354
+|pokemon=Banette
+|ability=Insomnia
+|gender=female
+|level=49
+|type1=Ghost
+|move1=Shadow Ball|move1type=Ghost
+|move2=Grudge|move2type=Ghost
+|move3=Will-O-Wisp|move3type=Fire
+|move4=Faint Attack|move4type=Dark}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=302
+|pokemon=Sableye
+|ability=Keen Eye
+|gender=female
+|level=50
+|type1=Dark|type2=Ghost
+|move1=Shadow Ball|move1type=Ghost
+|move2=Double Team|move2type=Normal
+|move3=Night Shade|move3type=Ghost
+|move4=Faint Attack|move4type=Dark}}
+{{Party/Div|color={{ghost color}}}}
+| style="margin:auto" |
+{{Pokémon/3
+|game=Emerald
+|ndex=354
+|pokemon=Banette
+|ability=Insomnia
+|gender=female
+|level=49
+|type1=Ghost
+|move1=Shadow Ball|move1type=Ghost
+|move2=Psychic|move2type=Psychic
+|move3=Thunderbolt|move3type=Electric
+|move4=Facade|move4type=Normal}}
+| style="margin:auto" |
+{{Pokémon/3
+|game=Emerald
+|ndex=356
+|pokemon=Dusclops
+|ability=Pressure
+|held=Sitrus Berry
+|gender=female
+|level=51
+|type1=Ghost
+|move1=Shadow Ball|move1type=Ghost
+|move2=Ice Beam|move2type=Ice
+|move3=Rock Slide|move3type=Rock
+|move4=Earthquake|move4type=Ground}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{ice color}}
+|bordercolor={{ice color dark}}
+|headcolor={{ice color light}}
+|sprite=Spr RS Glacia.png
+|prize={{PDollar}}5300
+|class=Elite Four
+|classlink=Elite Four
+|name={{color2|000|Glacia}}
+|game=E
+|location=Ever Grande City
+|pokemon=5}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=364
+|pokemon=Sealeo
+|ability=Thick Fat
+|level=50
+|gender=female
+|type1=Ice|type2=Water
+|move1=Encore|move1type=Normal
+|move2=Body Slam|move2type=Normal
+|move3=Hail|move3type=Ice
+|move4=Ice Ball|move4type=Ice}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=362
+|pokemon=Glalie
+|ability=Inner Focus
+|level=50
+|gender=female
+|type1=Ice
+|move1=Light Screen|move1type=Psychic
+|move2=Crunch|move2type=Dark
+|move3=Icy Wind|move3type=Ice
+|move4=Ice Beam|move4type=Ice}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=364
+|pokemon=Sealeo
+|ability=Thick Fat
+|level=52
+|gender=female
+|type1=Ice|type2=Water
+|move1=Attract|move1type=Normal
+|move2=Double-Edge|move2type=Normal
+|move3=Hail|move3type=Ice
+|move4=Blizzard|move4type=Ice}}
+{{Party/Div|color={{ice color}}}}
+| style="margin:auto" |
+{{Pokémon/3
+|game=Emerald
+|ndex=362
+|pokemon=Glalie
+|ability=Inner Focus
+|level=52
+|gender=female
+|type1=Ice
+|move1=Shadow Ball|move1type=Ghost
+|move2=Explosion|move2type=Normal
+|move3=Hail|move3type=Ice
+|move4=Ice Beam|move4type=Ice}}
+| style="margin:auto" |
+{{Pokémon/3
+|game=Emerald
+|ndex=365
+|pokemon=Walrein
+|ability=Thick Fat
+|level=53
+|gender=female
+|type1=Ice|type2=Water
+|held=Sitrus Berry
+|move1=Surf|move1type=Water
+|move2=Body Slam|move2type=Normal
+|move3=Ice Beam|move3type=Ice
+|move4=Sheer Cold|move4type=Ice}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{dragon color}}
+|headcolor={{dragon color light}}
+|bordercolor={{dragon color dark}}
+|sprite=Spr RS Drake.png
+|prize={{PDollar}}5500
+|class=Elite Four
+|classlink=Elite Four
+|name={{color2|000|Drake}}
+|game=E
+|location=Ever Grande City
+|pokemon=5}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=372
+|pokemon=Shelgon
+|gender=male
+|level=52
+|ability=Rock Head
+|type1=Dragon
+|move1=Rock Tomb|move1type=Rock
+|move2=Dragon Claw|move2type=Dragon
+|move3=Protect|move3type=Normal
+|move4=Double-Edge|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=334
+|pokemon=Altaria
+|gender=male
+|level=54
+|ability=Natural Cure
+|type1=Dragon|type2=Flying
+|move1=Double-Edge|move1type=Normal
+|move2=DragonBreath|move2type=Dragon
+|move3=Dragon Dance|move3type=Dragon
+|move4=Aerial Ace|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=230
+|pokemon=Kingdra
+|gender=male
+|level=53
+|ability=Swift Swim
+|type1=Water|type2=Dragon
+|move1=SmokeScreen|move1type=Normal
+|move2=Dragon Dance|move2type=Dragon
+|move3=Surf|move3type=Water
+|move4=Body Slam|move4type=Normal}}
+{{Party/Div|color={{dragon color}}}}
+| style="margin:auto" |
+{{Pokémon/3
+|game=Emerald
+|ndex=330
+|pokemon=Flygon
+|gender=male
+|level=53
+|ability=Levitate
+|type1=Ground|type2=Dragon
+|move1=Flamethrower|move1type=Fire
+|move2=Crunch|move2type=Dark
+|move3=DragonBreath|move3type=Dragon
+|move4=Earthquake|move4type=Ground}}
+| style="margin:auto" |
+{{Pokémon/3
+|game=Emerald
+|ndex=373
+|pokemon=Salamence
+|gender=male
+|level=55
+|ability=Intimidate
+|type1=Dragon|type2=Flying
+|held=Sitrus Berry
+|move1=Flamethrower|move1type=Fire
+|move2=Dragon Claw|move2type=Dragon
+|move3=Rock Slide|move3type=Rock
+|move4=Crunch|move4type=Dark}}
+{{Party/Footer}}
+
+Wallace uses four [[Full Restore]]s.
+{{Party/Single
+|color={{water color}}
+|headcolor={{water color light}}
+|bordercolor={{water color dark}}
+|sprite=Spr E Wallace.png‎
+|prize={{PDollar}}11600
+|class=Champion
+|classlink=Pokémon Champion
+|name={{color2|000|Wallace}}
+|game=E
+|location=Ever Grande City
+|pokemon=6}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=321
+|pokemon=Wailord
+|gender=male
+|level=57
+|type1=Water
+|ability=Water Veil
+|move1=Rain Dance|move1type=Water
+|move2=Water Spout|move2type=Water
+|move3=Double-Edge|move3type=Normal
+|move4=Blizzard|move4type=Ice}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=073
+|pokemon=Tentacruel
+|gender=male
+|level=55
+|type1=Water|type2=Poison
+|ability=Clear Body
+|move1=Toxic|move1type=Poison
+|move2=Hydro Pump|move2type=Water
+|move3=Sludge Bomb|move3type=Poison
+|move4=Ice Beam|move4type=Ice}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=272
+|pokemon=Ludicolo
+|gender=male
+|level=56
+|type1=Water|type2=Grass
+|ability=Swift Swim
+|move1=Giga Drain|move1type=Grass
+|move2=Surf|move2type=Water
+|move3=Leech Seed|move3type=Grass
+|move4=Double Team|move4type=Normal}}
+{{Party/Div|color={{water color}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=340
+|pokemon=Whiscash
+|gender=male
+|level=56
+|type1=Water|type2=Ground
+|ability=Oblivious
+|move1=Earthquake|move1type=Ground
+|move2=Surf|move2type=Water
+|move3=Amnesia|move3type=Psychic
+|move4=Hyper Beam|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=130
+|pokemon=Gyarados
+|gender=male
+|level=56
+|type1=Water|type2=Flying
+|ability=Intimidate
+|move1=Dragon Dance|move1type=Dragon
+|move2=Earthquake|move2type=Ground
+|move3=Hyper Beam|move3type=Normal
+|move4=Surf|move4type=Water}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=350
+|pokemon=Milotic
+|gender=male
+|level=58
+|type1=Water
+|ability=Marvel Scale
+|held=Sitrus Berry
+|move1=Recover|move1type=Normal
+|move2=Surf|move2type=Water
+|move3=Ice Beam|move3type=Ice
+|move4=Toxic|move4type=Poison}}
+{{Party/Footer}}
+
+"Hoenn Route 102"
+{{trainerentry|Spr RS Youngster.png|Youngster|Calvin|80|1|261|Poochyena|♂|5|36=カズキ|37=Kazuki|38=Nav}}
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|Rick|64|2|265|Wurmple|♂|4||265|Wurmple|♂|4|36=シンイチ|37=Shin'ichi}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Allen|48|2|263|Zigzagoon|♂|4||276|Taillow|♂|3|36=イサム|37=Isamu}}
+{{trainerentry|Spr RS Lass.png|Lass|Tiana|64|2|263|Zigzagoon|♀|4||285|Shroomish|♀|4|36=チカ|37=Chika}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Calvin{{tt|*|First rematch}}|432|1|262|Mightyena|♂|27|36=カズキ|37=Kazuki|38=Nav}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Calvin{{tt|*|Second rematch}}|480|2|277|Swellow|♂|28||262|Mightyena|♂|30|36=カズキ|37=Kazuki|38=Nav}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Calvin{{tt|*|Third and fourth rematch onwards}}|{{tt|528|Third rematch}}/{{tt|576|Fourth rematch onwards}}|3|277|Swellow|♂|{{tt|31|Third rematch}}/{{tt|34|Fourth rematch onwards}}||264|Linoone|♂|{{tt|29|Third rematch}}/{{tt|32|Fourth rematch onwards}}||262|Mightyena|♂|{{tt|33|Third rematch}}/{{tt|36|Fourth rematch onwards}}|36=カズキ|37=Kazuki|38=Nav}}
+
+"Hoenn Route 103"
+{{MSP/3|252|Treecko}} If the {{player}} chose {{p|Treecko}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{PDollar}}300
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 103
+|locationname=Route 103
+|pokemon=1}}
+|style="margin:auto"|{{Pokémon/3
+|game=Emerald
+|ndex=255
+|pokemon=Torchic
+|gender=male
+|level=5
+|type1=Fire
+|ability=Blaze
+|move1=Scratch|move1type=Normal
+|move2=Growl|move2type=Normal}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}300
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Hoenn Route 103
+|locationname=Route 103
+|pokemon=1}}
+|style="margin:auto"|{{Pokémon/3
+|game=Emerald
+|ndex=255
+|pokemon=Torchic
+|gender=male
+|level=5
+|type1=Fire
+|ability=Blaze
+|move1=Scratch|move1type=Normal
+|move2=Growl|move2type=Normal}}
+{{Party/Footer}}
+
+{{MSP/3|255|Torchic}} If the {{player}} chose {{p|Torchic}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{PDollar}}300
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 103
+|locationname=Route 103
+|pokemon=1}}
+|style="margin:auto"|{{Pokémon/3
+|game=Emerald
+|ndex=258
+|pokemon=Mudkip
+|gender=male
+|level=5
+|type1=Water
+|ability=Torrent
+|move1=Tackle|move1type=Normal
+|move2=Growl|move2type=Normal}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}300
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Hoenn Route 103
+|locationname=Route 103
+|pokemon=1}}
+|style="margin:auto"|{{Pokémon/3
+|game=Emerald
+|ndex=258
+|pokemon=Mudkip
+|gender=male
+|level=5
+|type1=Water
+|ability=Torrent
+|move1=Tackle|move1type=Normal
+|move2=Growl|move2type=Normal}}
+{{Party/Footer}}
+
+{{MSP/3|258|Mudkip}} If the {{player}} chose {{p|Mudkip}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{PDollar}}300
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 103
+|locationname=Route 103
+|pokemon=1}}
+|style="margin:auto"|{{Pokémon/3
+|game=Emerald
+|ndex=252
+|pokemon=Treecko
+|gender=male
+|level=5
+|type1=Grass
+|ability=Overgrow
+|move1=Pound|move1type=Normal
+|move2=Leer|move2type=Normal}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}300
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Hoenn Route 103
+|locationname=Route 103
+|pokemon=1}}
+|style="margin:auto"|{{Pokémon/3
+|game=Emerald
+|ndex=252
+|pokemon=Treecko
+|gender=male
+|level=5
+|type1=Grass
+|ability=Overgrow
+|move1=Pound|move1type=Normal
+|move2=Leer|move2type=Normal}}
+{{Party/Footer}}
+
+{{trainerentry|Spr RS Swimmer F.png|Swimmer♀|Isabelle|120&lt;br>&lt;small>Potential [[Double Battle]] with Pete&lt;/small>|1|183|Marill|♀|15|36=ユミコ|37=Yumiko}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer♂|Pete|120&lt;br>&lt;small>Potential [[Double Battle]] with Isabelle&lt;/small>|1|072|Tentacool|♂|15|36=ヒデヒコ|37=Hidehiko}}
+
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Daisy|560|2|285|Shroomish|♀|14||315|Roselia|♀|14||36=ミドリ|37=Midori}}
+{{trainerentry|Spr RS Twins.png|Twins|Amy &amp; Liv|360|2|311|Plusle|♂|15||312|Minun|♂|15||36=クミとルミ|37=Kumi and Rumi|38=Nav}}
+{{trainerentry|Spr RS Pokéfan M.png|Pokéfan|Miguel|1200|1|300|Skitty|♀|15|Oran Berry|36=ミツハル|37=Mitsuharu|38=Nav}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Andrew|600|3|129|Magikarp|♂|5||072|Tentacool|♂|10||129|Magikarp|♂|15||36=カツノリ|37=Katsunori}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Rhett|480&lt;br>&lt;small>Potential [[Double Battle]] with Marcos&lt;/small>|1|296|Makuhita|♂|15||36=シゲモリ|37=Shigemori}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Marcos|480&lt;br>&lt;small>Potential [[Double Battle]] with Rhett&lt;/small>|1|100|Voltorb||15||36=エリック|37=Erick}}
+{{trainerentry|Spr RS Twins.png|Twins|Amy &amp; Liv|{{tt|648|First rematch}}/{{tt|720|Second rematch}}/{{tt|792|Third rematch}}/{{tt|864|Fourth rematch onwards}}|2|311|Plusle|♂|{{tt|27|First rematch}}/{{tt|30|Second rematch}}/{{tt|33|Third rematch}}/{{tt|36|Fourth rematch onwards}}||312|Minun|♂|{{tt|27|First rematch}}/{{tt|30|Second rematch}}/{{tt|33|Third rematch}}/{{tt|36|Fourth rematch onwards}}||36=クミとルミ|37=Kumi and Rumi|38=Nav}}
+{{trainerentry|Spr RS Pokéfan M.png|Pokéfan|Miguel{{tt|*|First and second rematch}}|{{tt|2320|First rematch}}/{{tt|2560|Second rematch}}|1|300|Skitty|♀|{{tt|29|First rematch}}/{{tt|32|Second rematch}}|Oran Berry|36=ミツハル|37=Mitsuharu|38=Nav}}
+{{trainerentry|Spr RS Pokéfan M.png|Pokéfan|Miguel{{tt|*|Third rematch}}|2800|1|301|Delcatty|♀|35|Oran Berry|36=ミツハル|37=Mitsuharu|38=Nav}}
+{{trainerentry|Spr RS Pokéfan M.png|Pokéfan|Miguel{{tt|*|Fourth rematch onwards}}|3040|1|301|Delcatty|♀|38|Sitrus Berry|36=ミツハル|37=Mitsuharu|38=Nav}}
+
+"Hoenn Route 104"
+{{MSP|252|Treecko}} If the {{player}} chose {{p|Treecko}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=Brendan
+|game=E
+|locationname=Route 104
+|location=Hoenn Route 104
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=270
+|pokemon=Lotad
+|gender=male
+|level=13
+|type1=Water|type2=Grass
+|ability=Swift Swim
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=255
+|pokemon=Torchic
+|gender=male
+|level=15
+|type1=Fire
+|ability=Blaze
+|move1=Scratch|move1type=Normal
+|move2=Growl|move2type=Normal
+|move3=Focus Energy|move3type=Normal
+|move4=Ember|move4type=Fire}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=May
+|game=E
+|locationname=Route 104
+|location=Hoenn Route 104
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=270
+|pokemon=Lotad
+|gender=female
+|level=13
+|type1=Water|type2=Grass
+|ability=Swift Swim
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=255
+|pokemon=Torchic
+|gender=male
+|level=15
+|type1=Fire
+|ability=Blaze
+|move1=Scratch|move1type=Normal
+|move2=Growl|move2type=Normal
+|move3=Focus Energy|move3type=Normal
+|move4=Ember|move4type=Fire}}
+{{Party/Footer}}
+
+{{MSP|255|Torchic}} If the {{player}} chose {{p|Torchic}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=Brendan
+|game=E
+|locationname=Route 104
+|location=Hoenn Route 104
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=male
+|level=13
+|type1=Fire
+|ability=Flame Body
+|move1=Yawn|move1type=Normal
+|move2=Smog|move2type=Poison
+|move3=Ember|move3type=Fire}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=258
+|pokemon=Mudkip
+|gender=male
+|level=15
+|type1=Water
+|ability=Torrent
+|move1=Growl|move1type=Normal
+|move2=Mud-Slap|move2type=Ground
+|move3=Water Gun|move3type=Water
+|move4=Bide|move4type=Normal}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=May
+|game=E
+|locationname=Route 104
+|location=Hoenn Route 104
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=324
+|pokemon=Torkoal
+|gender=female
+|level=13
+|type1=Fire
+|ability=White Smoke
+|move1=Ember|move1type=Fire
+|move2=Smog|move2type=Poison
+|move3=Curse|move3type=???}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=258
+|pokemon=Mudkip
+|gender=male
+|level=15
+|type1=Water
+|ability=Torrent
+|move1=Growl|move1type=Normal
+|move2=Mud-Slap|move2type=Ground
+|move3=Water Gun|move3type=Water
+|move4=Bide|move4type=Normal}}
+{{Party/Footer}}
+
+{{MSP|258|Mudkip}} If the {{player}} chose {{p|Mudkip}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=Brendan
+|game=E
+|locationname=Route 104
+|location=Hoenn Route 104
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=278
+|pokemon=Wingull
+|gender=male
+|level=13
+|type1=Water|type2=Flying
+|ability=Keen Eye
+|move1=Growl|move1type=Normal
+|move2=Water Gun|move2type=Water
+|move3=Supersonic|move3type=Normal
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=252
+|pokemon=Treecko
+|gender=male
+|level=15
+|type1=Grass
+|ability=Overgrow
+|move1=Pound|move1type=Normal
+|move2=Leer|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Quick Attack|move4type=Normal}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=May
+|game=E
+|locationname=Route 104
+|location=Hoenn Route 104
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=278
+|pokemon=Wingull
+|gender=female
+|level=13
+|type1=Water|type2=Flying
+|ability=Keen Eye
+|move1=Growl|move1type=Normal
+|move2=Water Gun|move2type=Water
+|move3=Supersonic|move3type=Normal
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=252
+|pokemon=Treecko
+|gender=male
+|level=15
+|type1=Grass
+|ability=Overgrow
+|move1=Pound|move1type=Normal
+|move2=Leer|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Quick Attack|move4type=Normal}}
+{{Party/Footer}}
+{{-}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Billy|112|2|263|Zigzagoon|♂|5||273|Seedot|♂|7||36=ケイタ|37=Keita}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Darian|360|1|129|Magikarp|♂|9||36=ケンキチ|37=Kenkichi}}
+{{trainerentry|Spr RS Lady.png|Lady|Cindy|1400|1|263|Zigzagoon|♀|7|Nugget|36=レイカ|37=Reika|38=Nav}}
+{{trainerentry|Spr RS Rich Boy.png|Rich Boy|Winston|1400|1|263|Zigzagoon|♂|7|Nugget|36=ミツグ|37=Mitsugu|38=Nav}}
+{{trainerentry|Spr RS Lass.png|Lass|Haley|96|2|270|Lotad|♀|6||285|Shroomish|♀|6||36=マキ|37=Maki|38=Nav}}
+{{trainerentry|Spr RS Twins.png|Twins|Gina &amp; Mia|144|2|273|Seedot|♂|6||270|Lotad|♂|6||36=ナオとミオ|37=Nao and Mio}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Ivan|280|3|129|Magikarp|♂|5||129|Magikarp|♂|6||129|Magikarp|♂|7||36=ヨシタカ|37=Yoshitaka}}
+{{trainerentry|Spr RS Lady.png|Lady|Cindy|{{tt|5400|First rematch}}/{{tt|6000|Second rematch}}/{{tt|6600|Third rematch}}/{{tt|7200|Fourth rematch onwards}}|1|264|Linoone|♀|{{tt|27|First rematch}}/{{tt|30|Second rematch}}/{{tt|33|Third rematch}}/{{tt|36|Fourth rematch onwards}}|Nugget|36=レイカ|37=Reika|38=Nav}}
+{{trainerentry|Spr RS Rich Boy.png|Rich Boy|Winston|{{tt|5400|First rematch}}/{{tt|6000|Second rematch}}/{{tt|6600|Third rematch}}/{{tt|7200|Fourth rematch onwards}}|1|264|Linoone|♂|{{tt|27|First rematch}}/{{tt|30|Second rematch}}/{{tt|33|Third rematch}}/{{tt|36|Fourth rematch onwards}}|Nugget|36=ミツグ|37=Mitsugu|38=Nav}}
+{{trainerentry|Spr RS Lass.png|Lass|Haley{{tt|*|First rematch}}|416|2|271|Lombre|♀|26||285|Shroomish|♀|26||36=マキ|37=Maki|38=Nav}}
+{{trainerentry|Spr RS Lass.png|Lass|Haley{{tt|*|Second and third rematch}}|{{tt|464|Second rematch}}/{{tt|512|Third rematch}}|2|271|Lombre|♀|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}||286|Breloom|♀|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}||36=マキ|37=Maki|38=Nav}}
+{{trainerentry|Spr RS Lass.png|Lass|Haley{{tt|*|Fourth rematch onwards}}|544|3|277|Swellow|♀|34||271|Lombre|♀|34||286|Breloom|♀|34||36=マキ|37=Maki|38=Nav}}
+
+"Hoenn Route 105"
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Imani|208|1|183|Marill|♀|26||36=マユカ|37=Mayuka}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Swimmer M.png|Swimmer|Dominik|208|1|072|Tentacool|♂|26||36=ヒロミ|37=Hiromi}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Foster|1500|2|027|Sandshrew|♂|25||028|Sandslash|♂|25||36=アキヒト|37=Akihito}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Swimmer F.png|Swimmer|Beverly|200|2|278|Wingull|♀|25||320|Wailmer|♀|25||36=ナツキ|37=Natsuki}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Andres|1500&lt;br>&lt;small>Potential [[Double Battle]] with Josue&lt;/small>|2|027|Sandshrew|♂|25||027|Sandshrew|♂|25||36=ダイジロウ|37=Daijirō|38=Nav}}
+{{Trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Josue|800&lt;br>&lt;small>Potential [[Double Battle]] with Andres&lt;/small>|2|276|Taillow|♂|25||278|Wingull|♂|25||36=ヤスフミ|37=Yasufumi}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Swimmer M.png|Swimmer|Luis|208|1|318|Carvanha|♂|26||36=ヨウヘイ|37=Yōhei}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Andres{{tt|*|First rematch}}|1860|2|027|Sandshrew|♂|31||027|Sandshrew|♂|31||36=ダイジロウ|37=Daijirō|38=Nav}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Andres{{tt|*|Second and third rematch}}|{{tt|1980|Second rematch}}/{{tt|2100|Third rematch}}|3|299|Nosepass|♂|{{tt|33|Second rematch}}/{{tt|35|Third rematch}}||027|Sandshrew|♂|{{tt|33|Second rematch}}/{{tt|35|Third rematch}}||027|Sandshrew|♂|{{tt|33|Second rematch}}/{{tt|35|Third rematch}}||36=ダイジロウ|37=Daijirō|38=Nav}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Andres{{tt|*|Fourth rematch onwards}}|2220|3|299|Nosepass|♂|37||028|Sandslash|♂|37||028|Sandslash|♂|37||36=ダイジロウ|37=Daijirō|38=Nav}}
+{{Trainerfooter|water|3}}
+
+"Hoenn Route 106"
+{{Trainerentry|Spr RS Fisherman.png|Fisherman|Ned|440|1|072|Tentacool|♂|11||36=トモカズ|37=Tomokazu}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Elliot|400|3|129|Magikarp|♂|10||072|Tentacool|♂|7||129|Magikarp|♂|10||36=アキヒコ|37=Akihiko|38=Nav}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Douglas|192|2|072|Tentacool|♂|24||072|Tentacool|♂|24||36=タツオ|37=Tatsuo}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Kyla|208|1|320|Wailmer|♀|26||36=ミズハ|37=Mizuha}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Elliot{{tt|*|First rematch}}|1080|3|072|Tentacool|♂|24||130|Gyarados|♂|27||130|Gyarados|♂|27||36=アキヒコ|37=Akihiko|38=Nav}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Elliot{{tt|*|Second rematch}}|1160|4|130|Gyarados|♂|29||318|Carvanha|♂|26||072|Tentacool|♂|26||130|Gyarados|♂|29||36=アキヒコ|37=Akihiko|38=Nav}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Elliot{{tt|*|Third rematch}}|1240|4|130|Gyarados|♂|31||318|Carvanha|♂|30||073|Tentacruel|♂|30||130|Gyarados|♂|31||36=アキヒコ|37=Akihiko|38=Nav}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Elliot{{tt|*|Fourth rematch onwards}}|1400|4|130|Gyarados|♂|33||319|Sharpedo|♂|33||130|Gyarados|♂|33||073|Tentacruel|♂|35||36=アキヒコ|37=Akihiko|38=Nav}}
+
+"Hoenn Route 107"
+{{Trainerdiv|ocean|Requires Surf}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Denise|200|2|278|Wingull|♀|25||118|Goldeen|♀|25||36=マサミ|37=Masami}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Swimmer M.png|Swimmer|Tony|208|1|318|Carvanha|♂|26||36=エイイチ|37=Ei'ichi|38=Nav}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Sis and Bro.png|Sis and Bro|Lisa &amp; Ray|600|2|118|Goldeen|♂|27||072|Tentacool|♂|25||36=シンとユミ|37=Shin &amp; Yumi}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Swimmer M.png|Swimmer|Darrin|192|3|072|Tentacool|♂|24||278|Wingull|♂|24||072|Tentacool|♂|24||36=テルユキ|37=Teruyuki}}
+{{Trainerdiv|ocean}}
+{{Trainerentry|Spr RS Swimmer F.png|Swimmer|Beth|208&lt;br>&lt;small>Potential [[Double Battle]] with Camron&lt;/small>|1|118|Goldeen|♀|26||36=ノリカ|37=Norika}}
+{{Trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Camron|1040&lt;br>&lt;small>Potential [[Double Battle]] with Beth&lt;/small>|1|120|Staryu||26||36=クニオ|37=Kunio}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Tony{{tt|*|First and second rematch}}|{{tt|240|First rematch}}/{{tt|264|Second rematch}}|1|319|Sharpedo|♂|{{tt|30|First rematch}}/{{tt|33|Second rematch}}||36=エイイチ|37=Ei'ichi|38=Nav}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Tony{{tt|*|Third rematch}}|288|2|120|Staryu||34||319|Sharpedo|♂|36||36=エイイチ|37=Ei'ichi|38=Nav}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Tony{{tt|*|Fourth rematch onwards}}|312|2|121|Starmie||37||319|Sharpedo|♂|39||36=エイイチ|37=Ei'ichi|38=Nav}}
+{{Trainerfooter|ocean|3}}
+
+
+"Hoenn Route 108"
+{{trainerentry|Spr RS Swimmer F.png|Swimmer♀|Missy|208|1|118|Goldeen|♀|26|no|36=クミコ|37=Kumiko}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Matthew|208|1|318|Carvanha|♂|26|no|36=クニヒコ|37=Kunihiko}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer♀|Tara|200|2|116|Horsea|♀|25|no|183|Marill|♀|25|no|36=チヒロ|37=Chihiro}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Carolina|1152&lt;br>&lt;small>Potential [[Double Battle]] with Cory&lt;/small>|3|310|Manectric|♀|24|no|277|Swellow|♀|24|no|310|Manectric|♀|24|no|36=セイカ|37=Seika}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Cory|768&lt;br>&lt;small>Potential [[Double Battle]] with Carolina&lt;/small>|3|278|Wingull|♂|24|no|066|Machop|♂|24|no|072|Tentacool|♂|24|no|36=ノリタカ|37=Noritaka|38=Nav}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer♂|Jerome|208|1|073|Tentacruel|♂|26|no|36=モリオ|37=Morio}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Cory{{tt|*|First rematch}}|960|3|278|Wingull|♂|30||066|Machop|♂|30||072|Tentacool|♂|30||36=ノリタカ|37=Noritaka|38=Nav}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Cory{{tt|*|Second rematch}}|1024|3|279|Pelipper|♂|32||066|Machop|♂|32||072|Tentacool|♂|32||36=ノリタカ|37=Noritaka|38=Nav}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Cory{{tt|*|Third rematch}}|1088|3|279|Pelipper|♂|34||066|Machop|♂|34||073|Tentacruel|♂|34||36=ノリタカ|37=Noritaka|38=Nav}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Cory{{tt|*|Fourth rematch onwards}}|1152|3|279|Pelipper|♂|36||067|Machoke|♂|36||073|Tentacruel|♂|36||36=ノリタカ|37=Noritaka|38=Nav}}
+
+"Hoenn Route 109"
+{{trainerentry|Spr RS Sailor.png|Sailor|Huey|384|2|278|Wingull|♂|12|no|066|Machop|♂|12|no||36=タツロウ|37=Tatsurō}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Edmond|416&lt;br>&lt;small>Potential [[Double Battle]] with Hailey or Ricky&lt;/small>|1|278|Wingull|♂|13|no||36=カツヤ|37=Katsuya}}
+{{trainerentry|Spr RS Tuber F.png|Tuber|Hailey|52&lt;br>&lt;small>Potential [[Double Battle]] with Edmond or Ricky&lt;/small>|1|183|Marill|♀|13|no||36=ハナ|37=Hana}}
+{{trainerentry|Spr RS Tuber M.png|Tuber|Ricky|52&lt;br>&lt;small>Potential [[Double Battle]] with Edmond or Hailey&lt;/small>|1|263|Zigzagoon|♂|13|no||36=ユウタ|37=Yūta|38=Nav}}
+{{trainerentry|Spr RS Tuber F.png|Tuber|Lola|48&lt;br>&lt;small>Potential [[Double Battle]] with Chandler&lt;/small>|2|298|Azurill|♀|12|no|298|Azurill|♀|12|no||36=アユミ|37=Ayumi|38=Nav}}
+{{trainerentry|Spr RS Tuber M.png|Tuber|Chandler|48&lt;br>&lt;small>Potential [[Double Battle]] with Lola&lt;/small>|2|072|Tentacool|♂|12|no|072|Tentacool|♂|12|no||36=タイスク|37=Taisuke}}
+{{trainerentry|Spr RS Tuber M.png|Tuber|Simon|48|2|298|Azurill|♀|12|no|183|Marill|♂|12|no||36=ヤスノブ|37=Yasunobu}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Johanna|1040|1|118|Goldeen|♀|13|no||36=アツコ|37=Atsuko}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Dwayne|352|3|278|Wingull|♂|11|no|066|Machop|♂|11|no|072|Tentacool|♂|11|no||36=タツヒコ|37=Tatsuhiko}}
+{{trainerentry|Spr RS Tuber F.png|Tuber|Austina|104|1|183|Marill|♀|26|no||36=ヒロミ|37=Hiromi}}
+{{trainerentry|Spr RS Tuber F.png|Tuber|Gwen|104|1|183|Marill|♀|26|no||36=ノゾミ|37=Nozomi}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer♂|David|200|2|072|Tentacool|♂|25|no|318|Carvanha|♂|25|no||36=ケンイチ|37=Kenichi}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer♀|Alice|192|3|118|Goldeen|♀|24|no|278|Wingull|♀|24|no|118|Goldeen|♀|24|no||36=エツコ|37=Etsuko}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Carter|1000&lt;br>&lt;small>Potential [[Double Battle]] with Elijah&lt;/small>|2|320|Wailmer|♂|25|no|073|Tentacruel|♂|25|no||36=タカヒコ|37=Takahiko}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Elijah|800&lt;br>&lt;small>Potential [[Double Battle]] with Carter&lt;/small>|2|227|Skarmory|♂|25|no|227|Skarmory|♂|25|no||36=トシタカ|37=Toshitaka}}
+{{trainerentry|Spr RS Young Couple.png|Young Couple|Mel &amp; Paul|1728|2|269|Dustox|♂|27|no|267|Beautifly|♂|27|no||36=シキとリキ|37=Shiki and Riki}}
+{{trainerentry|Spr RS Tuber M.png|Tuber|Ricky|{{tt|108|First rematch}}/{{tt|120|Second rematch}}/{{tt|132|Third rematch}}/{{tt|144|Fourth rematch onwards}}|1|264|Linoone|♂|{{tt|27|First rematch}}/{{tt|30|Second rematch}}/{{tt|33|Third rematch}}/{{tt|36|Fourth rematch onwards}}|no||36=ユウタ|37=Yūta|38=Nav}}
+{{trainerentry|Spr RS Tuber F.png|Tuber|Lola{{tt|*|First, second and third rematch}}|{{tt|104|First rematch}}/{{tt|116|Second rematch}}/{{tt|128|Third rematch}}|2|183|Marill|♀|{{tt|26|First rematch}}/{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|no|183|Marill|♀|{{tt|26|First rematch}}/{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|no||36=アユミ|37=Ayumi|38=Nav}}
+{{trainerentry|Spr RS Tuber F.png|Tuber|Lola{{tt|*|Fourth rematch onwards}}|140|2|184|Azumarill|♀|35|no|184|Azumarill|♀|35|no||36=アユミ|37=Ayumi|38=Nav}}
+
+"Hoenn Route 110"
+{{trainerentry|Spr RS Pokéfan F.png|Pokéfan|Isabel|1120&lt;br>&lt;small>Potential [[Double Battle]] with Kaleb&lt;/small>|2|311|Plusle|♀|14|Oran Berry|312|Minun|♀|14|Oran Berry||36=マサコ|37=Masako|38=Nav}}
+{{trainerentry|Spr RS Pokéfan M.png|Pokéfan|Kaleb|1120&lt;br>&lt;small>Potential [[Double Battle]] with Isabel&lt;/small>|2|312|Minun|♂|14|Oran Berry|311|Plusle|♂|14|Oran Berry||36=マサタカ|37=Masataka}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Timmy|208|2|304|Aron|♂|15||309|Electrike|♂|13||36=シンゴ|37=Shingo}}
+{{trainerentry|Spr RS Collector.png|Collector|Edwin|840&lt;br>&lt;small>Potential [[Double Battle]] with Joseph&lt;/small>|2|271|Lombre|♂|14||274|Nuzleaf|♂|14||36=モトキ|37=Motoki|38=Nav}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Joseph|448&lt;br>&lt;small>Potential [[Double Battle]] with Edwin&lt;/small>|2|309|Electrike|♂|14||100|Voltorb||14||36=ポール|37=Paul}}
+{{trainerentry|Spr RS Psychic M.png|Psychic|Edward|360&lt;br>&lt;small>Potential [[Double Battle]] with Alyssa&lt;/small>|1|063|Abra|♂|15||36=アキト|37=Akito}}
+{{trainerentry|Spr RS Triathlete Biker F.png|Triathlete|Alyssa|600&lt;br>&lt;small>Potential [[Double Battle]] with Edward&lt;/small>|1|081|Magnemite||15||36=サエミ|37=Saemi}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Dale|560|4|072|Tentacool|♂|11||320|Wailmer|♂|14||072|Tentacool|♂|11||320|Wailmer|♂|14||36=タカフミ|37=Takafumi}}
+{{Trainerdiv|land|Rematch}}
+{{trainerentry|Spr RS Pokéfan F.png|Pokéfan|Isabel{{tt|*|First, second and third rematch}}|{{tt|2080|First rematch}}/{{tt|2320|Second rematch}}/{{tt|2560|Third rematch}}|2|311|Plusle|♀|{{tt|26|First rematch}}/{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|Oran Berry|312|Minun|♀|{{tt|26|First rematch}}/{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|Oran Berry||36=マサコ|37=Masako|38=Nav}}
+{{trainerentry|Spr RS Pokéfan F.png|Pokéfan|Isabel{{tt|*|Fourth rematch onwards}}|2800|2|311|Plusle|♀|35|Sitrus Berry|312|Minun|♀|35|Sitrus Berry||36=マサコ|37=Masako|38=Nav}}
+{{trainerentry|Spr RS Collector.png|Collector|Edwin{{tt|*|First, second and third rematch}}|{{tt|1560|First rematch}}/{{tt|1740|Second rematch}}/{{tt|1920|Third rematch}}|2|271|Lombre|♂|{{tt|26|First rematch}}/{{tt|29|Second rematch}}/{{tt|32|Third rematch}}||274|Nuzleaf|♂|{{tt|26|First rematch}}/{{tt|29|Second rematch}}/{{tt|32|Third rematch}}||36=モトキ|37=Motoki|38=Nav}}
+{{trainerentry|Spr RS Collector.png|Collector|Edwin{{tt|*|Fourth rematch onwards}}|2100|2|272|Ludicolo|♂|35||275|Shiftry|♂|35||36=モトキ|37=Motoki|38=Nav}}
+
+{{MSP/3|252|Treecko}} If the {{player}} chose {{p|Treecko}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}1200
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 110
+|locationname=Route 110
+|pokemon=3}}
+|{{Pokémon/3|game=Emerald|ndex=278|pokemon=Wingull
+|gender=male|level=18|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Growl|move1type=Normal
+|move2=Water Gun|move2type=Water
+|move3=Supersonic|move3type=Normal
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3|game=Emerald|ndex=271|pokemon=Lombre
+|gender=male|level=18|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3|game=Emerald|ndex=256|pokemon=Combusken
+|gender=male|level=20|ability=Blaze
+|type1=Fire|type2=Fighting
+|move1=Focus Energy|move1type=Normal
+|move2=Ember|move2type=Fire
+|move3=Double Kick|move3type=Fighting
+|move4=Peck|move4type=Flying}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}1200
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Hoenn Route 110
+|locationname=Route 110
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=278
+|pokemon=Wingull
+|gender=female
+|level=18
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Growl|move1type=Normal
+|move2=Water Gun|move2type=Water
+|move3=Supersonic|move3type=Normal
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=271
+|pokemon=Lombre
+|gender=female
+|level=18
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=256
+|pokemon=Combusken
+|gender=male
+|level=20
+|ability=Blaze
+|type1=Fire|type2=Fighting
+|move1=Focus Energy|move1type=Normal
+|move2=Ember|move2type=Fire
+|move3=Double Kick|move3type=Fighting
+|move4=Peck|move4type=Flying}}
+{{Party/Footer}}
+
+{{MSP/3|255|Torchic}} If the {{player}} chose {{p|Torchic}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}1200
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 110
+|locationname=Route 110
+|pokemon=3}}
+|{{Pokémon/3|game=Emerald|ndex=271|pokemon=Lombre
+|gender=male|level=18|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3|game=Emerald|ndex=218|pokemon=Slugma
+|gender=male|level=18|ability=Flame Body
+|type1=Fire
+|move1=Yawn|move1type=Normal
+|move2=Smog|move2type=Poison
+|move3=Ember|move3type=Fire
+|move4=Rock Throw|move4type=Rock}}
+|{{Pokémon/3|game=Emerald|ndex=259|pokemon=Marshtomp
+|gender=male|level=20|ability=Torrent
+|type1=Water|type2=Ground
+|move1=Water Gun|move1type=Water
+|move2=Bide|move2type=Normal
+|move3=Mud Shot|move3type=Ground
+|move4=Foresight|move4type=Normal}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}1200
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Hoenn Route 110
+|locationname=Route 110
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=271
+|pokemon=Lombre
+|gender=female
+|level=18
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=female
+|level=18
+|ability=Flame Body
+|type1=Fire
+|move1=Yawn|move1type=Normal
+|move2=Smog|move2type=Poison
+|move3=Ember|move3type=Fire
+|move4=Rock Throw|move4type=Rock}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=259
+|pokemon=Marshtomp
+|gender=male
+|level=20
+|ability=Torrent
+|type1=Water|type2=Ground
+|move1=Water Gun|move1type=Water
+|move2=Bide|move2type=Normal
+|move3=Mud Shot|move3type=Ground
+|move4=Foresight|move4type=Normal}}
+{{Party/Footer}}
+
+{{MSP/3|258|Mudkip}} If the {{player}} chose {{p|Mudkip}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}1200
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 110
+|locationname=Route 110
+|pokemon=3}}
+|{{Pokémon/3|game=Emerald|ndex=218|pokemon=Slugma
+|gender=male|level=18|ability=Flame Body
+|type1=Fire
+|move1=Yawn|move1type=Normal
+|move2=Smog|move2type=Poison
+|move3=Ember|move3type=Fire
+|move4=Rock Throw|move4type=Rock}}
+|{{Pokémon/3|game=Emerald|ndex=278|pokemon=Wingull
+|gender=male|level=18|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Growl|move1type=Normal
+|move2=Water Gun|move2type=Water
+|move3=Supersonic|move3type=Normal
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3|game=Emerald|ndex=253|pokemon=Grovyle
+|gender=male|level=20|ability=Overgrow
+|type1=Grass
+|move1=Absorb|move1type=Grass
+|move2=Quick Attack|move2type=Normal
+|move3=Fury Cutter|move3type=Bug
+|move4=Pursuit|move4type=Dark}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}1200
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Hoenn Route 110
+|locationname=Route 110
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=278
+|pokemon=Wingull
+|gender=female
+|level=18
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Growl|move1type=Normal
+|move2=Water Gun|move2type=Water
+|move3=Supersonic|move3type=Normal
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=female
+|level=18
+|ability=Flame Body
+|type1=Fire
+|move1=Yawn|move1type=Normal
+|move2=Smog|move2type=Poison
+|move3=Ember|move3type=Fire
+|move4=Rock Throw|move4type=Rock}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=253
+|pokemon=Grovyle
+|gender=male
+|level=20
+|ability=Overgrow
+|type1=Grass
+|move1=Absorb|move1type=Grass
+|move2=Quick Attack|move2type=Normal
+|move3=Fury Cutter|move3type=Bug
+|move4=Pursuit|move4type=Dark}}
+{{Party/Footer}}
+
+"Hoenn Route 111"
+:''For information regarding the Winstrate family's teams, please refer to their [[Winstrate family|article]].''
+{{trainerentry|Spr RS Camper.png|Camper|Tyron|304&lt;br>&lt;small>Potential [[Double Battle]] with Celina&lt;/small>|1|027|Sandshrew|♂|19||36=トシミ|37=Toshimi}}
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Celina|720&lt;br>&lt;small>Potential [[Double Battle]] with Tyron&lt;/small>|1|315|Roselia|♀|18||36=ワカコ|37=Wakako}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Bianca|288&lt;br>&lt;small>Potential [[Double Battle]] with Hayden&lt;/small>|1|285|Shroomish|♀|18||36=イオリ|37=Iori}}
+{{trainerentry|Spr RS Kindler.png|Kindler|Hayden|576&lt;br>&lt;small>Potential [[Double Battle]] with Bianca&lt;/small>|1|322|Numel|♂|18||36=クニアキ|37=Kuniaki}}
+{{trainerentry|Spr RS Interviewer.png|Interviewer|[[Gabby and Ty]]|1632|2|081|Magnemite||17||293|Whismur|♂|17||36=マリとダイ|37=Mari and Dai}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Irene|272|2|285|Shroomish|♀|17||183|Marill|♀|17||36=ミズキ|37=Mizuki}}
+{{trainerentry|Spr RS Camper.png|Camper|Travis|288|1|027|Sandshrew|♂|18||36=ヨシヤ|37=Yoshiya}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Heidi|352|2|027|Sandshrew|♀|22|None|343|Baltoy||22|None||36=チカコ|37=Chikako}}
+{{trainerentry|Spr RS Camper.png|Camper|Beau|336|3|343|Baltoy||21|None|027|Sandshrew|♂|21|None|343|Baltoy||21|None|36=カブユキ|37=Kabuyuki}}
+{{trainerentry|Spr RS Camper.png|Camper|Drew|368|1|027|Sandshrew|♂|23|None||36=ノリヒロ|37=Norihiro}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Becky|352|2|027|Sandshrew|♀|22|None|183|Marill|♀|22|None||36=アイミ|37=Aimi}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Dusty|1380|1|028|Sandslash|♂|23|None||36=ノブオ|37=Nobuo|38=nav}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Celia|352&lt;br>&lt;small>Potential [[Double Battle]] with Bryan&lt;/small>|2|183|Marill|♀|22|None|271|Lombre|♀|22|None||36=アキコ|37=Akiko}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Bryan|1320&lt;br>&lt;small>Potential [[Double Battle]] with Celia or Branden&lt;/small>|2|027|Sandshrew|♂|22|None|028|Sandslash|♂|22|None||36=ヒロトシ|37=Hirotoshi}}
+{{trainerentry|Spr RS Camper.png|Camper|Branden|352&lt;br>&lt;small>Potential [[Double Battle]] with Bryan&lt;/small>|2|276|Taillow|♂|22|None|274|Nuzleaf|♂|22|None||36=ヤスノリ|37=Yasunori}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Wilton|816|3|309|Electrike|♂|17||320|Wailmer|♂|17||296|Makuhita|♂|17||36=ユウスク|37=Yūsuke|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Brooke|816|3|278|Wingull|♀|17||322|Numel|♀|17||315|Roselia|♀|17||36=マリア|37=Maria|38=Nav}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Daisuke|608&lt;br>&lt;small>Requires [[Mach Bike]]&lt;/small>|1|066|Machop|♂|19|None||36=タダシ|37=Tadashi}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Dusty|{{tt|1620|First rematch}}/{{tt|1800|Second rematch}}/{{tt|1980|Third rematch}}/{{tt|2160|Fourth rematch onwards}}|1|028|Sandslash|♂|{{tt|27|First rematch}}/{{tt|30|Second rematch}}/{{tt|33|Third rematch}}/{{tt|36|Fourth rematch onwards}}|None||36=ノブオ|37=Nobuo|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Wilton{{tt|*|First rematch}}|1248|3|309|Electrike|♂|26|None|320|Wailmer|♂|26|None|296|Makuhita|♂|26|None||36=ユウスク|37=Yūsuke|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Wilton{{tt|*|Second and third rematch}}|{{tt|1392|Second rematch}}/{{tt|1536|Third rematch}}|3|310|Manectric|♂|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|None|320|Wailmer|♂|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|None|296|Makuhita|♂|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|None||36=ユウスク|37=Yūsuke|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Wilton{{tt|*|Fourth rematch onwards}}|1680|3|310|Manectric|♂|35|None|320|Wailmer|♂|35|None|297|Hariyama|♂|35|None||36=ユウスク|37=Yūsuke|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Brooke{{tt|*|First rematch}}|1248|3|278|Wingull|♀|26|None|322|Numel|♀|26|None|315|Roselia|♀|26|None||36=マリア|37=Maria|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Brooke{{tt|*|Second and third rematch}}|{{tt|1392|Second rematch}}/{{tt|1536|Third rematch}}|3|279|Pelipper|♀|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|None|322|Numel|♀|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|None|315|Roselia|♀|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|None||36=マリア|37=Maria|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Brooke{{tt|*|Fourth rematch onwards}}|1632|3|279|Pelipper|♀|34|None|323|Camerupt|♀|34|None|315|Roselia|♀|34|None||36=マリア|37=Maria|38=Nav}}
+
+"Hoenn Route 112"
+{{trainerentry|Spr RS Camper.png|Camper|Larry|288|1|274|Nuzleaf|♂|18||36=キヨフミ|37=Kiyofumi}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Carol|272|2|276|Taillow|♀|17||271|Lombre|♀|17||36=ヒロコ|37=Hiroko}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Trent|640|3|074|Geodude|♂|16||074|Geodude|♂|17||074|Geodude|♂|16||36=ケンサク|37=Kensaku|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Brice|680|2|322|Numel|♂|17||066|Machop|♂|17||36=ハルノブ|37=Harunobu}}
+{{trainerentry|Spr RS Kindler.png|Kindler|Bryant|576&lt;br>&lt;small>Potential [[Double Battle]] with Shayla&lt;/small>|2|322|Numel|♂|18||218|Slugma|♂|18||36=アツオ|37=Atsuo}}
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Shayla|720&lt;br>&lt;small>Potential [[Double Battle]] with Bryant&lt;/small>|2|285|Shroomish|♀|18||315|Roselia|♀|18||36=タエコ|37=Taeko}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Trent{{tt|*|First rematch}}|960|4|074|Geodude|♂|24|None|074|Geodude|♂|24|None|074|Geodude|♂|24|None|075|Graveler|♂|24|None||36=ケンサク|37=Kensaku|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Trent{{tt|*|Second rematch}}|1080|4|074|Geodude|♂|27|None|074|Geodude|♂|27|None|075|Graveler|♂|27|None|075|Graveler|♂|27|None||36=ケンサク|37=Kensaku|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Trent{{tt|*|Third rematch}}|1200|4|074|Geodude|♂|30|None|075|Graveler|♂|30|None|075|Graveler|♂|30|None|075|Graveler|♂|30|None||36=ケンサク|37=Kensaku|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Trent{{tt|*|Fourth rematch onwards}}|1320|4|075|Graveler|♂|33|None|075|Graveler|♂|33|None|075|Graveler|♂|33|None|076|Golem|♂|33|None||36=ケンサク|37=Kensaku|38=Nav}}
+
+"Hoenn Route 113"
+{{trainerentry|Spr RS Youngster.png|Youngster|Jaylen|304|1|328|Trapinch|♂|19||36=マサユキ|37=Masayuki}}
+{{trainerentry|Spr RS Camper.png|Camper|Lawrence|288&lt;br>&lt;small>Potential [[Double Battle]] with Lung&lt;/small>|2|343|Baltoy||18|None|027|Sandshrew|♂|18||36=ユウゴ|37=Yūgo}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Lung|216&lt;br>&lt;small>Potential [[Double Battle]] with Lawrence or Wyatt&lt;/small>|2|109|Koffing|♂|18||291|Ninjask|♂|18||36=ムラマサ|37=Muramasa}}
+{{trainerentry|Spr RS PokéManiac.png|PokéManiac|Wyatt|1080&lt;br>&lt;small>Potential [[Double Battle]] with Lung&lt;/small>|2|304|Aron|♂|18||304|Aron|♂|18||36=ミチオ|37=Michio}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Madeline|760|1|322|Numel|♀|19||36=マドカ|37=Madoka|38=Nav}}
+{{trainerentry|Spr RS Twins.png|Twins|Tori &amp; Tia|456|2|327|Spinda|♂|19||327|Spinda|♂|19||36=ナナとネネ|37=Nana and Nene}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Lao|204|3|109|Koffing|♂|17||109|Koffing|♂|17||109|Koffing|♂|17||36=キンジ|37=Kinji|38=Nav}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Dillon|304|1|304|Aron|♂|19||36=ヨシト|37=Yoshito}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Sophie|304&lt;br>&lt;small>Potential [[Double Battle]] with Coby&lt;/small>|2|183|Marill|♀|17||271|Lombre|♀|19||36=ノドカ|37=Nodoka}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Coby|608&lt;br>&lt;small>Potential [[Double Battle]] with Sophie&lt;/small>|2|227|Skarmory|♂|17||277|Swellow|♂|19||36=カズタカ|37=Kazutaka}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Madeline{{tt|*|First and second rematch}}|{{tt|1160|First rematch}}/{{tt|1280|Second rematch}}|1|322|Numel|♀|{{tt|29|First rematch}}/{{tt|32|Second rematch}}|None||36=マドカ|37=Madoka|38=Nav}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Madeline{{tt|*|Third rematch}}|1360|2|315|Roselia|♀|34|None|322|Numel|♀|34|None|36=マドカ|37=Madoka|38=Nav}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Madeline{{tt|*|Fourth rematch onwards}}|1480|2|315|Roselia|♀|37|None|323|Camerupt|♀|37|None|36=マドカ|37=Madoka|38=Nav}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Lao{{tt|*|First, second and third rematch}}|{{tt|312|First rematch}}/{{tt|348|Second rematch}}/{{tt|384|Third rematch}}|4|109|Koffing|♂|{{tt|24|First rematch}}/{{tt|27|Second rematch}}/{{tt|30|Third rematch}}|None|109|Koffing|♂|{{tt|24|First rematch}}/{{tt|27|Second rematch}}/{{tt|30|Third rematch}}|None|109|Koffing|♂|{{tt|24|First rematch}}/{{tt|27|Second rematch}}/{{tt|30|Third rematch}}|None|109|Koffing|♂|{{tt|26|First rematch}}/{{tt|29|Second rematch}}/{{tt|32|Third rematch}}||36=キンジ|37=Kinji|38=Nav}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Lao{{tt|*|Fourth rematch onwards}}|420|4|109|Koffing|♂|33|None|109|Koffing|♂|33|None|109|Koffing|♂|33|None|110|Weezing|♂|35|Smoke Ball|36=キンジ|37=Kinji|38=Nav}}
+
+"Hoenn Route 114"
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Nolan|760|1|339|Barboach|♂|19||36=タカノリ|37=Takanori}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Charlotte|304&lt;br>&lt;small>Potential [[Double Battle]] with Kai&lt;/small>|1|274|Nuzleaf|♀|19||36=ミナミ|37=Minami}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Kai|760&lt;br>&lt;small>Potential [[Double Battle]] with Charlotte&lt;/small>|1|339|Barboach|♂|19||36=ヒロミツ|37=Hiromitsu}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Claude|720|3|129|Magikarp|♂|16||118|Goldeen|♂|17||339|Barboach|♂|18||36=ヒデユキ|37=Hideyuki}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Nancy|288|2|183|Marill|♀|18||271|Lombre|♀|18||36=サツキ|37=Satsuki}}
+{{trainerentry|Spr RS Sr and Jr.png|Sr. and Jr.|Tyra &amp; Ivy|640|2|315|Roselia|♂|18||075|Graveler|♂|20||36=カヨトイヨ|37=Kayo and Iyo}}
+{{trainerentry|Spr RS Camper.png|Camper|Shane|288|2|027|Sandshrew|♂|18||274|Nuzleaf|♂|18||36=トモヒロ|37=Tomohiro}}
+{{trainerentry|Spr RS PokéManiac.png|PokéManiac|Steve|1140|1|304|Aron|♂|19||36=トシオ|37=Toshio|38=Nav}}
+{{trainerentry|Spr RS Kindler.png|Kindler|Bernie|576|2|218|Slugma|♂|18||278|Wingull|♂|18||36=ノブヒコ|37=Nobuhiko|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Lucas|720&lt;br>&lt;small>Potential [[Double Battle]] with Angelina&lt;/small>|2|074|Geodude|♂|18||322|Numel|♂|18||36=サブロウ|37=Saburō}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Angelina|288&lt;br>&lt;small>Potential [[Double Battle]] with Lucas&lt;/small>|2|271|Lombre|♀|18||183|Marill|♀|18||36=マツリ|37=Matsuri}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Lenny|720|2|074|Geodude|♂|18||066|Machop|♂|18||36=カツヒト|37=Katsuhito}}
+{{trainerentry|Spr RS PokéManiac.png|PokéManiac|Steve{{tt|*|First rematch}}|1620|1|305|Lairon|♂|27|36=トシオ|37=Toshio|38=Nav}}
+{{trainerentry|Spr RS PokéManiac.png|PokéManiac|Steve{{tt|*|Second and third rematch}}|{{tt|1740|Second rematch}}/{{tt|1920|Third rematch}}|2|305|Lairon|♂|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}||111|Rhyhorn|♂|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|36=トシオ|37=Toshio|38=Nav}}
+{{trainerentry|Spr RS PokéManiac.png|PokéManiac|Steve{{tt|*|Fourth rematch onwards}}|2100|2|306|Aggron|♂|35||112|Rhydon|♂|35|36=トシオ|37=Toshio|38=Nav}}
+{{trainerentry|Spr RS Kindler.png|Kindler|Bernie{{tt|*|First rematch}}|832|2|218|Slugma|♂|26||278|Wingull|♂|26|36=ノブヒコ|37=Nobuhiko|38=Nav}}
+{{trainerentry|Spr RS Kindler.png|Kindler|Bernie{{tt|*|Second and third rematch}}|{{tt|928|Second rematch}}/{{tt|1024|Third rematch}}|2|218|Slugma|♂|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}||279|Pelipper|♂|{{tt|29|Second rematch}}/{{tt|32|Third rematch}}|36=ノブヒコ|37=Nobuhiko|38=Nav}}
+{{trainerentry|Spr RS Kindler.png|Kindler|Bernie{{tt|*|Fourth rematch onwards}}|1120|2|219|Magcargo|♂|35||279|Pelipper|♂|35|36=ノブヒコ|37=Nobuhiko|38=Nav}}
+
+"Hoenn Route 115"
+{{Trainerheader|mountain}}
+{{Trainerentry|Spr RS Black Belt.png|Black Belt|Nob|608|1|066|Machop|♂|19||36=ゴロウ|37=Gorō|38=Nav}}
+{{Trainerdiv|mountain}}
+{{Trainerentry|Spr RS Collector.png|Collector|Hector|1080&lt;br>&lt;small>Potential [[Double Battle]] with Marlene&lt;/small>|2|335|Zangoose|♂|18||336|Seviper|♂|18||36=トシノブ|37=Toshinobu}}
+{{Trainerentry|Spr RS Psychic F.png|Psychic|Marlene|432&lt;br>&lt;small>Potential [[Double Battle]] with Hector&lt;/small>|2|307|Meditite|♀|18||325|Spoink|♀|18||36=リネ|37=Rine}}
+{{Trainerdiv|mountain}}
+{{Trainerentry|Spr RS Battle Girl.png|Battle Girl|Cyndy|432|2|307|Meditite|♀|18||296|Makuhita|♂|18||36=ユリカ|37=Yurika|38=Nav}}
+{{Trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Jaiden|312&lt;br>&lt;small>Potential [[Double Battle]] with Timothy or Kyra&lt;/small>|2|291|Ninjask|♂|26||316|Gulpin|♂|26||36=ユウゾウ|37=Yūzō}}
+{{Trainerentry|Spr RS Expert M.png|Expert|Timothy|1080&lt;br>&lt;small>Potential [[Double Battle]] with Jaiden or Kyra&lt;/small>|1|297|Hariyama|♂|27||36=ウンショウ|37=Unshō|38=Nav|}}
+{{Trainerentry|Spr RS Triathlete Runner F.png|Triathlete|Kyra|1040&lt;br>&lt;small>Potential [[Double Battle]] with Jaiden, Timothy, or Koichi&lt;/small>|2|084|Doduo|♀|26||085|Dodrio|♀|26||36=リンコ|37=Rinko}}
+{{Trainerentry|Spr RS Black Belt.png|Black Belt|Koichi|896&lt;br>&lt;small>Potential [[Double Battle]] with Kyra&lt;/small>|2|066|Machop|♂|24||067|Machoke|♂|28||36=タクノリ|37=Takunori}}
+{{Trainerdiv|mountain}}
+{{Trainerentry|Spr RS Battle Girl.png|Battle Girl|Helene|624&lt;br>&lt;small>Potential [[Double Battle]] with Alix&lt;/small>|2|307|Meditite|♀|26||296|Makuhita|♂|26||36=チトセ|37=Chitose}}
+{{Trainerentry|Spr RS Psychic F.png|Psychic|Alix|624&lt;br>&lt;small>Potential [[Double Battle]] with Helene&lt;/small>|2|064|Kadabra|♂|26||281|Kirlia|♀|26||36=シノ|37=Shino}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Nob{{tt|*|First rematch}}|864|1|067|Machoke|♂|27|36=ゴロウ|37=Gorō|38=Nav}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Nob{{tt|*|Second rematch}}|928|2|066|Machop|♂|29||067|Machoke|♂|29|36=ゴロウ|37=Gorō|38=Nav}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Nob{{tt|*|Third rematch}}|992|3|066|Machop|♂|31||067|Machoke|♂|31||067|Machoke|♂|31|36=ゴロウ|37=Gorō|38=Nav}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Nob{{tt|*|Fourth rematch onwards}}|1056|4|066|Machop|♂|33||067|Machoke|♂|33||067|Machoke|♂|33||068|Machamp|♂|33|Black Belt|36=ゴロウ|37=Gorō|38=Nav}}
+{{trainerentry|Spr RS Battle Girl.png|Battle Girl|Cyndy{{tt|*|First and second rematch}}|{{tt|624|First rematch}}/{{tt|696|Second rematch}}|2|307|Meditite|♀|{{tt|26|First rematch}}/{{tt|29|Second rematch}}||296|Makuhita|♂|{{tt|26|First rematch}}/{{tt|29|Second rematch}}|36=ユリカ|37=Yurika|38=Nav}}
+{{trainerentry|Spr RS Battle Girl.png|Battle Girl|Cyndy{{tt|*|Third and fourth rematch onwards}}|{{tt|768|Third rematch}}/{{tt|840|Fourth rematch onwards}}|2|308|Medicham|♀|{{tt|32|Third rematch}}/{{tt|35|Fourth rematch onwards}}||297|Hariyama|♂|{{tt|32|Third rematch}}/{{tt|35|Fourth rematch onwards}}|36=ユリカ|37=Yurika|38=Nav}}
+{{trainerentry|Spr RS Expert M.png|Expert|Timothy|{{tt|1320|First rematch}}/{{tt|1440|Second rematch}}/{{tt|1560|Third rematch}}/{{tt|1680|Fourth rematch onwards}}|1|297|Hariyama|♂|{{tt|33|First rematch}}/{{tt|36|Second rematch}}/{{tt|39|Third rematch}}/{{tt|42|Fourth rematch onwards}}||36=ウンショウ|37=Unshō|38=Nav}}
+{{Trainerfooter|mountain|3||}}
+
+"Hoenn Route 116"
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|Jose|128|2|265|Wurmple|♂|8||290|Nincada|♂|8||36=トモノリ|37=Tomonori}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Joey|144|1|066|Machop|♂|9|36=タケオ|37=Takeo}}
+{{trainerentry|Spr RS School Kid F.png|School Kid|Karen|180|1|285|Shroomish|♀|9||36=ハツネ|37=Hatsune|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Clark|320&lt;br>&lt;small>Potential [[Double Battle]] with Johnson&lt;/small>|1|074|Geodude|♂|8||36=カズノリ|37=Kazunori}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Johnson|128&lt;br>&lt;small>Potential [[Double Battle]] with Clark or Devan&lt;/small>|2|285|Shroomish|♂|8||270|Lotad|♂|8||36=ユウリ|37=Yūri}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Devan|320&lt;br>&lt;small>Potential [[Double Battle]] with Johnson&lt;/small>|2|074|Geodude|♂|8||074|Geodude|♂|8||36=ミチヤス|37=Michiyasu}}
+{{trainerentry|Spr RS Lady.png|Lady|Sarah|1600&lt;br>&lt;small>Potential [[Double Battle]] with Dawson&lt;/small>|2|270|Lotad|♀|8||263|Zigzagoon|♀|8|Nugget|36=サクラコ|37=Sakurako}}
+{{trainerentry|Spr RS Rich Boy.png|Rich Boy|Dawson|1600&lt;br>&lt;small>Potential [[Double Battle]] with Sarah&lt;/small>|2|263|Zigzagoon|♂|8|Nugget|261|Poochyena|♂|8||36=ノゾム|37=Nozomu}}
+{{trainerentry|Spr RS School Kid M.png|School Kid|Jerry|180&lt;br>&lt;small>Potential [[Double Battle]] with Janice&lt;/small>|1|280|Ralts|♂|9||36=ヒデオ|37=Hideo|38=Nav|}}
+{{trainerentry|Spr RS Lass.png|Lass|Janice|144&lt;br>&lt;small>Potential [[Double Battle]] with Jerry&lt;/small>|1|183|Marill|♀|9||36=エリ|37=Eri}}
+{{trainerentry|Spr RS School Kid F.png|School Kid|Karen{{tt|*|First rematch}}|520|2|285|Shroomish|♀|26||293|Whismur|♀|26||36=ハツネ|37=Hatsune|38=Nav}}
+{{trainerentry|Spr RS School Kid F.png|School Kid|Karen{{tt|*|Second rematch}}|580|2|285|Shroomish|♀|29||294|Loudred|♀|29||36=ハツネ|37=Hatsune|38=Nav}}
+{{trainerentry|Spr RS School Kid F.png|School Kid|Karen{{tt|*|Third rematch}}|640|2|286|Breloom|♀|32||294|Loudred|♀|32||36=ハツネ|37=Hatsune|38=Nav}}
+{{trainerentry|Spr RS School Kid F.png|School Kid|Karen{{tt|*|Fourth rematch onwards}}|700|2|286|Breloom|♀|35||295|Exploud|♀|35||36=ハツネ|37=Hatsune|38=Nav}}
+{{trainerentry|Spr RS School Kid M.png|School Kid|Jerry{{tt|*|First rematch}}|520|2|280|Ralts|♂|26||307|Meditite|♂|26|None||36=ヒデオ|37=Hideo|38=Nav|}}
+{{trainerentry|Spr RS School Kid M.png|School Kid|Jerry{{tt|*|Second rematch}}|580|2|281|Kirlia|♂|29||307|Meditite|♂|29|None||36=ヒデオ|37=Hideo|38=Nav|}}
+{{trainerentry|Spr RS School Kid M.png|School Kid|Jerry{{tt|*|Third rematch}}|640|2|281|Kirlia|♂|32||308|Medicham|♂|32|None||36=ヒデオ|37=Hideo|38=Nav|}}
+{{trainerentry|Spr RS School Kid M.png|School Kid|Jerry{{tt|*|Fourth rematch onwards}}|680|3|281|Kirlia|♂|34||354|Banette|♂|34||308|Medicham|♂|34|None||36=ヒデオ|37=Hideo|38=Nav}}
+
+"Hoenn Route 117"
+{{trainerentry|Spr RS Triathlete Runner M.png|Triathlete|Dylan|680|1|084|Doduo|♂|17|36=ツヨシ|37=Tsuyoshi|38=Nav}}
+{{trainerentry|Spr RS Sr and Jr.png|Sr. and Jr.|Anna &amp; Meg|544|2|263|Zigzagoon|♂|15||296|Makuhita|♂|17||36=ミホとリコ|37=Miho &amp; Riko|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder M.png|Pokémon Breeder|Isaac|440|6|293|Whismur|♂|11||263|Zigzagoon|♂|11||304|Aron|♂|11||261|Poochyena|♂|11||276|Taillow|♂|11||296|Makuhita|♂|11||36=セイジ|37=Seiji|38=Nav}}
+{{trainerentry|Spr RS Triathlete Runner F.png|Triathlete|Maria|680|1|084|Doduo|♀|17||36=サエコ|37=Saeko|38=Nav}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Derek|960|2|269|Dustox|♂|16||267|Beautifly|♂|16||36=ヨシアキ|37=Yoshiaki}}
+{{trainerentry|Spr RS Psychic F.png|Psychic|Brandi|408&lt;br>&lt;small>Potential [[Double Battle]] with Melina&lt;/small>|1|280|Ralts|♀|17||36=ミナツ|37=Minatsu}}
+{{trainerentry|Spr RS Triathlete Runner F.png|Triathlete|Melina|680&lt;br>&lt;small>Potential [[Double Battle]] with Brandi or Aisha&lt;/small>|1|084|Doduo|♀|17||36=モトコ|37=Motoko}}
+{{trainerentry|Spr RS Battle Girl.png|Battle Girl|Aisha|408&lt;br>&lt;small>Potential [[Double Battle]] with Melina&lt;/small>|1|307|Meditite|♀|17||36=シマ|37=Shima}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Lydia|440|6|278|Wingull|♀|11||285|Shroomish|♀|11||183|Marill|♀|11||315|Roselia|♀|11||300|Skitty|♀|11||118|Goldeen|♀|11||36=イクエ|37=Ikue|38=Nav}}
+{{trainerentry|Spr RS Triathlete Runner M.png|Triathlete|Dylan{{tt|*|First and second rematch}}|{{tt|1120|First rematch}}/{{tt|1240|Second rematch}}|1|084|Doduo|♂|{{tt|28|First rematch}}/{{tt|31|Second rematch}}|36=ツヨシ|37=Tsuyoshi|38=Nav}}
+{{trainerentry|Spr RS Triathlete Runner M.png|Triathlete|Dylan{{tt|*|Third and fourth rematch onwards}}|{{tt|1360|Third rematch}}/{{tt|1480|Fourth rematch onwards}}|1|085|Dodrio|♂|{{tt|34|Third rematch}}/{{tt|37|Fourth rematch onwards}}|36=ツヨシ|37=Tsuyoshi|38=Nav}}
+{{trainerentry|Spr RS Sr and Jr.png|Sr. and Jr.|Anna &amp; Meg{{tt|*|First and second rematch}}|{{tt|960|First rematch}}/{{tt|1056|Second rematch}}|2|263|Zigzagoon|♂|{{tt|28|First rematch}}/{{tt|31|Second rematch}}||296|Makuhita|♂|{{tt|30|First rematch}}/{{tt|33|Second rematch}}||36=ミホとリコ|37=Miho &amp; Riko|38=Nav}}
+{{trainerentry|Spr RS Sr and Jr.png|Sr. and Jr.|Anna &amp; Meg{{tt|*|Third rematch}}|1152|2|264|Linoone|♂|34||296|Makuhita|♂|36||36=ミホとリコ|37=Miho &amp; Riko|38=Nav}}
+{{trainerentry|Spr RS Sr and Jr.png|Sr. and Jr.|Anna &amp; Meg{{tt|*|Fourth rematch onwards}}|1216|2|264|Linoone|♂|36||297|Hariyama|♂|38||36=ミホとリコ|37=Miho &amp; Riko|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder M.png|Pokémon Breeder|Isaac{{tt|*|First rematch}}|880|6|294|Loudred|♂|22||264|Linoone|♂|22||304|Aron|♂|22||262|Mightyena|♂|22||277|Swellow|♂|22||296|Makuhita|♂|22||36=セイジ|37=Seiji|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder M.png|Pokémon Breeder|Isaac{{tt|*|Second and third rematch}}|{{tt|1000|Second rematch}}/{{tt|1120|Third rematch}}|6|294|Loudred|♂|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||264|Linoone|♂|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||304|Aron|♂|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||262|Mightyena|♂|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||277|Swellow|♂|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||297|Hariyama|♂|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||36=セイジ|37=Seiji|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder M.png|Pokémon Breeder|Isaac{{tt|*|Fourth rematch onwards}}|1240|6|294|Loudred|♂|31||264|Linoone|♂|31||305|Lairon|♂|31||262|Mightyena|♂|31||277|Swellow|♂|31||297|Hariyama|♂|31||36=セイジ|37=Seiji|38=Nav}}
+{{trainerentry|Spr RS Triathlete Runner F.png|Triathlete|Maria{{tt|*|First and second rematch}}|{{tt|1120|First rematch}}/{{tt|1240|Second rematch}}|1|084|Doduo|♀|{{tt|28|First rematch}}/{{tt|31|Second rematch}}||36=サエコ|37=Saeko|38=Nav}}
+{{trainerentry|Spr RS Triathlete Runner F.png|Triathlete|Maria{{tt|*|Third and fourth rematch onwards}}|{{tt|1360|Third rematch}}/{{tt|1480|Fourth rematch onwards}}|1|085|Dodrio|♀|{{tt|34|Third rematch}}/{{tt|37|Fourth rematch onwards}}||36=サエコ|37=Saeko|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Lydia{{tt|*|First rematch}}|880|6|278|Wingull|♀|22||285|Shroomish|♀|22||183|Marill|♀|22||315|Roselia|♀|22||300|Skitty|♀|22||118|Goldeen|♀|22||36=イクエ|37=Ikue|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Lydia{{tt|*|Second and third rematch}}|{{tt|1000|Second rematch}}/{{tt|1120|Third rematch}}|6|279|Pelipper|♀|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||286|Breloom|♀|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||183|Marill|♀|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||315|Roselia|♀|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||301|Delcatty|♀|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||118|Goldeen|♀|{{tt|25|Second rematch}}/{{tt|28|Third rematch}}||36=イクエ|37=Ikue|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Lydia{{tt|*|Fourth rematch onwards}}|1240|6|279|Pelipper|♀|31||286|Breloom|♀|31||184|Azumarill|♀|31||315|Roselia|♀|31||301|Delcatty|♀|31||119|Seaking|♀|31||36=イクエ|37=Ikue|38=Nav}}
+
+"Hoenn Route 118"
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Rose|560&lt;br>&lt;small>Potential [[Double Battle]] with Deandre&lt;/small>|3|315|Roselia|♀|14|None|285|Shroomish|♀|14|None|315|Roselia|♀|14|None||36=ヤヨイ|37=Yayoi|38=Nav}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Deandre|224&lt;br>&lt;small>Potential [[Double Battle]] with Rose&lt;/small>|3|263|Zigzagoon|♂|14|None|304|Aron|♂|14|None|309|Electrike|♂|14|None||36=マサヤ|37=Masaya}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Wade|640|1|072|Tentacool|♂|16|None||36=イサオ|37=Isao}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Dalton|480|2|081|Magnemite||15|None|293|Whismur|♂|15|None||36=テリｰ|37=Terry|38=Nav}}
+{{trainerentry|Spr RS Interviewer.png|Interviewer|[[Gabby and Ty|Gabby &amp; Ty]]|2592|2|081|Magnemite||27||294|Loudred|♂|27|None||36=マリとダイ|37=Mari and Dai}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Barny|1000|2|072|Tentacool|♂|25|None|318|Carvanha|♂|25|None|36=カズヒコ|37=Kazuhiko}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Chester|800|2|276|Taillow|♂|25|None|277|Swellow|♂|25|None|36=タイシ|37=Taishi}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Perry|832|1|278|Wingull|♂|26|None|36=キヨヒコ|37=Kiyohiko}}
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Rose{{tt|*|First rematch}}|1040|2|285|Shroomish|♀|26||315|Roselia|♀|26||36=ヤヨイ|37=Yayoi|38=Nav}}
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Rose{{tt|*|Second and third rematch}}|{{tt|1120|Second rematch}}/{{tt|1240|Third rematch}}|3|285|Shroomish|♀|{{tt|28|Second rematch}}/{{tt|31|Third rematch}}||044|Gloom|♀|{{tt|28|Second rematch}}/{{tt|31|Third rematch}}||315|Roselia|♀|{{tt|28|Second rematch}}/{{tt|31|Third rematch}}||36=ヤヨイ|37=Yayoi|38=Nav}}
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Rose{{tt|*|Fourth rematch onwards}}|1360|3|286|Breloom|♀|34||044|Gloom|♀|34||315|Roselia|♀|34||36=ヤヨイ|37=Yayoi|38=Nav}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Dalton{{tt|*|First rematch}}|800|3|081|Magnemite||25||293|Whismur|♂|25||081|Magnemite||25||36=テリｰ|37=Terry|38=Nav}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Dalton{{tt|*|Second rematch}}|896|3|081|Magnemite||28||294|Loudred|♂|28||081|Magnemite||28||36=テリｰ|37=Terry|38=Nav}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Dalton{{tt|*|Third rematch}}|992|3|082|Magneton||31||294|Loudred|♂|31||082|Magneton||31||36=テリｰ|37=Terry|38=Nav}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Dalton{{tt|*|Fourth rematch onwards}}|1088|3|082|Magneton||34||295|Exploud|♂|34||082|Magneton||34||36=テリｰ|37=Terry|38=Nav}}
+
+"Hoenn Route 119"
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|Kent|400|1|291|Ninjask|♂|25|36=トモミチ|37=Tomomichi}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Donald|1440|3|265|Wurmple|♂|24||266|Silcoon|♂|24||267|Beautifly|♂|24||266||36=イクミ|37=Ikumi}}
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|Greg|400|2|313|Volbeat|♂|25||314|Illumise|♀|25|36=ヒロユキ|37=Hiroyuki}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Taylor|1620|3|265|Wurmple|♂|27||268|Cascoon|♂|27||269|Dustox|♂|27|36=ソウスケ|37=Sōsuke}}
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|Doug|448|2|290|Nincada|♂|28||291|Ninjask|♂|28|36=オサム|37=Osamu}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Brent|1560|1|283|Surskit|♂|26|36=ヨイチ|37=Yoichi}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Chris|920&lt;br>&lt;small>Requires {{m|Surf}}&lt;/small>|4|129|Magikarp|♂|29||072|Tentacool|♂|20||349|Feebas|♂|26||318|Carvanha|♂|23|36=マサシ|37=Masashi}}
+{{trainerentry|Spr RS Pokémon Ranger F.png|Pokémon Ranger|Catherine|1248|2|044|Gloom|♀|26||315|Roselia|♀|26|36=マナミ|37=Manami|38=Nav}}
+{{trainerentry|Spr RS Pokémon Ranger M.png|Pokémon Ranger|Jackson|1296|1|286|Breloom|♂|27||36=マモル|37=Mamoru|38=Nav}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Rachel|1040&lt;br>&lt;small>Potential [[Double Battle]] with Phil&lt;/small>|1|118|Goldeen|♀|26|36=ミヅキ|37=Mizuki}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Phil|832&lt;br>&lt;small>Potential [[Double Battle]] with Rachel&lt;/small>|1|277|Swellow|♂|26|36=シュンペイ|37=Shunpei}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Takashi|300&lt;br>&lt;small>Potential [[Double Battle]] with Dayton&lt;/small>|2|291|Ninjask|♂|25||109|Koffing|♂|25|36=シロウ|37=Shirō}}
+{{trainerentry|Spr RS Kindler.png|Kindler|Dayton|800&lt;br>&lt;small>Potential [[Double Battle]] with Takashi&lt;/small>|2|218|Slugma|♂|25||322|Numel|♂|25|36=アツヒロ|37=Atsuhiro}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Hugh|800|2|278|Wingull|♂|25||357|Tropius|♂|25|36=タクミ|37=Takumi}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Fabian|832&lt;br>&lt;small>Potential [[Double Battle]] with Yasu&lt;/small>|1|310|Manectric|♂|26|36=ジミー|37=Jimmy}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Yasu|312&lt;br>&lt;small>Potential [[Double Battle]] with Fabian&lt;/small>|1|291|Ninjask|♂|26|36=ヒロノブ|37=Hironobu}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Hideo|300|2|109|Koffing|♂|25||109|Koffing|♂|25|36=カツハル|37=Katsuharu}}
+{{trainerentry|Spr RS Pokémon Ranger F.png|Pokémon Ranger|Catherine{{tt|*|First, second and third rematch}}|{{tt|1440|First rematch}}/{{tt|1584|Second rematch}}/{{tt|1728|Third rematch}}|2|044|Gloom|♀|{{tt|30|First rematch}}/{{tt|33|Second rematch}}/{{tt|36|Third rematch}}||315|Roselia|♀|{{tt|30|First rematch}}/{{tt|33|Second rematch}}/{{tt|36|Third rematch}}||36=マナミ|37=Manami|38=Nav}}
+{{trainerentry|Spr RS Pokémon Ranger F.png|Pokémon Ranger|Catherine{{tt|*|Fourth rematch onwards}}|1872|2|182|Bellossom|♀|39||315|Roselia|♀|39||36=マナミ|37=Manami|38=Nav}}
+{{trainerentry|Spr RS Pokémon Ranger M.png|Pokémon Ranger|Jackson{{tt|*|First, second and third rematch}}|{{tt|1488|First rematch}}/{{tt|1632|Second rematch}}/{{tt|1776|Third rematch}}|1|286|Breloom|♂|{{tt|31|First rematch}}/{{tt|34|Second rematch}}/{{tt|37|Third rematch}}||36=マモル|37=Mamoru|38=Nav}}
+{{trainerentry|Spr RS Pokémon Ranger M.png|Pokémon Ranger|Jackson{{tt|*|Fourth rematch onwards}}|1872|2|352|Kecleon|♂|39||286|Breloom|♂|39||36=マモル|37=Mamoru|38=Nav}}
+
+{{MSP/3|252|Treecko}} If the {{player}} chose {{p|Treecko}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}1860
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 119
+|locationname=Route 119
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=279
+|pokemon=Pelipper
+|gender=male
+|level=29
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Wing Attack|move1type=Flying
+|move2=Supersonic|move2type=Normal
+|move3=Mist|move3type=Ice
+|move4=Protect|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=271
+|pokemon=Lombre
+|gender=male
+|level=29
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Absorb|move1type=Grass
+|move2=Nature Power|move2type=Normal
+|move3=Fake Out|move3type=Normal
+|move4=Fury Swipes|move4type=Normal}}
+|{{Pokémon/3|game=Emerald
+|ndex=256
+|pokemon=Combusken
+|gender=male
+|level=31
+|ability=Blaze
+|type1=Fire|type2=Fighting
+|move1=Double Kick|move1type=Fighting
+|move2=Peck|move2type=Flying
+|move3=Sand-Attack|move3type=Ground
+|move4=Bulk Up|move4type=Fighting}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}1860
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Hoenn Route 119
+|locationname=Route 119
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=279
+|pokemon=Pelipper
+|gender=female
+|level=29
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Wing Attack|move1type=Flying
+|move2=Supersonic|move2type=Normal
+|move3=Mist|move3type=Ice
+|move4=Protect|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=271
+|pokemon=Lombre
+|gender=female
+|level=29
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Absorb|move1type=Grass
+|move2=Nature Power|move2type=Normal
+|move3=Fake Out|move3type=Normal
+|move4=Fury Swipes|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=256
+|pokemon=Combusken
+|gender=male
+|level=31
+|ability=Blaze
+|type1=Fire|type2=Fighting
+|move1=Double Kick|move1type=Fighting
+|move2=Peck|move2type=Flying
+|move3=Sand-Attack|move3type=Ground
+|move4=Bulk Up|move4type=Fighting}}
+{{Party/Footer}}
+
+{{MSP/3|255|Torchic}} If the {{player}} chose {{p|Torchic}}:
+{{Party/Single|
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}1860
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 119
+|locationname=Route 119
+|pokemon=3
+}}|{{Pokémon/3
+|game=Emerald
+|ndex=271
+|pokemon=Lombre
+|gender=male
+|level=29
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Absorb|move1type=Grass
+|move2=Nature Power|move2type=Normal
+|move3=Fake Out|move3type=Normal
+|move4=Fury Swipes|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=male
+|level=29
+|ability=Flame Body
+|type1=Fire
+|move1=Ember|move1type=Fire
+|move2=Rock Throw|move2type=Rock
+|move3=Harden|move3type=Normal
+|move4=Amnesia|move4type=Psychic}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=259
+|pokemon=Marshtomp
+|gender=male
+|level=31
+|ability=Torrent
+|type1=Water|type2=Ground
+|move1=Mud Shot|move1type=Ground
+|move2=Foresight|move2type=Normal
+|move3=Mud Sport|move3type=Ground
+|move4=Take Down|move4type=Normal}}
+{{Party/Footer}}
+{{Party/Single|
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}1860
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=May
+|game=E
+|location=Hoenn Route 119
+|locationname=Route 119
+|pokemon=3
+}}|{{Pokémon/3
+|game=Emerald
+|ndex=271
+|pokemon=Lombre
+|gender=female
+|level=29
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Absorb|move1type=Grass
+|move2=Nature Power|move2type=Normal
+|move3=Fake Out|move3type=Normal
+|move4=Fury Swipes|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=female
+|level=29
+|ability=Flame Body
+|type1=Fire
+|move1=Ember|move1type=Fire
+|move2=Rock Throw|move2type=Rock
+|move3=Harden|move3type=Normal
+|move4=Amnesia|move4type=Psychic}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=259
+|pokemon=Marshtomp
+|gender=male
+|level=31
+|ability=Torrent
+|type1=Water|type2=Ground
+|move1=Mud Shot|move1type=Ground
+|move2=Foresight|move2type=Normal
+|move3=Mud Sport|move3type=Ground
+|move4=Take Down|move4type=Normal}}
+{{Party/Footer}}
+
+{{MSP/3|258|Mudkip}} If the {{player}} chose {{p|Mudkip}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}1860
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Hoenn Route 119
+|locationname=Route 119
+|pokemon=3
+}}|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=male
+|level=29
+|ability=Flame Body
+|type1=Fire
+|move1=Ember|move1type=Fire
+|move2=Rock Throw|move2type=Rock
+|move3=Harden|move3type=Normal
+|move4=Amnesia|move4type=Psychic}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=279
+|pokemon=Pelipper
+|gender=male
+|level=29
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Wing Attack|move1type=Flying
+|move2=Supersonic|move2type=Normal
+|move3=Mist|move3type=Ice
+|move4=Protect|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=253
+|pokemon=Grovyle
+|gender=male
+|level=31
+|ability=Overgrow
+|type1=Grass
+|move1=Fury Cutter|move1type=Bug
+|move2=Pursuit|move2type=Dark
+|move3=Screech|move3type=Normal
+|move4=Leaf Blade|move4type=Grass}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}1860
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=May
+|game=E
+|location=Hoenn Route 119
+|locationname=Route 119
+|pokemon=3
+}}|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=female
+|level=29
+|ability=Flame Body
+|type1=Fire
+|move1=Ember|move1type=Fire
+|move2=Rock Throw|move2type=Rock
+|move3=Harden|move3type=Normal
+|move4=Amnesia|move4type=Psychic}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=279
+|pokemon=Pelipper
+|gender=female
+|level=29
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Wing Attack|move1type=Flying
+|move2=Supersonic|move2type=Normal
+|move3=Mist|move3type=Ice
+|move4=Protect|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=253
+|pokemon=Grovyle
+|gender=male
+|level=31
+|ability=Overgrow
+|type1=Grass
+|move1=Fury Cutter|move1type=Bug
+|move2=Pursuit|move2type=Dark
+|move3=Screech|move3type=Normal
+|move4=Leaf Blade|move4type=Grass}}
+{{Party/Footer}}
+
+"Hoenn Route 120"
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Clarissa|1120|2|315|Roselia|♀|28||320|Wailmer|♀|28|36=ミカ|37=Mika}}
+{{trainerentry|Spr RS Interviewer.png|Interviewer|[[Gabby and Ty|Gabby &amp; Ty]]|2880|2|082|Magneton||30||294|Loudred|♂|30||36=マリとダイ|37=Mari and Dai}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Robert|928|1|333|Swablu|♂|29|36=ツバサ|37=Tsubasa|38=Nav}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Colin|896|2|278|Wingull|♂|28||177|Natu|♂|28|36=モリカズ|37=Morikazu}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Leonel|1440&lt;br>&lt;small>Potential [[Double Battle]] with Angelica&lt;/small>|1|310|Manectric|♂|30|36=カズヒロ|37=Kazuhiro}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Angelica|1200&lt;br>&lt;small>Potential [[Double Battle]] with Leonel&lt;/small>|1|351|Castform|♀|30|36=ウキエ|37=Ukie}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Riley|336&lt;br>&lt;small>Potential [[Double Battle]] with Callie&lt;/small>|2|290|Nincada|♂|28||109|Koffing|♂|28|36=タダヒロ|37=Tadahiro}}
+{{trainerentry|Spr RS Battle Girl.png|Battle Girl|Callie|672&lt;br>&lt;small>Potential [[Double Battle]] with Riley&lt;/small>|2|307|Meditite|♀|28||296|Makuhita|♂|28|36=フウコ|37=Fūko}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Jennifer|1440|1|302|Sableye|♀|30|36=ヤエコ|37=Yaeko}}
+{{trainerentry|Spr RS Pokémon Ranger F.png|Pokémon Ranger|Jenna|1344|3|270|Lotad|♀|28||271|Lombre|♀|28||274|Nuzleaf|♀|28|36=セリナ|37=Serina}}
+{{trainerentry|Spr RS Pokémon Ranger M.png|Pokémon Ranger|Lorenzo|1344|3|273|Seedot|♂|28||274|Nuzleaf|♂|28||271|Lombre|♂|28|36=ジュンイチ|37=Junichi}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Jeffrey|1620|3|283|Surskit|♂|27||283|Surskit|♂|27||283|Surskit|♂|27|36=ミキオ|37=Mikio|38=Nav}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Keigo|336|2|109|Koffing|♂|28||291|Ninjask|♂|28|36=テツジ|37=Tetsuji}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Chip|1620|3|343|Baltoy||27||027|Sandshrew|♂|27||028|Sandslash|♂|27|36=キイイチ|37=Kī'ichi}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Robert{{tt|*|First rematch}}|1024|2|177|Natu|♂|32||333|Swablu|♂|32||36=ツバサ|37=Tsubasa|38=Nav}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Robert{{tt|*|Second and third rematch}}|{{tt|1120|Second rematch}}/{{tt|1216|Third rematch}}|2|177|Natu|♂|{{tt|35|Second rematch}}/{{tt|38|Third rematch}}||334|Altaria|♂|{{tt|35|Second rematch}}/{{tt|38|Third rematch}}||36=ツバサ|37=Tsubasa|38=Nav}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Robert{{tt|*|Fourth rematch onwards}}|1312|2|334|Altaria|♂|41||178|Xatu|♂|41||36=ツバサ|37=Tsubasa|38=Nav}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Jeffrey{{tt|*|First rematch}}|1860|3|283|Surskit|♂|31||283|Surskit|♂|31||283|Surskit|♂|31||36=ミキオ|37=Mikio|38=Nav}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Jeffrey{{tt|*|Second rematch}}|2040|3|283|Surskit|♂|34||283|Surskit|♂|34||284|Masquerain|♂|34||36=ミキオ|37=Mikio|38=Nav}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Jeffrey{{tt|*|Third rematch}}|2160|4|283|Surskit|♂|36||265|Wurmple|♂|36||283|Surskit|♂|36||284|Masquerain|♂|36||36=ミキオ|37=Mikio|38=Nav}}
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Jeffrey{{tt|*|Fourth rematch onwards}}|2280|5|283|Surskit|♂|38||269|Dustox|♂|38||283|Surskit|♂|38||284|Masquerain|♂|38|SilverPowder|267|Beautifly|♂|38||36=ミキオ|37=Mikio|38=Nav}}
+
+"Hoenn Route 121"
+{{trainerentry|Spr RS Bug Maniac.png|Bug Maniac|Cale|1740&lt;br>&lt;small>Potential [[Double Battle]] with Tammy&lt;/small>|2|269|Dustox|♂|29||267|Beautifly|♂|29||36=ケンスケ|37=Kensuke}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Tammy|696&lt;br>&lt;small>Potential [[Double Battle]] with Cale&lt;/small>|2|355|Duskull|♀|29||353|Shuppet|♀|29||36=ミコト|37=Mikoto}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Jessica|2320|2|352|Kecleon|♀|29||336|Seviper|♀|29||36=ヨリコ|37=Yoriko|38=Nav}}
+{{trainerentry|Spr RS Sr and Jr.png|Sr. and Jr.|Kate &amp; Joy|1024|2|327|Spinda|♂|30||289|Slaking|♂|32||36=マナとユイ|37=Mana and Yui}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Pat|1000&lt;br>&lt;small>Potential [[Double Battle]] with Myles{{tt|*|Only three first Pokémon will be used if faced in a Double Battle}}&lt;/small>|6|261|Poochyena|♀|25||285|Shroomish|♀|25||309|Electrike|♀|25||183|Marill|♀|25||027|Sandshrew|♀|25||316|Gulpin|♀|25||36=ハルイ|37=Harui}}
+{{trainerentry|Spr RS Pokémon Breeder M.png|Pokémon Breeder|Myles|1000&lt;br>&lt;small>Potential [[Double Battle]] with Pat{{tt|*|Only three first Pokémon will be used if faced in a Double Battle}}&lt;/small>|6|296|Makuhita|♂|25||278|Wingull|♂|25||357|Tropius|♂|25||263|Zigzagoon|♂|25||309|Electrike|♂|25||322|Numel|♂|25||36=ヤスオ|37=Yasuo}}
+{{trainerentry|Spr RS Gentleman.png|Gentleman|Walter|2320|1|310|Manectric|♂|29||36=ロバート|37=Robert|38=Nav}}
+{{trainerentry|Spr RS Pokéfan F.png|Pokéfan|Vanessa|2400|1|025|Pikachu|♀|30|Oran Berry||36=ケサコ|37=Kesako}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Marcel|1392&lt;br>&lt;small>Potential [[Double Battle]] with Cristin&lt;/small>|2|310|Manectric|♂|29||275|Shiftry|♂|29||36=セツオ|37=Setsuo}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Cristin|1392&lt;br>&lt;small>Potential [[Double Battle]] with Marcel&lt;/small>|2|294|Loudred|♀|29||288|Vigoroth|♀|29||36=トキコ|37=Tokiko|38=Nav}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Jessica|{{tt|2800|First rematch}}/{{tt|3040|Second rematch}}/{{tt|3280|Third rematch}}/{{tt|3520|Fourth rematch onwards}}|2|352|Kecleon|♀|{{tt|35|First rematch}}/{{tt|38|Second rematch}}/{{tt|41|Third rematch}}/{{tt|44|Fourth rematch onwards}}||336|Seviper|♀|{{tt|35|First rematch}}/{{tt|38|Second rematch}}/{{tt|41|Third rematch}}/{{tt|44|Fourth rematch onwards}}||36=ヨリコ|37=Yoriko|38=Nav}}
+{{trainerentry|Spr RS Gentleman.png|Gentleman|Walter{{tt|*|First rematch}}|2720|1|310|Manectric|♂|34||36=ロバート|37=Robert|38=Nav}}
+{{trainerentry|Spr RS Gentleman.png|Gentleman|Walter{{tt|*|Second and third rematch}}|{{tt|2880|Second rematch}}/{{tt|3120|Third rematch}}|2|264|Linoone|♂|{{tt|36|Second rematch}}/{{tt|39|Third rematch}}||310|Manectric|♂|{{tt|36|Second rematch}}/{{tt|39|Third rematch}}||36=ロバート|37=Robert|38=Nav}}
+{{trainerentry|Spr RS Gentleman.png|Gentleman|Walter{{tt|*|Fourth rematch onwards}}|3280|3|264|Linoone|♂|41||055|Golduck|♂|41||310|Manectric|♂|41||36=ロバート|37=Robert|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Cristin{{tt|*|First rematch}}|1680|2|294|Loudred|♀|35||288|Vigoroth|♀|35||36=トキコ|37=Tokiko|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Cristin{{tt|*|Second and third rematch}}|{{tt|1776|Second rematch}}/{{tt|1872|Third rematch}}|3|327|Spinda|♀|{{tt|37|Second rematch}}/{{tt|39|Third rematch}}||294|Loudred|♀|{{tt|37|Second rematch}}/{{tt|39|Third rematch}}||288|Vigoroth|♀|{{tt|37|Second rematch}}/{{tt|39|Third rematch}}||36=トキコ|37=Tokiko|38=Nav}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Cristin{{tt|*|Fourth rematch onwards}}|1968|3|327|Spinda|♀|41||295|Exploud|♀|41||289|Slaking|♀|41||36=トキコ|37=Tokiko|38=Nav}}
+
+"Hoenn Route 123"
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|Davis|432&lt;br>&lt;small>Potential [[Double Battle]] with Jazmyn&lt;/small>|1|127|Pinsir|♂|27||36=ヨシロウ|37=Yoshirō}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Jazmyn|540&lt;br>&lt;small>Potential [[Double Battle]] with Davis&lt;/small>|1|359|Absol|♀|27||36=ミワ|37=Miwa}}
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Violet|1040|2|315|Roselia|♀|26||044|Gloom|♀|26||36=チズル|37=Chizuru}}
+{{trainerentry|Spr RS Twins.png|Twins|Miu &amp; Yuki|624|2|267|Beautifly|♂|26|None|269|Dustox|♂|26|None||36=ミウとユキ|37=Miu and Yuki}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Kindra|720&lt;br>&lt;small>Potential [[Double Battle]] with Ed&lt;/small>|2|355|Duskull|♀|30||353|Shuppet|♀|30||36=サチコ|37=Sachiko}}
+{{trainerentry|Spr RS Collector.png|Collector|Ed|1800&lt;br>&lt;small>Potential [[Double Battle]] with Kindra&lt;/small>|2|335|Zangoose|♂|30||336|Seviper|♂|30||36=スグル|37=Suguru}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Wendy|1392|3|303|Mawile|♀|29||315|Roselia|♀|29||279|Pelipper|♀|29||36=セツナ|37=Setsuna}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Braxton|1344|5|277|Swellow|♂|28||328|Trapinch|♂|28||320|Wailmer|♂|28||082|Magneton||28||275|Shiftry|♂|28||36=ヨシオ|37=Yoshio}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Fernando|960&lt;br>&lt;small>Potential [[Double Battle]] with Alberto&lt;/small>|2|309|Electrike|♂|30||294|Loudred|♂|30||36=ジョー|37=Joe|38=Nav}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Alberto|960&lt;br>&lt;small>Potential [[Double Battle]] with Fernando&lt;/small>|2|279|Pelipper|♂|30||178|Xatu|♂|30||36=ヨウスケ|37=Yōsuke}}
+{{trainerentry|Spr RS Psychic F.png|Psychic|Jacki|720&lt;br>&lt;small>Potential [[Double Battle]] with Fredrick&lt;/small>|2|064|Kadabra|♂|30||337|Lunatone||30||36=シホミ|37=Shihomi|38=Nav}}
+{{trainerentry|Spr RS Expert M.png|Expert|Fredrick|1200&lt;br>&lt;small>Potential [[Double Battle]] with Jacki&lt;/small>|2|296|Makuhita|♂|30||067|Machoke|♂|30||36=トシシゲ|37=Toshishige}}
+{{trainerentry|Spr RS Psychic M.png|Psychic|Cameron|744|1|338|Solrock||31||36=カオル|37=Kaoru|38=Nav}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Jonas|372&lt;br>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with Kayley&lt;/small>|1|109|Koffing|♂|31||36=シンスケ|37=Shinsuke}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Kayley|1240&lt;br>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with Jonas&lt;/small>|1|351|Castform|♀|31||36=カオルコ|37=Kaoruko}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Fernando{{tt|*|First rematch}}|1120|3|309|Electrike|♂|35||309|Electrike|♂|35||294|Loudred|♂|35||36=ジョー|37=Joe|38=Nav}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Fernando{{tt|*|Second rematch}}|1184|3|309|Electrike|♂|37||310|Manectric|♂|37||294|Loudred|♂|37||36=ジョー|37=Joe|38=Nav}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Fernando{{tt|*|Third rematch}}|1248|3|310|Manectric|♂|39||310|Manectric|♂|39||294|Loudred|♂|39||36=ジョー|37=Joe|38=Nav}}
+{{trainerentry|Spr RS Guitarist.png|Guitarist|Fernando{{tt|*|Fourth rematch onwards}}|1312|3|310|Manectric|♂|41||310|Manectric|♂|41||295|Exploud|♂|41||36=ジョー|37=Joe|38=Nav}}
+{{trainerentry|Spr RS Psychic F.png|Psychic|Jacki{{tt|*|First, second and third rematch}}|{{tt|816|First rematch}}/{{tt|888|Second rematch}}/{{tt|960|Third rematch}}|2|064|Kadabra|♂|{{tt|34|First rematch}}/{{tt|37|Second rematch}}/{{tt|40|Third rematch}}||337|Lunatone||{{tt|34|First rematch}}/{{tt|37|Second rematch}}/{{tt|40|Third rematch}}||36=シホミ|37=Shihomi|38=Nav}}
+{{trainerentry|Spr RS Psychic F.png|Psychic|Jacki{{tt|*|Fourth rematch onwards}}|1032|2|337|Lunatone||43||065|Alakazam|♂|43||36=シホミ|37=Shihomi|38=Nav}}
+{{trainerentry|Spr RS Psychic M.png|Psychic|Cameron{{tt|*|First, second and third rematch}}|{{tt|792|First rematch}}/{{tt|912|Second rematch}}/{{tt|984|Third rematch}}|2|064|Kadabra|♂|{{tt|33|First rematch}}/{{tt|38|Second rematch}}/{{tt|41|Third rematch}}||338|Solrock||{{tt|33|First rematch}}/{{tt|38|Second rematch}}/{{tt|41|Third rematch}}||36=カオル|37=Kaoru|38=Nav}}
+{{trainerentry|Spr RS Psychic M.png|Psychic|Cameron{{tt|*|Fourth rematch onwards}}|1080|2|338|Solrock||45||065|Alakazam|♂|45||36=カオル|37=Kaoru|38=Nav}}
+
+"Hoenn Route 124"
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Grace|272&lt;br>&lt;small>Potential [[Double Battle]] with Declan&lt;/small>|1|183|Marill|♀|34||36=アキエ|37=Akie}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Declan|272&lt;br>&lt;small>Potential [[Double Battle]] with Grace&lt;/small>|1|130|Gyarados|♂|34||36=イッペイ|37=Ippei}}
+{{trainerentry|Spr RS Sis and Bro.png|Sis and Bro|Lila &amp; Roy|792|2|170|Chinchou|♂|34||318|Carvanha|♂|33|36=コウとカコ|37=Kō and Kako|38=Nav||}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Spencer|264|2|072|Tentacool|♂|33||278|Wingull|♂|33||36=トシヒロ|37=Toshihiro}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Jenny|272|1|320|Wailmer|♀|34||36=ナギサ|37=Nagisa|38=Nav||}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Chad|264|2|072|Tentacool|♂|33||320|Wailmer|♂|33||36=カツユキ|37=Katsuyuki}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Isabella|1360&lt;br>&lt;small>Potential [[Double Battle]] with Roland&lt;/small>|1|120|Staryu||34||36=カズハ|37=Kazuha}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Roland|272&lt;br>&lt;small>Potential [[Double Battle]] with Isabella&lt;/small>|1|318|Carvanha|♂|34||36=マサトシ|37=Masatoshi}}
+{{trainerentry|Spr RS Sis and Bro.png|Sis and Bro|Lila &amp; Roy{{tt|*|First rematch}}|960|2|170|Chinchou|♂|42||318|Carvanha|♂|40|36=コウとカコ|37=Kō and Kako|38=Nav||}}
+{{trainerentry|Spr RS Sis and Bro.png|Sis and Bro|Lila &amp; Roy{{tt|*|Second rematch}}|1032|2|171|Lanturn|♂|45||318|Carvanha|♂|43|36=コウとカコ|37=Kō and Kako|38=Nav||}}
+{{trainerentry|Spr RS Sis and Bro.png|Sis and Bro|Lila &amp; Roy{{tt|*|Third and fourth rematch onwards}}|{{tt|1104|Third rematch}}/{{tt|1176|Fourth rematch onwards}}|2|171|Lanturn|♂|{{tt|48|Third rematch}}/{{tt|51|Fourth rematch onwards}}||319|Sharpedo|♂|{{tt|46|Third rematch}}/{{tt|49|Fourth rematch onwards}}|36=コウとカコ|37=Kō and Kako|38=Nav||}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Jenny{{tt|*|First and second rematch}}|{{tt|304|First rematch}}/{{tt|328|Second rematch}}|1|320|Wailmer|♀|{{tt|38|First rematch}}/{{tt|41|Second rematch}}||36=ナギサ|37=Nagisa|38=Nav||}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Jenny{{tt|*|Third rematch}}|344|2|120|Staryu||43||320|Wailmer|♀|43||36=ナギサ|37=Nagisa|38=Nav||}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Jenny{{tt|*|Fourth rematch onwards}}|360|3|370|Luvdisc|♀|45||320|Wailmer|♀|45||121|Starmie||45||36=ナギサ|37=Nagisa|38=Nav||}}
+
+"Hoenn Route 125"
+{{trainerentry|Spr RS Sailor.png|Sailor|Ernest|1056|2|278|Wingull|♂|33||067|Machoke|♂|33||38=Nav|36=ジロウ|37=Jirō}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Nolen|272|1|073|Tentacruel|♂|34|36=シノブ|37=Shinobu}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Sharon|272|1|119|Seaking|♀|34|36=サイカ|37=Saika}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Tanya|272|1|370|Luvdisc|♀|34|36=ケイコ|37=Keiko}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Presley|1056&lt;br>&lt;small>Potential [[Double Battle]] with Auron&lt;/small>|2|357|Tropius|♂|33||178|Xatu|♂|33|36=ナオヒ}}
+{{trainerentry|Spr RS Expert M.png|Expert|Auron|1320&lt;br>&lt;small>Potential [[Double Battle]] with Presley&lt;/small>|2|310|Manectric|♂|33||068|Machamp|♂|33|36=イッケイ|37=Ikkei}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Stan|272|1|116|Horsea|♂|34|36=ケイシ|37=Keishi}}
+{{trainerentry|Spr RS Sr and Jr.png|Sr. and Jr.|Kim &amp; Iris|1120|2|333|Swablu|♂|32||322|Numel|♂|35|36=マホとナホ|37=Maho &amp; Naho}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Ernest{{tt|*|First rematch}}|1152|3|278|Wingull|♂|36||072|Tentacool|♂|36||067|Machoke|♂|36||38=Nav|36=ジロウ|37=Jirō}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Ernest{{tt|*|Second and third rematch}}|{{tt|1248|Second rematch}}/{{tt|1344|Third rematch}}|3|279|Pelipper|♂|{{tt|39|Second rematch}}/{{tt|42|Third rematch}}||072|Tentacool|♂|{{tt|39|Second rematch}}/{{tt|42|Third rematch}}||067|Machoke|♂|{{tt|39|Second rematch}}/{{tt|42|Third rematch}}||38=Nav|36=ジロウ|37=Jirō}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Ernest{{tt|*|Fourth rematch onwards}}|1440|3|279|Pelipper|♂|45||067|Machoke|♂|45||073|Tentacruel|♂|45||38=Nav|36=ジロウ|37=Jirō}}
+
+"Hoenn Route 126"
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Leonardo|272&lt;br>&lt;small>Potential [[Double Battle]] with Isobel&lt;/small>|1|318|Carvanha|♂|34|36=カズシゲ|37=Kazushige}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Isobel|1360&lt;br>&lt;small>Potential [[Double Battle]] with Leonardo&lt;/small>|1|120|Staryu||34|36=キヌエ|37=Kinue}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Dean|248|3|318|Carvanha|♂|31||278|Wingull|♂|31||318|Carvanha|♂|31|36=レツジ|37=Retsuji}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Nikki|264|2|183|Marill|♀|33||363|Spheal|♀|33|36=シズエ|37=Shizue}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Barry|272|1|130|Gyarados|♂|34|36=ガクジ|37=Gakuji}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Sienna|264&lt;br>&lt;small>Potential [[Double Battle]] with Pablo&lt;/small>|2|370|Luvdisc|♀|33||370|Luvdisc|♀|33|36=イクコ|37=Ikuko}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Pablo|1320&lt;br>&lt;small>Potential [[Double Battle]] with Sienna&lt;/small>|2|120|Staryu||33||120|Staryu||33||38=Nav|36=ヤスヒロ|37=Yasuhiro}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Brenda|272|1|118|Goldeen|♀|34|36=テルミ|37=Terumi}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Pablo{{tt|*|First rematch}}|1480|2|120|Staryu||37||120|Staryu||37||38=Nav|36=ヤスヒロ|37=Yasuhiro}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Pablo{{tt|*|Second rematch}}|1560|3|278|Wingull|♂|39||120|Staryu||39||120|Staryu||39||38=Nav|36=ヤスヒロ|37=Yasuhiro}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Pablo{{tt|*|Third rematch}}|1640|3|279|Pelipper|♂|41||120|Staryu||41||120|Staryu||41||38=Nav|36=ヤスヒロ|37=Yasuhiro}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Pablo{{tt|*|Fourth rematch onwards}}|1720|3|279|Pelipper|♂|43||121|Starmie||43||121|Starmie||43||38=Nav|36=ヤスヒロ|37=Yasuhiro}}
+
+"Hoenn Route 127"
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Aidan|1024&lt;br>&lt;small>Potential [[Double Battle]] with Athena&lt;/small>|2|277|Swellow|♂|32||227|Skarmory|♂|32|36=イクオ|37=Ikuo}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Athena|1536&lt;br>&lt;small>Potential [[Double Battle]] with Aidan&lt;/small>|2|310|Manectric|♀|32||264|Linoone|♀|32|36=エミリ|37=Emili}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Jonah|1280|3|320|Wailmer|♂|30||072|Tentacool|♂|31||319|Sharpedo|♂|32|36=ヨシノリ|37=Yoshinori}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Roger|1400|3|129|Magikarp|♂|15||129|Magikarp|♂|25||130|Gyarados|♂|35|36=トモヒコ|37=Tomohiko}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Henry|1360|2|318|Carvanha|♂|31||073|Tentacruel|♂|34|36=ケンタロウ|37=Kentarō}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Camden|1320|2|120|Staryu||33||120|Staryu||33|36=シゲハル|37=Shigeharu}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Koji|1088|1|067|Machoke|♂|34||38=Nav|36=テツロウ|37=Tetsurō}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Donny|1360|2|278|Wingull|♀|26||120|Staryu||34|36=ユヅル|37=Yujiru}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Koji{{tt|*|First rematch}}|1184|2|067|Machoke|♂|37||067|Machoke|♂|37||38=Nav|36=テツロウ|37=Tetsurō}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Koji{{tt|*|Second rematch}}|1248|3|296|Makuhita|♂|39||067|Machoke|♂|39||067|Machoke|♂|39||38=Nav|36=テツロウ|37=Tetsurō}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Koji{{tt|*|Third rematch}}|1312|3|297|Hariyama|♂|41||067|Machoke|♂|41||067|Machoke|♂|41||38=Nav|36=テツロウ|37=Tetsurō}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Koji{{tt|*|Fourth rematch onwards}}|1376|3|297|Hariyama|♂|43||068|Machamp|♂|43||068|Machamp|♂|43||38=Nav|36=テツロウ|37=Tetsurō}}
+
+"Hoenn Route 128"
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Ruben|1632|2|275|Shiftry|♂|34||299|Nosepass|♂|34|36=ジュン|37=Jun}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Alexa|1632|2|044|Gloom|♀|34||184|Azumarill|♀|34|36=サヤカ|37=Sayaka}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Wayne|1440|3|072|Tentacool|♂|31||072|Tentacool|♂|31||320|Wailmer|♂|36|36=コウサク|37=Kōsaku}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Isaiah|1400|1|120|Staryu||35||38=Nav|36=エイスケ|37=Eisuke}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Katelyn|1400|1|120|Staryu||35||38=Nav|36=ナツミ|37=Natsumi}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Carlee|280&lt;br>&lt;small>Potential [[Double Battle]] with Harrison&lt;/small>|1|119|Seaking|♀|35|36=クニコ|37=Kuniko}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Harrison|280&lt;br>&lt;small>Potential [[Double Battle]] with Carlee&lt;/small>|1|073|Tentacruel|♂|35|36=マサアキ|37=Masaaki}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Isaiah{{tt|*|First and second rematch}}|{{tt|1560|First rematch}}/{{tt|1680|Second rematch}}|1|120|Staryu||{{tt|39|First rematch}}/{{tt|42|Second rematch}}||38=Nav|36=エイスケ|37=Eisuke}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Isaiah{{tt|*|Third and fourth rematch onwards}}|{{tt|1800|Third rematch}}/{{tt|1920|Fourth rematch onwards}}|1|121|Starmie||{{tt|45|Third rematch}}/{{tt|48|Fourth rematch onwards}}||38=Nav|36=エイスケ|37=Eisuke}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Katelyn{{tt|*|First and second rematch}}|{{tt|1560|First rematch}}/{{tt|1680|Second rematch}}|1|120|Staryu||{{tt|39|First rematch}}/{{tt|42|Second rematch}}||38=Nav|36=ナツミ|37=Natsumi}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Katelyn{{tt|*|Third and fourth rematch onwards}}|{{tt|1800|Third rematch}}/{{tt|1920|Fourth rematch onwards}}|1|121|Starmie||{{tt|45|Third rematch}}/{{tt|48|Fourth rematch onwards}}||38=Nav|36=ナツミ|37=Natsumi}}
+
+"Hoenn Route 129"
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Reed|264|2|363|Spheal|♂|33||319|Sharpedo|♂|33|36=アキオ|37=Akio}}
+{{trainerentry|Spr RS Triathlete Swimmer M.png|Triathlete|Chase|1360|2|278|Wingull|♂|26||120|Staryu||34|36=ショウゴ|37=Shōgo}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Allison|1320|2|278|Wingull|♀|27||120|Staryu||33|36=チサト|37=Chisato}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Clarence|272&lt;br>&lt;small>Potential [[Double Battle]] with Tisha&lt;/small>|1|319|Sharpedo|♂|34|36=ヨシフミ|37=Yoshifumi}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Tisha|272&lt;br>&lt;small>Potential [[Double Battle]] with Clarence&lt;/small>|1|170|Chinchou|♀|34|36=ユカリ|37=Yukari}}
+
+"Hoenn Route 130"
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Rodney|272|1|130|Gyarados|♂|34|36=マサヒロ|37=Masahiro}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Katie|264&lt;br>&lt;small>Potential [[Double Battle]] with Santiago&lt;/small>|2|118|Goldeen|♀|33||363|Spheal|♀|33|36=フミエ|37=Fumie}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Santiago|264&lt;br>&lt;small>Potential [[Double Battle]] with Katie&lt;/small>|2|073|Tentacruel|♂|33||320|Wailmer|♂|33|36=シンジ|37=Shinji}}
+
+"Hoenn Route 131"
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Kevin|272&lt;br>&lt;small>Potential [[Double Battle]] with Taila&lt;/small>|1|363|Spheal|♂|34|36=ツトム|37=Tsutomu}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Taila|1360&lt;br>&lt;small>Potential [[Double Battle]] with Kevin&lt;/small>|1|120|Staryu||34|36=ミカコ|37=Mikako}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Richard|272|1|279|Pelipper|♂|34|36=ハルキ|37=Haruki}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Kara|272|1|119|Seaking|♀|34|36=マリエ|37=Marie}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Herman|264|2|278|Wingull|♂|33||073|Tentacruel|♂|33|36=ダイスケ|37=Daisuke}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Susie|272|1|370|Luvdisc|♀|34|36=ミサキ|37=Misaki}}
+{{trainerentry|Spr RS Sis and Bro.png|Sis and Bro|Reli &amp; Ian|792|2|184|Azumarill|♂|35||278|Wingull|♂|33|36=カツとアミ|37=Katsu &amp; Ami}}
+
+"Hoenn Route 132"
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Gilbert|272|1|319|Sharpedo|♂|34|36=ゴウ|37=Gō}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Dana|272|1|184|Azumarill|♀|34|36=ミユキ|37=Miyuki}}
+{{trainerentry|Spr RS Fisherman.png|Fisherman|Ronald|1400|6|129|Magikarp|♂|19||130|Gyarados|♂|21||130|Gyarados|♂|23||130|Gyarados|♂|26||130|Gyarados|♂|30||130|Gyarados|♂|35||36=カズオ|37=Kazuo}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Kiyo|1088|1|297|Hariyama|♂|34|36=タクマ|37=Takuma}}
+{{trainerentry|Spr RS Expert M.png|Expert|Paxton|1320&lt;br>&lt;small>Potential [[Double Battle]] with Darcy&lt;/small>|2|277|Swellow|♂|33||286|Breloom|♂|33|36=ゴウゾウ|37=Gōzō}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Darcy|1584&lt;br>&lt;small>Potential [[Double Battle]] with Paxton&lt;/small>|2|279|Pelipper|♀|33||323|Camerupt|♀|33|36=ナルミ|37=Narumi}}
+{{trainerentry|Spr RS Expert F.png|Expert|Makayla|1320&lt;br>&lt;small>Potential [[Double Battle]] with Jonathan&lt;/small>|2|315|Roselia|♀|33||308|Medicham|♀|33|36=スズ|37=Suzu}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Jonathan|1584&lt;br>&lt;small>Potential [[Double Battle]] with Makayla&lt;/small>|2|352|Kecleon|♂|33||294|Loudred|♂|33|36=リョウスケ|37=Ryōsuke}}
+
+"Hoenn Route 133"
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Linda|264|2|116|Horsea|♀|33||117|Seadra|♀|33|36=ハルミ|37=Harumi}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Beck|1088|1|357|Tropius|♂|34|36=トシアキ|37=Toshiaki}}
+{{trainerentry|Spr RS Expert M.png|Expert|Conor|1320&lt;br>&lt;small>Potential [[Double Battle]] with Mollie&lt;/small>|2|170|Chinchou|♂|33||297|Hariyama|♂|33|36=シゲヨシ|37=Shigeyoshi}}
+{{trainerentry|Spr RS Expert F.png|Expert|Mollie|1320&lt;br>&lt;small>Potential [[Double Battle]] with Conor&lt;/small>|2|340|Whiscash|♀|33||307|Meditite|♀|33|36=ナエ|37=Nae}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cool Trainer|Warren|1584|2|075|Graveler|♂|33||272|Ludicolo|♂|33|36=レイジ|37=Reiji}}
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Debra|272&lt;br>&lt;small>Potential [[Double Battle]] with Franklin&lt;/small>|1|119|Seaking|♀|34|36=リカコ|37=Rikako}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Franklin|272&lt;br>&lt;small>Potential [[Double Battle]] with Debra&lt;/small>|1|364|Sealeo|♂|34|36=シゲオ|37=Shigeo}}
+
+"Hoenn Route 134"
+{{trainerentry|Spr RS Swimmer F.png|Swimmer|Laurel|264|2|370|Luvdisc|♀|33||370|Luvdisc|♀|33|36=ソノコ|37=Sonoko}}
+{{trainerentry|Spr RS Swimmer M.png|Swimmer|Jack|272|1|130|Gyarados|♂|34|36=ヒデノリ|37=Hidenori}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Hitoshi|1024&lt;br>&lt;small>Potential [[Double Battle]] with Reyna&lt;/small>|2|066|Machop|♂|32||067|Machoke|♂|32|36=イワオ|37=Iwao}}
+{{trainerentry|Spr RS Battle Girl.png|Battle Girl|Reyna|792&lt;br>&lt;small>Potential [[Double Battle]] with Hitoshi&lt;/small>|2|307|Meditite|♀|33||297|Hariyama|♂|33|36=タマキ|37=Tamaki}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Hudson|1088|1|320|Wailmer|♂|34|36=ジュンヤ|37=Junya}}
+{{trainerentry|Spr RS Dragon Tamer.png|Dragon Tamer|Aaron|1632&lt;br>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with Marley&lt;/small>|1|371|Bagon|♂|34|36=タツマ|37=Tatsuma}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Marley|1632&lt;br>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with Aaron&lt;/small>|1|310|Manectric|♀|34|36=リツコ|37=Ritsuko}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Alex|1056&lt;br>&lt;small>Potential [[Double Battle]] with Kelvin&lt;/small>|2|177|Natu|♂|33||277|Swellow|♂|33|36=マサツグ|37=Masatsugu}}
+{{trainerentry|Spr RS Sailor.png|Sailor|Kelvin|1056&lt;br>&lt;small>Potential [[Double Battle]] with Alex&lt;/small>|2|067|Machoke|♂|33||363|Spheal|♂|33|36=ナオヤ|37=Naoya}}
+
+"Jagged Pass"
+{{trainerentry|Spr RS Hiker.png|Hiker|Eric|800|2|074|Geodude|♂|20||343|Baltoy||20||36=ダイチ|37=Daichi}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||440&lt;br>&lt;small>Only before obtaining the [[Magma Emblem]]&lt;/small>|2|261|Poochyena|♂|22||322|Numel|♂|22||}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Diana|304|3|285|Shroomish|♀|19||043|Oddish|♀|19||333|Swablu|♀|19||36=コズエ|37=Kozue|38=Nav}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Autumn|336&lt;br>&lt;small>Potential [[Double Battle]] with Julio&lt;/small>|1|285|Shroomish|♀|21||36=ナツコ|37=Natsuko}}
+{{trainerentry|Spr RS Triathlete Biker M.png|Triathlete|Julio|840&lt;br>&lt;small>Potential [[Double Battle]] with Autumn&lt;/small>|1|081|Magnemite||21||36=ミツオ|37=Mitsuo}}
+{{trainerentry|Spr RS Camper.png|Camper|Ethan|320|2|263|Zigzagoon|♂|20||276|Taillow|♂|20||36=ヨシハル|37=Yoshiharu|38=Nav}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Diana{{tt|*|First rematch}}|400|3|285|Shroomish|♀|25||044|Gloom|♀|25||333|Swablu|♀|25||36=コズエ|37=Kozue|38=Nav}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Diana{{tt|*|Second and third rematch}}|{{tt|448|Second rematch}}/{{tt|496|Third rematch}}|3|286|Breloom|♀|{{tt|28|Second rematch}}/{{tt|31|Third rematch}}||044|Gloom|♀|{{tt|28|Second rematch}}/{{tt|31|Third rematch}}||333|Swablu|♀|{{tt|28|Second rematch}}/{{tt|31|Third rematch}}||36=コズエ|37=Kozue|38=Nav}}
+{{trainerentry|Spr RS Picnicker.png|Picnicker|Diana{{tt|*|Fourth rematch onwards}}|640|3|286|Breloom|♀|40||045|Vileplume|♀|40||334|Altaria|♀|40||36=コズエ|37=Kozue|38=Nav}}
+{{trainerentry|Spr RS Camper.png|Camper|Ethan{{tt|*|First rematch}}|416|2|263|Zigzagoon|♂|26||276|Taillow|♂|26||36=ヨシハル|37=Yoshiharu|38=Nav}}
+{{trainerentry|Spr RS Camper.png|Camper|Ethan{{tt|*|Second rematch}}|464|2|264|Linoone|♂|29||277|Swellow|♂|29||36=ヨシハル|37=Yoshiharu|38=Nav}}
+{{trainerentry|Spr RS Camper.png|Camper|Ethan{{tt|*|Third rematch}}|496|3|027|Sandshrew|♂|31||277|Swellow|♂|31||264|Linoone|♂|31||36=ヨシハル|37=Yoshiharu|38=Nav}}
+{{trainerentry|Spr RS Camper.png|Camper|Ethan{{tt|*|Fourth rematch onwards}}|544|3|277|Swellow|♂|34||028|Sandslash|♂|34||264|Linoone|♂|34||36=ヨシハル|37=Yoshiharu|38=Nav}}
+
+"Lilycove City"
+{{MSP/3|252|Treecko}} If the {{player}} chose {{p|Treecko}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}2040
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Lilycove City
+|pokemon=4}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=357
+|pokemon=Tropius
+|gender=male
+|level=31
+|ability=Chlorophyll
+|type1=Grass|type2=Flying
+|move1=Stomp|move1type=Normal
+|move2=Sweet Scent|move2type=Normal
+|move3=Whirlwind|move3type=Normal
+|move4=Magical Leaf|move4type=Grass}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=279
+|pokemon=Pelipper
+|gender=male
+|level=32
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Wing Attack|move1type=Flying
+|move2=Supersonic|move2type=Normal
+|move3=Mist|move3type=Ice
+|move4=Protect|move4type=Normal}}
+{{Party/Div|color={{Ruby color}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=272
+|pokemon=Ludicolo
+|gender=male
+|level=32
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=256
+|pokemon=Combusken
+|gender=male
+|level=34
+|ability=Blaze
+|type1=Fire|type2=Fighting
+|move1=Peck|move1type=Flying
+|move2=Sand-Attack|move2type=Ground
+|move3=Bulk Up|move3type=Fighting
+|move4=Quick Attack|move4type=Normal}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}2040
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Lilycove City
+|pokemon=4}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=357
+|pokemon=Tropius
+|gender=female
+|level=31
+|ability=Chlorophyll
+|type1=Grass|type2=Flying
+|move1=Stomp|move1type=Normal
+|move2=Sweet Scent||move2type=Normal
+|move3=Whirlwind|move3type=Normal
+|move4=Magical Leaf|move4type=Grass}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=279
+|pokemon=Pelipper
+|gender=female
+|level=32
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Wing Attack|move1type=Flying
+|move2=Supersonic|move2type=Normal
+|move3=Mist|move3type=Ice
+|move4=Protect|move4type=Normal}}
+{{Party/Div|color={{sapphire color}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=272
+|pokemon=Ludicolo
+|gender=female
+|level=32
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=256
+|pokemon=Combusken
+|gender=male
+|level=34
+|ability=Blaze
+|type1=Fire|type2=Fighting
+|move1=Peck|move1type=Flying
+|move2=Sand-Attack|move2type=Ground
+|move3=Bulk Up|move3type=Fighting
+|move4=Quick Attack|move4type=Normal}}
+{{Party/Footer}}
+
+{{MSP/3|255|Torchic}} If the {{player}} chose {{p|Torchic}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}2040
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Lilycove City
+|pokemon=4}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=357
+|pokemon=Tropius
+|gender=male
+|level=31
+|ability=Chlorophyll
+|type1=Grass|type2=Flying
+|move1=Stomp|move1type=Normal
+|move2=Sweet Scent|move2type=Normal
+|move3=Whirlwind|move3type=Normal
+|move4=Magical Leaf|move4type=Grass}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=272
+|pokemon=Ludicolo
+|gender=male
+|level=32
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+{{Party/Div|color={{Ruby color}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=male
+|level=32
+|ability=Flame Body
+|type1=Fire
+|move1=Ember|move1type=Fire
+|move2=Rock Throw|move2type=Rock
+|move3=Harden|move3type=Normal
+|move4=Amnesia|move4type=Psychic}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=259
+|pokemon=Marshtomp
+|gender=male
+|level=34
+|ability=Torrent
+|type1=Water|type2=Ground
+|move1=Mud Shot|move1type=Ground
+|move2=Foresight|move2type=Normal
+|move3=Mud Sport|move3type=Ground
+|move4=Take Down|move4type=Normal}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}2040
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Lilycove City
+|pokemon=4}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=357
+|pokemon=Tropius
+|gender=female
+|level=31
+|ability=Chlorophyll
+|type1=Grass|type2=Flying
+|move1=Stomp|move1type=Normal
+|move2=Sweet Scent|move2type=Normal
+|move3=Whirlwind|move3type=Normal
+|move4=Magical Leaf|move4type=Grass}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=272
+|pokemon=Ludicolo
+|gender=female
+|level=32
+|ability=Swift Swim
+|type1=Water|type2=Grass
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+{{Party/Div|color={{sapphire color}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=female
+|level=32
+|ability=Flame Body
+|type1=Fire
+|move1=Ember|move1type=Fire
+|move2=Rock Throw|move2type=Rock
+|move3=Harden|move3type=Normal
+|move4=Amnesia|move4type=Psychic}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=259
+|pokemon=Marshtomp
+|gender=male
+|level=34
+|ability=Torrent
+|type1=Water|type2=Ground
+|move1=Mud Shot|move1type=Ground
+|move2=Foresight|move2type=Normal
+|move3=Mud Sport|move3type=Ground
+|move4=Take Down|move4type=Normal}}
+{{Party/Footer}}
+
+{{MSP/3|258|Mudkip}} If the {{player}} chose {{p|Mudkip}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}2040
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Brendan (game)|Brendan}}
+|game=E
+|location=Lilycove City
+|pokemon=4}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=357
+|pokemon=Tropius
+|gender=male
+|level=31
+|ability=Chlorophyll
+|type1=Grass|type2=Flying
+|move1=Stomp|move1type=Normal
+|move2=Sweet Scent|move2type=Normal
+|move3=Whirlwind|move3type=Normal
+|move4=Magical Leaf|move4type=Grass}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=male
+|level=32
+|ability=Flame Body
+|type1=Fire
+|move1=Ember|move1type=Fire
+|move2=Rock Throw|move2type=Rock
+|move3=Harden|move3type=Normal
+|move4=Amnesia|move4type=Psychic}}
+{{Party/Div|color={{Ruby color}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=279
+|pokemon=Pelipper
+|gender=male
+|level=32
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Wing Attack|move1type=Flying
+|move2=Supersonic|move2type=Normal
+|move3=Mist|move3type=Ice
+|move4=Protect|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=253
+|pokemon=Grovyle
+|gender=male
+|level=34
+|ability=Overgrow
+|type1=Grass
+|move1=Fury Cutter|move1type=Bug
+|move2=Pursuit|move2type=Dark
+|move3=Screech|move3type=Normal
+|move4=Leaf Blade|move4type=Grass}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}2040
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|May (game)|May}}
+|game=E
+|location=Lilycove City
+|pokemon=4}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=357
+|pokemon=Tropius
+|gender=female
+|level=31
+|ability=Chlorophyll
+|type1=Grass|type2=Flying
+|move1=Stomp|move1type=Normal
+|move2=Sweet Scent|move2type=Normal
+|move3=Whirlwind|move3type=Normal
+|move4=Magical Leaf|move4type=Grass}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=female
+|level=32
+|ability=Flame Body
+|type1=Fire
+|move1=Ember|move1type=Fire
+|move2=Rock Throw|move2type=Rock
+|move3=Harden||move3type=Normal
+|move4=Amnesia|move4type=Psychic}}
+{{Party/Div|color={{sapphire color}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=279
+|pokemon=Pelipper
+|gender=female
+|level=32
+|ability=Keen Eye
+|type1=Water|type2=Flying
+|move1=Wing Attack|move1type=Flying
+|move2=Supersonic|move2type=Normal
+|move3=Mist|move3type=Ice
+|move4=Protect|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=253
+|pokemon=Grovyle
+|gender=male
+|level=34
+|ability=Overgrow
+|type1=Grass
+|move1=Fury Cutter|move1type=Bug
+|move2=Pursuit|move2type=Dark
+|move3=Screech|move3type=Normal
+|move4=Leaf Blade|move4type=Grass}}
+{{Party/Footer}}
+
+"Magma Hideout (Jagged Pass)"
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580|1|261|Poochyena|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580|1|322|Numel|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt F.png|Team Magma Grunt||580|1|262|Mightyena|♀|29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||560&lt;br/>&lt;small>Potential [[Double Battle]] with the following Grunt&lt;/small>|2|343|Baltoy||28||322|Numel|♂|28}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||560&lt;br/>&lt;small>Potential [[Double Battle]] with the previous Grunt&lt;/small>|2|343|Baltoy||28||041|Zubat|♂|28}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580|1|041|Zubat|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580|1|041|Zubat|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580|1|261|Poochyena|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt F.png|Team Magma Grunt||580&lt;br/>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with the following Grunt&lt;/small>|1|322|Numel|♀|29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580&lt;br/>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with the previous Grunt&lt;/small>|1|262|Mightyena|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580|1|041|Zubat|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580|1|262|Mightyena|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt F.png|Team Magma Grunt||580|1|343|Baltoy||29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580|1|343|Baltoy||29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580&lt;br/>&lt;small>Potential [[Double Battle]] with the following Grunt&lt;/small>|1|322|Numel|♂|29}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||580&lt;br/>&lt;small>Potential [[Double Battle]] with the previous Grunt&lt;/small>|1|041|Zubat|♂|29}}
+
+{{Party/Single
+|color={{ruby color light}}
+|headcolor={{ground color}}
+|bordercolor={{ruby color}}
+|sprite=Spr RS Tabitha.png
+|prize={{PDollar}}1320
+|class=Magma Admin
+|name={{color2|000|Tabitha}}
+|game=E
+|location=Magma Hideout (Jagged Pass)
+|locationname=Magma Hideout
+|pokemon=4}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=322
+|pokemon=Numel
+|gender=male
+|level=26
+|type1=Fire|type2=Ground
+|ability=Oblivious
+|move1=Tackle|move1type=Normal
+|move2=Ember|move2type=Fire
+|move3=Magnitude|move3type=Ground
+|move4=Focus Energy|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=262
+|pokemon=Mightyena
+|gender=male
+|level=28
+|type1=Dark
+|ability=Intimidate
+|move1=Bite|move1type=Dark
+|move2=Odor Sleuth|move2type=Normal
+|move3=Roar|move3type=Normal
+|move4=Swagger|move4type=Normal}}
+{{Party/Div|color={{ruby color light}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=041
+|pokemon=Zubat
+|gender=male
+|level=30
+|type1=Poison|type2=Flying
+|ability=Inner Focus
+|move1=Astonish|move1type=Ghost
+|move2=Bite|move2type=Dark
+|move3=Wing Attack|move3type=Flying
+|move4=Confuse Ray|move4type=Ghost}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=323
+|pokemon=Camerupt
+|gender=male
+|level=33
+|type1=Fire|type2=Ground
+|ability=Magma Armor
+|move1=Focus Energy|move1type=Normal
+|move2=Take Down|move2type=Normal
+|move3=Amnesia|move3type=Psychic
+|move4=Rock Slide|move4type=Rock}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{ruby color light}}
+|headcolor={{ground color}}
+|bordercolor={{ruby color}}
+|sprite=Spr RS Maxie.png
+|prize={{PDollar}}3120
+|class=Magma Leader
+|classlink=Maxie
+|name={{color2|000|Maxie}}
+|game=E
+|location=Magma Hideout (Jagged Pass)
+|locationname=Magma Hideout
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=262
+|pokemon=Mightyena
+|gender=male
+|level=37
+|type1=Dark
+|ability=Intimidate
+|move1=Roar|move1type=Normal
+|move2=Swagger|move2type=Normal
+|move3=Scary Face|move3type=Normal
+|move4=Take Down|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=169
+|pokemon=Crobat
+|gender=male
+|level=38
+|type1=Poison|type2=Flying
+|ability=Inner Focus
+|move1=Bite|move1type=Dark
+|move2=Wing Attack|move2type=Flying
+|move3=Confuse Ray|move3type=Ghost
+|move4=Air Cutter|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=323
+|pokemon=Camerupt
+|gender=male
+|level=39
+|type1=Fire|type2=Ground
+|ability=Magma Armor
+|move1=Take Down|move1type=Normal
+|move2=Amnesia|move2type=Psychic
+|move3=Rock Slide|move3type=Rock
+|move4=Earthquake|move4type=Ground}}
+{{Party/Footer}}
+
+"Mauville City"
+{{Party/Single
+|color={{tcg grass color light}}
+|headcolor=CED8F6
+|bordercolor={{tcg grass color}}
+|sprite=Spr RS Wally.png
+|prize={{PDollar}}960
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Wally}}
+|game=RSE
+|location=Mauville City
+|pokemon=1}}
+| style="margin:auto" |{{Pokémon/3
+|game=Emerald
+|ndex=280
+|pokemon=Ralts
+|gender=male
+|level=16
+|type1=Psychic
+|ability=Synchronize
+|move1=Growl|move1type=Normal
+|move2=Confusion|move2type=Psychic
+|move3=Double Team|move3type=Normal
+|move4=Teleport|move4type=Psychic}}
+{{Party/Footer}}
+
+"Meteor Falls"
+{{trainerentry|Spr RS Old Couple.png|Old Couple|John and Jay|3120|2|308|Medicham|♂|39||297|Hariyama|♂|39||38=Nav|36=ゲンとハツ|37=Gen and Hatsu}}
+{{trainerentry|Spr RS Dragon Tamer.png|Dragon Tamer|Nicolas|1776|2|334|Altaria|♂|37||334|Altaria|♂|37||38=Nav|36=タケル|37=Takeru}}
+{{trainerentry|Spr RS Old Couple.png|Old Couple|John and Jay|{{tt|3440|First rematch}}/{{tt|3680|Second rematch}}/{{tt|3920|Third rematch}}/{{tt|4160|Fourth rematch onwards}}|2|308|Medicham|♂|{{tt|43|First rematch}}/{{tt|46|Second rematch}}/{{tt|49|Third rematch}}/{{tt|52|Fourth rematch onwards}}||297|Hariyama|♂|{{tt|43|First rematch}}/{{tt|46|Second rematch}}/{{tt|49|Third rematch}}/{{tt|52|Fourth rematch onwards}}||36=ゲンとハツ|37=Gen and Hatsu|38=Nav}}
+{{trainerentry|Spr RS Dragon Tamer.png|Dragon Tamer|Nicolas{{tt|*|First and second rematch}}|{{tt|1968|First rematch}}/{{tt|2112|Second rematch}}|2|334|Altaria|♂|{{tt|41|First rematch}}/{{tt|44|Second rematch}}||334|Altaria|♂|{{tt|41|First rematch}}/{{tt|44|Second rematch}}||36=タケル|37=Takeru|38=Nav}}
+{{trainerentry|Spr RS Dragon Tamer.png|Dragon Tamer|Nicolas{{tt|*|Third rematch}}|2208|3|371|Bagon|♂|46||334|Altaria|♂|46||334|Altaria|♂|46||36=タケル|37=Takeru|38=Nav}}
+{{trainerentry|Spr RS Dragon Tamer.png|Dragon Tamer|Nicolas{{tt|*|Fourth rematch onwards}}|2352|3|334|Altaria|♂|49||334|Altaria|♂|49||372|Shelgon|♂|49|Dragon Fang|36=タケル|37=Takeru|38=Nav}}
+
+{{Party/Single
+|color={{steel color}}
+|headcolor={{steel color light}}
+|bordercolor={{steel color dark}}
+|sprite=Spr RS Steven.png
+|prize={{PDollar}}4680
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Steven Stone|Steven}}
+|game=E
+|location=Meteor Falls
+|pokemon=6}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=227
+|pokemon=Skarmory
+|gender=male
+|level=77
+|type1=Steel|type2=Flying
+|ability=Keen Eye
+|move1=Toxic|move1type=Poison
+|move2=Aerial Ace|move2type=Flying
+|move3=Spikes|move3type=Ground
+|move4=Steel Wing|move4type=Steel}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=344
+|pokemon=Claydol
+|level=75
+|type1=Ground|type2=Psychic
+|ability=Levitate
+|move1=Reflect|move1type=Psychic
+|move2=Light Screen|move2type=Psychic
+|move3=AncientPower|move3type=Rock
+|move4=Earthquake|move4type=Ground}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=306
+|pokemon=Aggron
+|gender=male
+|level=76
+|type1=Steel|type2=Rock
+|ability=Sturdy
+|move1=Thunder|move1type=Electric
+|move2=Earthquake|move2type=Ground
+|move3=SolarBeam|move3type=Grass
+|move4=Dragon Claw|move4type=Dragon}}
+{{Party/Div|color={{steel color}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=346
+|pokemon=Cradily
+|gender=male
+|level=76
+|type1=Rock|type2=Grass
+|ability=Suction Cups
+|move1=Giga Drain|move1type=Grass
+|move2=AncientPower|move2type=Rock
+|move3=Ingrain|move3type=Grass
+|move4=Confuse Ray|move4type=Ghost}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=348
+|pokemon=Armaldo
+|gender=male
+|level=76
+|type1=Rock|type2=Bug
+|ability=Battle Armor
+|move1=Water Pulse|move1type=Water
+|move2=AncientPower|move2type=Rock
+|move3=Aerial Ace|move3type=Flying
+|move4=Slash|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=376
+|pokemon=Metagross
+|level=78
+|type1=Steel|type2=Psychic
+|ability=Clear Body
+|held=Sitrus Berry
+|move1=Earthquake|move1type=Ground
+|move2=Psychic|move2type=Psychic
+|move3=Meteor Mash|move3type=Steel
+|move4=Shadow Ball|move4type=Ghost}}
+{{Party/Footer}}
+
+"Mossdeep Space Center"
+{{trainerentry|Spr RS Team Magma Grunt F.png|Team Magma Grunt||620|2|041|Zubat|♀|31||261|Poochyena|♀|31}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||640|1|322|Numel|♂|32}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||640|1|343|Baltoy||32}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||600|3|262|Mightyena|♂|26||262|Mightyena|♂|28||322|Numel|♂|30}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||640|1|041|Zubat|♂|32}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||640|1|262|Mightyena|♂|32}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||640|1|343|Baltoy||32}}
+
+{{Party/Single
+|color={{steel color}}
+|headcolor={{steel color light}}
+|bordercolor={{steel color dark}}
+|sprite=E Steven Back.png
+|prize=N/A
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Steven Stone|Steven}}
+|game=E
+|location=Mossdeep Space Center
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|back=yes
+|ndex=375
+|pokemon=Metang
+|level=42
+|type1=Steel|type2=Psychic
+|ability=Clear Body
+|move1=Light Screen|move1type=Psychic
+|move2=Psychic|move2type=Psychic
+|move3=Reflect|move3type=Psychic
+|move4=Metal Claw|move4type=Steel}}
+|{{Pokémon/3
+|game=Emerald
+|back=yes
+|ndex=227
+|pokemon=Skarmory
+|gender=female
+|level=43
+|type1=Steel|type2=Flying
+|ability=Sturdy
+|move1=Toxic|move1type=Poison
+|move2=Aerial Ace|move2type=Flying
+|move3=Protect|move3type=Normal
+|move4=Steel Wing|move4type=Steel}}
+|{{Pokémon/3
+|game=Emerald
+|back=yes
+|ndex=306
+|pokemon=Aggron
+|gender=female
+|level=44
+|type1=Steel|type2=Rock
+|ability=Sturdy
+|move1=Thunder|move1type=Electric
+|move2=Protect|move2type=Normal
+|move3=SolarBeam|move3type=Grass
+|move4=Dragon Claw|move4type=Dragon}}
+{{Party/Footer}}
+
+{{Party/Tag
+|color={{ruby color light}}
+|bordercolor={{ruby color}}
+|headcolor={{ground color}}
+|color1={{ruby color light}}
+|bordercolor1={{ruby color}}
+|headcolor1={{ground color}}
+|color2={{ruby color light}}
+|bordercolor2={{ruby color}}
+|headcolor2={{ground color}}
+|class=Magma Leader
+|classlink=Maxie
+|name={{color2|000|Maxie}}
+|sprite=Spr RS Maxie.png
+|class2=Magma Admin
+|name2={{color2|000|Tabitha}}
+|sprite2=Spr RS Tabitha.png
+|game=E
+|location=Mossdeep Space Center
+|prize={{pdollar}}5120
+|pokemon1=3
+|pokemon2=3}}
+|{{Pokémon/3|game=Emerald|ndex=262|pokemon=Mightyena
+|gender=male|level=42|type1=Dark|ability=Intimidate
+|move1=Swagger|move1type=Normal
+|move2=Scary Face|move2type=Normal
+|move3=Take Down|move3type=Normal
+|move4=Taunt|move4type=Dark}}
+|{{Pokémon/3|game=Emerald|ndex=169|pokemon=Crobat
+|gender=male|level=43|type1=Poison|type2=Flying|ability=Inner Focus
+|move1=Wing Attack|move1type=Flying
+|move2=Confuse Ray|move2type=Ghost
+|move3=Air Cutter|move3type=Flying
+|move4=Mean Look|move4type=Normal}}
+|{{Pokémon/3|game=Emerald|ndex=323|pokemon=Camerupt
+|gender=male|level=44|type1=Fire|type2=Ground|ability=Magma Armor
+|move1=Take Down|move1type=Normal
+|move2=Amnesia|move2type=Psychic
+|move3=Rock Slide|move3type=Rock
+|move4=Earthquake|move4type=Ground}}
+{{Party/Div|color={{ruby color light}}}}
+|{{Pokémon/3|game=Emerald|ndex=323|pokemon=Camerupt
+|gender=male|level=36|types2|type1=Fire|type2=Ground|ability=Oblivious
+|move1=Focus Energy|move1type=Normal
+|move2=Take Down|move2type=Normal
+|move3=Amnesia|move3type=Psychic
+|move4=Rock Slide|move4type=Rock}}
+|{{Pokémon/3|game=Emerald|ndex=262|pokemon=Mightyena
+|gender=male|level=38|type1=Dark|ability=Intimidate
+|move1=Roar|move1type=Normal
+|move2=Swagger|move2type=Normal
+|move3=Scary Face|move3type=Normal
+|move4=Take Down|move4type=Normal}}
+|{{Pokémon/3|game=Emerald|ndex=042|pokemon=Golbat
+|gender=male|level=40|type1=Poison|type2=Flying|ability=Inner Focus
+|move1=Bite|move1type=Dark
+|move2=Wing Attack|move2type=Flying
+|move3=Confuse Ray|move3type=Ghost
+|move4=Air Cutter|move4type=Flying}}
+{{Party/Footer}}
+
+"Mt. Chimney"
+{{trainerentry|Spr RS Team Magma Grunt F.png|Team Magma Grunt||400&lt;br/>&lt;small>Potential [[Double Battle]] with the following Grunt&lt;/small>|1|322|Numel|♀|20||}}
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt||400&lt;br/>&lt;small>Potential [[Double Battle]] with the previous Grunt&lt;/small>|1|041|Zubat|♂|20||}}
+
+{{Party/Single
+|color={{ruby color light}}
+|bordercolor={{ruby color}}
+|headcolor={{ground color}}
+|sprite=Spr RS Tabitha.png
+|prize={{PDollar}}880
+|class=Magma Admin
+|name={{color2|000|Tabitha}}
+|game=E
+|location=Mt. Chimney
+|pokemon=4}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=322
+|pokemon=Numel
+|gender=male
+|level=18
+|type1=Fire|type2=Ground
+|ability=Oblivious
+|move1=Growl|move1type=Normal
+|move2=Tackle|move2type=Normal
+|move3=Ember|move3type=Fire}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=261
+|pokemon=Poochyena
+|gender=male
+|level=20
+|type1=Dark
+|ability=Run Away
+|move1=Howl|move1type=Normal
+|move2=Sand-Attack|move2type=Ground
+|move3=Bite|move3type=Dark
+|move4=Odor Sleuth|move4type=Normal}}
+{{Party/Div|color={{ruby color light}}}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=322
+|pokemon=Numel
+|gender=male
+|level=22
+|type1=Fire|type2=Ground
+|ability=Oblivious
+|move1=Growl|move1type=Normal
+|move2=Tackle|move2type=Normal
+|move3=Ember|move3type=Fire
+|move4=Magnitude|move4type=Ground}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=041
+|pokemon=Zubat
+|gender=male
+|level=22
+|type1=Poison|type2=Flying
+|ability=Inner Focus
+|move1=Supersonic|move1type=Normal
+|move2=Astonish|move2type=Ghost
+|move3=Bite|move3type=Dark
+|move4=Wing Attack|move4type=Flying}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{ruby color light}}
+|headcolor={{ground color}}
+|bordercolor={{ruby color}}
+|sprite=Spr RS Maxie.png
+|prize={{PDollar}}2000
+|class=Magma Leader
+|classlink=Maxie
+|name={{color2|000|Maxie}}
+|game=E
+|location=Mt. Chimney
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=262
+|pokemon=Mightyena
+|gender=male
+|level=24
+|type1=Dark
+|ability=Intimidate
+|move1=Sand-Attack|move1type=Ground
+|move2=Bite|move2type=Dark
+|move3=Odor Sleuth|move3type=Normal
+|move4=Roar|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=041
+|pokemon=Zubat
+|gender=male
+|level=24
+|type1=Poison|type2=Flying
+|ability=Inner Focus
+|move1=Supersonic|move1type=Normal
+|move2=Astonish|move2type=Ghost
+|move3=Bite|move3type=Dark
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=323
+|pokemon=Camerupt
+|gender=male
+|level=25
+|type1=Fire|type2=Ground
+|ability=Magma Armor
+|move1=Tackle|move1type=Normal
+|move2=Ember|move2type=Fire
+|move3=Magnitude|move3type=Ground
+|move4=Focus Energy|move4type=Normal}}
+{{Party/Footer}}
+
+{{trainerentry|Spr RS Beauty.png|Beauty|Shirley|1680|1|322|Numel|♀|21||36=アサミ|37=Asami}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Sheila|1680|1|285|Shroomish|♀|21||36=クニミ|37=Kunimi}}
+{{trainerentry|Spr RS Expert F.png|Expert|Shelby|840|2|307|Meditite|♀|21||296|Makuhita|♂|21||36=ミヤコ|37=Miyako|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Sawyer|840&lt;br/>&lt;small>Potential [[Double Battle]] with Melissa&lt;/small>|1|074|Geodude|♂|21||36=マサヒロ|37=Masahiro|38=Nav|}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Melissa|1680&lt;br/>&lt;small>Potential [[Double Battle]] with Sawyer&lt;/small>|1|183|Marill|♀|21||36=メグミ|37=Megumi}}
+{{trainerentry|Spr RS Expert F.png|Expert|Shelby{{tt|*|First rematch}}|1200|2|307|Meditite|♀|30||296|Makuhita|♂|30||36=ミヤコ|37=Miyako|38=Nav}}
+{{trainerentry|Spr RS Expert F.png|Expert|Shelby{{tt|*|Second, third and fourth rematch onwards}} |{{tt|1320|Second rematch}}/{{tt|1440|Third rematch}}/{{tt|1560|Fourth rematch onwards}}|2|308|Medicham|♀|{{tt|33|Second rematch}}/{{tt|36|Third rematch}}/{{tt|39|Fourth rematch onwards}}||297|Hariyama|♂|{{tt|33|Second rematch}}/{{tt|36|Third rematch}}/{{tt|39|Fourth rematch onwards}}||36=ミヤコ|37=Miyako|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Sawyer{{tt|*|First rematch}}|1040|2|074|Geodude|♂|26|None|322|Numel|♂|26|None||36=マサヒロ|37=Masahiro|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Sawyer{{tt|*|Second and third rematch}}|{{tt|1120|Second rematch}}/{{tt|1200|Third rematch}}|3|066|Machop|♂|{{tt|28|Second rematch}}/{{tt|30|Third rematch}}|None|322|Numel|♂|{{tt|28|Second rematch}}/{{tt|30|Third rematch}}|None|075|Graveler|♂|{{tt|28|Second rematch}}/{{tt|30|Third rematch}}|None||36=マサヒロ|37=Masahiro|38=Nav}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Sawyer{{tt|*|Fourth rematch onwards}}|1320|3|067|Machoke|♂|33|None|323|Camerupt|♂|33|None|076|Golem|♂|33|None||36=マサヒロ|37=Masahiro|38=Nav}}
+
+"Mt. Pyre"
+{{trainerentry|Spr RS PokéManiac.png|PokéManiac|Mark|1860&lt;br/>&lt;small>Potential [[Double Battle]] with Leah&lt;/small>|1|111|Rhyhorn|♂|31||36=モトフミ|37=Motofumi}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Leah|744&lt;br/>&lt;small>Potential [[Double Battle]] with Mark or Zander&lt;/small>|1|325|Spoink|♀|31||36=エミ|37=Emi}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Zander|992&lt;br/>&lt;small>Potential [[Double Battle]] with Leah&lt;/small>|1|297|Hariyama|♂|31||36=リョウジ|37=Ryōji}}
+{{trainerentry|Spr RS Young Couple.png|Young Couple|Dez &amp; Luke|1984|2|301|Delcatty|♀|31||310|Manectric|♂|31||36=マコとテル|37=Mako and Teru}}
+{{trainerentry|Spr RS Psychic F.png|Psychic|Kayla|624&lt;br/>&lt;small>Potential [[Double Battle]] with Gabrielle&lt;/small>|3|202|Wobbuffet|♀|26||177|Natu|♀|26||064|Kadabra|♂|26||36=オリエ|37=Orie}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Gabrielle|1040&lt;br/>&lt;small>Potential [[Double Battle]] with Kayla or William{{tt|*|Only three first Pokémon will be used if faced in a Double Battle}}&lt;/small>|6|300|Skitty|♀|26||261|Poochyena|♀|26||263|Zigzagoon|♀|26||270|Lotad|♀|26||273|Seedot|♀|26||276|Taillow|♀|26|36=フクミ|37=Fukumi|38=Nav|}}
+{{trainerentry|Spr RS Psychic M.png|Psychic|William|624&lt;br/>&lt;small>Potential [[Double Battle]] with Gabrielle&lt;/small>|3|280|Ralts|♂|26||280|Ralts|♂|26||281|Kirlia|♂|26||36=テツヤ|37=Tetsuya}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Tasha|768|1|353|Shuppet|♀|32||36=ホタル|37=Hotaru}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Atsushi|1024|1|297|Hariyama|♂|32||36=テツヒサ|37=Tetsuhisa}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Valerie|768&lt;br/>&lt;small>Potential [[Double Battle]] with Cedric&lt;/small>|1|302|Sableye|♀|32||36=ホノカ|37=Honoka|38=Nav}}
+{{trainerentry|Spr RS Psychic M.png|Psychic|Cedric|768&lt;br/>&lt;small>Potential [[Double Battle]] with Valerie&lt;/small>|1|202|Wobbuffet|♂|32||36=ヨシキヨ|37=Yoshikiyo}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Gabrielle{{tt|*|First rematch}}|1240|6|300|Skitty|♀|31||262|Mightyena|♀|31||263|Zigzagoon|♀|31||270|Lotad|♀|31||273|Seedot|♀|31||276|Taillow|♀|31||36=フクミ|37=Fukumi|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Gabrielle{{tt|*|Second rematch}}|1320|6|300|Skitty|♀|33||262|Mightyena|♀|33||264|Linoone|♀|33||271|Lombre|♀|33||274|Nuzleaf|♀|33||276|Taillow|♀|33||36=フクミ|37=Fukumi|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Gabrielle{{tt|*|Third rematch}}|1400|6|301|Delcatty|♀|35||262|Mightyena|♀|35||264|Linoone|♀|35||271|Lombre|♀|35||274|Nuzleaf|♀|35||277|Swellow|♀|35||36=フクミ|37=Fukumi|38=Nav}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Gabrielle{{tt|*|Fourth rematch onwards}}|1480|6|301|Delcatty|♀|37||262|Mightyena|♀|37||264|Linoone|♀|37||272|Ludicolo|♀|37||275|Shiftry|♀|37||277|Swellow|♀|37||36=フクミ|37=Fukumi|38=Nav}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Valerie{{tt|*|First rematch}}|744|2|302|Sableye|♀|31||325|Spoink|♀|31||36=ホノカ|37=Honoka|38=Nav}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Valerie{{tt|*|Second and third rematch}}|{{tt|840|Second rematch}}/{{tt|960|Third rematch}}|2|325|Spoink|♀|{{tt|35|Second rematch}}/{{tt|40|Third rematch}}||302|Sableye|♀|{{tt|35|Second rematch}}/{{tt|40|Third rematch}}||36=ホノカ|37=Honoka|38=Nav}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Valerie{{tt|*|Fourth rematch onwards}}|1008|3|355|Duskull|♀|42||302|Sableye|♀|42||326|Grumpig|♀|42||36=ホノカ|37=Honoka|38=Nav}}
+
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||640|1|318|Carvanha|♂|32||}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||640|1|041|Zubat|♂|32||}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||600&lt;br/>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with the following Grunt&lt;/small>|2|261|Poochyena|♂|30||318|Carvanha|♂|30||}}
+{{trainerentry|Spr RS Team Aqua Grunt F.png|Team Aqua Grunt||600&lt;br/>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with the previous Grunt&lt;/small>|2|320|Wailmer|♀|30||041|Zubat|♀|30||}}
+
+"Oceanic Museum"
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||300|1|318|Carvanha|♂|15}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||280|2|041|Zubat|♂|14||318|Carvanha|♂|14}}
+
+"Petalburg Woods"
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|Lyle|48|4|265|Wurmple|♂|3||265|Wurmple|♂|3||265|Wurmple|♂|3||265|Wurmple|♂|3||36=フジオ|37=Fujio}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png‎|Team Aqua Grunt||180|1|261|Poochyena|♂|9|}}
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|James|96|2|290|Nincada|♂|6||290|Nincada|♂|6||36=ミキヤ|37=Mikiya|38=Nav}}
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|James{{tt|*|First rematch}}|432|1|291|Ninjask|♂|27||36=ミキヤ|37=Mikiya|38=Nav}}
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|James{{tt|*|Second rematch}}|464|2|269|Dustox|♂|29||291|Ninjask|♂|29||36=ミキヤ|37=Mikiya|38=Nav}}
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|James{{tt|*|Third rematch}}|496|3|283|Surskit|♂|31||269|Dustox|♂|31||291|Ninjask|♂|31||36=ミキヤ|37=Mikiya|38=Nav}}
+{{trainerentry|Spr RS Bug Catcher.png|Bug Catcher|James{{tt|*|Fourth rematch onwards}}|528|4|283|Surskit|♂|33||291|Ninjask|♂|33||269|Dustox|♂|33||291|Ninjask|♂|33||36=ミキヤ|37=Mikiya|38=Nav}}
+
+"Rustboro City"
+{{MSP/3|252|Treecko}} If the {{player}} chose {{p|Treecko}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=Brendan
+|game=E
+|location=Rustboro City
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=270
+|pokemon=Lotad
+|gender=male
+|level=13
+|type1=Water|type2=Grass
+|ability=Swift Swim
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=255
+|pokemon=Torchic
+|gender=male
+|level=15
+|type1=Fire
+|ability=Blaze
+|move1=Scratch|move1type=Normal
+|move2=Growl|move2type=Normal
+|move3=Focus Energy|move3type=Normal
+|move4=Ember|move4type=Fire}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=May
+|game=E
+|location=Rustboro City
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=270
+|pokemon=Lotad
+|gender=female
+|level=13
+|type1=Water|type2=Grass
+|ability=Swift Swim
+|move1=Astonish|move1type=Ghost
+|move2=Growl|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Nature Power|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=255
+|pokemon=Torchic
+|gender=male
+|level=15
+|type1=Fire
+|ability=Blaze
+|move1=Scratch|move1type=Normal
+|move2=Growl|move2type=Normal
+|move3=Focus Energy|move3type=Normal
+|move4=Ember|move4type=Fire}}
+{{Party/Footer}}
+
+{{MSP/3|255|Torchic}} If the {{player}} chose {{p|Torchic}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=Brendan
+|game=E
+|location=Rustboro City
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=218
+|pokemon=Slugma
+|gender=male
+|level=13
+|type1=Fire
+|ability=Flame Body
+|move1=Yawn|move1type=Normal
+|move2=Smog|move2type=Poison
+|move3=Ember|move3type=Fire}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=258
+|pokemon=Mudkip
+|gender=male
+|level=15
+|type1=Water
+|ability=Torrent
+|move1=Growl|move1type=Normal
+|move2=Mud-Slap|move2type=Ground
+|move3=Water Gun|move3type=Water
+|move4=Bide|move4type=Normal}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=May
+|game=E
+|location=Rustboro City
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=324
+|pokemon=Torkoal
+|gender=female
+|level=13
+|type1=Fire
+|ability=White Smoke
+|move1=Ember|move1type=Fire
+|move2=Smog|move2type=Poison
+|move3=Curse|move3type=???}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=258
+|pokemon=Mudkip
+|gender=male
+|level=15
+|type1=Water
+|ability=Torrent
+|move1=Growl|move1type=Normal
+|move2=Mud-Slap|move2type=Ground
+|move3=Water Gun|move3type=Water
+|move4=Bide|move4type=Normal}}
+{{Party/Footer}}
+
+{{MSP/3|258|Mudkip}} If the {{player}} chose {{p|Mudkip}}:
+{{Party/Single
+|color={{ruby color}}
+|headcolor={{ruby color light}}
+|bordercolor={{ruby color dark}}
+|sprite=Spr E Brendan.png
+|prize={{Pdollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=Brendan
+|game=E
+|location=Rustboro City
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=278
+|pokemon=Wingull
+|gender=male
+|level=13
+|type1=Water|type2=Flying
+|ability=Keen Eye
+|move1=Growl|move1type=Normal
+|move2=Water Gun|move2type=Water
+|move3=Supersonic|move3type=Normal
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=252
+|pokemon=Treecko
+|gender=male
+|level=15
+|type1=Grass
+|ability=Overgrow
+|move1=Pound|move1type=Normal
+|move2=Leer|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Quick Attack|move4type=Normal}}
+{{Party/Footer}}
+
+{{Party/Single
+|color={{sapphire color}}
+|headcolor={{sapphire color light}}
+|bordercolor={{sapphire color dark}}
+|sprite=Spr E May.png
+|prize={{PDollar}}900
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name=May
+|game=E
+|location=Rustboro City
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=278
+|pokemon=Wingull
+|gender=female
+|level=13
+|type1=Water|type2=Flying
+|ability=Keen Eye
+|move1=Growl|move1type=Normal
+|move2=Water Gun|move2type=Water
+|move3=Supersonic|move3type=Normal
+|move4=Wing Attack|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=252
+|pokemon=Treecko
+|gender=male
+|level=15
+|type1=Grass
+|ability=Overgrow
+|move1=Pound|move1type=Normal
+|move2=Leer|move2type=Normal
+|move3=Absorb|move3type=Grass
+|move4=Quick Attack|move4type=Normal}}
+{{Party/Footer}}
+
+"Rusturf Tunnel"
+{{trainerentry|Spr RS Team Magma Grunt M.png|Team Magma Grunt|{{sup/3|R}}|220&lt;br>&lt;small>After earning the {{badge|Stone}}&lt;/small>|1|261|Poochyena|♂|11||}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt|{{sup/3|S}}{{sup/3|E}}|220&lt;br>&lt;small>After earning the {{badge|Stone}}&lt;/small>|1|261|Poochyena|♂|11||}}
+{{trainerentry|Spr RS Hiker.png|Hiker|Mike|640|3|074|Geodude|♂|16|None|074|Geodude|♂|16|None|066|Machop|♂|16|None||36=ノボル|37=Noboru}}
+
+"S.S. Tidal"
+{{Trainerdiv|water|Cabins}}
+{{Trainerentry|Spr RS Young Couple.png|Young Couple|Lea &amp; Jed|2880|2|370|Luvdisc|♀|45||370|Luvdisc|♀|45|36=カホとジン|37=Kaho and Jin}}
+{{Trainerdiv|water}}
+{{Trainerentry|Spr RS Rich Boy.png|Rich Boy|Garret|9000|1|184|Azumarill|♂|45|Nugget|36=ショウイチ|37=Shōichi}}
+{{Trainerdiv|water}}
+{{Trainerentry|Spr RS Gentleman.png|Gentleman|Tucker{{sup/3|RuSa}}/Micah{{sup/3|E}}|3520|2|310|Manectric|♂|44||310|Manectric|♂|44|36=オルソン|37=Olson}}
+{{Trainerdiv|water}}
+{{Trainerentry|Spr RS Pokéfan M.png|Pokéfan|Colton|3360|6|300|Skitty|♀|22|Oran Berry|300|Skitty|♀|36|Oran Berry|300|Skitty|♀|40|Oran Berry|300|Skitty|♀|12|Oran Berry|300|Skitty|♀|30|Oran Berry|301|Delcatty|♀|42|Oran Berry|36=ヒサシ|37=Hisashi}}
+{{Trainerdiv|water}}
+{{Trainerentry|Spr RS Lady.png|Lady|Anette{{sup/3|RuSa}}/Naomi{{sup/3|E}}|9000|1|315|Roselia|♀|45|Nugget|36=カナコ|37=Kanako}}
+{{Trainerdiv|water}}
+{{Trainerentry|Spr RS Gentleman.png|Gentleman|Thomas|3600|1|335|Zangoose|♂|45|36=スコット|37=Scott}}
+{{Trainerdiv|water|Storage}}
+{{Trainerentry|Spr RS Sailor.png|Sailor|Phillip|1408&lt;br>&lt;small>Potential [[Double Battle]] with Leonard{{sup/3|E}}&lt;/small>|2|073|Tentacruel|♂|44||067|Machoke|♂|44|36=ユウサク|37=Yūsaku}}
+{{Trainerentry|Spr RS Sailor.png|Sailor|Leonard|1376&lt;br>&lt;small>Potential [[Double Battle]] with Phillip{{sup/3|E}}&lt;/small>|3|066|Machop|♂|43||279|Pelipper|♂|43||067|Machoke|♂|43|36=ダイキ|37=Daiki}}
+{{Trainerfooter|water|3}}
+
+"Seafloor Cavern"
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||720|1|261|Poochyena|♂|36}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||720|1|318|Carvanha|♂|36}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||720&lt;br/>&lt;small>Potential [[Double Battle]] with the following Grunt&lt;/small>|1|041|Zubat|♂|36}}
+{{trainerentry|Spr RS Team Aqua Grunt F.png|Team Aqua Grunt||720&lt;br/>&lt;small>Potential [[Double Battle]] with the previous Grunt&lt;/small>|1|318|Carvanha|♀|36}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||700&lt;br/>&lt;small>Potential [[Double Battle]] with Shelly&lt;/small>|2|262|Mightyena|♂|35||042|Golbat|♂|35}}
+{{Party/Single
+|color={{sapphire color light}}
+|headcolor={{water color}}
+|bordercolor={{sapphire color}}
+|sprite=Spr RS Shelly.png
+|prize={{PDollar}}1480
+|class=Aqua Admin
+|name={{color2|000000|Shelly}}
+|game=E
+|location=Seafloor Cavern
+|pokemon=2}}
+|{{Pokémon/3
+|ndex=319
+|pokemon=Sharpedo
+|game=Emerald
+|gender=female
+|level=37
+|type1=Water|type2=Dark
+|ability=Rough Skin
+|move1=Scary Face|move1type=Normal
+|move2=Crunch|move2type=Dark
+|move3=Screech|move3type=Normal
+|move4=Slash|move4type=Normal}}
+|{{Pokémon/3
+|ndex=262
+|pokemon=Mightyena
+|game=Emerald
+|gender=female
+|level=37
+|type1=Dark
+|ability=Intimidate
+|move1=Roar|move1type=Normal
+|move2=Swagger|move2type=Normal
+|move3=Scary Face|move3type=Normal
+|move4=Take Down|move4type=Normal}}
+{{Party/Footer}}
+{{Party/Single
+|color={{sapphire color light}}
+|headcolor={{water color}}
+|bordercolor={{sapphire color}}
+|sprite=Spr RS Archie.png
+|prize={{PDollar}}3440
+|class=Aqua Leader
+|classlink=Archie
+|name={{color2|000000|Archie}}
+|game=E
+|location=Seafloor Cavern
+|pokemon=3}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=262
+|pokemon=Mightyena
+|gender=male
+|level=41
+|type1=Dark
+|ability=Intimidate
+|move1=Roar|move1type=Normal
+|move2=Swagger|move2type=Normal
+|move3=Scary Face|move3type=Normal
+|move4=Take Down|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=169
+|pokemon=Crobat
+|gender=male
+|level=41
+|type1=Poison|type2=Flying
+|ability=Inner Focus
+|move1=Bite|move1type=Dark
+|move2=Wing Attack|move2type=Flying
+|move3=Confuse Ray|move3type=Ghost
+|move4=Air Cutter|move4type=Flying}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=319
+|pokemon=Sharpedo
+|gender=male
+|level=43
+|type1=Water|type2=Dark
+|ability=Rough Skin
+|move1=Screech|move1type=Normal
+|move2=Slash|move2type=Normal
+|move3=Taunt|move3type=Dark
+|move4=Swagger|move4type=Normal}}
+{{Party/Footer}}
+
+"Seaside Cycling Road"
+{{trainerentry|Spr RS Psychic F.png|Psychic|Jaclyn|384|1|063|Abra|♂|16|36=マリコ|37=Mariko}}
+{{trainerentry|Spr RS Triathlete Biker F.png|Triathlete|Abigail|640|1|081|Magnemite||16|36=ショウコ|37=Shōko|38=Nav}}
+{{trainerentry|Spr RS Triathlete Biker M.png|Triathlete|Anthony|560|2|081|Magnemite||14||081|Magnemite||14|36=シュソスケ|37=Shusosuke}}
+{{trainerentry|Spr RS Triathlete Biker M.png|Triathlete|Benjamin|640|1|081|Magnemite||16|36=ヒデアキ|37=Hideaki|38=Nav}}
+{{trainerentry|Spr RS Triathlete Biker F.png|Triathlete|Jasmine|240|3|081|Magnemite||14||081|Magnemite||14||100|Voltorb||6|36=ヒデミ|37=Hidemi}}
+{{trainerentry|Spr RS Triathlete Biker M.png|Triathlete|Jacob|560|3|100|Voltorb||6||100|Voltorb||6||081|Magnemite||14|36=ススム|37=Susumu}}
+{{Trainerdiv|road|Rematch}}
+{{trainerentry|Spr RS Triathlete Biker F.png|Triathlete|Abigail{{tt|*|First and second rematch}}|{{tt|1120|First rematch}}/{{tt|1240|Second rematch}}|1|081|Magnemite||{{tt|28|First rematch}}/{{tt|31|Second rematch}}||36=ショウコ|37=Shōko|38=Nav}}
+{{trainerentry|Spr RS Triathlete Biker F.png|Triathlete|Abigail{{tt|*|Third and fourth rematch onwards}}|{{tt|1360|Third rematch}}/{{tt|1480|Fourth rematch onwards}}|1|082|Magneton||{{tt|34|Third rematch}}/{{tt|37|Fourth rematch onwards}}||36=ショウコ|37=Shōko|38=Nav}}
+{{trainerentry|Spr RS  Triathlete Biker M.png|Triathlete|Benjamin{{tt|*|First and second rematch}}|{{tt|1200|First rematch}}/{{tt|1320|Second rematch}}|1|081|Magnemite||{{tt|30|First rematch}}/{{tt|33|Second rematch}}||36=ヒデアキ|37=Hideaki|38=Nav}}
+{{trainerentry|Spr RS  Triathlete Biker M.png|Triathlete|Benjamin{{tt|*|Third and fourth rematch onwards}}|{{tt|1440|Third rematch}}/{{tt|1560|Fourth rematch onwards}}|1|082|Magneton||{{tt|36|Third rematch}}/{{tt|39|Fourth rematch onwards}}||36=ヒデアキ|37=Hideaki|38=Nav}}
+
+"Team Aqua Hideout"
+{{catch/div|water|1F}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||640|1|261|Poochyena|♂|32}}
+{{catch/div|water|B1F (third area)}}
+{{trainerentry|Spr RS Team Aqua Grunt F.png|Team Aqua Grunt||640|1|318|Carvanha|♀|32}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||620&lt;br/>&lt;small>Potential [[Double Battle]] with the following Grunt&lt;/small>|2|041|Zubat|♂|31||318|Carvanha|♂|31}}
+{{trainerentry|Spr RS Team Aqua Grunt F.png|Team Aqua Grunt||620&lt;br/>&lt;small>Potential [[Double Battle]] with the previous Grunt&lt;/small>|2|261|Poochyena|♀|31||041|Zubat|♀|31}}
+{{catch/div|water|B2F (first area)}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||640|1|318|Carvanha|♂|32}}
+{{catch/div|water|B1F (sixth area)}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||640|1|041|Zubat|♂|32}}
+{{catch/div|water|B2F (fourth area)}}
+{{trainerentry|Spr RS Team Aqua Grunt F.png|Team Aqua Grunt||640&lt;br/>&lt;small>Potential [[Double Battle]] with the following Grunt&lt;/small>|1|041|Zubat|♀|32}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||640&lt;br/>&lt;small>Potential [[Double Battle]] with the previous Grunt&lt;/small>|1|318|Carvanha|♂|32}}
+
+{{Party/Single
+|color={{sapphire color light}}
+|headcolor={{water color}}
+|bordercolor={{sapphire color}}
+|sprite=Spr RS Matt.png
+|prize={{PDollar}}1360
+|class=Aqua Admin
+|name={{color2|000|Matt}}
+|game=E
+|location=Team Aqua Hideout
+|locationname=Aqua Hideout
+|pokemon=2}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=262
+|pokemon=Mightyena
+|gender=male
+|level=34
+|type1=Dark
+|ability=Intimidate
+|move1=Odor Sleuth|move1type=Normal
+|move2=Roar|move2type=Normal
+|move3=Swagger|move3type=Normal
+|move4=Scary Face|move4type=Normal}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=042
+|pokemon=Golbat
+|gender=male
+|level=34
+|type1=Poison|type2=Flying
+|ability=Inner Focus
+|move1=Astonish|move1type=Ghost
+|move2=Bite|move2type=Dark
+|move3=Wing Attack|move3type=Flying
+|move4=Confuse Ray|move4type=Ghost}}
+{{Party/Footer}}
+
+"Trainer Hill"
+{{trainerentry|Spr RS Youngster.png|Youngster|Shigenobu|N/A|3|263|Zigzagoon|♂|1-100|Sitrus Berry|285|Shroomish|♀|1-100|Pecha Berry|027|Sandshrew|♂|1-100|Quick Claw|36=シゲノブ}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Akari|N/A|3|278|Wingull|1-100|1-100|Cheri Berry|322|Numel|♂|1-100|Focus Band|283|Surskit|♀|1-100|Persim Berry|36=アカリ}}
+{{trainerentry|Spr RS Ninja Boy.png|Ninja Boy|Shigezo|N/A|3|309|Electrike|♀|1-100|Cheri Berry|341|Corphish|♂|1-100|Quick Claw|343|Baltoy||1-100|Persim Berry|36=シゲゾウ}}
+{{trainerentry|Spr RS Beauty.png|Beauty|Namiko|N/A|3|363|Spheal|♂|1-100|Focus Band|325|Spoink|♀|1-100|Persim Berry|261|Poochyena|♂|1-100|Pecha Berry|36=ナミコ}}
+{{trainerentry|Spr RS Hex Maniac JP.png|Hex Maniac|Makie|N/A|3|317|Swalot|♂|1-100|Shell Bell|269|Dustox|♀|1-100|BrightPowder|369|Relicanth|♂|1-100|Quick Claw|36=マキエ}}
+{{trainerentry|Spr RS Camper.png|Camper|Haruhito|N/A|3|332|Cacturne|♂|1-100|Quick Claw|277|Swellow|♂|1-100|BrightPowder|340|Whiscash|♀|1-100|Chesto Berry|36=ハルヒト}}
+{{trainerentry|Spr RS School Kid F.png|School Kid|Meiko|N/A|3|301|Delcatty|♀|1-100|Lum Berry|315|Roselia|♀|1-100|Leftovers|267|Beautifly|♀|1-100|BrightPowder|36=メイコ}}
+{{trainerentry|Spr RS Gentleman.png|Gentleman|Pierre|N/A|3|303|Mawile|♀|1-100|BrightPowder|319|Sharpedo|♂|1-100|Scope Lens|354|Banette|♂|1-100|Lum Berry|36=ピエール}}
+{{trainerentry|Spr RS Triathlete Biker M.png|Triathlete|Alfonso|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Alaina&lt;/small>|3|136|Flareon|♂|1-100|Charcoal|082|Magneton||1-100|Magnet|127|Pinsir|♂|1-100|Quick Claw}}
+{{trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Alaina|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Alfonso&lt;/small>|3|200|Misdreavus|♀|1-100|BrightPowder|338|Solrock||1-100|Focus Band|344|Claydol||1-100|Shell Bell}}
+{{trainerentry|Spr RS Black Belt.png|Black Belt|Theodore|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Jayden&lt;/small>|3|307|Meditite|♂|1-100|Focus Band|214|Heracross|♂|1-100|Focus Band|237|Hitmontop|♂|1-100|Shell Bell}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Jayden|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Theodore&lt;/small>|3|122|Mr. Mime|♂|1-100|Sitrus Berry|311|Plusle|♀|1-100|Sitrus Berry|175|Togepi|♂|1-100|Sitrus Berry}}
+{{trainerentry|Spr RS Pokémon Breeder M.png|Pokémon Breeder|Salvadore|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Veronica&lt;/small>|3|134|Vaporeon|♂|1-100|Focus Band|085|Dodrio|♂|1-100|King's Rock|139|Omastar|♀|1-100|Quick Claw}}
+{{trainerentry|Spr RS Pokémon Breeder F.png|Pokémon Breeder|Veronica|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Salvadore&lt;/small>|3|031|Nidoqueen|♀|1-100|Salac Berry|038|Ninetales|♂|1-100|Salac Berry|006|Charizard|♂|1-100|Salac Berry}}
+{{trainerentry|Spr RS Psychic M.png|Psychic|Keenan|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Kristina&lt;/small>|3|065|Alakazam|♂|1-100|Petaya Berry|242|Blissey|♀|1-100|Leftovers|326|Grumpig|♂|1-100|TwistedSpoon}}
+{{trainerentry|Spr RS Aroma Lady.png|Aroma Lady|Kristina|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Keenan&lt;/small>|3|357|Tropius|♂|1-100|White Herb|182|Bellossom|♀|1-100|Mental Herb|154|Meganium|♂|1-100|Miracle Seed}}
+{{trainerentry|Spr RS Gentleman.png|Gentleman|Terrance|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Elizabeth&lt;/small>|3|225|Delibird|♂|1-100|Sitrus Berry|035|Clefairy|♀|1-100|Sitrus Berry|025|Pikachu|♀|1-100|Sitrus Berry}}
+{{trainerentry|Spr RS Lady.png|Lady|Elizabeth|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Terrance&lt;/small>|3|222|Corsola|♀|1-100|Silk Scarf|366|Clamperl|♀|1-100|Silk Scarf|121|Starmie||1-100|Silk Scarf}}
+{{trainerentry|Spr RS Parasol Lady.png|Parasol Lady|Annabell|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Coleman&lt;/small>|3|039|Jigglypuff|♀|1-100|BrightPowder|124|Jynx|♀|1-100|BrightPowder|295|Exploud|♂|1-100|BrightPowder}}
+{{trainerentry|Spr RS Collector.png|Collector|Coleman|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Annabell&lt;/small>|3|314|Illumise|♀|1-100|BrightPowder|363|Spheal|♀|1-100|Focus Band|288|Vigoroth|♂|1-100|Focus Band}}
+{{trainerentry|Spr RS Rich Boy.png|Rich Boy|Enrique|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Colleen&lt;/small>|3|194|Wooper|♂|1-100|Figy Berry|060|Poliwag|♀|1-100|Wiki Berry|054|Psyduck|♀|1-100|Aguav Berry}}
+{{trainerentry|Spr RS Lady.png|Lady|Colleen|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Enrique&lt;/small>|3|343|Baltoy||1-100|Silk Scarf|204|Pineco|♀|1-100|Silk Scarf|100|Voltorb||1-100|Silk Scarf}}
+{{trainerentry|Spr RS Pokéfan F.png|Pokéfan|Kimberly|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Francisco&lt;/small>|3|201K|Unown||1-100|Miracle Seed|201R|Unown||1-100|Mystic Water|201G|Unown||1-100|Black Belt}}
+{{trainerentry|Spr RS Pokéfan M.png|Pokéfan|Francisco|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Kimberly&lt;/small>|3|201O|Unown||1-100|Charcoal|201L|Unown||1-100|Soft Sand|201N|Unown||1-100|TwistedSpoon}}
+{{trainerentry|Spr RS Kindler.png|Kindler|Bernard|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Merdith&lt;/small>|3|219|Magcargo|♂|1-100|Quick Claw|078|Rapidash|♀|1-100|King's Rock|146|Moltres||1-100|BrightPowder}}
+{{trainerentry|Spr RS Pokémon Ranger F.png|Pokémon Ranger|Merdith|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Bernard&lt;/small>|3|192|Sunflora|♀|1-100|Persim Berry|114|Tangela|♂|1-100|Quick Claw|003|Venusaur|♂|1-100|Leftovers}}
+{{trainerentry|Spr RS Ruin Maniac.png|Ruin Maniac|Abraham|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Luc&lt;/small>|3|235|Smeargle|♂|1-100|Scope Lens|235|Smeargle|♂|1-100|Chesto Berry|235|Smeargle|♀|1-100|Quick Claw}}
+{{trainerentry|Spr RS Tuber M.png|Tuber|Luc|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Abraham&lt;/small>|3|104|Cubone|♀|1-100|Thick Club|015|Beedrill|♂|1-100|Shell Bell|020|Raticate|♀|1-100|Focus Band}}
+{{trainerentry|Spr RS Youngster.png|Youngster|Breyden|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Aniya&lt;/small>|3|005|Charmeleon|♂|1-100|Charcoal|008|Wartortle|♀|1-100|Mystic Water|002|Ivysaur|♀|1-100|Miracle Seed}}
+{{trainerentry|Spr RS Tuber F.png|Tuber|Aniya|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Breyden&lt;/small>|3|173|Cleffa|♀|1-100|Quick Claw|360|Wynaut|♂|1-100|Leftovers|240|Magby|♀|1-100|Scope Lens}}
+{{trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Dane|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Stephanie&lt;/small>|3|185|Sudowoodo|♂|1-100|Sitrus Berry|199|Slowking|♂|1-100|Scope Lens|244|Entei||1-100|Petaya Berry}}
+{{trainerentry|Spr RS Triathlete Swimmer F.png|Triathlete|Stephanie|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Dane&lt;/small>|3|229|Houndoom|♀|1-100|Quick Claw|234|Stantler|♀|1-100|Leftovers|144|Articuno||1-100|NeverMeltIce}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Alfred|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Edie&lt;/small>|3|143|Snorlax|♂|1-100|Quick Claw|241|Miltank|♀|1-100|Leftovers|217|Ursaring|♂|1-100|Quick Claw}}
+{{trainerentry|Spr RS Psychic F.png|Psychic|Edie|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Alfred&lt;/small>|3|094|Gengar|♀|1-100|Lum Berry|282|Gardevoir|♀|1-100|Salac Berry|065|Alakazam|♀|1-100|Lum Berry}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Roderick|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Alicia&lt;/small>|3|277|Swellow|♀|1-100|Leftovers|068|Machamp|♀|1-100|Leftovers|217|Ursaring|♀|1-100|Leftovers}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Alicia|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Roderick&lt;/small>|3|356|Dusclops|♂|1-100|Leftovers|038|Ninetales|♂|1-100|White Herb|354|Banette|♂|1-100|Focus Band}}
+{{trainerentry|Spr RS Expert M.png|Expert|Terrence|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Carlotta&lt;/small>|3|202|Wobbuffet|♂|1-100|Leftovers|295|Exploud|♂|1-100|Chesto Berry|169|Crobat|♀|1-100|King's Rock}}
+{{trainerentry|Spr RS Expert F.png|Expert|Carlotta|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Terrance&lt;/small>|3|087|Dewgong|♀|1-100|Chesto Berry|186|Politoed|♀|1-100|BrightPowder|105|Marowak|♀|1-100|Quick Claw}}
+{{trainerentry|Spr RS Pokémon Ranger F.png|Pokémon Ranger|Nora|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Gav&lt;/small>|3|205|Forretress|♀|1-100|Quick Claw|101|Electrode||1-100|Salac Berry|103|Exeggutor|♂|1-100|Shell Bell}}
+{{trainerentry|Spr RS Pokémon Ranger M.png|Pokémon Ranger|Gav|N/A&lt;br>&lt;small>Potential [[Double Battle]] with Nora&lt;/small>|3|094|Gengar|♀|1-100|Salac Berry|356|Dusclops|♀|1-100|Leftovers|200|Misdreavus|♂|1-100|Focus Band}}
+
+"Trick House"
+{{Trainerentry|Spr RS Lass.png|Lass|Sally|256&lt;br>&lt;small>Requires {{m|Cut}}{{sup/3|RS}}&lt;/small>|1|043|Oddish|♀|16|36=ミナ|37=Mina}}
+{{Trainerdiv|fighting|Requires Cut}}
+{{Trainerentry|Spr RS Lass.png|Lass|Robin|224|3|300|Skitty|♀|14||285|Shroomish|♀|14||183|Marill|♀|14||36=シホ|37=Shiho}}
+{{Trainerdiv|fighting}}
+{{Trainerentry|Spr RS Youngster.png|Youngster|Eddie|256|2|263|Zigzagoon|♂|14||263|Zigzagoon|♂|16|36=ヤスユキ|37=Yasuyuki}}
+{{Trainerfooter|fighting|3}}
+{{Trainerentry|Spr RS School Kid M.png|School Kid|Ted|340|1|280|Ralts|♂|17|36=ノブヒサ|37=Nobuhisa}}
+{{Trainerdiv|electric}}
+{{Trainerentry|Spr RS School Kid M.png|School Kid|Paul|300|3|322|Numel|♂|15||043|Oddish|♂|15||278|Wingull|♂|15|36=カツトシ|37=Katsutoshi}}
+{{Trainerdiv|electric}}
+{{Trainerentry|Spr RS School Kid F.png|School Kid|Georgia|320|2|285|Shroomish|♀|16||267|Beautifly|♀|16|36=ミキエ|37=Mikie}}
+{{Trainerfooter|electric|3}}
+{{Trainerdiv|fire|Requires Rock Smash}}
+{{Trainerentry|Spr RS Camper.png|Camper|Justin|384|1|352|Kecleon|♂|24|36=マサミチ|37=Masamichi}}
+{{Trainerdiv|fire}}
+{{Trainerentry|Spr RS Picnicker.png|Picnicker|Martha|368|2|300|Skitty|♀|23||333|Swablu|♀|23|36=トモコ|37=Tomoko}}
+{{Trainerdiv|fire}}
+{{Trainerentry|Spr RS Hiker.png|Hiker|Alan|880|3|074|Geodude|♂|22||299|Nosepass|♂|22||075|Graveler|♂|22||36=マサノリ|37=Masanori}}
+{{Trainerfooter|fire|3}}
+{{Trainerdiv|normal|Requires Strength}}
+{{Trainerentry|Spr RS Black Belt.png|Black Belt|Yuji|832|2|296|Makuhita|♂|26||067|Machoke|♂|26|36=カズシ|37=Kazushi}}
+{{Trainerdiv|normal}}
+{{Trainerentry|Spr RS Battle Girl.png|Battle Girl|Cora|648|1|307|Meditite|♀|27|36=フウカ|37=Fūka}}
+{{Trainerdiv|normal}}
+{{Trainerentry|Spr RS Battle Girl.png|Battle Girl|Jill{{sup/3|RuSa}}/Paula{{sup/3|E}}|648|1|286|Breloom|♀|27|36=ヒイナ|37=Hiina}}
+{{Trainerfooter|normal|3}}
+{{Trainerentry|Spr RS Pokémon Ranger F.png|Pokémon Ranger|Sophia|1824|2|333|Swablu|♀|38||315|Roselia|♀|38|36=チアキ|37=Chiaki}}
+{{Trainerdiv|psychic}}
+{{Trainerentry|Spr RS Pokémon Ranger M.png|Pokémon Ranger|Sebastian|1872|1|332|Cacturne|♂|39|36=ケイスケ|37=Keisuke}}
+{{Trainerdiv|psychic}}
+{{Trainerentry|Spr RS Bird Keeper.png|Bird Keeper|Benny|1152|3|277|Swellow|♂|36||279|Pelipper|♂|36||178|Xatu|♂|36|36=アキマサ|37=Akimasa}}
+{{Trainerfooter|psychic|3}}
+{{Trainerentry|Spr RS Psychic M.png|Psychic|Joshua|984&lt;br/>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with Patricia&lt;/small>|2|064|Kadabra|♂|41||338|Solrock||41|36=シュウイチ|37=Shūichi}}
+{{Trainerentry|Spr RS Hex Maniac.png|Hex Maniac|Patricia|984&lt;br/>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with Joshua&lt;/small>|2|354|Banette|♀|41||337|Lunatone||41|36=コトネ|37=Kotone}}
+{{Trainerdiv|water}}
+{{Trainerentry|Spr RS Psychic F.png|Psychic|Mariella|984&lt;br/>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with Everett&lt;/small>|1|358|Chimecho|♀|41|36=ミハネ|37=Mihane}}
+{{Trainerentry|Spr RS Gentleman.png|Gentleman|Everett|3280&lt;br/>&lt;small>{{tt|Potential|Single Battle only if the player has only one Pokémon in their party}} [[Double Battle]] with Mariella&lt;/small>|1|202|Wobbuffet|♂|41|36=ダグ|37=Dag}}
+{{Trainerdiv|water}}
+{{Trainerentry|Spr RS Psychic F.png|Psychic|Alexis|984&lt;br/>&lt;small>Potential [[Double Battle]] with Alvaro&lt;/small>|2|281|Kirlia|♀|41||178|Xatu|♀|41|36=ナナコ|37=Nanako}}
+{{Trainerentry|Spr RS Psychic M.png|Psychic|Alvaro|984&lt;br/>&lt;small>Potential [[Double Battle]] with Alexis&lt;/small>|2|354|Banette|♂|41||064|Kadabra|♂|41|36=シンヤ|37=Shinya}}
+{{Trainerfooter|water|3}}
+{{Trainerentry|Spr RS Cooltrainer F.png|Cool Trainer|Elaine{{sup/3|RuSa}}/Keira{{sup/3|E}}|2160|2|305|Lairon|♀|45||310|Manectric|♀|45|36=アンナ|37=Anna}}
+{{Trainerdiv|steel}}
+{{Trainerentry|Spr RS Cooltrainer M.png|Cool Trainer|Vincent|2112|3|302|Sableye|♂|44||308|Medicham|♂|44||319|Sharpedo|♂|44|36=ユウト|37=Yūto}}
+{{Trainerdiv|steel}}
+{{Trainerentry|Spr RS Cooltrainer M.png|Cool Trainer|Leroy|2208|2|303|Mawile|♂|46||121|Starmie||46|36=マコト|37=Makoto}}
+{{Trainerfooter|steel|3}}
+
+"Victory Road"
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Albert|2064|2|082|Magneton||43||089|Muk|♂|43|36=ショウ|37=Shō}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Hope|2160|1|315|Roselia|♀|45|36=アイリ|37=Airi}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Shannon|2160|1|344|Claydol||45|36=エリコ|37=Eriko}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Samuel|2016|3|277|Swellow|♂|42||303|Mawile|♂|42||064|Kadabra|♂|42|36=タクヤ|37=Takuya}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Julie|2016|3|028|Sandslash|♀|42||038|Ninetales|♀|42||357|Tropius|♀|42|36=ヒヅキ|37=Hizuki}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Owen|2016|3|352|Kecleon|♂|42||075|Graveler|♂|42||321|Wailord|♂|42|36=カケル|37=Kakeru}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Dianne|2064&lt;br/>&lt;small>Potential [[Double Battle]] with Felix&lt;/small>|2|344|Claydol||43||171|Lanturn|♀|43|36=ココロ|37=Kokoro}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Felix|2064&lt;br/>&lt;small>Potential [[Double Battle]] with Dianne&lt;/small>|2|308|Medicham|♂|43||344|Claydol||43|36=コウジロウ|37=Kōjirō}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Caroline|2064|2|227|Skarmory|♀|43||302|Sableye|♀|43|36=コトミ|37=Kotomi}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|[[Winstrate family|Vito]]|2016|4|085|Dodrio|♂|42||064|Kadabra|♂|42||101|Electrode||42||275|Shiftry|♂|42|||36=リョウヘイ|37=Ryōhei}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Michelle|2016|3|324|Torkoal|♀|42||308|Medicham|♀|42||272|Ludicolo|♀|42|36=カズミ|37=Kazumi}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Mitchell|2064&lt;br/>&lt;small>Potential [[Double Battle]] with Halle&lt;/small>|2|337|Lunatone||43||338|Solrock||43|36=テッペイ|37=Teppei}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Halle|2064&lt;br/>&lt;small>Potential [[Double Battle]] with Mitchell&lt;/small>|2|302|Sableye|♀|43||359|Absol|♀|43|36=ヒロエ|37=Hiroe}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Edgar|2064|2|332|Cacturne|♂|43||279|Pelipper|♂|43|36=コウキ|37=Kōki}}
+{{trainerentry|Spr RS Cooltrainer F.png|Cooltrainer|Katelynn|2064&lt;br/>&lt;small>Potential [[Double Battle]] with Quincy&lt;/small>|2|282|Gardevoir|♀|43||289|Slaking|♀|43|36=スズカ|37=Suzuka}}
+{{trainerentry|Spr RS Cooltrainer M.png|Cooltrainer|Quincy|2064&lt;br/>&lt;small>Potential [[Double Battle]] with Katelynn&lt;/small>|2|289|Slaking|♂|43||356|Dusclops|♂|43|36=タダトシ|37=Tadatoshi}}
+
+[[Rematch]]es against Wally are available after the {{pkmn|Champion}} has been defeated. He also uses two [[Full Restore]]s.
+{{Party/Single
+|color={{tcg grass color light}}
+|headcolor=CED8F6
+|bordercolor={{tcg grass color}}
+|sprite=Spr RS Wally.png
+|prize={{tt|{{PDollar}}2700|Second battle}}/{{tt|{{PDollar}}2880|First rematch}}/{{tt|{{PDollar}}3060|Second rematch}}/{{tt|{{PDollar}}3240|Third rematch}}/{{tt|{{PDollar}}3420|Fourth rematch onwards}}
+|class={{PK}}{{MN}} Trainer
+|classlink=Pokémon Trainer
+|name={{color2|000|Wally}}
+|game=E
+|location=Victory Road (Hoenn)
+|locationname=Victory Road
+|pokemon=5}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=334
+|pokemon=Altaria
+|gender=male
+|level={{tt|44|Second battle}}/{{tt|47|First rematch}}/{{tt|50|Second rematch}}/{{tt|53|Third rematch}}/{{tt|56|Fourth rematch onwards}}
+|type1=Dragon|type2=Flying
+|ability=Natural Cure
+|move1=Aerial Ace|move1type=Flying
+|move2=Safeguard|move2type=Normal
+|move3=DragonBreath|move3type=Dragon
+|move4=Dragon Dance|move4type=Dragon}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=301
+|pokemon=Delcatty
+|gender=female
+|level={{tt|43|Second battle}}/{{tt|46|First rematch}}/{{tt|49|Second rematch}}/{{tt|52|Third rematch}}/{{tt|55|Fourth rematch onwards}}
+|type1=Normal
+|ability=Cute Charm
+|move1=Sing|move1type=Normal
+|move2=Assist|move2type=Normal
+|move3=Charm|move3type=Normal
+|move4=Faint Attack|move4type=Dark}}
+|{{Pokémon/3
+|game=Emerald
+|ndex=315
+|pokemon=Roselia
+|gender=male
+|level={{tt|44|Second battle}}/{{tt|47|First rematch}}/{{tt|50|Second rematch}}/{{tt|53|Third rematch}}/{{tt|56|Fourth rematch onwards}}
+|type1=Grass|type2=Poison
+|ability=Poison Point
+|move1=Magical Leaf|move1type=Grass
+|move2=Leech Seed|move2type=Grass
+|move3=Giga Drain|move3type=Grass
+|move4=Toxic|move4type=Poison}}
+{{Party/Div|color={{tcg grass color light}}}}
+| style="margin:auto" |{{Pokémon/3
+|game=Emerald
+|ndex=082
+|pokemon=Magneton
+|level={{tt|41|Second battle}}/{{tt|44|First rematch}}/{{tt|47|Second rematch}}/{{tt|50|Third rematch}}/{{tt|53|Fourth rematch onwards}}
+|type1=Electric|type2=Steel
+|ability=Magnet Pull
+|move1=Supersonic|move1type=Normal
+|move2=Thunderbolt|move2type=Electric
+|move3=Tri Attack|move3type=Normal
+|move4=Screech|move4type=Normal}}
+| style="margin:auto" |{{Pokémon/3
+|game=Emerald
+|ndex=282
+|pokemon=Gardevoir
+|gender=male
+|level={{tt|45|Second battle}}/{{tt|48|First rematch}}/{{tt|51|Second rematch}}/{{tt|54|Third rematch}}/{{tt|57|Fourth rematch onwards}}
+|type1=Psychic
+|ability=Synchronize
+|move1=Double Team|move1type=Normal
+|move2=Calm Mind|move2type=Psychic
+|move3=Psychic|move3type=Psychic
+|move4=Future Sight|move4type=Psychic}}
+{{Party/Footer}}
+
+"Weather Institute"
+{{trainerentry|Spr RS Team Aqua Grunt F.png|Team Aqua Grunt||560|1|318|Carvanha|♀|28}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||540|2|041|Zubat|♂|27||261|Poochyena|♂|27}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||540&lt;br/>&lt;small>Potential [[Double Battle]] with the following Grunt&lt;/small>|2|261|Poochyena|♂|27||318|Carvanha|♂|27}}
+{{trainerentry|Spr RS Team Aqua Grunt F.png|Team Aqua Grunt||540&lt;br/>&lt;small>Potential [[Double Battle]] with the previous Grunt&lt;/small>|2|041|Zubat|♀|27||261|Poochyena|♀|27}}
+{{trainerentry|Spr RS Team Aqua Grunt M.png|Team Aqua Grunt||520|3|261|Poochyena|♂|26||041|Zubat|♂|26||318|Carvanha|♂|26}}
+
+{{Party/Single
+|color={{sapphire color light}}
+|headcolor={{water color}}
+|bordercolor={{sapphire color}}
+|sprite=Spr RS Shelly.png
+|prize={{PDollar}}1120
+|class=Aqua Admin
+|name={{color2|000|Shelly}}
+|game=E
+|location=Weather Institute
+|pokemon=2}}
+|{{Pokémon/3
+|ndex=318
+|pokemon=Carvanha
+|game=Emerald
+|gender=female
+|level=28
+|type1=Water|type2=Dark
+|ability=Rough Skin
+|move1=Focus Energy|move1type=Normal
+|move2=Scary Face|move2type=Normal
+|move3=Crunch|move3type=Dark
+|move4=Screech|move4type=Normal}}
+|{{Pokémon/3
+|ndex=262
+|pokemon=Mightyena
+|game=Emerald
+|gender=female
+|level=28
+|type1=Dark
+|ability=Intimidate
+|move1=Bite|move1type=Dark
+|move2=Odor Sleuth|move2type=Normal
+|move3=Roar|move3type=Normal
+|move4=Swagger|move4type=Normal}}
+{{Party/Footer}}
