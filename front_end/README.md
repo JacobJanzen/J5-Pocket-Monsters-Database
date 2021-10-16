@@ -1,26 +1,23 @@
 # front_end
-I really got no idea whats going on with this but just wanted somewhere to play around with vue and electron together  
 ## Project setup
 In order to install electron node modules
 ```
-npm install electron
+npm install --save-dev electron@latest
 ```
-It'll probably have a ton of errors dunno
+In order to install Vue2
+```
+npm install --save vue
+```
+It'll probably have a some errors
 
 ### Compiles and hot-reloads for development (in electron)
 ```
-npm run dev
+npm run start
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+References:  
+[Electron Boilerplate](https://www.electronforge.io)  
+[Vue2 Documentation](https://vuejs.org/v2/guide/)  
+[Custom icon for final build](https://erikmartinjordan.com/electron-builder-custom-icon) (current icon in /build is non-transparent, *also dumb*)
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
