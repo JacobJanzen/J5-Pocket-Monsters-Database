@@ -20,6 +20,6 @@ npm run start
 References:  
 [Electron Boilerplate](https://www.electronforge.io)  
 [Vue2 Documentation](https://vuejs.org/v2/guide/)  
-[Custom icon for final build](https://erikmartinjordan.com/electron-builder-custom-icon) (current icon in /build is non-transparent, *also dumb*)
+[Custom icon for final build](https://erikmartinjordan.com/electron-builder-custom-icon) (current icon in ```/build``` is non-transparent, *also dumb*)
 
 
