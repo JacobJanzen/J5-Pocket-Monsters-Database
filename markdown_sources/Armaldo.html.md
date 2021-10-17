@@ -1,0 +1,77 @@
+</p><textarea readonly="" accesskey="," id="wpTextbox1" cols="80" rows="25" style="" class="mw-editfont-monospace" lang="en" dir="ltr" name="wpTextbox1">{{pokelinkback|348|Armaldo|3}}
+====By [[Level|leveling up]]====
+{{learnlist/levelh|Armaldo|Rock|Bug|3|3}}
+{{learnlist/level3|1|Scratch|Normal|40|100|35|Tough|4|0}}
+{{learnlist/level3|1|Harden|Normal|—|—|30|Tough|2|0}}
+{{learnlist/level3|1|Mud Sport|Ground|—|—|15|Cute|4|0}}
+{{learnlist/level3|1|Water Gun|Water|40|100|25|Cute|4|0}}
+{{learnlist/level3|7|Harden|Normal|—|—|30|Tough|2|0}}
+{{learnlist/level3|13|Mud Sport|Ground|—|—|15|Cute|4|0}}
+{{learnlist/level3|19|Water Gun|Water|40|100|25|Cute|4|0}}
+{{learnlist/level3|25|Metal Claw|Steel|50|95|35|Cool|4|0}}
+{{learnlist/level3|31|Protect|Normal|—|—|10|Cute|1|0}}
+{{learnlist/level3|37|AncientPower|Rock|60|100|5|Tough|1|0||'''}}
+{{learnlist/level3|46|Fury Cutter|Bug|10|95|20|Cool|3|0||'''}}
+{{learnlist/level3|55|Slash|Normal|70|100|20|Cool|3|0}}
+{{learnlist/level3|64|Rock Blast|Rock|25|80|10|Tough|2|0||'''}}
+{{learnlist/levelf|Armaldo|Rock|Bug|3|3}}
+
+====By [[TM]]/[[HM]]====
+{{learnlist/tmh|Armaldo|Rock|Bug|3|3}}
+{{learnlist/tm3|TM03|Water Pulse|Water|60|100|20|Beauty|3|0}}
+{{learnlist/tm3|TM06|Toxic|Poison|—|85|10|Smart|3|0}}
+{{learnlist/tm3|TM10|Hidden Power|Normal|—|100|15|Smart|3|0}}
+{{learnlist/tm3|TM11|Sunny Day|Fire|—|—|5|Beauty|1|0}}
+{{learnlist/tm3|TM15|Hyper Beam|Normal|150|90|5|Cool|4|4}}
+{{learnlist/tm3|TM17|Protect|Normal|—|—|10|Cute|1|0}}
+{{learnlist/tm3|TM21|Frustration|Normal|—|100|20|Cute|1|0}}
+{{learnlist/tm3|TM23|Iron Tail|Steel|100|75|15|Cool|1|4}}
+{{learnlist/tm3|TM26|Earthquake|Ground|100|100|10|Tough|1|3}}
+{{learnlist/tm3|TM27|Return|Normal|—|100|20|Cute|1|0}}
+{{learnlist/tm3|TM28|Dig|Ground|60|100|10|Smart|1|0}}
+{{learnlist/tm3|TM31|Brick Break|Fighting|75|100|15|Cool|1|4}}
+{{learnlist/tm3|TM32|Double Team|Normal|—|—|15|Cool|2|0}}
+{{learnlist/tm3|TM37|Sandstorm|Rock|—|—|10|Tough|3|0}}
+{{learnlist/tm3|TM39|Rock Tomb|Rock|50|80|10|Smart|3|0||'''}}
+{{learnlist/tm3|TM40|Aerial Ace|Flying|60|—|20|Cool|2|0}}
+{{learnlist/tm3|TM42|Facade|Normal|70|100|20|Cute|2|0}}
+{{learnlist/tm3|TM43|Secret Power|Normal|70|100|20|Smart|1|0}}
+{{learnlist/tm3|TM44|Rest|Psychic|—|—|10|Cute|2|0}}
+{{learnlist/tm3|TM45|Attract|Normal|—|100|15|Cute|2|0}}
+{{learnlist/tm3|HM01|Cut|Normal|50|95|30|Cool|2|1}}
+{{learnlist/tm3|HM04|Strength|Normal|80|100|15|Tough|2|1}}
+{{learnlist/tm3|HM06|Rock Smash|Fighting|20|100|15|Tough|1|0}}
+{{learnlist/tmf|Armaldo|Rock|Bug|3|3}}
+
+====By {{pkmn|breeding}}====
+{{learnlist/breedh|Armaldo|Rock|Bug|3|3}}
+{{learnlist/breed3|{{MSP/3|341|Corphish}} {{MSP/3|342|Crawdaunt}}|Knock Off|Dark|20|100|20|Smart|1|4}}
+{{learnlist/breed3|{{MSP/3|341|Corphish}} {{MSP/3|342|Crawdaunt}}|Swords Dance|Normal|—|—|30|Beauty|1|0}}
+{{learnlist/breed3|{{MSP/3|140|Kabuto}}|Rapid Spin|Normal|20|100|40|Cool|2|0|*}}
+{{learnlist/breed3|{{MSP/3|138|Omanyte}}{{MSP/3|222|Corsola}}|Rock Slide|Rock|75|90|10|Tough|1|3|*|'''}}
+{{learnlist/breedf|Armaldo|Rock|Bug|3|3}}
+
+====By [[Move Tutor|tutoring]]====
+{{learnlist/tutorh|Armaldo|Rock|Bug|3|3}}
+{{learnlist/tutor3|Body Slam|Normal|85|100|15|Tough|1|4|||yes|yes|yes}}
+{{learnlist/tutor3|Double-Edge|Normal|120|100|15|Tough|6|0|||yes|yes|yes}}
+{{learnlist/tutor3|Endure|Normal|—|—|10|Tough|2|0|||no|yes|no}}
+{{learnlist/tutor3|Fury Cutter|Bug|10|95|20|Cool|3|0||'''|no|yes|no}}
+{{learnlist/tutor3|Mimic|Normal|—|—|10|Cute|1|0|||yes|yes|yes}}
+{{learnlist/tutor3|Mud-Slap|Ground|20|100|10|Cute|2|1|||no|yes|no}}
+{{learnlist/tutor3|Rock Slide|Rock|75|90|10|Tough|1|3||'''|yes|yes|no}}
+{{learnlist/tutor3|Seismic Toss|Fighting|—|100|20|Tough|2|1|||yes|yes|yes}}
+{{learnlist/tutor3|Sleep Talk|Normal|—|—|10|Cute|3|0|||no|yes|no}}
+{{learnlist/tutor3|Snore|Normal|40|100|15|Cute|4|0|||no|yes|no}}
+{{learnlist/tutor3|Substitute|Normal|—|—|10|Smart|2|0|||yes|yes|yes}}
+{{learnlist/tutor3|Swagger|Normal|—|90|15|Cute|2|0|||no|yes|yes}}
+{{learnlist/tutor3|Swords Dance|Normal|—|—|30|Beauty|1|0|||yes|yes|no}}
+{{learnlist/tutorf|Armaldo|Rock|Bug|3|3}}
+
+====By a prior [[evolution]]====
+{{Learnlist/prevoh|Armaldo|Rock|Bug|3|3}}
+{{Learnlist/prevo3null}}
+{{Learnlist/prevof|Armaldo|Rock|Bug|3|3}}
+
+[[it:Armaldo/Mosse apprese in terza generazione]]
+[[zh:太古盔甲/第三世代招式表]]
