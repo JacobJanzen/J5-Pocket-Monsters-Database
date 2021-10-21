@@ -8,7 +8,7 @@ npm install --save-dev electron@latest
 ```
 In order to install Vue2
 ```
-npm install --save vue
+npm install --save @vue/cli
 ```
 **It'll probably have a some errors**
 
