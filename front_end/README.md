@@ -1,6 +1,11 @@
 # Front End
-Set up Electron and Vue.   
-Anyone wishing to view/work with the front end must install the node modules (listed below) in the front_end directory locally.  
+
+### To-do:
+- fix pictures
+- fix app title
+- add basic info to home page: github repo, names, emails, make it look pretty
+- do the rest of the project: interact options
+
 ## Project setup
 In order to install electron node modules
 ```
@@ -9,11 +14,6 @@ npm install --save-dev electron@latest
 In order to install Vue2
 ```
 npm install --save @vue/cli
-```
-
-Will also need: Vuetify
-```
-vue add vuetify
 ```
 
 **It'll probably have a some errors**
