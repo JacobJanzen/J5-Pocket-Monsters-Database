@@ -1,8 +1,8 @@
 # Front End
 
 ### To-do:
-- fix pictures
-- fix app title
+- fix pictures (added to issues)
+- fix app title (added to issues)
 - add basic info to home page: github repo, names, emails, make it look pretty
 - do the rest of the project: interact options
 
