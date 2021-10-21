@@ -10,6 +10,12 @@ In order to install Vue2
 ```
 npm install --save @vue/cli
 ```
+
+Will also need: Vuetify
+```
+vue add vuetify
+```
+
 **It'll probably have a some errors**
 
 ## Compiles and hot-reloads to a LocalHost
