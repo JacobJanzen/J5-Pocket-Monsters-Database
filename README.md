@@ -4,10 +4,11 @@ Tracking data about Pokémon Emerald.
 
 ![EER](./diagrams/EER.png)
 
-Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-showdown) and [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).
+Collected from [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).
 
 ## Sources:  
-- [Pokemon List/Previous Evolution](https://github.com/smogon/pokemon-showdown/blob/master/data/pokedex.ts)
+- [Pokemon List](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)
+- [Previous Evolution](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family)
 - [Evolution Methods](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_evolution_family)
 - [Moves](https://bulbapedia.bulbagarden.net/wiki/List_of_moves)
 - [Types](https://bulbapedia.bulbagarden.net/wiki/Type)
@@ -20,5 +21,5 @@ Collected from [Pokemon Showdown source code](https://github.com/smogon/pokemon-
 - [Exp. Yield](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield)
 - [Catch Rate](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_catch_rate)
 - [Gender Ratio](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_gender_ratio)
-- [Learnsets](https://github.com/smogon/pokemon-showdown/blob/master/data/learnsets.ts)
-- [Pokemon Locations](./other_files/location_urls) (Note this file contains a url for each location in Pokémon Emerald)
+- [Learnsets](./other_files/learnset_urls) (Note this file contains a url for each Pokémon in Pokémon Emerald)
+- [Pokemon Locations/Trainers/Teams](./other_files/location_urls) (Note this file contains a url for each location in Pokémon Emerald)
