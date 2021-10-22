@@ -1,0 +1,79 @@
+===Pre-Merge===
+
+Pokemon(*Dex*, PokemonName, Height, Weight, ExpYield, HP, Atk, Def, Spa, Spd, Spe, LevRate, HatchTime, Catch Rate, MalePercent)
+
+Abilities(*Dex*, *Ability*) FK Dex REF Pokemon ON DELETE CASCADE
+
+EggGroups(*Dex*, *GroupName*) FK Dex REF Pokemon ON DELETE CASCADE
+
+Type(*TypeName*, Category)
+
+Move(*MoveName*, Accuracy, Power, PP)
+
+TM(*MoveName*, Number) FK MoveName REF Move
+
+HM(*MoveName*, Number) FK MoveName REF Move
+
+Location(*LocationName*)
+
+Trainer(*TID*, TrainerName, TrainerClass)
+
+Team(*TeamID*, *TID*, Reward) FK TID REF Trainer ON DELETE CASCADE
+
+TeamMember(*Dex*, *MemberID*, *TeamID*, *TID*, Gender, Level) FK Dex REF Pokemon, FK TeamID, TID REF Team
+
+Evolves(*Dex*, From, Method) FK Dex REF Pokemon, FK From REF Pokemon(Dex)
+
+FoundAt(*Dex*, *LocationName*, *Encounter*, Min, Max, Rate) FK Dex REF Pokemon, FK LocationName REF Location
+
+FoughtAt(*TID*, *LocationName*) FK ID REF Trainer, FK LocationName REF Location
+
+HasTypes(*Dex*, *TypeName*) FK Dex REF Pokemon, FK TypeName REF Type
+
+IsType(*MoveName*, TypeName) FK MoveName REF Move, FK TypeName REF Type
+
+LearnsByBreeding(*Dex*, *Father*, *MoveName*) FK Dex REF Pokemon, FK Father REF Pokemon(Dex), FK MoveName REF Move
+
+Learns(*Dex*, *MoveName*, *Method*) FK Dex REF Pokemon, FK MoveName REF Move
+
+Effectiveness(*Attacker*, *Defender*, Quality) FK Attacker REF Type(TypeName), FK Defender REF Type(TypeName)
+
+
+===Post-Merge===
+
+Pokemon(*Dex*, PokemonName, From, Method, Height, Weight, ExpYield, HP, Atk, Def, Spa, Spd, Spe, LevRate, HatchTime, Catch Rate, MalePercent) FK From REF Pokemon(Dex)
+
+Abilities(*Dex*, *Ability*) FK Dex REF Pokemon ON DELETE CASCADE
+
+EggGroups(*Dex*, *GroupName*) FK Dex REF Pokemon ON DELETE CASCADE
+
+Type(*TypeName*, Category)
+
+Move(*MoveName*, Accuracy, Power, PP, Status, TypeName) FK TypeName REF Type
+
+TM(*MoveName*, Number) FK MoveName REF Move
+
+HM(*MoveName*, Number) FK MoveName REF Move
+
+Location(*LocationName*)
+
+Trainer(*TID*, TrainerName, TrainerClass)
+
+Team(*TeamID*, *TID*, Reward) FK TID REF Trainer ON DELETE CASCADE
+
+TeamMember(*Dex*, *MemberID*, *TeamID*, *TID*, Gender, Level) FK Dex REF Pokemon, FK TeamID, TID REF Team
+
+FoundAt(*Dex*, *LocationName*, *Encounter*, Min, Max, Rate) FK Dex REF Pokemon, FK LocationName REF Location
+
+FoughtAt(*TID*, *LocationName*) FK ID REF Trainer, FK LocationName REF Location
+
+HasTypes(*Dex*, *TypeName*) FK Dex REF Pokemon, FK TypeName REF Type
+
+LearnsByBreeding(*Dex*, *Father*, *MoveName*) FK Dex REF Pokemon, FK Father REF Pokemon(Dex), FK MoveName REF Move
+
+Learns(*Dex*, *MoveName*, *Method*) FK Dex REF Pokemon, FK MoveName REF Move
+
+Effectiveness(*Attacker*, *Defender*, Quality) FK Attacker REF Type(TypeName), FK Defender REF Type(TypeName)
+
+
+
