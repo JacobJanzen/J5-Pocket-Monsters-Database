@@ -1,10 +1,10 @@
 # Front End
 
 ### To-do:
-- fix pictures (added to issues)
 - fix app title (added to issues)
 - add basic info to home page: github repo, names, emails, make it look pretty
 - do the rest of the project: interact options
+- make images scale and move better sometime
 
 ## Project setup
 In order to install electron node modules
