@@ -8,17 +8,22 @@ let mainWindow
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1080,
+    height: 720,
+    maxWidth: 1500,
+    frame: true,
     title: 'Pokemon Database - COMP3380',
     webPreferences: {
       nodeIntegration: true,
+      nodeIntegrationInWorker: true,
       webSecurity: false,
     }
   })
 
   //mainWindow.setMenu(null);
   mainWindow.setTitle("Pokemon Database - COMP3380")
+
+  mainWindow.setAspectRatio(16/9);
 
   mainWindow.loadURL(
     url.format({
@@ -27,6 +32,7 @@ function createWindow() {
       slashes: true
     })
   );
+
   mainWindow.on('closed', function () {
     mainWindow = null
   })
