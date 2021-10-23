@@ -1,8 +1,16 @@
 <template>
   <div class="root">
     <h1>This is an ER page</h1>
-    <v-img :src="diagram" aspect-ratio=""></v-img>
 
+
+    <!-- THIS PIC MOVES REAL WEIRD WHEN SCALIN THE WINDOW -->
+    <div class="imageContainer">
+      <div class="ERdiagram"></div>
+    </div>
+
+    <p>
+      I assume our relationships will go below:
+    </p>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra ante sit amet scelerisque sagittis. Nullam congue molestie ex ut luctus. Nullam nisi magna, interdum sit amet imperdiet quis, semper at elit. Phasellus vel turpis eget quam molestie pulvinar. Praesent aliquam semper elit, id tristique ex tempor et. Sed mattis justo tortor, tincidunt ullamcorper ex condimentum sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros elit, tempus sed mauris scelerisque, congue pretium turpis. Pellentesque gravida efficitur molestie. Sed euismod eget mauris at tempus. Morbi eu magna non mauris efficitur dignissim.
     </p>
@@ -13,17 +21,22 @@
 </template>
 
 
-<script>
-export default {
-  data () {
-    return {
-      diagram: require("@/assets/ER.png")
-    }
-  }
-}
-</script>
-
 <style>
+
+  .imageContainer{
+    align-items: center;
+    width:100%;
+    height:100%;
+  }
+
+  .ERdiagram{
+    background-image: url("../../../diagrams/EER.png");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    padding:10px;
+  }
 
   .root h1 {
     color:gold;
