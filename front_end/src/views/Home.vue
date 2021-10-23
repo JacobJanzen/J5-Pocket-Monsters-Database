@@ -1,21 +1,15 @@
 <template>
   <div class="home">
-    <h1>Ambitious Pokemon Database </h1>
-    <!-- UNUSED <v-img :src="bkg"></v-img> -->
+
+      <!-- idk if this is what it was designed for -->
+      <div class=headerImage></div>
+
+      <p> </p>
+      <p>Rest of the Content Here</p>
+
   </div>
 </template>
 
-<!-- UNUSED VUETIFY BACKGROUND
-<script>
-  export default {
-    data() {
-      return {
-        bkg: require(`@/assets/bkg.png`)
-      }
-    },
-  }
-</script>
--->
 
 <style lang="scss" scoped>
 
@@ -25,6 +19,14 @@
     background-position: center;
     height: 120%;
     width:100%;
+  }
+
+  .headerImage{
+    background-image: url("../assets/PokeDB.jpg");
+    width: 100%;
+    height: 15%;
+    background-size: cover;
+    background-position: center;
   }
 
   .h1 {

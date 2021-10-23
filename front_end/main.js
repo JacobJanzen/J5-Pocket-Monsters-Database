@@ -20,9 +20,8 @@ function createWindow() {
     }
   })
 
-  //mainWindow.setMenu(null);
-  mainWindow.setTitle("Pokemon Database - COMP3380")
 
+  // aspect ratio can be adjusted
   mainWindow.setAspectRatio(16/9);
 
   mainWindow.loadURL(
@@ -36,6 +35,13 @@ function createWindow() {
   mainWindow.on('closed', function () {
     mainWindow = null
   })
+
+  // loads in the title from the package file - can change to whatever we want
+  mainWindow.webContents.on('did-finish-load', () =>{
+    let name = require('./package.json').productName;
+    mainWindow.setTitle(name);
+  });
+
 }
 //console.log(app);
 app.on('ready', createWindow)
@@ -47,3 +53,4 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
   if (mainWindow === null) createWindow()
 })
+
