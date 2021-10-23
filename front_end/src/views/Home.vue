@@ -3,6 +3,7 @@
 
       <!-- idk if this is what it was designed for -->
       <div class=headerImage></div>
+
       <p> </p>
       <p>Rest of the Content Here</p>
 
@@ -23,10 +24,9 @@
   .headerImage{
     background-image: url("../assets/PokeDB.jpg");
     width: 100%;
-    height:150px;
+    height: 15%;
     background-size: cover;
     background-position: center;
-    border: 5px black solid;
   }
 
   .h1 {

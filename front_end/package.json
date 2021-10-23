@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "main": "main.js",
+  "productName":"Pokemon Database - COMP3380",
+
   "scripts": {
     "start": "vue-cli-service build && electron .",
     "serve": "vue-cli-service serve",
