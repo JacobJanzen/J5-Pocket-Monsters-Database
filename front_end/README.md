@@ -23,7 +23,7 @@ npm install --save @vue/cli
 npm run serve
 ```
 
-## Compiles and hot-reloads for development (in electron) Images Not Working
+## Compiles and hot-reloads for development (in electron)
 ```
 npm start
 ```
