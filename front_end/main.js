@@ -10,6 +10,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    minHeight: 500,
     title: 'Pokemon Database - COMP3380',
     webPreferences: {
       nodeIntegration: true,
@@ -21,6 +22,8 @@ function createWindow() {
   //mainWindow.setMenu(null);
   mainWindow.setTitle("Pokemon Database - COMP3380")
 
+  mainWindow.setAspectRatio(16/9);
+
   mainWindow.loadURL(
     url.format({
       pathname: path.join(__dirname, `./dist/index.html`),
@@ -28,6 +31,7 @@ function createWindow() {
       slashes: true
     })
   );
+
   mainWindow.on('closed', function () {
     mainWindow = null
   })

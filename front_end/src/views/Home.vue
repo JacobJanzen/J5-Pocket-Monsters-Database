@@ -23,7 +23,7 @@
     background-image: url("../assets/bkg.png");
     background-size: cover;
     background-position: center;
-    height: 100%;
+    height: 120%;
     width:100%;
   }
 
