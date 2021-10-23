@@ -13,6 +13,7 @@ function createWindow() {
     title: 'Pokemon Database - COMP3380',
     webPreferences: {
       nodeIntegration: true,
+      nodeIntegrationInWorker: true,
       webSecurity: false,
     }
   })

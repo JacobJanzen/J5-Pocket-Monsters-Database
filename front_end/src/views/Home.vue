@@ -1,10 +1,11 @@
 <template>
   <div class="home">
     <h1>Ambitious Pokemon Database </h1>
-    <v-img :src="bkg"></v-img>
+    <!-- UNUSED <v-img :src="bkg"></v-img> -->
   </div>
 </template>
 
+<!-- UNUSED VUETIFY BACKGROUND
 <script>
   export default {
     data() {
@@ -12,14 +13,21 @@
         bkg: require(`@/assets/bkg.png`)
       }
     },
-
   }
-
-  
 </script>
+-->
 
 <style lang="scss" scoped>
-.h1 {
-  color: grey;
-}
+
+  .home{
+    background-image: url("../assets/bkg.png");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width:100%;
+  }
+
+  .h1 {
+    color: grey;
+  }
 </style>
