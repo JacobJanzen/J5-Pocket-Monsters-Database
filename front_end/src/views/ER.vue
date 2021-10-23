@@ -1,12 +1,7 @@
 <template>
   <div class="root">
     <h1>This is an ER page</h1>
-    <div class="diagramContainer">
-      <div class="diagram">
-        <img src="../assets/ER.png">
-      </div>
-    </div>
-    <!-- UNUSED <v-img :src="diagram" aspect-ratio="1"></v-img> -->
+    <v-img :src="diagram" aspect-ratio=""></v-img>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra ante sit amet scelerisque sagittis. Nullam congue molestie ex ut luctus. Nullam nisi magna, interdum sit amet imperdiet quis, semper at elit. Phasellus vel turpis eget quam molestie pulvinar. Praesent aliquam semper elit, id tristique ex tempor et. Sed mattis justo tortor, tincidunt ullamcorper ex condimentum sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros elit, tempus sed mauris scelerisque, congue pretium turpis. Pellentesque gravida efficitur molestie. Sed euismod eget mauris at tempus. Morbi eu magna non mauris efficitur dignissim.
@@ -18,30 +13,17 @@
 </template>
 
 
-<!-- UNUSED VUETIFY ASSET
 <script>
 export default {
   data () {
     return {
-      diagram: require("/static/ER.png")
+      diagram: require("@/assets/ER.png")
     }
   }
 }
 </script>
--->
 
 <style>
-
-  .diagram{
-    height:200px;
-    width:200px;
-  }
-
-  .diagamContainer{
-    align-content: center;
-    width:100%;
-    padding:50px;
-  }
 
   .root h1 {
     color:gold;
@@ -51,5 +33,4 @@ export default {
     padding-left: 14px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif
   }
-
 </style>

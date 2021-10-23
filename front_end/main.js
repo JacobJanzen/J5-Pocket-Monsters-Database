@@ -42,3 +42,10 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
   if (mainWindow === null) createWindow()
 })
+
+import ER from "./assets/bkg.png";
+
+function getER() {
+  return <img src={ER} />;
+}
+
