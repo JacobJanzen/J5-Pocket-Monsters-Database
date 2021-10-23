@@ -8,9 +8,14 @@ let mainWindow
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    minHeight: 500,
+    width: 1080,
+    height: 720,
+    minWidth: 100,
+    minHeight: 300,
+    maxWidth: 1500,
+    'min-height': 700,
+    'min-width': 700,
+    frame: true,
     title: 'Pokemon Database - COMP3380',
     webPreferences: {
       nodeIntegration: true,
