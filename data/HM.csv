@@ -1,9 +1,9 @@
-HM#,Name
-1,"Cut"
-2,"Fly"
-3,"Surf"
-4,"Strength"
-5,"Flash"
-6,"Rock Smash"
-7,"Waterfall"
-8,"Dive"
+MoveName,Number
+"Cut",1
+"Fly",2
+"Surf",3
+"Strength",4
+"Flash",5
+"Rock Smash",6
+"Waterfall",7
+"Dive",8

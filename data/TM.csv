@@ -1,51 +1,51 @@
-TM#,Move
-1,"Focus Punch"
-2,"Dragon Claw"
-3,"Water Pulse"
-4,"Calm Mind"
-5,"Roar"
-6,"Toxic"
-7,"Hail"
-8,"Bulk Up"
-9,"Bullet Seed"
-10,"Hidden Power"
-11,"Sunny Day"
-12,"Taunt"
-13,"Ice Beam"
-14,"Blizzard"
-15,"Hyper Beam"
-16,"Light Screen"
-17,"Protect"
-18,"Rain Dance"
-19,"Giga Drain"
-20,"Safe Guard"
-21,"Frustration"
-22,"SolarBeam"
-23,"Iron Tail"
-24,"Thunderbolt"
-25,"Thunder"
-26,"Earthquake"
-27,"Return"
-28,"Dig"
-29,"Psychic"
-30,"Shadow Ball"
-31,"Brick Break"
-32,"Double Team"
-33,"Reflect"
-34,"Shock Wave"
-35,"Flamethrower"
-36,"Sludge Bomb"
-37,"Sandstorm"
-38,"Fire Blast"
-39,"Rock Tomb"
-40,"Aerial Ace"
-41,"Torment"
-42,"Facade"
-43,"Secret Power"
-44,"Rest"
-45,"Attract"
-46,"Thief"
-47,"Steel Wing"
-48,"Skill Swap"
-49,"Snatch"
-50,"Overheat"
+MoveName,Number
+"Focus Punch",1
+"Dragon Claw",2
+"Water Pulse",3
+"Calm Mind",4
+"Roar",5
+"Toxic",6
+"Hail",7
+"Bulk Up",8
+"Bullet Seed",9
+"Hidden Power",10
+"Sunny Day",11
+"Taunt",12
+"Ice Beam",13
+"Blizzard",14
+"Hyper Beam",15
+"Light Screen",16
+"Protect",17
+"Rain Dance",18
+"Giga Drain",19
+"Safe Guard",20
+"Frustration",21
+"SolarBeam",22
+"Iron Tail",23
+"Thunderbolt",24
+"Thunder",25
+"Earthquake",26
+"Return",27
+"Dig",28
+"Psychic",29
+"Shadow Ball",30
+"Brick Break",31
+"Double Team",32
+"Reflect",33
+"Shock Wave",34
+"Flamethrower",35
+"Sludge Bomb",36
+"Sandstorm",37
+"Fire Blast",38
+"Rock Tomb",39
+"Aerial Ace",40
+"Torment",41
+"Facade",42
+"Secret Power",43
+"Rest",44
+"Attract",45
+"Thief",46
+"Steel Wing",47
+"Skill Swap",48
+"Snatch",49
+"Overheat",50
