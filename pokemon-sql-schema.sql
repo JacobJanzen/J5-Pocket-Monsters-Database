@@ -26,7 +26,7 @@ create table Abilities(
 	Dex integer not null check (Dex > 0),
 	Ability char(16) not null,
 	foreign key(Dex) references Pokemon(Dex) ON DELETE CASCADE,
-	primary key(Dex, Ability)
+	primary key(Dex,Ability)
 );
 
 create table EggGroups(
