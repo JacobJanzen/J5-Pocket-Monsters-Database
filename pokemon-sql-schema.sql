@@ -4,6 +4,7 @@ create table Pokemon(
 	Dex integer unique not null check (Dex > 0),
 	PokemonName char(16),
 	From integer,
+	method char(32),
 	Height float check (Height >= 0),
 	Weight float check (Weight >= 0),
 	ExpYield integer check (ExpYield >= 0),
@@ -91,6 +92,8 @@ create table TeamMember(
 	MemberID integer not null,
 	TeamID integer not null,
 	TID integer not null check (TID > -1),
+	level tinyint,
+	gender char(8),
 	foreign key(Dex) references Pokemon(Dex),
 	foreign key(TeamID,TID) references Team(TeamID,TID),
 	primary key(Dex,MemberID,TeamID,TID)
