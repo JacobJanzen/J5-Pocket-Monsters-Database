@@ -47,7 +47,7 @@ create table GROUP07."Move"(
 	"Accuracy" integer,
 	"Power" integer,
 	"PP" integer,
-	"Status" binary,
+	"Status" smallint,
 	"TypeName" char(8),
 	foreign key("TypeName") references GROUP07."Type"("TypeName"),
 	primary key("MoveName")
