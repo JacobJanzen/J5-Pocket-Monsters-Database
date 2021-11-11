@@ -4,13 +4,15 @@ const { app, BrowserWindow } = require('electron');
 const url = require("url");
 const path = require("path");
 
-let mainWindow;
+let mainWindow;//app window
 
 //Build app function
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1080,
-    height: 720,
+    width: 1920,
+    height: 1080,
+    minWidth: 1080,
+    minHeight: 720,
     //maxWidth: 1500,//optional max size of application
     frame: true,
     title: 'Pokemon Database - COMP3380',
