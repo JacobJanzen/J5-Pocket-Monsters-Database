@@ -3,7 +3,7 @@
 create table GROUP07."Pokemon"(
 	"Dex" integer not null check ("Dex" > 0),
 	"PokemonName" char(16),
-	"From" integer,
+	"EvolvesFrom" integer,
 	"evoMethod" char(32),
 	"Height" float check ("Height" >= 0),
 	"Weight" float check ("Weight" >= 0),
