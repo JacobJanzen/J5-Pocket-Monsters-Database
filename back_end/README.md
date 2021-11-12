@@ -8,15 +8,15 @@
 
 Initialize venv
 ```
-.../COMP_3380/back_end $ python3 venv venv
+.../3380_Project/back_end $ python3 venv venv
 ```
 Activate venv
 ```
-.../COMP_3380/back_end $ source venv/bin/activate
+.../3380_Project/back_end $ source venv/bin/activate
 ```
 Install the required packages
 ```
-(venv) .../COMP_3380/back_end $ pip install -r requirements
+(venv) .../3380_Project/back_end $ pip install -r requirements
 ```
 
 #### Running the Flask app
@@ -25,13 +25,13 @@ Install the required packages
 
 Set flaskr to be the app directory
 ```
-(venv) .../COMP_3380/back_end $ export FLASK_APP=flaskr
+(venv) .../3380_Project/back_end $ export FLASK_APP=flaskr
 ```
 Enable development mode
 ```
-(venv) .../COMP_3380/back_end $ export FLASK_ENV=development
+(venv) .../3380_Project/back_end $ export FLASK_ENV=development
 ```
 Run the flask app
 ```
-(venv) .../COMP_3380/back_end $ flask run
+(venv) .../3380_Project/back_end $ flask run
 ```
