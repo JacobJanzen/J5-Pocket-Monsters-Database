@@ -1,6 +1,6 @@
 ===Pre-Merge===
 
-Pokemon(*Dex*, PokemonName, Height, Weight, ExpYield, HP, Atk, Def, Spa, Spd, Spe, LevRate, HatchTime, Catch Rate, MalePercent)
+Pokemon(*Dex*, PokemonName, Height, Weight, ExpYield, HP, Atk, Def, SpA, SpD, Spe, LevRate, HatchTime, Catch Rate, MalePercent)
 
 Abilities(*Dex*, *Ability*) FK Dex REF Pokemon ON DELETE CASCADE
 
@@ -41,7 +41,7 @@ Effectiveness(*Attacker*, *Defender*, Quality) FK Attacker REF Type(TypeName), F
 
 ===Post-Merge===
 
-Pokemon(*Dex*, PokemonName, From, Method, Height, Weight, ExpYield, HP, Atk, Def, Spa, Spd, Spe, LevRate, HatchTime, Catch Rate, MalePercent) FK From REF Pokemon(Dex)
+Pokemon(*Dex*, PokemonName, From, Method, Height, Weight, ExpYield, HP, Atk, Def, SpA, SpD, Spe, LevRate, HatchTime, Catch Rate, MalePercent) FK From REF Pokemon(Dex)
 
 Abilities(*Dex*, *Ability*) FK Dex REF Pokemon ON DELETE CASCADE
 
