@@ -5,7 +5,26 @@
       <div class=headerImage></div>
 
       <p> </p>
-      <p>Rest of the Content Here</p>
+
+      <v-card
+        elevation="2"
+        shaped
+        class = "card"
+      >
+      <div class="cardInner">
+        <h2>Group Info</h2>
+        <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
+        <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
+        <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
+        <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
+
+        <br>
+
+        <h2>Github Repo</h2>
+        <h4>All our source files are available in our Github repo <a href = ""> HERE</a></h4>
+      </div>
+      
+      </v-card>
 
   </div>
 </template>
@@ -19,6 +38,7 @@
     background-position: center;
     height: 120%;
     width:100%;
+    align-content: center;
   }
 
   .headerImage{
@@ -32,4 +52,13 @@
   .h1 {
     color: grey;
   }
+
+  .card{
+    margin: 20px;
+  }
+
+  .cardInner{
+    padding: 15px;
+  }
+
 </style>
