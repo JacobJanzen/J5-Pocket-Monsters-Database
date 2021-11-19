@@ -1,10 +1,5 @@
 # Front End
 
-### To-do:
-- **Tasks & Bugs listed in issues (assigned to josh & jared)**
-- do the rest of the project: interact options
-- make images scale better sometime
-
 ## Project setup
 In order to install electron node modules
 ```
