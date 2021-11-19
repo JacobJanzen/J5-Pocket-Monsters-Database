@@ -3,7 +3,7 @@ create table Pokemon
     Dex         integer not null
         primary key,
     PokemonName char(16),
-    "From"      integer
+    EvolvesFrom      integer
         references Pokemon,
     evoMethod   char(32),
     Height      float,
