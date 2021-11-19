@@ -15,16 +15,6 @@ def get_db():
     return g.db
 
 
-def init_db():
-    db = get_db()
-
-    for sql_file in os.listdir('./flaskr/database'):
-        print(sql_file)
-        if sql_file.endswith('.sql'):
-            with current_app.open_resource('database/'+sql_file) as f:
-                db.executescript(f.read().decode('utf8'))
-
-
 def close_db(e=None):
     db = g.pop('db', None)
 
