@@ -13,8 +13,6 @@ function createWindow() {
     height: 1080,
     minWidth: 1080,
     minHeight: 720,
-    //maxWidth: 1500,//optional max size of application
-    frame: true,
     title: 'Pokemon Database - COMP3380',
     webPreferences: {
       nodeIntegration: true,
@@ -27,9 +25,10 @@ function createWindow() {
   // aspect ratio can be adjusted
   mainWindow.setAspectRatio(16/9);
 
+  
   mainWindow.loadURL(
-    url.format({
-      pathname: path.join(__dirname, `./dist/index.html`),
+      url.format({
+      pathname: path.join(__dirname, './dist/index.html'),
       protocol: "file:",
       slashes: true
     })
