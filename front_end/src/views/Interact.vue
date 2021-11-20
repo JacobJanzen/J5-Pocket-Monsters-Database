@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="INTERACThome">
         <h1>Interact with the Database!</h1>
 
           <v-toolbar
@@ -70,7 +70,7 @@
 
 <style>
 
-  .home{
+  .INTERACThome{
       padding:25px;
   }  
 

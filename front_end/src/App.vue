@@ -32,7 +32,17 @@
       </v-bottom-navigation>
 
     <router-view />
-  </v-app>
+
+    <!-- 
+      ALL pages show anything here
+      maybe just have a copy of the home page here - or a reference
+      and then when the menu is clicked, hide the copy in this file??
+    
+    -->
+
+
+
+  </v-app>   
 </template>
 
 <style>
