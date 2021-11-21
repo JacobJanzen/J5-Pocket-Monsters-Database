@@ -1,30 +1,61 @@
 <template>
-  <div class="home">
+  <div class="HOMEhome">
 
-      <!-- idk if this is what it was designed for -->
+      <!-- maybe replace with plaintext?? -->
       <div class=headerImage></div>
 
-      <p> </p>
+      <p> </p> <!-- spacer -->
+
+      <v-card 
+        elevation="2"
+        shaped
+        class = "card"
+      >
+        <div class="cardInner">
+          <h2>Group Info</h2>
+          <h4>Colin Johnson -- johns233@myumanitoba.ca</h4>
+          <h4>Jacob Janzen -- janzenj2@myumanitoba.ca</h4>
+          <h4>Daniel La Rocque -- larocq17@myumanitoba.ca</h4>
+          <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
+          <h4>rip josh :(</h4>
+        </div>
+      </v-card>
 
       <v-card
         elevation="2"
         shaped
         class = "card"
       >
-      <div class="cardInner">
-        <h2>Group Info</h2>
-        <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
-        <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
-        <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
-        <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
-
-        <br>
-
-        <h2>Github Repo</h2>
-        <h4>All our source files are available in our Github repo <a href = ""> HERE</a></h4>
-      </div>
-      
+        <div class="cardInner">
+          <h2>Github Repo</h2>
+          <h4>All our source files are available in our Github repo <a target="_blank" href = "https://github.com/JacobJanzen/3380_Project"> HERE</a> assuming we'll make the repo public??</h4>
+        </div>
       </v-card>
+
+       <v-card
+        elevation="2"
+        shaped
+        class = "card"
+      >
+        <div class="cardInner">
+          <h2>Navigation</h2>
+          <h4>Use the menu at the top to</h4>
+          <li>Read our project write-up</li>
+          <li>View the ER Diagram</li>
+          <li>Interact with the database!</li>
+        </div>
+      </v-card>
+
+        <!-- dumb & lazy footer spacer -->
+         <v-card
+        elevation="2"
+        shaped
+        class = "invisibleCard"
+      >
+        <div class="cardInner">
+        </div>
+      </v-card>
+      
 
   </div>
 </template>
@@ -32,21 +63,24 @@
 
 <style lang="scss" scoped>
 
-  .home{
+  .HOMEhome{
     background-image: url("../assets/bkg.png");
+    height: 100%;    
+    width: 100%;
+    overflow: hidden;
     background-size: cover;
     background-position: center;
-    height: 120%;
-    width:100%;
-    align-content: center;
-  }
+    }
 
   .headerImage{
     background-image: url("../assets/PokeDB.jpg");
     width: 100%;
-    height: 15%;
+    height: 12vh;
     background-size: cover;
+    //overflow: hidden;
     background-position: center;
+    border-bottom: solid, black, 2px;
+    margin-bottom:20px;
   }
 
   .h1 {
@@ -59,6 +93,10 @@
 
   .cardInner{
     padding: 15px;
+  }
+
+  .invisibleCard{
+    opacity: 0;
   }
 
 </style>

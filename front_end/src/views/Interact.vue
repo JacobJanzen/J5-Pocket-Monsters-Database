@@ -1,76 +1,65 @@
 <template>
-    <div class="home">
+    <div class="INTERACThome">
         <h1>Interact with the Database!</h1>
 
-          <v-toolbar
-                dark
-                color="blue"
-                class = "querySelector"
-            >
-                <v-toolbar-title>Select Query</v-toolbar-title>
-                <v-autocomplete
-                v-model="select"
-                :loading="loading"
-                :items="items"
-                :search-input.sync="search"
-                cache-items
-                class="mx-4"
-                flat
-                hide-no-data
-                hide-details
-                label="What do you want to know?"
-                solo-inverted
-                ></v-autocomplete>
-            </v-toolbar>
+        <h3>Select which info you're looking for in the drop-down below</h3>
+    <v-container fluid>
+      <v-row align="center">
+        <v-col cols="6">
+          <v-subheader>
+            Custom items
+          </v-subheader>
+        </v-col>
 
+        <v-col cols="6">
+          <v-select
+            v-model="select"
+            :hint="`${select.state}, ${select.abbr}`"
+            :items="items"
+            item-text="state"
+            item-value="abbr"
+            label="Select"
+            persistent-hint
+            return-object
+            single-line
+          ></v-select>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!-- this shit dont work https://vuetifyjs.com/en/components/selects/ -->
 
             <br>
             <h3>BASED ON ABOVE QUERY SELECTION, HAVE MORE DROP-DOWNS TO SELECT PARAMETERS</h3>
             <h3>Probably use a different auto-complete type which shows all options easily</h3>
 
+            <!-- Maybe use combobox instead - only allow single selection at a time ?
+                  with 'change' event to trigger parameter popup options?-->
+
 
     </div>
 </template>
 
-<script id="querySelector">
+<script>
   export default {
     data () {
       return {
-        loading: false,
-        items: [],
-        search: null,
-        select: null,
-        queries: [
-          'How many pokemon are on vacation',
-          'what am i doing',
-          'rip josh',
-          'i miss you',
+        select: { state: 'Florida', abbr: 'FL' },
+        items: [
+          { state: 'Florida', abbr: 'FL' },
+          { state: 'Georgia', abbr: 'GA' },
+          { state: 'Nebraska', abbr: 'NE' },
+          { state: 'California', abbr: 'CA' },
+          { state: 'New York', abbr: 'NY' },
         ],
       }
-    },
-    watch: {
-      search (val) {
-        val && val !== this.select && this.querySelections(val)
-      },
-    },
-    methods: {
-      querySelections (v) {
-        this.loading = true
-        // Simulated ajax query
-        setTimeout(() => {
-          this.items = this.queries.filter(e => {
-            return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
-          })
-          this.loading = false
-        }, 500)
-      },
     },
   }
 </script>
 
 <style>
 
-  .home{
+  .INTERACThome{
       padding:25px;
   }  
 

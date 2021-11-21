@@ -52,6 +52,12 @@ function createWindow() {
     app.exit();
   });
 
+  //makes links open in default browser instead of electron window
+  mainWindow.webContents.on('new-window', function(e, url) {
+    e.preventDefault();
+    require('electron').shell.openExternal(url);
+  });
+
 }
 
 //Direct App interactions
