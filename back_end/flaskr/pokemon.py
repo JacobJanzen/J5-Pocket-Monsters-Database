@@ -27,7 +27,7 @@ def list_pokemon_names():
 
 @bp.route('/listMoveNames')
 def list_move_names():
-    """Lists all of the pokemon names"""
+    """Lists all of the move names"""
     con = get_db()
     cur = con.cursor()
     cur.execute('select MoveName from Move')
