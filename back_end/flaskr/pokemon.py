@@ -13,10 +13,13 @@ def test():
     cur = con.cursor()
     cur.execute('SELECT * FROM Pokemon')  # sample
 
-    out = ''
+    d = {}
 
     for row in cur.fetchall():
-        for o in row:
-            out += str(o)
+        for key in row.keys():
+            if key not in d:
+                d[key] = [str(row[key])]
+            else:
+                d[key].append(str(row[key]))
 
-    return out  # should be converted JSON in prod
+    return json.dumps(d)
