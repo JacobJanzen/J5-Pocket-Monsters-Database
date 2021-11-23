@@ -8,7 +8,7 @@
 
 Initialize venv
 ```
-.../3380_Project/back_end $ python3 venv venv
+.../3380_Project/back_end $ python3 -m venv venv
 ```
 Activate venv
 ```
@@ -22,6 +22,13 @@ Install the required packages
 #### Running the Flask app
 
 *Linux and macOS:*
+
+Run the shell script
+```
+(venv) .../3380_Project/back_end $ source ./run.sh
+```
+
+##### OR
 
 Set flaskr to be the app directory
 ```
