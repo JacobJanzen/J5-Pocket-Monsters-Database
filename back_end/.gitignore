@@ -10,3 +10,6 @@ __pycache__/
 
 # sqlite3 instance
 /instance
+
+# PyCharm
+.idea/
