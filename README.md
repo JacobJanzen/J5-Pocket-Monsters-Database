@@ -1,4 +1,4 @@
-#Pokémon Database
+# Pokémon Database
 
 Tracking data about Pokémon Emerald.
 
