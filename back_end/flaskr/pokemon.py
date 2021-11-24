@@ -57,6 +57,20 @@ def dex_pokemon_names():
     return json.dumps(d)
 
 
+@bp.route('/trainer_data')
+def trainer_data():
+    """Lists all data from all trainers"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute('select * from Trainer')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = {row.keys()[1]: row[1], row.keys()[2]: row[2]}  # TID -> TrainerName, TrainerClass
+
+    return json.dumps(d)
+
+
 @bp.route('/pokemon_stats/<pokemon_name>')
 def pokemon_stats(pokemon_name: str):
     """Lists the stats of a pokemon"""
@@ -221,5 +235,322 @@ def pokemon_can_be_caught_at_location_from_encounter(location_name: str, encount
     d = {}
     for row in cur.fetchall():
         d[row[1]] = {row.keys()[0]: row[0], row.keys()[2]: row[2]}
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_with_supereffective_against_pokemon/<pokemon_name>')
+def pokemon_with_supereffective_against_pokemon(pokemon_name: str):
+    """Lists the pokemon that can learn a move that is supereffective on a given pokemon"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, MoveName, TypeName, Method
+                from Pokemon natural join Learns natural join Move
+                where MoveName in(
+                    select MoveName from 
+                    Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                    join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                    join Pokemon on HasTypes.Dex = Pokemon.Dex
+                    where Move.Status = 0 and Pokemon.PokemonName = "Magikarp"
+                    group by MoveName
+                    having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
+                ) 
+                union
+                select P1.PokemonName, MoveName, TypeName, 'Breeding: ' || P2.PokemonName from Pokemon P1 natural join LearnsByBreeding natural join Move 
+                join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+                where MoveName in(
+                    select MoveName from 
+                    Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                    join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                    join Pokemon on HasTypes.Dex = Pokemon.Dex
+                    where Move.Status = 0 and Pokemon.PokemonName = "Magikarp"
+                    group by MoveName
+                    having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
+                ) 
+                order by PokemonName;  
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        # Moves: [{MoveName, TypeName, Method}, ... ]
+        if row[0] not in d:
+            d[row[0]] = {'Moves': [{row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3]}]}
+        else:
+            d[row[0]]['Moves'].append({row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3]})
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_from_location_with_supereffective_against_pokemon/<pokemon_name>&<location_name>')
+def pokemon_from_location_with_supereffective_against_pokemon(pokemon_name: str, location_name: str):
+    """Lists the pokemon that can be caught at a given location that can learn a move that is supereffective on a
+    given pokemon """
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, MoveName, TypeName, Method
+                from Pokemon natural join Learns natural join Move natural join FoundAt
+                where LocationName = "{location_name}" and MoveName in(
+                    select MoveName from 
+                    Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                    join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                    join Pokemon on HasTypes.Dex = Pokemon.Dex
+                    where Move.Status = 0 and Pokemon.PokemonName = "{pokemon_name}"
+                    group by MoveName
+                    having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
+                )
+                union
+                select P1.PokemonName, MoveName, TypeName, 'Breeding: ' || P2.PokemonName 
+                from Pokemon P1 natural join LearnsByBreeding natural join Move 
+                join Pokemon P2 on LearnsByBreeding.Father = P2.Dex natural join FoundAt
+                where LocationName = "{location_name}" and MoveName in(
+                    select MoveName from 
+                    Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                    join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                    join Pokemon on HasTypes.Dex = Pokemon.Dex
+                    where Move.Status = 0 and Pokemon.PokemonName = "{pokemon_name}"
+                    group by MoveName
+                    having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
+                ) 
+                order by PokemonName;
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        # Moves: [{MoveName, TypeName, Method}, ... ]
+        if row[0] not in d:
+            d[row[0]] = {'Moves': [{row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3]}]}
+        else:
+            d[row[0]]['Moves'].append({row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3]})
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_that_move_is_supereffective_against/<move_name>')
+def pokemon_that_move_is_supereffective_against(move_name: str):
+    """Lists the pokemon that a given move is supereffective against"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, CAST((sum(Quality)-count(Quality))*2 as varchar) || 'x' as Effect from 
+                Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                join Pokemon on HasTypes.Dex = Pokemon.Dex
+                where Move.Status = 0 and Move.MoveName = "{move_name}"
+                group by PokemonName
+                having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
+                order by PokemonName;
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = row[1]
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_that_move_is_neutral_against/<move_name>')
+def pokemon_that_move_is_neutral_against(move_name: str):
+    """Lists the pokemon that a given move is neutral against"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, '1x' as Effect from 
+                Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                join Pokemon on HasTypes.Dex = Pokemon.Dex
+                where Move.Status = 0 and Move.MoveName = "{move_name}"
+                group by PokemonName
+                having (sum(Quality)/count(Quality) = 1 or sum(Quality)/count(Quality) = 1.25) and min(Quality) <> 0
+                order by PokemonName;
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = row[1]
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_that_move_is_weak_against/<move_name>')
+def pokemon_that_move_is_weak_against(move_name: str):
+    """Lists the pokemon that a given move is weak against"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, CAST((sum(Quality)/count(Quality)-0.25*(count(Quality)-1)) as varchar) || 'x' as Effect from 
+                Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                join Pokemon on HasTypes.Dex = Pokemon.Dex
+                where Move.Status = 0 and Move.MoveName = "{move_name}"
+                group by PokemonName
+                having (sum(Quality)/count(Quality) = 0.75 or sum(Quality)/count(Quality) = 0.5) and min(Quality) <> 0
+                order by PokemonName;
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = row[1]
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_that_move_is_noteffective_against/<move_name>')
+def pokemon_that_move_is_noteffective_against(move_name: str):
+    """Lists the pokemon that a given move is not effective against"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, '0x' as Effect from 
+                Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                join Pokemon on HasTypes.Dex = Pokemon.Dex
+                where Move.Status = 0 and Move.MoveName = "{move_name}"
+                group by PokemonName
+                having min(Quality) = 0
+                order by PokemonName;
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = row[1]
+
+    return json.dumps(d)
+
+
+@bp.route('/effects_on_pokemon_by_move/<move_name>')
+def effects_on_pokemon_by_move(move_name: str):
+    """Lists the effects that a given move has on pokemon"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, CAST((sum(Quality)-count(Quality))*2 as varchar) || 'x' as Effect from 
+                Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                join Pokemon on HasTypes.Dex = Pokemon.Dex
+                where Move.Status = 0 and Move.MoveName = "{move_name}"
+                group by PokemonName
+                having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
+                
+                union
+                
+                select PokemonName, '1x' as Effect from 
+                Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                join Pokemon on HasTypes.Dex = Pokemon.Dex
+                where Move.Status = 0 and Move.MoveName = "{move_name}"
+                group by PokemonName
+                having (sum(Quality)/count(Quality) = 1 or sum(Quality)/count(Quality) = 1.25) and min(Quality) <> 0
+                
+                union
+                
+                select PokemonName, CAST((sum(Quality)/count(Quality)-0.25*(count(Quality)-1)) as varchar) || 'x' as Effect from 
+                Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                join Pokemon on HasTypes.Dex = Pokemon.Dex
+                where Move.Status = 0 and Move.MoveName = "{move_name}"
+                group by PokemonName
+                having (sum(Quality)/count(Quality) = 0.75 or sum(Quality)/count(Quality) = 0.5) and min(Quality) <> 0
+                
+                union
+                
+                select PokemonName, '0x' as Effect from 
+                Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+                join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
+                join Pokemon on HasTypes.Dex = Pokemon.Dex
+                where Move.Status = 0 and Move.MoveName = "{move_name}"
+                group by PokemonName
+                having min(Quality) = 0
+                order by PokemonName;
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = row[1]
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_abilities')
+def pokemon_abilities():
+    """Lists all abilities that pokemon have"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, Ability from Pokemon natural join Abilities;
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = row[1]
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_with_ability/<ability_name>')
+def pokemon_with_ability(ability_name: str):
+    """Lists all pokemon that have a given ablility"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, Ability from Pokemon natural join Abilities
+                where Ability = "{ability_name}";
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = row[1]
+
+    return json.dumps(d)
+
+@bp.route('/pokemon_of_type_can_learn_other_type/<pokemon_type_name>&<move_type_name>')
+def pokemon_of_type_can_learn_other_type(pokemon_type_name: str, move_type_name: str):
+    """Lists all pokemon of a given type that can learn moves of a given type"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, MoveName 
+                from Pokemon natural join Learns natural join Move join HasTypes on Pokemon.Dex = HasTypes.Dex
+                where HasTypes.TypeName = "{pokemon_type_name}" and Move.TypeName = "{move_type_name}"
+                union
+                select P1.PokemonName, MoveName 
+                from Pokemon P1 join HasTypes on P1.Dex = HasTypes.Dex natural join LearnsByBreeding natural join Move 
+                join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+                where HasTypes.TypeName = "{pokemon_type_name}" and Move.TypeName = "{move_type_name}";
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        if row[0] not in d:
+            d[row[0]] = [row[1]]
+        else:
+            d[row[0]].append(row[1])
+
+    return json.dumps(d)
+
+
+@bp.route('/pokemon_of_type_can_learn_other_type_from_method/<pokemon_type_name>&<move_type_name>')
+def pokemon_of_type_can_learn_other_type_from_method(pokemon_type_name: str, move_type_name: str):
+    """Lists all pokemon of a given type that can learn moves of a given type and the methods by which they learn those moves"""
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select PokemonName, MoveName, Method 
+                from Pokemon natural join Learns natural join Move join HasTypes on Pokemon.Dex = HasTypes.Dex
+                where HasTypes.TypeName = "{pokemon_type_name}" and Move.TypeName = "{move_type_name}"
+                union
+                select P1.PokemonName, MoveName, 'Breeding: ' || P2.PokemonName 
+                from Pokemon P1 join HasTypes on P1.Dex = HasTypes.Dex natural join LearnsByBreeding natural join Move 
+                join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+                where HasTypes.TypeName = "{pokemon_type_name}" and Move.TypeName = "{move_type_name}";
+                ''')
+
+    d = {}
+    for row in cur.fetchall():
+        if row[0] not in d:
+            d[row[0]] = [[row[1], row[2]]]
+        else:
+            d[row[0]].append([row[1], row[2]])
 
     return json.dumps(d)
