@@ -59,7 +59,19 @@ This contains the names of all the implemented API methods in the Flask app.
 
 ## Location Selection
 
+|Method Name |HTTP Method | Parameters | Description|
+|---|---|---|---|
+| locations_pokemon_can_be_found | GET | pokemon_name | Lists the locations that a Pokemon may be found at |
+| locations_pokemon_can_be_found_with_method | GET | pokemon_name, method_name | Lists the locations that a Pokemon may be found at and the method by which they can be found |
+| locations_with_pokemon_of_type | GET | type_name | Lists the locations that a Pokemon of a given type can be found |
+| locations_with_pokemon_of_dual_type | GET | first_type_name, second-type_name | Lists the locations that a Pokemon with two given types can be found |
+| locations_with_trainer | GET | trainer_id | Lists the locations with the given trainer |
+| locations_with_trainer_class | GET | trainer_class | Lists the locations with trainers of the given trainer class |
+| locations_with_trainer_class_fight | GET | trainer_class | Lists the locations with trainers of the given trainer class that can be fought |
+| locations_with_pokemon_of_level | GET | pokemon_name, minimum_level | Lists locations where a given Pokemon of at least a given level can be found |
+
 ## Type Selection
+
 |Method Name |HTTP Method | Parameters | Description|
 |---|---|---|---|
 | number_of_pokemon_per_type | GET | | Lists the number of Pokemon per type |
