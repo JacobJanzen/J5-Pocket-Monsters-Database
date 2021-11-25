@@ -1,0 +1,610 @@
+1,Overgrow
+10,"Shield Dust"
+100,Soundproof
+100,Static
+101,Soundproof
+101,Static
+102,Chlorophyll
+103,Chlorophyll
+104,"Lightning Rod"
+104,"Rock Head"
+105,"Lightning Rod"
+105,"Rock Head"
+106,Limber
+106,Reckless
+107,"Iron Fist"
+107,"Keen Eye"
+108,Oblivious
+108,"Own Tempo"
+109,Levitate
+109,"Neutralizing Gas"
+11,"Shed Skin"
+110,Levitate
+110,"Neutralizing Gas"
+111,"Lightning Rod"
+111,"Rock Head"
+112,"Lightning Rod"
+112,"Rock Head"
+113,"Natural Cure"
+113,"Serene Grace"
+114,Chlorophyll
+114,"Leaf Guard"
+115,"Early Bird"
+115,Scrappy
+116,Sniper
+116,"Swift Swim"
+117,"Poison Point"
+117,Sniper
+118,"Swift Swim"
+118,"Water Veil"
+119,"Swift Swim"
+119,"Water Veil"
+12,"Compound Eyes"
+120,Illuminate
+120,"Natural Cure"
+121,Illuminate
+121,"Natural Cure"
+122,Filter
+122,Soundproof
+123,Swarm
+123,Technician
+124,Forewarn
+124,Oblivious
+125,Static
+126,"Flame Body"
+127,"Hyper Cutter"
+127,"Mold Breaker"
+128,"Anger Point"
+128,Intimidate
+129,"Swift Swim"
+13,"Shield Dust"
+130,Intimidate
+131,"Shell Armor"
+131,"Water Absorb"
+132,Limber
+133,Adaptability
+133,"Run Away"
+134,"Water Absorb"
+135,"Volt Absorb"
+136,"Flash Fire"
+137,Download
+137,Trace
+138,"Shell Armor"
+138,"Swift Swim"
+139,"Shell Armor"
+139,"Swift Swim"
+14,"Shed Skin"
+140,"Battle Armor"
+140,"Swift Swim"
+141,"Battle Armor"
+141,"Swift Swim"
+142,Pressure
+142,"Rock Head"
+143,Immunity
+143,"Thick Fat"
+144,Pressure
+145,Pressure
+146,Pressure
+147,"Shed Skin"
+148,"Shed Skin"
+149,"Inner Focus"
+15,Swarm
+150,Pressure
+151,Synchronize
+152,Overgrow
+153,Overgrow
+154,Overgrow
+155,Blaze
+156,Blaze
+157,Blaze
+158,Torrent
+159,Torrent
+16,"Keen Eye"
+16,"Tangled Feet"
+160,Torrent
+161,"Keen Eye"
+161,"Run Away"
+162,"Keen Eye"
+162,"Run Away"
+163,Insomnia
+163,"Keen Eye"
+164,Insomnia
+164,"Keen Eye"
+165,"Early Bird"
+165,Swarm
+166,"Early Bird"
+166,Swarm
+167,Insomnia
+167,Swarm
+168,Insomnia
+168,Swarm
+169,"Inner Focus"
+17,"Keen Eye"
+17,"Tangled Feet"
+170,Illuminate
+170,"Volt Absorb"
+171,Illuminate
+171,"Volt Absorb"
+172,Static
+173,"Cute Charm"
+173,"Magic Guard"
+174,Competitive
+174,"Cute Charm"
+175,Hustle
+175,"Serene Grace"
+176,Hustle
+176,"Serene Grace"
+177,"Early Bird"
+177,Synchronize
+178,"Early Bird"
+178,Synchronize
+179,Static
+18,"Keen Eye"
+18,"Tangled Feet"
+180,Static
+181,Static
+182,Chlorophyll
+183,"Huge Power"
+183,"Thick Fat"
+184,"Huge Power"
+184,"Thick Fat"
+185,"Rock Head"
+185,Sturdy
+186,Damp
+186,"Water Absorb"
+187,Chlorophyll
+187,"Leaf Guard"
+188,Chlorophyll
+188,"Leaf Guard"
+189,Chlorophyll
+189,"Leaf Guard"
+19,Guts
+19,"Run Away"
+190,Pickup
+190,"Run Away"
+191,Chlorophyll
+191,"Solar Power"
+192,Chlorophyll
+192,"Solar Power"
+193,"Compound Eyes"
+193,"Speed Boost"
+194,Damp
+194,"Water Absorb"
+195,Damp
+195,"Water Absorb"
+196,Synchronize
+197,Synchronize
+198,Insomnia
+198,"Super Luck"
+199,Oblivious
+199,"Own Tempo"
+2,Overgrow
+20,Guts
+20,"Run Away"
+200,Levitate
+201,Levitate
+202,"Shadow Tag"
+203,"Early Bird"
+203,"Inner Focus"
+204,Sturdy
+205,Sturdy
+206,"Run Away"
+206,"Serene Grace"
+207,"Hyper Cutter"
+207,"Sand Veil"
+208,"Rock Head"
+208,Sturdy
+209,Intimidate
+209,"Run Away"
+21,"Keen Eye"
+210,Intimidate
+210,"Quick Feet"
+211,"Poison Point"
+211,"Swift Swim"
+212,Swarm
+212,Technician
+213,Gluttony
+213,Sturdy
+214,Guts
+214,Swarm
+215,"Inner Focus"
+215,"Keen Eye"
+216,Pickup
+216,"Quick Feet"
+217,Guts
+217,"Quick Feet"
+218,"Flame Body"
+218,"Magma Armor"
+219,"Flame Body"
+219,"Magma Armor"
+22,"Keen Eye"
+220,Oblivious
+220,"Snow Cloak"
+221,Oblivious
+221,"Snow Cloak"
+222,Hustle
+222,"Natural Cure"
+223,Hustle
+223,Sniper
+224,Sniper
+224,"Suction Cups"
+225,Hustle
+225,"Vital Spirit"
+226,"Swift Swim"
+226,"Water Absorb"
+227,"Keen Eye"
+227,Sturdy
+228,"Early Bird"
+228,"Flash Fire"
+229,"Early Bird"
+229,"Flash Fire"
+23,Intimidate
+23,"Shed Skin"
+230,Sniper
+230,"Swift Swim"
+231,Pickup
+232,Sturdy
+233,Download
+233,Trace
+234,Frisk
+234,Intimidate
+235,"Own Tempo"
+235,Technician
+236,Guts
+236,Steadfast
+237,Intimidate
+237,Technician
+238,Forewarn
+238,Oblivious
+239,Static
+24,Intimidate
+24,"Shed Skin"
+240,"Flame Body"
+241,Scrappy
+241,"Thick Fat"
+242,"Natural Cure"
+242,"Serene Grace"
+243,Pressure
+244,Pressure
+245,Pressure
+246,Guts
+247,"Shed Skin"
+248,"Sand Stream"
+249,Pressure
+25,Static
+250,Pressure
+251,"Natural Cure"
+252,Overgrow
+253,Overgrow
+254,Overgrow
+255,Blaze
+256,Blaze
+257,Blaze
+258,Torrent
+259,Torrent
+26,Static
+260,Torrent
+261,"Quick Feet"
+261,"Run Away"
+262,Intimidate
+262,"Quick Feet"
+263,Gluttony
+263,Pickup
+264,Gluttony
+264,Pickup
+265,"Shield Dust"
+266,"Shed Skin"
+267,Swarm
+268,"Shed Skin"
+269,"Shield Dust"
+27,"Sand Veil"
+270,"Rain Dish"
+270,"Swift Swim"
+271,"Rain Dish"
+271,"Swift Swim"
+272,"Rain Dish"
+272,"Swift Swim"
+273,Chlorophyll
+273,"Early Bird"
+274,Chlorophyll
+274,"Early Bird"
+275,Chlorophyll
+275,"Early Bird"
+276,Guts
+277,Guts
+278,Hydration
+278,"Keen Eye"
+279,Drizzle
+279,"Keen Eye"
+28,"Sand Veil"
+280,Synchronize
+280,Trace
+281,Synchronize
+281,Trace
+282,Synchronize
+282,Trace
+283,"Swift Swim"
+284,Intimidate
+285,"Effect Spore"
+285,"Poison Heal"
+286,"Effect Spore"
+286,"Poison Heal"
+287,Truant
+288,"Vital Spirit"
+289,Truant
+29,"Poison Point"
+29,Rivalry
+290,"Compound Eyes"
+291,"Speed Boost"
+292,"Wonder Guard"
+293,Soundproof
+294,Soundproof
+295,Soundproof
+296,Guts
+296,"Thick Fat"
+297,Guts
+297,"Thick Fat"
+298,"Huge Power"
+298,"Thick Fat"
+299,"Magnet Pull"
+299,Sturdy
+3,Overgrow
+30,"Poison Point"
+30,Rivalry
+300,"Cute Charm"
+300,Normalize
+301,"Cute Charm"
+301,Normalize
+302,"Keen Eye"
+302,Stall
+303,"Hyper Cutter"
+303,Intimidate
+304,"Rock Head"
+304,Sturdy
+305,"Rock Head"
+305,Sturdy
+306,"Rock Head"
+306,Sturdy
+307,"Pure Power"
+308,"Pure Power"
+309,"Lightning Rod"
+309,Static
+31,"Poison Point"
+31,Rivalry
+310,"Lightning Rod"
+310,Static
+311,Plus
+312,Minus
+313,Illuminate
+313,Swarm
+314,Oblivious
+314,"Tinted Lens"
+315,"Natural Cure"
+315,"Poison Point"
+316,"Liquid Ooze"
+316,"Sticky Hold"
+317,"Liquid Ooze"
+317,"Sticky Hold"
+318,"Rough Skin"
+319,"Rough Skin"
+32,"Poison Point"
+32,Rivalry
+320,Oblivious
+320,"Water Veil"
+321,Oblivious
+321,"Water Veil"
+322,Oblivious
+322,Simple
+323,"Magma Armor"
+323,"Solid Rock"
+324,Drought
+324,"White Smoke"
+325,"Own Tempo"
+325,"Thick Fat"
+326,"Own Tempo"
+326,"Thick Fat"
+327,"Own Tempo"
+327,"Tangled Feet"
+328,"Arena Trap"
+328,"Hyper Cutter"
+329,Levitate
+33,"Poison Point"
+33,Rivalry
+330,Levitate
+331,"Sand Veil"
+332,"Sand Veil"
+333,"Natural Cure"
+334,"Natural Cure"
+335,Immunity
+336,"Shed Skin"
+337,Levitate
+338,Levitate
+339,Anticipation
+339,Oblivious
+34,"Poison Point"
+34,Rivalry
+340,Anticipation
+340,Oblivious
+341,"Hyper Cutter"
+341,"Shell Armor"
+342,"Hyper Cutter"
+342,"Shell Armor"
+343,Levitate
+344,Levitate
+345,"Suction Cups"
+346,"Suction Cups"
+347,"Battle Armor"
+348,"Battle Armor"
+349,Oblivious
+349,"Swift Swim"
+35,"Cute Charm"
+35,"Magic Guard"
+350,Competitive
+350,"Marvel Scale"
+351,Forecast
+352,"Color Change"
+353,Frisk
+353,Insomnia
+354,Frisk
+354,Insomnia
+355,Levitate
+356,Pressure
+357,Chlorophyll
+357,"Solar Power"
+358,Levitate
+359,Pressure
+359,"Super Luck"
+36,"Cute Charm"
+36,"Magic Guard"
+360,"Shadow Tag"
+361,"Ice Body"
+361,"Inner Focus"
+362,"Ice Body"
+362,"Inner Focus"
+363,"Ice Body"
+363,"Thick Fat"
+364,"Ice Body"
+364,"Thick Fat"
+365,"Ice Body"
+365,"Thick Fat"
+366,"Shell Armor"
+367,"Swift Swim"
+368,"Swift Swim"
+369,"Rock Head"
+369,"Swift Swim"
+37,"Flash Fire"
+370,"Swift Swim"
+371,"Rock Head"
+372,"Rock Head"
+373,Intimidate
+374,"Clear Body"
+375,"Clear Body"
+376,"Clear Body"
+377,"Clear Body"
+378,"Clear Body"
+379,"Clear Body"
+38,"Flash Fire"
+380,Levitate
+381,Levitate
+382,Drizzle
+383,Drought
+384,"Air Lock"
+385,"Serene Grace"
+386,Pressure
+39,Competitive
+39,"Cute Charm"
+4,Blaze
+40,Competitive
+40,"Cute Charm"
+41,"Inner Focus"
+42,"Inner Focus"
+43,Chlorophyll
+44,Chlorophyll
+45,Chlorophyll
+46,"Dry Skin"
+46,"Effect Spore"
+47,"Dry Skin"
+47,"Effect Spore"
+48,"Compound Eyes"
+48,"Tinted Lens"
+49,"Shield Dust"
+49,"Tinted Lens"
+5,Blaze
+50,"Arena Trap"
+50,"Sand Veil"
+51,"Arena Trap"
+51,"Sand Veil"
+52,Pickup
+52,Technician
+53,Limber
+53,Technician
+54,"Cloud Nine"
+54,Damp
+55,"Cloud Nine"
+55,Damp
+56,"Anger Point"
+56,"Vital Spirit"
+57,"Anger Point"
+57,"Vital Spirit"
+58,"Flash Fire"
+58,Intimidate
+59,"Flash Fire"
+59,Intimidate
+6,Blaze
+60,Damp
+60,"Water Absorb"
+61,Damp
+61,"Water Absorb"
+62,Damp
+62,"Water Absorb"
+63,"Inner Focus"
+63,Synchronize
+64,"Inner Focus"
+64,Synchronize
+65,"Inner Focus"
+65,Synchronize
+66,Guts
+66,"No Guard"
+67,Guts
+67,"No Guard"
+68,Guts
+68,"No Guard"
+69,Chlorophyll
+7,Torrent
+70,Chlorophyll
+71,Chlorophyll
+72,"Clear Body"
+72,"Liquid Ooze"
+73,"Clear Body"
+73,"Liquid Ooze"
+74,"Rock Head"
+74,Sturdy
+75,"Rock Head"
+75,Sturdy
+76,"Rock Head"
+76,Sturdy
+77,"Flash Fire"
+77,"Run Away"
+78,"Flash Fire"
+78,"Run Away"
+79,Oblivious
+79,"Own Tempo"
+8,Torrent
+80,Oblivious
+80,"Own Tempo"
+81,"Magnet Pull"
+81,Sturdy
+82,"Magnet Pull"
+82,Sturdy
+83,"Inner Focus"
+83,"Keen Eye"
+84,"Early Bird"
+84,"Run Away"
+85,"Early Bird"
+85,"Run Away"
+86,Hydration
+86,"Thick Fat"
+87,Hydration
+87,"Thick Fat"
+88,Stench
+88,"Sticky Hold"
+89,Stench
+89,"Sticky Hold"
+9,Torrent
+90,"Shell Armor"
+90,"Skill Link"
+91,"Shell Armor"
+91,"Skill Link"
+92,Levitate
+93,Levitate
+94,"Cursed Body"
+95,"Rock Head"
+95,Sturdy
+96,Forewarn
+96,Insomnia
+97,Forewarn
+97,Insomnia
+98,"Hyper Cutter"
+98,"Shell Armor"
+99,"Hyper Cutter"
+99,"Shell Armor"

@@ -1,0 +1,2007 @@
+1,154,Safeguard
+1,181,"Light Screen"
+1,199,Curse
+1,286,Charm
+1,315,"Grass Whistle"
+1,315,"Petal Dance"
+1,357,"Magical Leaf"
+1,9,"Skull Bash"
+102,154,"Ancient Power"
+102,154,Reflect
+102,182,Moonlight
+102,189,"Psych Up"
+102,192,Curse
+102,315,Synthesis
+102,332,Ingrain
+103,154,"Ancient Power"
+103,154,Reflect
+103,182,Moonlight
+103,189,"Psych Up"
+103,192,Curse
+103,315,Synthesis
+103,332,Ingrain
+104,112,"Swords Dance"
+104,131,"Perish Song"
+104,143,"Belly Drum"
+104,248,"Ancient Power"
+104,248,"Rock Slide"
+104,295,Screech
+104,9,"Skull Bash"
+105,112,"Swords Dance"
+105,131,"Perish Song"
+105,143,"Belly Drum"
+105,248,"Ancient Power"
+105,248,"Rock Slide"
+105,295,Screech
+105,9,"Skull Bash"
+106,106,"High Jump Kick"
+106,106,"Mind Reader"
+106,107,"Helping Hand"
+106,107,"Mach Punch"
+106,237,"Rapid Spin"
+107,106,"High Jump Kick"
+107,106,"Mind Reader"
+107,107,"Mach Punch"
+107,237,"Rapid Spin"
+108,111,Magnitude
+108,131,Substitute
+108,143,"Belly Drum"
+108,143,Snore
+108,199,Curse
+108,293,"Smelling Salts"
+108,295,"Sleep Talk"
+108,357,"Body Slam"
+109,200,"Pain Split"
+109,200,Psybeam
+109,202,"Destiny Bond"
+109,354,Screech
+109,356,Will-O-Wisp
+109,358,Psywave
+110,200,"Pain Split"
+110,200,Psybeam
+110,202,"Destiny Bond"
+110,354,Screech
+110,356,Will-O-Wisp
+110,358,Psywave
+111,289,Counter
+111,289,Reversal
+111,323,Magnitude
+111,323,"Rock Slide"
+111,324,Curse
+111,335,"Crush Claw"
+111,336,Crunch
+111,359,"Swords Dance"
+112,289,Counter
+112,289,Reversal
+112,323,Magnitude
+112,323,"Rock Slide"
+112,324,Curse
+112,335,"Crush Claw"
+112,336,Crunch
+112,359,"Swords Dance"
+113,176,Metronome
+113,209,Present
+113,300,Substitute
+113,301,"Heal Bell"
+113,315,Aromatherapy
+114,103,Confusion
+114,154,Reflect
+114,272,Flail
+114,275,Amnesia
+114,275,"Nature Power"
+114,315,"Mega Drain"
+114,332,"Leech Seed"
+115,105,"Focus Energy"
+115,108,Disable
+115,111,"Crush Claw"
+115,131,Substitute
+115,152,Counter
+115,154,Safeguard
+115,260,Foresight
+115,357,Stomp
+116,149,"Dragon Rage"
+116,199,Disable
+116,224,Octazooka
+116,350,Flail
+116,350,Splash
+116,365,"Aurora Beam"
+116,373,"Dragon Breath"
+117,149,"Dragon Rage"
+117,199,Disable
+117,224,Octazooka
+117,350,Flail
+117,350,Splash
+117,365,"Aurora Beam"
+117,373,"Dragon Breath"
+118,224,Haze
+118,224,Psybeam
+118,321,"Hydro Pump"
+118,321,"Sleep Talk"
+118,340,"Mud Sport"
+119,224,Haze
+119,224,Psybeam
+119,321,"Hydro Pump"
+119,321,"Sleep Talk"
+119,340,"Mud Sport"
+122,122,Trick
+122,302,"Fake Out"
+122,327,Hypnosis
+122,327,"Psych Up"
+122,332,Mimic
+122,97,"Future Sight"
+123,213,Safeguard
+123,214,Counter
+123,214,Endure
+123,214,Reversal
+123,269,"Light Screen"
+123,284,"Silver Wind"
+123,291,"Baton Pass"
+124,302,"Fake Out"
+124,308,"Ice Punch"
+124,308,Meditate
+124,327,"Psych Up"
+124,327,Wish
+125,122,Barrier
+125,237,"Rolling Kick"
+125,308,"Fire Punch"
+125,308,"Ice Punch"
+125,308,Meditate
+125,68,"Cross Chop"
+125,68,"Karate Chop"
+126,107,"Mega Punch"
+126,122,Barrier
+126,125,Screech
+126,308,"Thunder Punch"
+126,68,"Cross Chop"
+126,68,"Karate Chop"
+127,214,Flail
+127,214,"Fury Attack"
+127,291,"False Swipe"
+127,330,"Feint Attack"
+131,112,"Horn Drill"
+131,139,Tickle
+131,183,Substitute
+131,199,Curse
+131,230,"Dragon Dance"
+131,260,Foresight
+131,295,"Sleep Talk"
+131,350,Refresh
+133,190,Tickle
+133,232,Endure
+133,301,Wish
+133,312,Charm
+133,324,Curse
+133,327,Flail
+134,190,Tickle
+134,232,Endure
+134,301,Wish
+134,312,Charm
+134,324,Curse
+134,327,Flail
+135,190,Tickle
+135,232,Endure
+135,301,Wish
+135,312,Charm
+135,324,Curse
+135,327,Flail
+136,190,Tickle
+136,232,Endure
+136,301,Wish
+136,312,Charm
+136,324,Curse
+136,327,Flail
+138,195,Slam
+138,279,Supersonic
+138,284,Haze
+138,342,"Bubble Beam"
+138,365,"Aurora Beam"
+138,369,"Rock Slide"
+138,91,Spikes
+139,195,Slam
+139,279,Supersonic
+139,284,Haze
+139,342,"Bubble Beam"
+139,365,"Aurora Beam"
+139,369,"Rock Slide"
+139,91,Spikes
+140,342,"Bubble Beam"
+140,342,"Knock Off"
+140,346,"Confuse Ray"
+140,348,Dig
+140,349,Flail
+140,365,"Aurora Beam"
+140,9,"Rapid Spin"
+141,342,"Bubble Beam"
+141,342,"Knock Off"
+141,346,"Confuse Ray"
+141,348,Dig
+141,349,Flail
+141,365,"Aurora Beam"
+141,9,"Rapid Spin"
+142,164,Foresight
+142,18,Whirlwind
+142,227,Curse
+142,227,"Steel Wing"
+142,279,Pursuit
+142,334,"Dragon Breath"
+143,1,Charm
+143,108,Lick
+143,131,Substitute
+143,199,Curse
+143,306,Double-Edge
+147,222,"Light Screen"
+147,279,Supersonic
+147,334,"Dragon Dance"
+147,334,Mist
+147,336,Haze
+147,373,"Dragon Breath"
+148,222,"Light Screen"
+148,279,Supersonic
+148,334,"Dragon Dance"
+148,334,Mist
+148,336,Haze
+148,373,"Dragon Breath"
+149,222,"Light Screen"
+149,279,Supersonic
+149,334,"Dragon Dance"
+149,334,Mist
+149,336,Haze
+149,373,"Dragon Breath"
+152,114,"Vine Whip"
+152,158,"Ancient Power"
+152,270,Flail
+152,275,"Nature Power"
+152,286,Counter
+152,315,"Grass Whistle"
+152,332,Ingrain
+152,332,"Leech Seed"
+153,114,"Vine Whip"
+153,158,"Ancient Power"
+153,270,Flail
+153,275,"Nature Power"
+153,286,Counter
+153,315,"Grass Whistle"
+153,332,Ingrain
+153,332,"Leech Seed"
+154,114,"Vine Whip"
+154,158,"Ancient Power"
+154,270,Flail
+154,275,"Nature Power"
+154,286,Counter
+154,315,"Grass Whistle"
+154,332,Ingrain
+154,332,"Leech Seed"
+155,215,Foresight
+155,288,Reversal
+155,300,Covet
+155,310,Howl
+155,327,Thrash
+155,335,"Crush Claw"
+155,352,"Fury Swipes"
+155,359,"Quick Attack"
+156,215,Foresight
+156,288,Reversal
+156,300,Covet
+156,310,Howl
+156,327,Thrash
+156,335,"Crush Claw"
+156,352,"Fury Swipes"
+156,359,"Quick Attack"
+157,215,Foresight
+157,288,Reversal
+157,300,Covet
+157,310,Howl
+157,327,Thrash
+157,335,"Crush Claw"
+157,352,"Fury Swipes"
+157,359,"Quick Attack"
+158,248,"Rock Slide"
+158,248,Thrash
+158,306,"Dragon Claw"
+158,350,"Water Sport"
+158,367,Crunch
+158,369,"Ancient Power"
+158,369,"Hydro Pump"
+158,369,"Mud Sport"
+159,248,"Rock Slide"
+159,248,Thrash
+159,306,"Dragon Claw"
+159,350,"Water Sport"
+159,367,Crunch
+159,369,"Ancient Power"
+159,369,"Hydro Pump"
+159,369,"Mud Sport"
+16,164,Foresight
+16,198,"Feint Attack"
+16,227,"Air Cutter"
+16,227,"Steel Wing"
+16,278,Pursuit
+160,248,"Rock Slide"
+160,248,Thrash
+160,306,"Dragon Claw"
+160,350,"Water Sport"
+160,367,Crunch
+160,369,"Ancient Power"
+160,369,"Hydro Pump"
+160,369,"Mud Sport"
+161,288,Reversal
+161,300,Assist
+161,323,"Focus Energy"
+161,327,Double-Edge
+161,327,Trick
+161,335,Pursuit
+161,352,Substitute
+161,359,Slash
+162,288,Reversal
+162,300,Assist
+162,323,"Focus Energy"
+162,327,Double-Edge
+162,327,Trick
+162,335,Pursuit
+162,352,Substitute
+162,359,Slash
+163,18,"Feather Dance"
+163,18,Whirlwind
+163,198,"Feint Attack"
+163,22,"Mirror Move"
+163,279,Supersonic
+163,279,"Wing Attack"
+163,334,"Sky Attack"
+164,18,"Feather Dance"
+164,18,Whirlwind
+164,198,"Feint Attack"
+164,22,"Mirror Move"
+164,279,Supersonic
+164,279,"Wing Attack"
+164,334,"Sky Attack"
+165,213,Bide
+165,269,Psybeam
+165,284,"Silver Wind"
+166,213,Bide
+166,269,Psybeam
+166,284,"Silver Wind"
+167,193,"Sonic Boom"
+167,212,Pursuit
+167,269,Psybeam
+167,291,"Baton Pass"
+167,313,"Signal Beam"
+167,49,Disable
+168,193,"Sonic Boom"
+168,212,Pursuit
+168,269,Psybeam
+168,291,"Baton Pass"
+168,313,"Signal Beam"
+168,49,Disable
+169,18,Gust
+169,18,Whirlwind
+169,198,"Feint Attack"
+169,278,Pursuit
+169,278,"Quick Attack"
+169,83,Curse
+17,164,Foresight
+17,198,"Feint Attack"
+17,227,"Air Cutter"
+17,227,"Steel Wing"
+17,278,Pursuit
+170,319,Screech
+170,340,Amnesia
+170,370,Flail
+171,319,Screech
+171,321,Amnesia
+171,370,Flail
+172,176,Wish
+172,225,Present
+172,273,Bide
+172,288,Reversal
+172,301,"Double Slap"
+172,312,Charge
+172,365,Encore
+173,176,Metronome
+173,176,Wish
+173,184,"Belly Drum"
+173,189,Splash
+173,210,Present
+173,301,Substitute
+173,351,Amnesia
+173,39,Mimic
+174,176,Wish
+174,184,"Perish Song"
+174,184,Present
+174,303,"Feint Attack"
+174,311,"Fake Tears"
+175,164,Foresight
+175,178,"Future Sight"
+175,209,Present
+175,300,Substitute
+175,303,"Psych Up"
+175,334,"Mirror Move"
+175,334,Peck
+176,164,Foresight
+176,178,"Future Sight"
+176,209,Present
+176,300,Substitute
+176,303,"Psych Up"
+176,334,"Mirror Move"
+176,334,Peck
+177,176,"Psych Up"
+177,18,"Feather Dance"
+177,198,"Feint Attack"
+177,198,Haze
+177,227,"Steel Wing"
+177,279,"Quick Attack"
+177,334,Refresh
+177,85,"Drill Peck"
+178,176,"Psych Up"
+178,18,"Feather Dance"
+178,198,"Feint Attack"
+178,198,Haze
+178,227,"Steel Wing"
+178,279,"Quick Attack"
+178,334,Refresh
+178,85,"Drill Peck"
+179,154,Reflect
+179,154,Safeguard
+179,310,Charge
+179,323,"Take Down"
+179,326,"Odor Sleuth"
+179,352,Screech
+179,365,"Body Slam"
+18,164,Foresight
+18,198,"Feint Attack"
+18,227,"Air Cutter"
+18,227,"Steel Wing"
+18,278,Pursuit
+180,154,Reflect
+180,154,Safeguard
+180,310,Charge
+180,323,"Take Down"
+180,326,"Odor Sleuth"
+180,352,Screech
+180,365,"Body Slam"
+181,154,Reflect
+181,154,Safeguard
+181,310,Charge
+181,323,"Take Down"
+181,326,"Odor Sleuth"
+181,352,Screech
+181,365,"Body Slam"
+182,154,Flail
+182,286,Charm
+182,332,Ingrain
+182,357,"Razor Leaf"
+182,357,"Swords Dance"
+182,357,Synthesis
+183,131,Sing
+183,139,Tickle
+183,186,"Perish Song"
+183,195,Amnesia
+183,195,Slam
+183,225,Present
+183,279,Supersonic
+183,300,Substitute
+183,35,"Light Screen"
+183,350,Refresh
+183,351,"Future Sight"
+183,365,Encore
+183,61,"Belly Drum"
+184,131,Sing
+184,139,Tickle
+184,186,"Perish Song"
+184,195,Amnesia
+184,195,Slam
+184,225,Present
+184,279,Supersonic
+184,300,Substitute
+184,35,"Light Screen"
+184,350,Refresh
+184,351,"Future Sight"
+184,365,Encore
+184,61,"Belly Drum"
+185,76,Self-Destruct
+186,283,Haze
+186,283,Mist
+186,342,"Bubble Beam"
+186,350,Splash
+186,350,"Water Sport"
+186,365,"Ice Ball"
+186,62,"Mind Reader"
+187,103,Confusion
+187,154,Reflect
+187,275,Amnesia
+187,301,Double-Edge
+187,303,"Psych Up"
+187,312,Encore
+187,312,"Helping Hand"
+188,103,Confusion
+188,154,Reflect
+188,275,Amnesia
+188,301,Double-Edge
+188,303,"Psych Up"
+188,312,Encore
+188,312,"Helping Hand"
+189,103,Confusion
+189,154,Reflect
+189,275,Amnesia
+189,301,Double-Edge
+189,303,"Psych Up"
+189,312,Encore
+189,312,"Helping Hand"
+19,157,"Flame Wheel"
+19,288,Reversal
+19,289,Counter
+19,327,Uproar
+19,336,Swagger
+19,352,"Fury Swipes"
+19,352,Screech
+19,359,Bite
+190,195,Slam
+190,206,Spite
+190,215,Agility
+190,215,"Beat Up"
+190,289,Counter
+190,301,"Double Slap"
+190,335,Pursuit
+190,352,Screech
+191,103,Curse
+191,189,Encore
+191,275,"Nature Power"
+191,286,"Helping Hand"
+191,315,"Grass Whistle"
+191,332,"Leech Seed"
+192,103,Curse
+192,189,Encore
+192,275,"Nature Power"
+192,286,"Helping Hand"
+192,315,"Grass Whistle"
+192,332,"Leech Seed"
+193,214,Reversal
+193,284,"Silver Wind"
+193,284,Whirlwind
+193,291,"Leech Life"
+193,313,"Signal Beam"
+194,303,"Spit Up"
+194,303,Stockpile
+194,303,Swallow
+194,324,Curse
+194,350,Safeguard
+194,352,"Ancient Power"
+194,365,"Body Slam"
+194,369,"Mud Sport"
+195,303,"Spit Up"
+195,303,Stockpile
+195,303,Swallow
+195,324,Curse
+195,350,Safeguard
+195,352,"Ancient Power"
+195,365,"Body Slam"
+195,369,"Mud Sport"
+196,190,Tickle
+196,232,Endure
+196,301,Wish
+196,312,Charm
+196,324,Curse
+196,327,Flail
+197,190,Tickle
+197,232,Endure
+197,301,Wish
+197,312,Charm
+197,324,Curse
+197,327,Flail
+198,178,"Confuse Ray"
+198,18,"Feather Dance"
+198,18,Whirlwind
+198,279,"Wing Attack"
+198,334,"Mirror Move"
+198,334,"Perish Song"
+198,334,"Sky Attack"
+198,85,"Drill Peck"
+199,143,"Belly Drum"
+199,225,"Future Sight"
+199,295,"Sleep Talk"
+199,350,Safeguard
+199,357,Stomp
+199,365,Snore
+199,369,"Mud Sport"
+2,154,Safeguard
+2,181,"Light Screen"
+2,199,Curse
+2,286,Charm
+2,315,"Grass Whistle"
+2,315,"Petal Dance"
+2,357,"Magical Leaf"
+2,9,"Skull Bash"
+20,157,"Flame Wheel"
+20,288,Reversal
+20,289,Counter
+20,327,Uproar
+20,336,Swagger
+20,352,"Fury Swipes"
+20,352,Screech
+20,359,Bite
+200,202,"Destiny Bond"
+200,282,Imprison
+200,351,"Psych Up"
+200,354,Screech
+203,215,"Beat Up"
+203,215,Foresight
+203,323,"Take Down"
+203,324,Amnesia
+203,326,"Magic Coat"
+203,327,"Psych Up"
+203,327,Wish
+203,359,"Future Sight"
+204,15,"Pin Missile"
+204,166,Reflect
+204,166,Swift
+204,214,Counter
+204,330,Flail
+204,330,"Sand Tomb"
+205,15,"Pin Missile"
+205,166,Reflect
+205,166,Swift
+205,214,Counter
+205,330,Flail
+205,330,"Sand Tomb"
+206,264,Headbutt
+206,273,Bide
+206,323,"Rock Slide"
+206,324,Curse
+206,352,"Ancient Power"
+206,352,Astonish
+206,359,Bite
+207,123,"Razor Wind"
+207,193,"Wing Attack"
+207,214,Counter
+207,291,"Metal Claw"
+207,330,"Sand Tomb"
+208,185,Flail
+208,299,Block
+208,299,"Rock Slide"
+208,76,Explosion
+209,176,Metronome
+209,189,Reflect
+209,225,Present
+209,301,"Heal Bell"
+209,327,"Smelling Salts"
+209,352,"Feint Attack"
+209,362,Crunch
+209,365,Snore
+21,142,"Scary Face"
+21,198,"Feint Attack"
+21,278,"Quick Attack"
+21,334,Astonish
+21,334,"Sky Attack"
+21,83,"False Swipe"
+21,85,"Tri Attack"
+210,176,Metronome
+210,189,Reflect
+210,225,Present
+210,301,"Heal Bell"
+210,327,"Smelling Salts"
+210,352,"Feint Attack"
+210,362,Crunch
+210,365,Snore
+211,171,Supersonic
+211,224,"Bubble Beam"
+211,224,Haze
+211,321,Astonish
+211,370,Flail
+212,123,"Razor Wind"
+212,213,Safeguard
+212,214,Counter
+212,214,Endure
+212,214,Reversal
+212,269,"Light Screen"
+212,284,"Silver Wind"
+212,291,"Baton Pass"
+213,284,"Sweet Scent"
+214,205,Flail
+214,213,Bide
+214,291,"False Swipe"
+214,291,Harden
+215,203,Foresight
+215,206,Spite
+215,210,Reflect
+215,275,"Fake Out"
+215,289,Counter
+215,335,"Crush Claw"
+215,359,Bite
+216,295,"Sleep Talk"
+216,303,"Fake Tears"
+216,323,"Take Down"
+216,335,Counter
+216,335,"Metal Claw"
+216,336,Crunch
+216,365,Yawn
+216,57,"Seismic Toss"
+217,215,"Metal Claw"
+217,289,Counter
+217,289,Yawn
+217,295,"Sleep Talk"
+217,303,"Fake Tears"
+217,323,"Take Down"
+217,336,Crunch
+217,57,"Seismic Toss"
+218,219,"Heat Wave"
+218,89,"Acid Armor"
+219,89,"Acid Armor"
+22,142,"Scary Face"
+22,198,"Feint Attack"
+22,278,"Quick Attack"
+22,334,Astonish
+22,334,"Sky Attack"
+22,83,"False Swipe"
+22,85,"Tri Attack"
+220,195,"Mud Shot"
+220,323,Double-Edge
+220,323,"Rock Slide"
+220,323,"Take Down"
+220,352,"Ancient Power"
+220,359,Bite
+220,365,"Body Slam"
+220,87,"Icicle Spear"
+221,195,"Mud Shot"
+221,323,Double-Edge
+221,323,"Rock Slide"
+221,323,"Take Down"
+221,352,"Ancient Power"
+221,359,Bite
+221,365,"Body Slam"
+221,87,"Icicle Spear"
+222,284,Mist
+222,346,"Confuse Ray"
+222,346,Ingrain
+222,365,"Rock Slide"
+222,367,Screech
+222,368,Amnesia
+222,73,Barrier
+222,91,"Icicle Spear"
+223,171,"Thunder Wave"
+223,222,"Rock Blast"
+223,224,Octazooka
+223,279,Supersonic
+223,283,Haze
+223,365,"Aurora Beam"
+223,367,Screech
+224,171,"Thunder Wave"
+224,222,"Rock Blast"
+224,224,Octazooka
+224,279,Supersonic
+224,283,Haze
+224,365,"Aurora Beam"
+224,367,Screech
+225,232,"Rapid Spin"
+225,349,Splash
+225,359,"Future Sight"
+225,359,"Quick Attack"
+225,365,"Aurora Beam"
+225,365,"Ice Ball"
+226,160,"Rock Slide"
+226,195,Slam
+226,260,"Mud Sport"
+226,284,Haze
+226,350,Twister
+226,369,"Hydro Pump"
+227,142,Curse
+227,18,Whirlwind
+227,279,Pursuit
+227,334,"Sky Attack"
+227,85,"Drill Peck"
+228,206,Spite
+228,210,Rage
+228,215,"Beat Up"
+228,289,Counter
+228,289,Reversal
+228,324,"Fire Spin"
+228,335,Pursuit
+228,38,Will-O-Wisp
+229,206,Spite
+229,210,Rage
+229,215,"Beat Up"
+229,289,Counter
+229,289,Reversal
+229,324,"Fire Spin"
+229,335,Pursuit
+229,38,Will-O-Wisp
+23,206,Spite
+23,215,"Beat Up"
+23,254,Slam
+23,335,Pursuit
+23,336,"Poison Fang"
+230,149,"Dragon Rage"
+230,199,Disable
+230,224,Octazooka
+230,350,Flail
+230,350,Splash
+230,365,"Aurora Beam"
+230,373,"Dragon Breath"
+231,289,Counter
+231,323,Fissure
+231,323,"Focus Energy"
+231,352,"Ancient Power"
+231,365,"Body Slam"
+231,365,Snore
+232,289,Counter
+232,323,Fissure
+232,323,"Focus Energy"
+232,352,"Ancient Power"
+232,365,"Body Slam"
+232,365,Snore
+234,206,Spite
+234,275,Extrasensory
+234,327,"Psych Up"
+234,336,Swagger
+234,359,Bite
+234,55,Disable
+236,106,"High Jump Kick"
+236,106,"Mind Reader"
+236,107,"Helping Hand"
+236,107,"Mach Punch"
+236,237,"Rapid Spin"
+237,106,"High Jump Kick"
+237,106,"Mind Reader"
+237,107,"Helping Hand"
+237,107,"Mach Punch"
+237,237,"Rapid Spin"
+238,302,"Fake Out"
+238,308,"Ice Punch"
+238,308,Meditate
+238,327,"Psych Up"
+238,327,Wish
+239,122,Barrier
+239,237,"Rolling Kick"
+239,308,"Fire Punch"
+239,308,"Ice Punch"
+239,308,Meditate
+239,68,"Cross Chop"
+239,68,"Karate Chop"
+24,206,Spite
+24,215,"Beat Up"
+24,254,Slam
+24,335,Pursuit
+24,336,"Poison Fang"
+240,107,"Mega Punch"
+240,122,Barrier
+240,125,Screech
+240,308,"Thunder Punch"
+240,68,"Cross Chop"
+240,68,"Karate Chop"
+241,162,"Helping Hand"
+241,225,Present
+241,232,Endure
+241,289,Reversal
+241,295,"Sleep Talk"
+241,324,Curse
+241,327,"Psych Up"
+241,57,"Seismic Toss"
+242,176,Metronome
+242,209,Present
+242,300,Substitute
+242,301,"Heal Bell"
+242,315,Aromatherapy
+246,105,"Focus Energy"
+246,131,"Dragon Dance"
+246,160,"Ancient Power"
+246,199,Curse
+246,254,Pursuit
+246,357,Stomp
+246,6,Outrage
+247,105,"Focus Energy"
+247,131,"Dragon Dance"
+247,160,"Ancient Power"
+247,199,Curse
+247,254,Pursuit
+247,357,Stomp
+247,6,Outrage
+248,105,"Focus Energy"
+248,131,"Dragon Dance"
+248,160,"Ancient Power"
+248,199,Curse
+248,254,Pursuit
+248,357,Stomp
+248,6,Outrage
+25,176,Wish
+25,225,Present
+25,273,Bide
+25,288,Reversal
+25,301,"Double Slap"
+25,312,Charge
+25,365,Encore
+252,112,"Crush Claw"
+252,260,Endeavor
+252,260,"Mud Sport"
+252,3,"Leech Seed"
+252,373,Crunch
+252,373,"Dragon Breath"
+253,112,"Crush Claw"
+253,260,Endeavor
+253,260,"Mud Sport"
+253,3,"Leech Seed"
+253,373,Crunch
+253,373,"Dragon Breath"
+254,112,"Crush Claw"
+254,260,Endeavor
+254,260,"Mud Sport"
+254,3,"Leech Seed"
+254,373,Crunch
+254,373,"Dragon Breath"
+255,289,Counter
+255,289,Endure
+255,289,Reversal
+255,295,"Smelling Salts"
+255,323,"Rock Slide"
+255,336,Swagger
+256,289,Counter
+256,289,Endure
+256,289,Reversal
+256,295,"Smelling Salts"
+256,323,"Rock Slide"
+256,336,Swagger
+257,289,Counter
+257,289,Endure
+257,289,Reversal
+257,295,"Smelling Salts"
+257,323,"Rock Slide"
+257,336,Swagger
+258,199,Curse
+258,222,"Mirror Coat"
+258,295,Uproar
+258,350,Refresh
+258,357,Stomp
+258,365,"Ice Ball"
+259,199,Curse
+259,222,"Mirror Coat"
+259,295,Uproar
+259,350,Refresh
+259,357,Stomp
+259,365,"Ice Ball"
+26,176,Wish
+26,225,Present
+26,273,Bide
+26,288,Reversal
+26,301,"Double Slap"
+26,312,Charge
+26,365,Encore
+260,199,Curse
+260,222,"Mirror Coat"
+260,295,Uproar
+260,350,Refresh
+260,357,Stomp
+260,365,"Ice Ball"
+261,289,Yawn
+261,301,Covet
+261,336,"Poison Fang"
+261,352,Astonish
+261,359,Leer
+262,289,Yawn
+262,301,Covet
+262,336,"Poison Fang"
+262,352,Astonish
+262,359,Leer
+263,190,Tickle
+263,300,Charm
+263,327,Trick
+263,335,Pursuit
+263,352,Substitute
+264,190,Tickle
+264,300,Charm
+264,327,Trick
+264,335,Pursuit
+264,352,Substitute
+27,215,"Metal Claw"
+27,232,"Rapid Spin"
+27,289,Counter
+27,323,"Rock Slide"
+27,327,Flail
+27,335,"Crush Claw"
+27,359,"Swords Dance"
+27,87,Safeguard
+270,332,"Leech Seed"
+270,350,Flail
+270,357,"Razor Leaf"
+270,357,"Sweet Scent"
+270,357,Synthesis
+270,369,"Water Gun"
+271,332,"Leech Seed"
+271,350,Flail
+271,357,"Razor Leaf"
+271,357,"Sweet Scent"
+271,357,Synthesis
+271,369,"Water Gun"
+272,332,"Leech Seed"
+272,350,Flail
+272,357,"Razor Leaf"
+272,357,"Sweet Scent"
+272,357,Synthesis
+272,369,"Water Gun"
+273,323,"Take Down"
+273,324,Amnesia
+273,332,"Leech Seed"
+273,335,"False Swipe"
+273,359,"Quick Attack"
+273,359,"Razor Wind"
+274,323,"Take Down"
+274,324,Amnesia
+274,332,"Leech Seed"
+274,335,"False Swipe"
+274,359,"Quick Attack"
+274,359,"Razor Wind"
+275,323,"Take Down"
+275,324,Amnesia
+275,332,"Leech Seed"
+275,335,"False Swipe"
+275,359,"Quick Attack"
+275,359,"Razor Wind"
+276,22,"Mirror Move"
+276,279,Pursuit
+276,279,Supersonic
+276,334,Refresh
+276,334,"Sky Attack"
+276,85,Rage
+277,22,"Mirror Move"
+277,279,Pursuit
+277,279,Supersonic
+277,334,Refresh
+277,334,"Sky Attack"
+277,85,Rage
+278,284,Gust
+278,334,Mist
+278,350,Twister
+278,350,"Water Sport"
+278,368,Agility
+279,284,Gust
+279,334,Mist
+279,350,Twister
+279,350,"Water Sport"
+279,368,Agility
+28,215,"Metal Claw"
+28,232,"Rapid Spin"
+28,289,Counter
+28,323,"Rock Slide"
+28,327,Flail
+28,335,"Crush Claw"
+28,359,"Swords Dance"
+28,87,Safeguard
+280,110,Memento
+280,202,"Destiny Bond"
+280,356,Disable
+280,356,"Mean Look"
+280,356,Will-O-Wisp
+281,110,Memento
+281,202,"Destiny Bond"
+281,356,Disable
+281,356,"Mean Look"
+281,356,Will-O-Wisp
+282,110,Memento
+282,202,"Destiny Bond"
+282,356,Disable
+282,356,"Mean Look"
+282,356,Will-O-Wisp
+283,260,Foresight
+283,260,"Mud Shot"
+283,269,Psybeam
+283,291,"Mind Reader"
+283,369,"Hydro Pump"
+284,260,Foresight
+284,260,"Mud Shot"
+284,269,Psybeam
+284,291,"Mind Reader"
+284,369,"Hydro Pump"
+285,275,Swagger
+285,303,"False Swipe"
+285,311,"Fake Tears"
+285,312,Charm
+285,312,"Helping Hand"
+286,275,Swagger
+286,303,"False Swipe"
+286,311,"Fake Tears"
+286,312,Charm
+286,312,"Helping Hand"
+287,295,"Sleep Talk"
+287,324,Curse
+287,335,"Crush Claw"
+287,335,Pursuit
+287,359,Slash
+287,365,"Body Slam"
+287,365,Snore
+288,295,"Sleep Talk"
+288,324,Curse
+288,335,"Crush Claw"
+288,335,Pursuit
+288,359,Slash
+288,365,"Body Slam"
+288,365,Snore
+289,295,"Sleep Talk"
+289,324,Curse
+289,335,"Crush Claw"
+289,335,Pursuit
+289,359,Slash
+289,365,"Body Slam"
+289,365,Snore
+29,108,Disable
+29,215,"Beat Up"
+29,289,Counter
+29,295,Supersonic
+29,300,Charm
+29,323,"Focus Energy"
+29,323,"Take Down"
+290,214,Endure
+290,284,Gust
+290,284,"Silver Wind"
+290,330,"Feint Attack"
+291,214,Endure
+291,284,Gust
+291,284,"Silver Wind"
+291,330,"Feint Attack"
+292,214,Endure
+292,284,Gust
+292,284,"Silver Wind"
+292,330,"Feint Attack"
+293,275,Extrasensory
+293,323,"Take Down"
+293,327,"Smelling Salts"
+293,336,Swagger
+293,365,Snore
+294,275,Extrasensory
+294,323,"Take Down"
+294,327,"Smelling Salts"
+294,336,Swagger
+294,365,Snore
+295,275,Extrasensory
+295,323,"Take Down"
+295,327,"Smelling Salts"
+295,336,Swagger
+295,365,Snore
+296,237,Counter
+296,302,Foresight
+296,308,Detect
+296,313,"Helping Hand"
+296,332,"Feint Attack"
+296,332,Revenge
+296,68,"Cross Chop"
+296,68,"Dynamic Punch"
+297,237,Counter
+297,302,Foresight
+297,308,Detect
+297,313,"Helping Hand"
+297,332,"Feint Attack"
+297,332,Revenge
+297,68,"Cross Chop"
+297,68,"Dynamic Punch"
+298,139,Tickle
+298,195,Slam
+298,301,Sing
+298,350,Refresh
+298,365,Encore
+299,76,Explosion
+299,76,Magnitude
+299,76,Rollout
+3,154,Safeguard
+3,181,"Light Screen"
+3,199,Curse
+3,286,Charm
+3,315,"Grass Whistle"
+3,315,"Petal Dance"
+3,357,"Magical Leaf"
+3,9,"Skull Bash"
+30,108,Disable
+30,215,"Beat Up"
+30,289,Counter
+30,295,Supersonic
+30,300,Charm
+30,323,"Focus Energy"
+30,323,"Take Down"
+300,176,Wish
+300,190,Tickle
+300,311,"Fake Tears"
+300,312,"Baton Pass"
+300,312,"Helping Hand"
+300,327,"Psych Up"
+300,327,Uproar
+300,352,Substitute
+301,176,Wish
+301,190,Tickle
+301,311,"Fake Tears"
+301,312,"Baton Pass"
+301,312,"Helping Hand"
+301,327,"Psych Up"
+301,327,Uproar
+301,352,Substitute
+302,308,Recover
+302,313,Moonlight
+302,327,"Psych Up"
+303,190,Tickle
+303,327,"Psych Up"
+303,335,"False Swipe"
+303,336,"Poison Fang"
+303,352,"Ancient Power"
+303,359,"Swords Dance"
+304,260,Endeavor
+304,295,"Smelling Salts"
+304,357,"Body Slam"
+304,357,Stomp
+305,260,Endeavor
+305,295,"Smelling Salts"
+305,357,"Body Slam"
+305,357,Stomp
+306,260,Endeavor
+306,295,"Smelling Salts"
+306,357,"Body Slam"
+306,357,Stomp
+307,107,"Ice Punch"
+307,122,"Baton Pass"
+307,125,"Thunder Punch"
+307,126,"Fire Punch"
+307,302,"Fake Out"
+307,302,Foresight
+307,68,"Dynamic Punch"
+308,107,"Ice Punch"
+308,122,"Baton Pass"
+308,125,"Thunder Punch"
+308,126,"Fire Punch"
+308,302,"Fake Out"
+308,302,Foresight
+308,68,"Dynamic Punch"
+309,196,Swift
+309,264,Headbutt
+309,324,Curse
+309,327,Uproar
+309,336,Crunch
+31,108,Disable
+31,215,"Beat Up"
+31,289,Counter
+31,295,Supersonic
+31,300,Charm
+31,323,"Focus Energy"
+31,323,"Take Down"
+310,196,Swift
+310,264,Headbutt
+310,324,Curse
+310,327,Uproar
+310,336,Crunch
+311,176,Wish
+311,300,Substitute
+312,176,Wish
+312,300,Substitute
+313,122,Trick
+313,284,"Silver Wind"
+313,291,"Baton Pass"
+314,284,"Silver Wind"
+314,291,"Baton Pass"
+314,332,Growth
+315,332,"Cotton Spore"
+315,332,"Pin Missile"
+315,332,Spikes
+315,357,Synthesis
+316,200,"Pain Split"
+316,219,Smog
+316,282,"Dream Eater"
+316,89,"Acid Armor"
+317,200,"Pain Split"
+317,219,Smog
+317,282,"Dream Eater"
+317,89,"Acid Armor"
+318,130,Thrash
+318,369,Double-Edge
+318,369,"Hydro Pump"
+319,130,Thrash
+319,369,Double-Edge
+319,369,"Hydro Pump"
+32,108,Disable
+32,203,Confusion
+32,215,"Beat Up"
+32,289,Counter
+32,295,Supersonic
+32,323,"Take Down"
+32,324,Amnesia
+320,295,"Sleep Talk"
+320,324,Curse
+320,327,Double-Edge
+320,327,Thrash
+320,336,Swagger
+320,340,Fissure
+320,340,Snore
+320,340,Tickle
+321,295,"Sleep Talk"
+321,324,Curse
+321,327,Double-Edge
+321,327,Thrash
+321,336,Swagger
+321,340,Fissure
+321,340,Snore
+321,340,Tickle
+322,262,"Scary Face"
+322,295,Stomp
+322,310,Howl
+322,321,Rollout
+322,365,"Body Slam"
+322,365,"Defense Curl"
+323,262,"Scary Face"
+323,295,Stomp
+323,310,Howl
+323,321,Rollout
+323,365,"Body Slam"
+323,365,"Defense Curl"
+324,289,Endure
+324,289,Yawn
+324,295,"Sleep Talk"
+324,323,Eruption
+325,274,Extrasensory
+325,327,Trick
+325,352,Substitute
+325,359,"Future Sight"
+326,274,Extrasensory
+326,327,Trick
+326,352,Substitute
+326,359,"Future Sight"
+327,122,Trick
+327,297,"Smelling Salts"
+327,301,Assist
+327,301,Wish
+327,303,"Baton Pass"
+327,323,"Rock Slide"
+327,365,Encore
+327,97,Disable
+328,127,"Focus Energy"
+328,284,Gust
+328,313,"Quick Attack"
+329,127,"Focus Energy"
+329,284,Gust
+329,313,"Quick Attack"
+33,108,Disable
+33,203,Confusion
+33,215,"Beat Up"
+33,289,Counter
+33,295,Supersonic
+33,323,"Take Down"
+33,324,Amnesia
+330,127,"Focus Energy"
+330,284,Gust
+330,313,"Quick Attack"
+331,286,Counter
+331,286,"Dynamic Punch"
+331,315,"Grass Whistle"
+331,327,"Teeter Dance"
+331,71,Acid
+332,286,Counter
+332,286,"Dynamic Punch"
+332,315,"Grass Whistle"
+332,327,"Teeter Dance"
+332,71,Acid
+333,279,Agility
+333,279,Pursuit
+333,336,Haze
+333,373,Rage
+334,279,Agility
+334,279,Pursuit
+334,336,Haze
+334,373,Rage
+335,257,"Double Kick"
+335,289,Counter
+335,310,Roar
+335,324,Curse
+335,327,Flail
+335,359,"Razor Wind"
+336,303,"Spit Up"
+336,303,Stockpile
+336,303,Swallow
+336,365,"Body Slam"
+339,130,Thrash
+339,171,Spark
+339,321,Whirlpool
+34,108,Disable
+34,203,Confusion
+34,215,"Beat Up"
+34,289,Counter
+34,295,Supersonic
+34,323,"Take Down"
+34,324,Amnesia
+340,130,Thrash
+340,171,Spark
+340,321,Whirlpool
+341,260,Endeavor
+341,365,"Body Slam"
+341,369,"Ancient Power"
+341,369,"Mud Sport"
+342,260,Endeavor
+342,365,"Body Slam"
+342,369,"Ancient Power"
+342,369,"Mud Sport"
+345,222,"Mirror Coat"
+345,222,Recover
+345,222,"Rock Slide"
+345,73,Barrier
+346,222,"Mirror Coat"
+346,222,Recover
+346,348,"Rock Slide"
+346,73,Barrier
+347,140,"Rapid Spin"
+347,222,"Rock Slide"
+347,342,"Knock Off"
+347,342,"Swords Dance"
+348,140,"Rapid Spin"
+348,222,"Rock Slide"
+348,342,"Knock Off"
+348,342,"Swords Dance"
+349,186,Hypnosis
+349,222,"Light Screen"
+349,222,"Mirror Coat"
+349,226,"Confuse Ray"
+349,369,"Mud Sport"
+349,373,"Dragon Breath"
+35,176,Metronome
+35,176,Wish
+35,184,"Belly Drum"
+35,189,Splash
+35,210,Present
+35,301,Substitute
+35,351,Amnesia
+35,39,Mimic
+350,186,Hypnosis
+350,222,"Light Screen"
+350,222,"Mirror Coat"
+350,226,"Confuse Ray"
+350,369,"Mud Sport"
+350,373,"Dragon Breath"
+351,303,"Psych Up"
+351,356,"Future Sight"
+352,326,"Magic Coat"
+352,327,Trick
+352,55,Disable
+353,202,"Destiny Bond"
+353,282,Imprison
+353,356,Disable
+353,356,Foresight
+353,358,Astonish
+354,202,"Destiny Bond"
+354,282,Imprison
+354,356,Disable
+354,356,Foresight
+354,358,Astonish
+355,110,Memento
+355,200,"Pain Split"
+355,202,"Destiny Bond"
+355,282,Imprison
+355,354,"Feint Attack"
+355,354,Grudge
+356,110,Memento
+356,200,"Pain Split"
+356,202,"Destiny Bond"
+356,282,Imprison
+356,354,"Feint Attack"
+356,354,Grudge
+357,254,Slam
+357,275,"Nature Power"
+357,275,"Razor Wind"
+357,306,Headbutt
+357,332,"Leech Seed"
+358,282,"Dream Eater"
+358,282,Hypnosis
+358,356,Curse
+358,356,Disable
+359,303,"Baton Pass"
+359,324,Curse
+359,326,"Magic Coat"
+359,327,Double-Edge
+359,352,"Feint Attack"
+359,352,Substitute
+36,176,Metronome
+36,176,Wish
+36,184,"Belly Drum"
+36,189,Splash
+36,210,Present
+36,301,Substitute
+36,351,Amnesia
+36,39,Mimic
+361,299,Block
+361,315,Spikes
+362,299,Block
+362,315,Spikes
+363,303,"Spit Up"
+363,303,Stockpile
+363,303,Swallow
+363,323,Fissure
+363,323,"Rock Slide"
+363,324,Curse
+363,350,"Water Sport"
+363,369,Yawn
+364,303,"Spit Up"
+364,303,Stockpile
+364,303,Swallow
+364,323,Fissure
+364,323,"Rock Slide"
+364,324,Curse
+364,350,"Water Sport"
+364,369,Yawn
+365,303,"Spit Up"
+365,303,Stockpile
+365,303,Swallow
+365,323,Fissure
+365,323,"Rock Slide"
+365,324,Curse
+365,350,"Water Sport"
+365,369,Yawn
+366,222,Barrier
+366,226,"Confuse Ray"
+366,279,Supersonic
+366,350,Refresh
+366,365,"Body Slam"
+366,369,"Mud Sport"
+367,222,Barrier
+367,226,"Confuse Ray"
+367,279,Supersonic
+367,350,Refresh
+367,365,"Body Slam"
+367,369,"Mud Sport"
+368,222,Barrier
+368,226,"Confuse Ray"
+368,279,Supersonic
+368,350,Refresh
+368,365,"Body Slam"
+368,369,"Mud Sport"
+369,319,"Skull Bash"
+369,321,"Sleep Talk"
+369,340,Magnitude
+369,350,"Water Sport"
+369,365,"Rock Slide"
+369,368,Amnesia
+37,206,Spite
+37,310,Howl
+37,324,"Heat Wave"
+37,327,Flail
+37,327,Hypnosis
+37,327,"Psych Up"
+37,352,"Feint Attack"
+37,55,Disable
+370,171,Supersonic
+370,321,Splash
+370,340,"Water Sport"
+370,369,"Mud Sport"
+371,130,Thrash
+371,149,"Dragon Rage"
+371,334,"Dragon Dance"
+371,350,"Hydro Pump"
+371,350,Twister
+372,130,Thrash
+372,149,"Dragon Rage"
+372,334,"Dragon Dance"
+372,350,"Hydro Pump"
+372,350,Twister
+373,130,Thrash
+373,149,"Dragon Rage"
+373,334,"Dragon Dance"
+373,350,"Hydro Pump"
+373,350,Twister
+38,206,Spite
+38,310,Howl
+38,324,"Heat Wave"
+38,327,Flail
+38,327,Hypnosis
+38,327,"Psych Up"
+38,352,"Feint Attack"
+38,55,Disable
+39,176,Wish
+39,184,"Perish Song"
+39,184,Present
+39,303,"Feint Attack"
+39,311,"Fake Tears"
+4,112,"Swords Dance"
+4,143,"Belly Drum"
+4,149,Outrage
+4,160,"Ancient Power"
+4,248,"Rock Slide"
+4,334,"Dragon Dance"
+4,34,"Beat Up"
+4,373,Bite
+40,176,Wish
+40,184,"Perish Song"
+40,184,Present
+40,303,"Feint Attack"
+40,311,"Fake Tears"
+41,18,Gust
+41,18,Whirlwind
+41,198,"Feint Attack"
+41,278,Pursuit
+41,278,"Quick Attack"
+41,83,Curse
+42,18,Gust
+42,18,Whirlwind
+42,198,"Feint Attack"
+42,278,Pursuit
+42,278,"Quick Attack"
+42,83,Curse
+43,154,Flail
+43,286,Charm
+43,332,Ingrain
+43,357,"Razor Leaf"
+43,357,"Swords Dance"
+43,357,Synthesis
+44,154,Flail
+44,286,Charm
+44,332,Ingrain
+44,357,"Razor Leaf"
+44,357,"Swords Dance"
+44,357,Synthesis
+45,154,Flail
+45,286,Charm
+45,332,Ingrain
+45,357,"Razor Leaf"
+45,357,"Swords Dance"
+45,357,Synthesis
+46,212,Pursuit
+46,269,"Light Screen"
+46,269,Psybeam
+46,272,Flail
+46,286,Counter
+46,290,"False Swipe"
+46,330,Screech
+46,357,"Sweet Scent"
+47,212,Pursuit
+47,269,"Light Screen"
+47,269,Psybeam
+47,272,Flail
+47,286,Counter
+47,290,"False Swipe"
+47,330,Screech
+47,357,"Sweet Scent"
+48,267,"Giga Drain"
+48,291,"Baton Pass"
+48,313,"Signal Beam"
+48,330,Screech
+49,267,"Giga Drain"
+49,291,"Baton Pass"
+49,313,"Signal Beam"
+49,330,Screech
+5,112,"Swords Dance"
+5,143,"Belly Drum"
+5,149,Outrage
+5,160,"Ancient Power"
+5,248,"Rock Slide"
+5,334,"Dragon Dance"
+5,34,"Beat Up"
+5,373,Bite
+50,215,"Beat Up"
+50,323,"Rock Slide"
+50,327,Uproar
+50,335,Pursuit
+50,352,"Ancient Power"
+50,352,"Feint Attack"
+50,352,Screech
+51,215,"Beat Up"
+51,323,"Rock Slide"
+51,327,Uproar
+51,335,Pursuit
+51,352,"Ancient Power"
+51,352,"Feint Attack"
+51,352,Screech
+52,206,Spite
+52,300,Assist
+52,300,Charm
+52,324,Amnesia
+52,327,Hypnosis
+52,327,"Psych Up"
+53,206,Spite
+53,300,Assist
+53,300,Charm
+53,324,Amnesia
+53,327,Hypnosis
+53,327,"Psych Up"
+54,181,"Light Screen"
+54,260,Foresight
+54,327,Hypnosis
+54,350,Refresh
+54,352,Psybeam
+54,359,"Future Sight"
+54,368,Psychic
+54,57,"Cross Chop"
+55,181,"Light Screen"
+55,260,Foresight
+55,327,Hypnosis
+55,350,Refresh
+55,352,Psybeam
+55,359,"Future Sight"
+55,368,Psychic
+55,57,"Cross Chop"
+56,215,"Beat Up"
+56,235,Meditate
+56,235,Revenge
+56,288,Reversal
+56,289,Counter
+56,323,"Rock Slide"
+56,327,"Smelling Salts"
+56,83,Foresight
+57,215,"Beat Up"
+57,235,Meditate
+57,235,Revenge
+57,288,Reversal
+57,289,Counter
+57,323,"Rock Slide"
+57,327,"Smelling Salts"
+57,83,Foresight
+58,310,Howl
+58,324,"Fire Spin"
+58,324,"Heat Wave"
+58,327,Thrash
+58,336,Crunch
+58,365,"Body Slam"
+58,87,Safeguard
+59,310,Howl
+59,324,"Fire Spin"
+59,324,"Heat Wave"
+59,327,Thrash
+59,336,Crunch
+59,365,"Body Slam"
+59,87,Safeguard
+6,112,"Swords Dance"
+6,143,"Belly Drum"
+6,149,Outrage
+6,160,"Ancient Power"
+6,248,"Rock Slide"
+6,334,"Dragon Dance"
+6,34,"Beat Up"
+6,373,Bite
+60,283,Haze
+60,283,Mist
+60,342,"Bubble Beam"
+60,350,Splash
+60,350,"Water Sport"
+60,365,"Ice Ball"
+60,62,"Mind Reader"
+61,283,Haze
+61,283,Mist
+61,342,"Bubble Beam"
+61,350,Splash
+61,350,"Water Sport"
+61,365,"Ice Ball"
+61,62,"Mind Reader"
+62,283,Haze
+62,283,Mist
+62,342,"Bubble Beam"
+62,350,Splash
+62,350,"Water Sport"
+62,365,"Ice Ball"
+62,62,"Mind Reader"
+63,122,Barrier
+63,122,Encore
+63,302,"Knock Off"
+63,308,"Fire Punch"
+63,308,"Ice Punch"
+63,308,"Thunder Punch"
+64,122,Barrier
+64,122,Encore
+64,302,"Knock Off"
+64,308,"Fire Punch"
+64,308,"Ice Punch"
+64,308,"Thunder Punch"
+65,122,Barrier
+65,122,Encore
+65,302,"Knock Off"
+65,308,"Fire Punch"
+65,308,"Ice Punch"
+65,308,"Thunder Punch"
+66,122,Encore
+66,125,"Light Screen"
+66,237,Counter
+66,237,"Rolling Kick"
+66,297,"Smelling Salts"
+66,308,Meditate
+66,327,"Rock Slide"
+67,122,Encore
+67,125,"Light Screen"
+67,237,Counter
+67,237,"Rolling Kick"
+67,297,"Smelling Salts"
+67,308,Meditate
+67,327,"Rock Slide"
+68,122,Encore
+68,125,"Light Screen"
+68,237,Counter
+68,237,"Rolling Kick"
+68,297,"Smelling Salts"
+68,308,Meditate
+68,327,"Rock Slide"
+69,154,Reflect
+69,189,Encore
+69,332,Ingrain
+69,357,"Magical Leaf"
+69,357,"Swords Dance"
+69,357,Synthesis
+69,47,"Leech Life"
+7,222,"Mirror Coat"
+7,260,Foresight
+7,283,Haze
+7,283,Mist
+7,349,Flail
+7,350,Refresh
+7,369,"Mud Sport"
+7,369,Yawn
+70,154,Reflect
+70,189,Encore
+70,332,Ingrain
+70,357,"Magical Leaf"
+70,357,"Swords Dance"
+70,357,Synthesis
+70,47,"Leech Life"
+71,154,Reflect
+71,189,Encore
+71,332,Ingrain
+71,357,"Magical Leaf"
+71,357,"Swords Dance"
+71,357,Synthesis
+71,47,"Leech Life"
+72,139,Haze
+72,141,"Rapid Spin"
+72,222,"Mirror Coat"
+72,222,Safeguard
+72,346,"Confuse Ray"
+72,91,"Aurora Beam"
+73,139,Haze
+73,141,"Rapid Spin"
+73,222,"Mirror Coat"
+73,222,Safeguard
+73,346,"Confuse Ray"
+73,91,"Aurora Beam"
+74,185,"Mega Punch"
+74,299,Block
+74,299,"Rock Slide"
+75,185,"Mega Punch"
+75,299,Block
+75,299,"Rock Slide"
+76,185,"Mega Punch"
+76,299,Block
+76,299,"Rock Slide"
+77,157,"Flame Wheel"
+77,257,"Double Kick"
+77,300,Charm
+77,327,Double-Edge
+77,327,Hypnosis
+77,327,Thrash
+78,157,"Flame Wheel"
+78,257,"Double Kick"
+78,300,Charm
+78,327,Double-Edge
+78,327,Hypnosis
+78,327,Thrash
+79,143,"Belly Drum"
+79,225,"Future Sight"
+79,295,"Sleep Talk"
+79,350,Safeguard
+79,357,Stomp
+79,365,Snore
+79,369,"Mud Sport"
+8,222,"Mirror Coat"
+8,260,Foresight
+8,283,Haze
+8,283,Mist
+8,349,Flail
+8,350,Refresh
+8,369,"Mud Sport"
+8,369,Yawn
+80,143,"Belly Drum"
+80,225,"Future Sight"
+80,295,"Sleep Talk"
+80,350,Safeguard
+80,357,Stomp
+80,365,Snore
+80,369,"Mud Sport"
+83,164,Foresight
+83,18,"Feather Dance"
+83,18,Gust
+83,22,"Mirror Move"
+83,227,"Steel Wing"
+83,324,Curse
+83,327,Flail
+83,359,"Quick Attack"
+84,198,"Feint Attack"
+84,198,Haze
+84,277,Endeavor
+84,279,"Quick Attack"
+84,279,Supersonic
+84,83,Flail
+85,198,"Feint Attack"
+85,198,Haze
+85,277,Endeavor
+85,279,"Quick Attack"
+85,279,Supersonic
+85,83,Flail
+86,112,"Horn Drill"
+86,195,Slam
+86,199,Disable
+86,222,"Icicle Spear"
+86,274,"Fake Out"
+86,352,Lick
+86,359,"Perish Song"
+86,365,Encore
+87,112,"Horn Drill"
+87,195,Slam
+87,199,Disable
+87,222,"Icicle Spear"
+87,274,"Fake Out"
+87,352,Lick
+87,359,"Perish Song"
+87,365,Encore
+88,110,Explosion
+88,110,Haze
+88,282,Imprison
+88,356,Curse
+88,356,"Mean Look"
+88,356,"Shadow Punch"
+88,94,Lick
+89,110,Explosion
+89,110,Haze
+89,282,Imprison
+89,356,Curse
+89,356,"Mean Look"
+89,356,"Shadow Punch"
+89,94,Lick
+9,222,"Mirror Coat"
+9,260,Foresight
+9,283,Haze
+9,283,Mist
+9,349,Flail
+9,350,Refresh
+9,369,"Mud Sport"
+9,369,Yawn
+90,342,"Bubble Beam"
+90,348,"Rapid Spin"
+90,73,Barrier
+90,73,Screech
+90,91,"Icicle Spear"
+90,91,"Take Down"
+91,342,"Bubble Beam"
+91,348,"Rapid Spin"
+91,73,Barrier
+91,73,Screech
+91,91,"Icicle Spear"
+91,91,"Take Down"
+92,110,Explosion
+92,110,Haze
+92,200,"Perish Song"
+92,354,Grudge
+92,356,Will-O-Wisp
+92,358,Astonish
+92,358,Psywave
+93,110,Explosion
+93,110,Haze
+93,200,"Perish Song"
+93,354,Grudge
+93,356,Will-O-Wisp
+93,358,Astonish
+93,358,Psywave
+94,110,Explosion
+94,110,Haze
+94,200,"Perish Song"
+94,354,Grudge
+94,356,Will-O-Wisp
+94,358,Astonish
+94,358,Psywave
+95,185,Flail
+95,299,Block
+95,299,"Rock Slide"
+95,76,Explosion
+96,122,Barrier
+96,122,"Role Play"
+96,308,"Fire Punch"
+96,308,"Ice Punch"
+96,308,"Thunder Punch"
+96,327,Assist
+97,122,Barrier
+97,122,"Role Play"
+97,308,"Fire Punch"
+97,308,"Ice Punch"
+97,308,"Thunder Punch"
+97,327,Assist
+98,138,Haze
+98,138,Slam
+98,342,"Knock Off"
+98,342,"Swords Dance"
+98,346,Amnesia
+98,348,Dig
+98,99,Flail
+99,138,Haze
+99,138,Slam
+99,342,"Knock Off"
+99,342,"Swords Dance"
+99,346,Amnesia
+99,348,Dig
+99,99,Flail
