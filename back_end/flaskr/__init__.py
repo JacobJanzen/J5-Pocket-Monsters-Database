@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 
-from . import db, pokemon, moves, types, locations
+from . import db, pokemon, moves, types, locations, breeding, teams
 
 
 def create_app():
@@ -24,5 +24,7 @@ def create_app():
     app.register_blueprint(moves.bp)
     app.register_blueprint(types.bp)
     app.register_blueprint(locations.bp)
+    app.register_blueprint(breeding.bp)
+    app.register_blueprint(teams.bp)
 
     return app
