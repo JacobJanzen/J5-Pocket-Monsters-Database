@@ -5,21 +5,37 @@
 -- pkmn = pokemon name
 -- dx = pokemon dex num
 -- stat = statistic (Atk, Def, etc)
+-- ablt = ability name
 -- mv = move name
+-- mtd = learn method
+-- ftr = certain father
 -- tp = type name
 -- loc = location name
 -- enc = Encounter method
+-- lvl = level integer
 -- trn = Trainer id
 -- tcl = TrainerClass
+-- egggrp = egg group name
 -- srch = text passed into search field
 -- val = input value (like an int for comparing stats)
 -- qlt = quality (0x, 0.5x, 1x, 2x)
 
---== Search/Drop-downs ==--
-select PokemonName from Pokemon where PokemonName like "%srch%";
+--====================================================================================================================================
 
-select MoveName from Move where MoveName like "%srch%";
+--== Drop-downs/Matchup Tables ==--
 
+select PokemonName from Pokemon;
+
+select MoveName from Move;
+
+-- Wave 2 --
+
+select Dex, PokemonName from Pokemon;
+
+select * from Trainer;
+
+
+--====================================================================================================================================
 
 --== Pokemon selection ==--
 
@@ -204,13 +220,44 @@ group by PokemonName
 having min(Quality) = 0
 order by PokemonName;
 
+-- Wave 2 --
+
+-- all pkmn's abilities
+select PokemonName, Ability from Pokemon natural join Abilities;
+
+-- all pkmn that have a certain ability
+select PokemonName, Ability from Pokemon natural join Abilities
+where Ability = ablt;
+
+-- all pkmn of a certain type and the moves they learn of another type
+select PokemonName, MoveName 
+from Pokemon natural join Learns natural join Move join HasTypes on Pokemon.Dex = HasTypes.Dex
+where HasTypes.TypeName = tp1 and Move.TypeName = tp2
+union
+select P1.PokemonName, MoveName 
+from Pokemon P1 join HasTypes on P1.Dex = HasTypes.Dex natural join LearnsByBreeding natural join Move 
+join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+where HasTypes.TypeName = tp1 and Move.TypeName = tp2;
+
+-- prev query but with method
+select PokemonName, MoveName, Method 
+from Pokemon natural join Learns natural join Move join HasTypes on Pokemon.Dex = HasTypes.Dex
+where HasTypes.TypeName = tp1 and Move.TypeName = tp2
+union
+select P1.PokemonName, MoveName, 'Breeding: ' || P2.PokemonName 
+from Pokemon P1 join HasTypes on P1.Dex = HasTypes.Dex natural join LearnsByBreeding natural join Move 
+join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+where HasTypes.TypeName = tp1 and Move.TypeName = tp2;
+
+
+--====================================================================================================================================
 
 --== Move Selection ==--
 
--- any moves any pkmn learns
-select MoveName from Pokemon natural join Learns natural join Move
+-- **ADDED POKEMONNAME** any moves any pkmn learns
+select MoveName, PokemonName from Pokemon natural join Learns natural join Move
 union
-select MoveName from Pokemon natural join LearnsByBreeding natural join Move;
+select MoveName, PokemonName from Pokemon natural join LearnsByBreeding natural join Move;
 
 -- prev query but with method
 select MoveName, PokemonName, Method from Pokemon natural join Learns natural join Move
@@ -319,9 +366,50 @@ having min(Quality) = 0
 order by MoveName;
 --
 
---
+-- Wave 2 --
+
+-- all status moves
+select MoveName from Move where Status = 1;
+
+-- all ways a pkmn learns a certain move
+select MoveName, Method from Pokemon natural join Learns natural join Move
+where Pokemon.PokemonName = pkmn and MoveName = mv
+union
+select MoveName, 'Breeding: ' || P2.PokemonName from Pokemon P1 natural join LearnsByBreeding natural join Move 
+join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+where P1.PokemonName = pkmn and MoveName = mv;
+
+-- all moves of a certain type that a certain pkmn can learn
+select MoveName from Pokemon natural join Learns natural join Move
+where Pokemon.PokemonName = pkmn and TypeName = tp
+union
+select MoveName from Pokemon natural join LearnsByBreeding natural join Move
+where Pokemon.PokemonName = pkmn and TypeName = tp;
+
+-- prev query but with method
+select MoveName, Method from Pokemon natural join Learns natural join Move
+where Pokemon.PokemonName = pkmn and TypeName = tp;
+union
+select MoveName, 'Breeding: ' || P2.PokemonName from Pokemon P1 natural join LearnsByBreeding natural join Move 
+join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+where P1.PokemonName = pkmn and TypeName = tp;
+
+-- all moves a pkmn learns with a specific non-breeding method
+select MoveName, Method from Pokemon natural join Learns natural join Move
+where Pokemon.PokemonName = pkmn and Method = mtd;
+
+-- all moves a pkmn learns via breeding
+select MoveName, 'Father: ' || P2.PokemonName from Pokemon P1 natural join LearnsByBreeding natural join Move 
+join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+where P1.PokemonName = pkmn;
+
+-- prev query with a specific Father
+select MoveName from Pokemon P1 natural join LearnsByBreeding natural join Move 
+join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
+where P1.PokemonName = pkmn and Father = ftr;
 
 
+--====================================================================================================================================
 
 --== Location Selection ==--
 
@@ -353,7 +441,16 @@ select LocationName, TrainerName, TrainerClass
 from FoughtAt natural join Trainer
 where TrainerClass = tcl;
 
+-- Wave 2 --
 
+-- locations where a certain pkmn of at least a certain level can be found
+select LocationName, Encounter, Min as StartingLevel
+from Pokemon natural join FoundAt
+where PokemonName = pkmn and Min >= lvl
+order by LocationName;
+
+
+--====================================================================================================================================
 
 --== Type Selection ==--
 
@@ -361,5 +458,104 @@ where TrainerClass = tcl;
 select TypeName, count(Dex) as Num_of_Pokemon
 from HasTypes natural join Pokemon
 group by TypeName;
+
+-- Wave 2 --
+
+-- types with physical damage type
+select TypeName from Type where Category = 'Physical';
+
+-- types with special damage type
+select TypeName from Type where Category = 'Special';
+
+
+
+--====================================================================================================================================
+
+--== Breeding Selection ==--
+
+-- Wave 2 --
+
+-- All pokemon in a certain egg group
+select PokemonName from Pokemon natural join EggGroups
+where GroupName = egggrp;
+
+-- All pokemon that can breed with a certain pokemon
+select distinct PokemonName from Pokemon natural join EggGroups
+where PokemonName = 'Ditto' or GroupName in(
+    select GroupName from Pokemon natural join EggGroups
+    where PokemonName = pkmn
+)
+order by PokemonName;
+
+
+--====================================================================================================================================
+
+--== Trainer Selection ==--
+
+-- Wave 2 --
+
+-- all trainers on a certain route
+select TrainerName, TrainerClass from Trainer natural join FoughtAt 
+where LocationName = loc;
+
+-- all trainers with a certain class
+select TrainerNamel TrainerClass from Trainer where TrainerClass = tcl;
+
+
+--====================================================================================================================================
+
+--== Team Selection ==--
+
+-- Wave 2 --
+
+-- all teams of a certain trainer
+select TrainerName, TrainerClass, TeamID, MemberID, PokemonName, Level
+from Trainer natural join Team natural join TeamMember natural join Pokemon
+where TID = trn
+order by TeamID, MemberID;
+
+-- all trainers/teams with a certain pokemon
+select TrainerName, TrainerClass, TeamID, MemberID, PokemonName, Level
+from Trainer natural join Team natural join TeamMember natural join Pokemon
+where (TID, TeamID) in(
+    select TID, TeamID
+    from Trainer natural join Team natural join TeamMember natural join Pokemon
+    where PokemonName = pkmn
+)
+order by TrainerName, TrainerClass, TeamID, MemberID;
+
+-- all teams with a specific minimum level
+select TrainerName, TrainerClass, TeamID, MemberID, PokemonName, Level
+from Trainer natural join Team natural join TeamMember natural join Pokemon
+where (TID, TeamID) in(
+    select TID, TeamID
+    from Trainer natural join Team natural join TeamMember natural join Pokemon
+    group by TID, TeamID
+    having min(Level) >= lvl
+)
+order by TrainerName, TrainerClass, TeamID, MemberID;
+
+-- all teams with a specific maximum level
+select TrainerName, TrainerClass, TeamID, MemberID, PokemonName, Level
+from Trainer natural join Team natural join TeamMember natural join Pokemon
+where (TID, TeamID) in(
+    select TID, TeamID
+    from Trainer natural join Team natural join TeamMember natural join Pokemon
+    group by TID, TeamID
+    having min(Level) <= lvl
+)
+order by TrainerName, TrainerClass, TeamID, MemberID;
+
+
+--====================================================================================================================================
+
+--== 
+
+
+
+
+
+
+
 
 
