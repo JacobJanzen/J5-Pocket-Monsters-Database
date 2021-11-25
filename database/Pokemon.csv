@@ -1,3 +1,4 @@
+Dex,PokemonName,EvolvesFrom,evoMethod,Height,Weight,ExpYield,HP,Atk,Def,SpA,SpD,Spe,LevRate,HatchTime,CatchRate,MalePercent
 1,Bulbasaur,,,0.7,6.9,64,45,49,49,65,65,45,"Medium Slow",20,45,0.875
 2,Ivysaur,1,"Level 16",1.0,13.0,142,60,62,63,80,80,60,"Medium Slow",20,45,0.875
 3,Venusaur,2,"Level 32",2.0,100.0,263,80,82,83,100,100,80,"Medium Slow",20,45,0.875
