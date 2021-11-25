@@ -4,7 +4,7 @@ from flask import request, Blueprint
 
 from flaskr.db import get_db
 
-bp = Blueprint('pokemon', __name__, url_prefix='/pokemon')
+bp = Blueprint('moves', __name__, url_prefix='/pokemon')
 
 
 @bp.route('/pokemon_names')

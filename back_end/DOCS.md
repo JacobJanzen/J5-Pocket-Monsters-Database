@@ -37,6 +37,26 @@ This contains the names of all the implemented API methods in the Flask app.
 
 ## Move Selection
 
+|Method Name |HTTP Method | Parameters | Description|
+|---|---|---|---|
+| moves_learned_by_all_pokemon | GET | | Lists the moves that are learned by all Pokemon |
+| moves_learned_by_pokemon_by_method | GET | | Lists the moves that are learned by all Pokemon and the method by which they are learned |
+| moves_learned_by_a_pokemon | GET | pokemon_name | Lists the moves that are learned by a given Pokemon |
+| moves_learned_by_a_pokemon_by_method | GET | pokemon_name | Lists the moves that are learned by a given Pokemon and the method by which they are learned |
+| moves_with_effectiveness_against_type | GET | type_name, quality | Lists the moves that have a given effectiveness against a given type |
+| moves_supereffective_against_pokemon | GET | pokemon_name | Lists all of the moves that are super effective against a given pokemon |
+| moves_neutral_against_pokemon | GET | pokemon_name | Lists all of the moves that are neutral against a given pokemon |
+| moves_not_very_effective_against_pokemon | GET | pokemon_name | Lists all of the moves that are not very effective against a given pokemon |
+| moves_non_effective_against_pokemon | GET | pokemon_name | Lists all of the moves that are not effective against a given pokemon |
+| moves_effectiveness_against_pokemon| GET | pokemon_name| Lists the effectiveness of all moves against a given pokemon |
+| status_moves | GET | | Lists all status moves |
+| methods_pokemon_can_learn_move | GET | pokemon_name, move_name | Lists all ways a Pokemon learns a given move |
+| moves_of_type_that_pokemon_can_learn | GET | pokemon_name, type_name | Lists all moves of a given type that a given pokemon can learn |
+| moves_of_type_that_pokemon_can_learn_by_method | GET | pokemon_name, type_name| Lists all of moves a certain type that a given Pokemon can learn and the method by which they are learned |
+| moves_pokemon_learns_with_method | GET | pokemon_name, method_name | Lists all moves a given Pokemon learns with a given breeding method |
+| moves_pokemon_learns_by_breeding | GET | pokemon_name | Lists all moves a Pokemon learns through breeding |
+| moves_pokemon_learns_by_breeding_with_father | GET | pokemon_name, father_name | Lists all moves that a given Pokemon can learn through breeding with a given father |
+
 ## Location Selection
 
 ## Type Selection
