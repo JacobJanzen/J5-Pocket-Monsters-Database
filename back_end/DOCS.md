@@ -77,3 +77,11 @@ This contains the names of all the implemented API methods in the Flask app.
 | number_of_pokemon_per_type | GET | | Lists the number of Pokemon per type |
 | types_with_physical_damage | GET | | Lists the types with physical damage type |
 | types_with_special_damage | GET | | Lists the types with special damage type |
+
+## Breeding Selection
+
+|Method Name |HTTP Method | Parameters | Description|
+|---|---|---|---|
+| pokemon_in_egg_group | GET | egg_group_name | Lists all Pokemon in a given egg group |
+| pokemon_can_breed_with | GET | pokemon_name | Lists all Pokemon that a given Pokemon can breed with |
+
