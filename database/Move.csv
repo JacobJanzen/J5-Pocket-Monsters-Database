@@ -1,0 +1,355 @@
+MoveName,Accuracy,Power,PP,Status,TypeName
+Absorb,100,20,20,0,Grass
+"Acid Armor",,0,40,1,Poison
+Acid,100,40,30,0,Poison
+"Aerial Ace",,60,20,0,Flying
+Aeroblast,95,100,5,0,Flying
+Agility,,0,30,1,Psychic
+"Air Cutter",95,55,25,0,Flying
+Amnesia,,0,20,1,Psychic
+"Ancient Power",100,60,5,0,Rock
+"Arm Thrust",100,15,20,0,Fighting
+Aromatherapy,,0,5,1,Grass
+Assist,,0,20,1,Normal
+Astonish,100,30,15,0,Ghost
+Attract,100,0,15,1,Normal
+"Aurora Beam",100,65,20,0,Ice
+Barrage,85,15,20,0,Normal
+Barrier,,0,30,1,Psychic
+"Baton Pass",,0,40,1,Normal
+"Beat Up",100,10,10,0,Dark
+"Belly Drum",,0,10,1,Normal
+Bide,100,0,10,0,Normal
+Bind,75,15,20,0,Normal
+Bite,100,60,25,0,Dark
+"Blast Burn",90,150,5,0,Fire
+"Blaze Kick",90,85,10,0,Fire
+Blizzard,70,120,5,0,Ice
+Block,,0,5,1,Normal
+"Body Slam",100,85,15,0,Normal
+"Bone Club",85,65,20,0,Ground
+"Bone Rush",80,25,10,0,Ground
+Bonemerang,90,50,10,0,Ground
+Bounce,85,85,5,0,Flying
+"Brick Break",100,75,15,0,Fighting
+"Bubble Beam",100,65,20,0,Water
+Bubble,100,20,30,0,Water
+"Bulk Up",,0,20,1,Fighting
+"Bullet Seed",100,10,30,0,Grass
+"Calm Mind",,0,20,1,Psychic
+Camouflage,,0,20,1,Normal
+Charge,,0,20,1,Electric
+Charm,100,0,20,1,Normal
+Clamp,75,35,10,0,Water
+"Comet Punch",85,18,15,0,Normal
+"Confuse Ray",100,0,10,1,Ghost
+Confusion,100,50,25,0,Psychic
+Constrict,100,10,35,0,Normal
+"Conversion 2",,0,30,1,Normal
+Conversion,,0,30,1,Normal
+"Cosmic Power",,0,20,1,Psychic
+"Cotton Spore",85,0,40,1,Grass
+Counter,100,0,20,0,Fighting
+Covet,100,40,40,0,Normal
+Crabhammer,85,90,10,0,Water
+"Cross Chop",80,100,5,0,Fighting
+Crunch,100,80,15,0,Dark
+"Crush Claw",95,75,10,0,Normal
+Curse,,0,10,1,???
+Cut,95,50,30,0,Normal
+"Defense Curl",,0,40,1,Normal
+"Destiny Bond",,0,5,1,Ghost
+Detect,,0,5,1,Fighting
+Dig,100,60,10,0,Ground
+Disable,55,0,20,1,Normal
+Dive,100,60,10,0,Water
+"Dizzy Punch",100,70,10,0,Normal
+"Doom Desire",85,120,5,0,Steel
+"Double Kick",100,30,30,0,Fighting
+"Double Slap",85,15,10,0,Normal
+"Double Team",,0,15,1,Normal
+Double-Edge,100,120,15,0,Normal
+"Dragon Breath",100,60,20,0,Dragon
+"Dragon Claw",100,80,15,0,Dragon
+"Dragon Dance",,0,20,1,Dragon
+"Dragon Rage",100,0,10,0,Dragon
+"Dream Eater",100,100,15,0,Psychic
+"Drill Peck",100,80,20,0,Flying
+"Dynamic Punch",50,100,5,0,Fighting
+Earthquake,100,100,10,0,Ground
+"Egg Bomb",75,100,10,0,Normal
+Ember,100,40,25,0,Fire
+Encore,100,0,5,1,Normal
+Endeavor,100,0,5,0,Normal
+Endure,,0,10,1,Normal
+Eruption,100,150,5,0,Fire
+Explosion,100,250,5,0,Normal
+Extrasensory,100,80,30,0,Psychic
+"Extreme Speed",100,80,5,0,Normal
+Facade,100,70,20,0,Normal
+"Fake Out",100,40,10,0,Normal
+"Fake Tears",100,0,20,1,Dark
+"False Swipe",100,40,40,0,Normal
+"Feather Dance",100,0,15,1,Flying
+"Feint Attack",,60,20,0,Dark
+"Fire Blast",85,120,5,0,Fire
+"Fire Punch",100,75,15,0,Fire
+"Fire Spin",70,15,15,0,Fire
+Fissure,30,0,5,1,Ground
+Flail,100,0,15,0,Normal
+"Flame Wheel",100,60,25,0,Fire
+Flamethrower,100,95,15,0,Fire
+Flash,70,0,20,1,Normal
+Flatter,100,0,15,1,Dark
+Fly,95,70,15,0,Flying
+"Focus Energy",,0,30,1,Normal
+"Focus Punch",100,150,20,0,Fighting
+"Follow Me",,0,20,1,Normal
+Foresight,100,0,40,1,Normal
+"Frenzy Plant",90,150,5,0,Grass
+Frustration,100,0,20,0,Normal
+"Fury Attack",85,15,20,0,Normal
+"Fury Cutter",95,10,20,0,Bug
+"Fury Swipes",80,18,15,0,Normal
+"Future Sight",90,80,15,0,Psychic
+"Giga Drain",100,60,5,0,Grass
+Glare,75,0,30,1,Normal
+"Grass Whistle",55,0,15,1,Grass
+Growl,100,0,40,1,Normal
+Growth,,0,40,1,Normal
+Grudge,,0,5,1,Ghost
+Guillotine,30,0,5,1,Normal
+Gust,100,40,35,0,Flying
+Hail,,0,10,1,Ice
+Harden,,0,30,1,Normal
+Haze,,0,30,1,Ice
+Headbutt,100,70,15,0,Normal
+"Heal Bell",,0,5,1,Normal
+"Heat Wave",90,100,10,0,Fire
+"Helping Hand",,0,20,1,Normal
+"Hidden Power",100,0,15,1,Normal
+"High Jump Kick",90,85,20,0,Fighting
+"Horn Attack",100,65,25,0,Normal
+"Horn Drill",30,0,5,1,Normal
+Howl,,0,40,1,Normal
+"Hydro Cannon",90,150,5,0,Water
+"Hydro Pump",80,120,5,0,Water
+"Hyper Beam",90,150,5,0,Normal
+"Hyper Fang",90,80,15,0,Normal
+"Hyper Voice",100,90,10,0,Normal
+Hypnosis,60,0,20,1,Psychic
+"Ice Ball",90,30,20,0,Ice
+"Ice Beam",100,95,10,0,Ice
+"Ice Punch",100,75,15,0,Ice
+"Icicle Spear",100,10,30,0,Ice
+"Icy Wind",95,55,15,0,Ice
+Imprison,,0,10,1,Psychic
+Ingrain,,0,20,1,Grass
+"Iron Defense",,0,15,1,Steel
+"Iron Tail",75,100,15,0,Steel
+"Jump Kick",95,70,25,0,Fighting
+"Karate Chop",100,50,25,0,Fighting
+Kinesis,80,0,15,1,Psychic
+"Knock Off",100,20,20,0,Dark
+"Leaf Blade",100,70,15,0,Grass
+"Leech Life",100,20,15,0,Bug
+"Leech Seed",90,0,10,1,Grass
+Leer,100,0,30,1,Normal
+Lick,100,20,30,0,Ghost
+"Light Screen",,0,30,1,Psychic
+Lock-On,100,0,5,1,Normal
+"Lovely Kiss",75,0,10,1,Normal
+"Low Kick",100,0,20,0,Fighting
+"Luster Purge",100,70,5,0,Psychic
+"Mach Punch",100,40,30,0,Fighting
+"Magic Coat",,0,15,1,Psychic
+"Magical Leaf",,60,20,0,Grass
+Magnitude,100,0,30,0,Ground
+"Mean Look",,0,5,1,Normal
+Meditate,,0,40,1,Psychic
+"Mega Drain",100,40,10,0,Grass
+"Mega Kick",75,120,5,0,Normal
+"Mega Punch",85,80,20,0,Normal
+Megahorn,85,120,10,0,Bug
+Memento,100,0,10,1,Dark
+"Metal Claw",95,50,35,0,Steel
+"Metal Sound",85,0,40,1,Steel
+"Meteor Mash",85,100,10,0,Steel
+Metronome,,0,10,1,Normal
+"Milk Drink",,0,10,1,Normal
+Mimic,,0,10,1,Normal
+"Mind Reader",100,0,5,1,Normal
+Minimize,,0,20,1,Normal
+"Mirror Coat",100,0,20,0,Psychic
+"Mirror Move",,0,20,1,Flying
+"Mist Ball",100,70,5,0,Psychic
+Mist,,0,30,1,Ice
+Moonlight,,0,5,1,Normal
+"Morning Sun",,0,5,1,Normal
+"Mud Shot",95,55,15,0,Ground
+"Mud Sport",,0,15,1,Ground
+Mud-Slap,100,20,10,0,Ground
+"Muddy Water",85,95,10,0,Water
+"Nature Power",,0,20,1,Normal
+"Needle Arm",100,60,15,0,Grass
+"Night Shade",100,0,15,0,Ghost
+Nightmare,100,0,15,1,Ghost
+Octazooka,85,65,10,0,Water
+"Odor Sleuth",100,0,40,1,Normal
+Outrage,100,90,15,0,Dragon
+Overheat,90,140,5,0,Fire
+"Pain Split",,0,20,1,Normal
+"Pay Day",100,40,20,0,Normal
+Peck,100,35,35,0,Flying
+"Perish Song",,0,5,1,Normal
+"Petal Dance",100,70,20,0,Grass
+"Pin Missile",85,14,20,0,Bug
+"Poison Fang",100,50,15,0,Poison
+"Poison Gas",55,0,40,1,Poison
+"Poison Powder",75,0,35,1,Poison
+"Poison Sting",100,15,35,0,Poison
+"Poison Tail",100,50,25,0,Poison
+Pound,100,40,35,0,Normal
+"Powder Snow",100,40,25,0,Ice
+Present,90,0,15,0,Normal
+Protect,,0,10,1,Normal
+Psybeam,100,65,20,0,Psychic
+"Psych Up",,0,10,1,Normal
+Psychic,100,90,10,0,Psychic
+"Psycho Boost",90,140,5,0,Psychic
+Psywave,80,0,15,0,Psychic
+Pursuit,100,40,20,0,Dark
+"Quick Attack",100,40,30,0,Normal
+Rage,100,20,20,0,Normal
+"Rain Dance",,0,5,1,Water
+"Rapid Spin",100,20,40,0,Normal
+"Razor Leaf",95,55,25,0,Grass
+"Razor Wind",100,80,10,0,Normal
+Recover,,0,20,1,Normal
+Recycle,,0,10,1,Normal
+Reflect,,0,20,1,Psychic
+Refresh,,0,20,1,Normal
+Rest,,0,10,1,Psychic
+Return,100,0,20,0,Normal
+Revenge,100,60,10,0,Fighting
+Reversal,100,0,15,0,Fighting
+Roar,100,0,20,1,Normal
+"Rock Blast",80,25,10,0,Rock
+"Rock Slide",90,75,10,0,Rock
+"Rock Smash",100,20,15,0,Fighting
+"Rock Throw",90,50,15,0,Rock
+"Rock Tomb",80,50,10,0,Rock
+"Role Play",,0,10,1,Psychic
+"Rolling Kick",85,60,15,0,Fighting
+Rollout,90,30,20,0,Rock
+"Sacred Fire",95,100,5,0,Fire
+Safeguard,,0,25,1,Normal
+"Sand Attack",100,0,15,1,Ground
+"Sand Tomb",70,15,15,0,Ground
+Sandstorm,,0,10,1,Rock
+"Scary Face",90,0,10,1,Normal
+Scratch,100,40,35,0,Normal
+Screech,85,0,40,1,Normal
+"Secret Power",100,70,20,0,Normal
+"Seismic Toss",100,0,20,0,Fighting
+Self-Destruct,100,200,5,0,Normal
+"Shadow Ball",100,80,15,0,Ghost
+"Shadow Punch",,60,20,0,Ghost
+Sharpen,,0,30,1,Normal
+"Sheer Cold",30,0,5,1,Ice
+"Shock Wave",,60,20,0,Electric
+"Signal Beam",100,75,15,0,Bug
+"Silver Wind",100,60,5,0,Bug
+Sing,55,0,15,1,Normal
+Sketch,,0,1,1,Normal
+"Skill Swap",,0,10,1,Psychic
+"Skull Bash",100,100,15,0,Normal
+"Sky Attack",90,140,5,0,Flying
+"Sky Uppercut",90,85,15,0,Fighting
+"Slack Off",,0,10,1,Normal
+Slam,75,80,20,0,Normal
+Slash,100,70,20,0,Normal
+"Sleep Powder",75,0,15,1,Grass
+"Sleep Talk",,0,10,1,Normal
+"Sludge Bomb",100,90,10,0,Poison
+Sludge,100,65,20,0,Poison
+"Smelling Salts",100,60,10,0,Normal
+Smog,70,20,20,0,Poison
+Smokescreen,100,0,20,1,Normal
+Snatch,,0,10,1,Dark
+Snore,100,40,15,0,Normal
+Soft-Boiled,,0,10,1,Normal
+"Solar Beam",100,120,10,0,Grass
+"Sonic Boom",90,0,20,0,Normal
+Spark,100,65,20,0,Electric
+"Spider Web",,0,10,1,Bug
+"Spike Cannon",100,20,15,0,Normal
+Spikes,,0,20,1,Ground
+"Spit Up",100,0,10,0,Normal
+Spite,100,0,10,1,Ghost
+Splash,,0,40,1,Normal
+Spore,100,0,15,1,Grass
+"Steel Wing",90,70,25,0,Steel
+Stockpile,,0,10,1,Normal
+Stomp,100,65,20,0,Normal
+Strength,100,80,15,0,Normal
+"String Shot",95,0,40,1,Bug
+Struggle,100,50,1,0,Normal
+"Stun Spore",75,0,30,1,Grass
+Submission,80,80,25,0,Fighting
+Substitute,,0,10,1,Normal
+"Sunny Day",,0,5,1,Fire
+"Super Fang",90,0,10,0,Normal
+Superpower,100,120,5,0,Fighting
+Supersonic,55,0,20,1,Normal
+Surf,100,95,15,0,Water
+Swagger,90,0,15,1,Normal
+Swallow,,0,10,1,Normal
+"Sweet Kiss",75,0,10,1,Normal
+"Sweet Scent",100,0,20,1,Normal
+Swift,,60,20,0,Normal
+"Swords Dance",,0,30,1,Normal
+Synthesis,,0,5,1,Grass
+Tackle,95,35,35,0,Normal
+"Tail Glow",,0,20,1,Bug
+"Tail Whip",100,0,30,1,Normal
+"Take Down",85,90,20,0,Normal
+Taunt,100,0,20,1,Dark
+"Teeter Dance",100,0,20,1,Normal
+Teleport,,0,20,1,Psychic
+Thief,100,40,10,0,Dark
+Thrash,100,90,20,0,Normal
+"Thunder Punch",100,75,15,0,Electric
+"Thunder Shock",100,40,30,0,Electric
+"Thunder Wave",100,0,20,1,Electric
+Thunder,70,120,10,0,Electric
+Thunderbolt,100,95,15,0,Electric
+Tickle,100,0,20,1,Normal
+Torment,100,0,15,1,Dark
+Toxic,85,0,10,1,Poison
+Transform,,0,10,1,Normal
+"Tri Attack",100,80,10,0,Normal
+Trick,100,0,10,1,Psychic
+"Triple Kick",90,10,10,0,Fighting
+Twineedle,100,25,20,0,Bug
+Twister,100,40,20,0,Dragon
+Uproar,100,50,10,0,Normal
+"Vine Whip",100,35,10,0,Grass
+"Vise Grip",100,55,30,0,Normal
+"Vital Throw",,70,10,0,Fighting
+"Volt Tackle",100,120,15,0,Electric
+"Water Gun",100,40,25,0,Water
+"Water Pulse",100,60,20,0,Water
+"Water Sport",,0,15,1,Water
+"Water Spout",100,150,5,0,Water
+Waterfall,100,80,15,0,Water
+"Weather Ball",100,50,10,0,Normal
+Whirlpool,70,15,15,0,Water
+Whirlwind,100,0,20,1,Normal
+Will-O-Wisp,75,0,15,1,Fire
+"Wing Attack",100,60,35,0,Flying
+Wish,,0,10,1,Normal
+Withdraw,,0,40,1,Water
+Wrap,85,15,20,0,Normal
+Yawn,,0,10,1,Normal
+"Zap Cannon",50,100,5,0,Electric
