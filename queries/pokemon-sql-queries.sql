@@ -388,7 +388,7 @@ where Pokemon.PokemonName = pkmn and TypeName = tp;
 
 -- prev query but with method
 select MoveName, Method from Pokemon natural join Learns natural join Move
-where Pokemon.PokemonName = pkmn and TypeName = tp;
+where Pokemon.PokemonName = pkmn and TypeName = tp
 union
 select MoveName, 'Breeding: ' || P2.PokemonName from Pokemon P1 natural join LearnsByBreeding natural join Move 
 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
