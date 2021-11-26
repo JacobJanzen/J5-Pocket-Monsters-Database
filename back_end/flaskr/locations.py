@@ -120,7 +120,7 @@ def locations_with_trainer_class(trainer_class: str):
 
 @bp.route('/locations_with_trainer_class_fight/<trainer_class>')
 def locations_with_trainer_class_fight(trainer_class: str):
-    """Lists the locations that a Pokemon may be found at and the method by which they can be found """
+    """all locations where a certain Trainer Class can be fought """
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''
@@ -141,7 +141,7 @@ def locations_with_trainer_class_fight(trainer_class: str):
 
 @bp.route('/locations_with_pokemon_of_level/<pokemon_name>&<minimum_level>')
 def locations_with_pokemon_of_level(pokemon_name: str, minimum_level: int):
-    """Lists the locations that a Pokemon may be found at and the method by which they can be found """
+    """locations where a certain pkmn of at least a certain level can be found """
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''

@@ -114,6 +114,7 @@ def moves_with_effectiveness_against_type(type_name: str, quality):
 
 @bp.route('/moves_supereffective_against_pokemon/<pokemon_name>')
 def moves_supereffective_against_pokemon(pokemon_name: str):
+    """Moves that are supereffective against a given Pokemon (?)"""
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''
@@ -136,6 +137,7 @@ def moves_supereffective_against_pokemon(pokemon_name: str):
 
 @bp.route('/moves_neutral_against_pokemon/<pokemon_name>')
 def moves_neutral_against_pokemon(pokemon_name: str):
+    """Moves that are neutral against a given Pokemon (?)"""
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''
@@ -158,6 +160,7 @@ def moves_neutral_against_pokemon(pokemon_name: str):
 
 @bp.route('/moves_noteffective_against_pokemon/<pokemon_name>')
 def moves_not_very_effective_against_pokemon(pokemon_name: str):
+    """Moves that are not effective against a given Pokemon (?)"""
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''

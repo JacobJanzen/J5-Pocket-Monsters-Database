@@ -42,7 +42,7 @@
           <h4>Use the menu at the top to</h4>
           <li>Read our project write-up</li>
           <li>View the ER Diagram</li>
-          <li>Interact with the database!</li>
+          <li>Interact with the database! ADD MORE DETAILED INSTRUCTIONS???</li>
         </div>
       </v-card>
 
