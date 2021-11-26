@@ -1,610 +1,2444 @@
-{"abilities": [{"Dex": "1", "Ability": "Overgrow"},
-{"Dex": "10", "Ability": "Shield Dust"},
-{"Dex": "100", "Ability": "Soundproof"},
-{"Dex": "100", "Ability": "Static"},
-{"Dex": "101", "Ability": "Soundproof"},
-{"Dex": "101", "Ability": "Static"},
-{"Dex": "102", "Ability": "Chlorophyll"},
-{"Dex": "103", "Ability": "Chlorophyll"},
-{"Dex": "104", "Ability": "Lightning Rod"},
-{"Dex": "104", "Ability": "Rock Head"},
-{"Dex": "105", "Ability": "Lightning Rod"},
-{"Dex": "105", "Ability": "Rock Head"},
-{"Dex": "106", "Ability": "Limber"},
-{"Dex": "106", "Ability": "Reckless"},
-{"Dex": "107", "Ability": "Iron Fist"},
-{"Dex": "107", "Ability": "Keen Eye"},
-{"Dex": "108", "Ability": "Oblivious"},
-{"Dex": "108", "Ability": "Own Tempo"},
-{"Dex": "109", "Ability": "Levitate"},
-{"Dex": "109", "Ability": "Neutralizing Gas"},
-{"Dex": "11", "Ability": "Shed Skin"},
-{"Dex": "110", "Ability": "Levitate"},
-{"Dex": "110", "Ability": "Neutralizing Gas"},
-{"Dex": "111", "Ability": "Lightning Rod"},
-{"Dex": "111", "Ability": "Rock Head"},
-{"Dex": "112", "Ability": "Lightning Rod"},
-{"Dex": "112", "Ability": "Rock Head"},
-{"Dex": "113", "Ability": "Natural Cure"},
-{"Dex": "113", "Ability": "Serene Grace"},
-{"Dex": "114", "Ability": "Chlorophyll"},
-{"Dex": "114", "Ability": "Leaf Guard"},
-{"Dex": "115", "Ability": "Early Bird"},
-{"Dex": "115", "Ability": "Scrappy"},
-{"Dex": "116", "Ability": "Sniper"},
-{"Dex": "116", "Ability": "Swift Swim"},
-{"Dex": "117", "Ability": "Poison Point"},
-{"Dex": "117", "Ability": "Sniper"},
-{"Dex": "118", "Ability": "Swift Swim"},
-{"Dex": "118", "Ability": "Water Veil"},
-{"Dex": "119", "Ability": "Swift Swim"},
-{"Dex": "119", "Ability": "Water Veil"},
-{"Dex": "12", "Ability": "Compound Eyes"},
-{"Dex": "120", "Ability": "Illuminate"},
-{"Dex": "120", "Ability": "Natural Cure"},
-{"Dex": "121", "Ability": "Illuminate"},
-{"Dex": "121", "Ability": "Natural Cure"},
-{"Dex": "122", "Ability": "Filter"},
-{"Dex": "122", "Ability": "Soundproof"},
-{"Dex": "123", "Ability": "Swarm"},
-{"Dex": "123", "Ability": "Technician"},
-{"Dex": "124", "Ability": "Forewarn"},
-{"Dex": "124", "Ability": "Oblivious"},
-{"Dex": "125", "Ability": "Static"},
-{"Dex": "126", "Ability": "Flame Body"},
-{"Dex": "127", "Ability": "Hyper Cutter"},
-{"Dex": "127", "Ability": "Mold Breaker"},
-{"Dex": "128", "Ability": "Anger Point"},
-{"Dex": "128", "Ability": "Intimidate"},
-{"Dex": "129", "Ability": "Swift Swim"},
-{"Dex": "13", "Ability": "Shield Dust"},
-{"Dex": "130", "Ability": "Intimidate"},
-{"Dex": "131", "Ability": "Shell Armor"},
-{"Dex": "131", "Ability": "Water Absorb"},
-{"Dex": "132", "Ability": "Limber"},
-{"Dex": "133", "Ability": "Adaptability"},
-{"Dex": "133", "Ability": "Run Away"},
-{"Dex": "134", "Ability": "Water Absorb"},
-{"Dex": "135", "Ability": "Volt Absorb"},
-{"Dex": "136", "Ability": "Flash Fire"},
-{"Dex": "137", "Ability": "Download"},
-{"Dex": "137", "Ability": "Trace"},
-{"Dex": "138", "Ability": "Shell Armor"},
-{"Dex": "138", "Ability": "Swift Swim"},
-{"Dex": "139", "Ability": "Shell Armor"},
-{"Dex": "139", "Ability": "Swift Swim"},
-{"Dex": "14", "Ability": "Shed Skin"},
-{"Dex": "140", "Ability": "Battle Armor"},
-{"Dex": "140", "Ability": "Swift Swim"},
-{"Dex": "141", "Ability": "Battle Armor"},
-{"Dex": "141", "Ability": "Swift Swim"},
-{"Dex": "142", "Ability": "Pressure"},
-{"Dex": "142", "Ability": "Rock Head"},
-{"Dex": "143", "Ability": "Immunity"},
-{"Dex": "143", "Ability": "Thick Fat"},
-{"Dex": "144", "Ability": "Pressure"},
-{"Dex": "145", "Ability": "Pressure"},
-{"Dex": "146", "Ability": "Pressure"},
-{"Dex": "147", "Ability": "Shed Skin"},
-{"Dex": "148", "Ability": "Shed Skin"},
-{"Dex": "149", "Ability": "Inner Focus"},
-{"Dex": "15", "Ability": "Swarm"},
-{"Dex": "150", "Ability": "Pressure"},
-{"Dex": "151", "Ability": "Synchronize"},
-{"Dex": "152", "Ability": "Overgrow"},
-{"Dex": "153", "Ability": "Overgrow"},
-{"Dex": "154", "Ability": "Overgrow"},
-{"Dex": "155", "Ability": "Blaze"},
-{"Dex": "156", "Ability": "Blaze"},
-{"Dex": "157", "Ability": "Blaze"},
-{"Dex": "158", "Ability": "Torrent"},
-{"Dex": "159", "Ability": "Torrent"},
-{"Dex": "16", "Ability": "Keen Eye"},
-{"Dex": "16", "Ability": "Tangled Feet"},
-{"Dex": "160", "Ability": "Torrent"},
-{"Dex": "161", "Ability": "Keen Eye"},
-{"Dex": "161", "Ability": "Run Away"},
-{"Dex": "162", "Ability": "Keen Eye"},
-{"Dex": "162", "Ability": "Run Away"},
-{"Dex": "163", "Ability": "Insomnia"},
-{"Dex": "163", "Ability": "Keen Eye"},
-{"Dex": "164", "Ability": "Insomnia"},
-{"Dex": "164", "Ability": "Keen Eye"},
-{"Dex": "165", "Ability": "Early Bird"},
-{"Dex": "165", "Ability": "Swarm"},
-{"Dex": "166", "Ability": "Early Bird"},
-{"Dex": "166", "Ability": "Swarm"},
-{"Dex": "167", "Ability": "Insomnia"},
-{"Dex": "167", "Ability": "Swarm"},
-{"Dex": "168", "Ability": "Insomnia"},
-{"Dex": "168", "Ability": "Swarm"},
-{"Dex": "169", "Ability": "Inner Focus"},
-{"Dex": "17", "Ability": "Keen Eye"},
-{"Dex": "17", "Ability": "Tangled Feet"},
-{"Dex": "170", "Ability": "Illuminate"},
-{"Dex": "170", "Ability": "Volt Absorb"},
-{"Dex": "171", "Ability": "Illuminate"},
-{"Dex": "171", "Ability": "Volt Absorb"},
-{"Dex": "172", "Ability": "Static"},
-{"Dex": "173", "Ability": "Cute Charm"},
-{"Dex": "173", "Ability": "Magic Guard"},
-{"Dex": "174", "Ability": "Competitive"},
-{"Dex": "174", "Ability": "Cute Charm"},
-{"Dex": "175", "Ability": "Hustle"},
-{"Dex": "175", "Ability": "Serene Grace"},
-{"Dex": "176", "Ability": "Hustle"},
-{"Dex": "176", "Ability": "Serene Grace"},
-{"Dex": "177", "Ability": "Early Bird"},
-{"Dex": "177", "Ability": "Synchronize"},
-{"Dex": "178", "Ability": "Early Bird"},
-{"Dex": "178", "Ability": "Synchronize"},
-{"Dex": "179", "Ability": "Static"},
-{"Dex": "18", "Ability": "Keen Eye"},
-{"Dex": "18", "Ability": "Tangled Feet"},
-{"Dex": "180", "Ability": "Static"},
-{"Dex": "181", "Ability": "Static"},
-{"Dex": "182", "Ability": "Chlorophyll"},
-{"Dex": "183", "Ability": "Huge Power"},
-{"Dex": "183", "Ability": "Thick Fat"},
-{"Dex": "184", "Ability": "Huge Power"},
-{"Dex": "184", "Ability": "Thick Fat"},
-{"Dex": "185", "Ability": "Rock Head"},
-{"Dex": "185", "Ability": "Sturdy"},
-{"Dex": "186", "Ability": "Damp"},
-{"Dex": "186", "Ability": "Water Absorb"},
-{"Dex": "187", "Ability": "Chlorophyll"},
-{"Dex": "187", "Ability": "Leaf Guard"},
-{"Dex": "188", "Ability": "Chlorophyll"},
-{"Dex": "188", "Ability": "Leaf Guard"},
-{"Dex": "189", "Ability": "Chlorophyll"},
-{"Dex": "189", "Ability": "Leaf Guard"},
-{"Dex": "19", "Ability": "Guts"},
-{"Dex": "19", "Ability": "Run Away"},
-{"Dex": "190", "Ability": "Pickup"},
-{"Dex": "190", "Ability": "Run Away"},
-{"Dex": "191", "Ability": "Chlorophyll"},
-{"Dex": "191", "Ability": "Solar Power"},
-{"Dex": "192", "Ability": "Chlorophyll"},
-{"Dex": "192", "Ability": "Solar Power"},
-{"Dex": "193", "Ability": "Compound Eyes"},
-{"Dex": "193", "Ability": "Speed Boost"},
-{"Dex": "194", "Ability": "Damp"},
-{"Dex": "194", "Ability": "Water Absorb"},
-{"Dex": "195", "Ability": "Damp"},
-{"Dex": "195", "Ability": "Water Absorb"},
-{"Dex": "196", "Ability": "Synchronize"},
-{"Dex": "197", "Ability": "Synchronize"},
-{"Dex": "198", "Ability": "Insomnia"},
-{"Dex": "198", "Ability": "Super Luck"},
-{"Dex": "199", "Ability": "Oblivious"},
-{"Dex": "199", "Ability": "Own Tempo"},
-{"Dex": "2", "Ability": "Overgrow"},
-{"Dex": "20", "Ability": "Guts"},
-{"Dex": "20", "Ability": "Run Away"},
-{"Dex": "200", "Ability": "Levitate"},
-{"Dex": "201", "Ability": "Levitate"},
-{"Dex": "202", "Ability": "Shadow Tag"},
-{"Dex": "203", "Ability": "Early Bird"},
-{"Dex": "203", "Ability": "Inner Focus"},
-{"Dex": "204", "Ability": "Sturdy"},
-{"Dex": "205", "Ability": "Sturdy"},
-{"Dex": "206", "Ability": "Run Away"},
-{"Dex": "206", "Ability": "Serene Grace"},
-{"Dex": "207", "Ability": "Hyper Cutter"},
-{"Dex": "207", "Ability": "Sand Veil"},
-{"Dex": "208", "Ability": "Rock Head"},
-{"Dex": "208", "Ability": "Sturdy"},
-{"Dex": "209", "Ability": "Intimidate"},
-{"Dex": "209", "Ability": "Run Away"},
-{"Dex": "21", "Ability": "Keen Eye"},
-{"Dex": "210", "Ability": "Intimidate"},
-{"Dex": "210", "Ability": "Quick Feet"},
-{"Dex": "211", "Ability": "Poison Point"},
-{"Dex": "211", "Ability": "Swift Swim"},
-{"Dex": "212", "Ability": "Swarm"},
-{"Dex": "212", "Ability": "Technician"},
-{"Dex": "213", "Ability": "Gluttony"},
-{"Dex": "213", "Ability": "Sturdy"},
-{"Dex": "214", "Ability": "Guts"},
-{"Dex": "214", "Ability": "Swarm"},
-{"Dex": "215", "Ability": "Inner Focus"},
-{"Dex": "215", "Ability": "Keen Eye"},
-{"Dex": "216", "Ability": "Pickup"},
-{"Dex": "216", "Ability": "Quick Feet"},
-{"Dex": "217", "Ability": "Guts"},
-{"Dex": "217", "Ability": "Quick Feet"},
-{"Dex": "218", "Ability": "Flame Body"},
-{"Dex": "218", "Ability": "Magma Armor"},
-{"Dex": "219", "Ability": "Flame Body"},
-{"Dex": "219", "Ability": "Magma Armor"},
-{"Dex": "22", "Ability": "Keen Eye"},
-{"Dex": "220", "Ability": "Oblivious"},
-{"Dex": "220", "Ability": "Snow Cloak"},
-{"Dex": "221", "Ability": "Oblivious"},
-{"Dex": "221", "Ability": "Snow Cloak"},
-{"Dex": "222", "Ability": "Hustle"},
-{"Dex": "222", "Ability": "Natural Cure"},
-{"Dex": "223", "Ability": "Hustle"},
-{"Dex": "223", "Ability": "Sniper"},
-{"Dex": "224", "Ability": "Sniper"},
-{"Dex": "224", "Ability": "Suction Cups"},
-{"Dex": "225", "Ability": "Hustle"},
-{"Dex": "225", "Ability": "Vital Spirit"},
-{"Dex": "226", "Ability": "Swift Swim"},
-{"Dex": "226", "Ability": "Water Absorb"},
-{"Dex": "227", "Ability": "Keen Eye"},
-{"Dex": "227", "Ability": "Sturdy"},
-{"Dex": "228", "Ability": "Early Bird"},
-{"Dex": "228", "Ability": "Flash Fire"},
-{"Dex": "229", "Ability": "Early Bird"},
-{"Dex": "229", "Ability": "Flash Fire"},
-{"Dex": "23", "Ability": "Intimidate"},
-{"Dex": "23", "Ability": "Shed Skin"},
-{"Dex": "230", "Ability": "Sniper"},
-{"Dex": "230", "Ability": "Swift Swim"},
-{"Dex": "231", "Ability": "Pickup"},
-{"Dex": "232", "Ability": "Sturdy"},
-{"Dex": "233", "Ability": "Download"},
-{"Dex": "233", "Ability": "Trace"},
-{"Dex": "234", "Ability": "Frisk"},
-{"Dex": "234", "Ability": "Intimidate"},
-{"Dex": "235", "Ability": "Own Tempo"},
-{"Dex": "235", "Ability": "Technician"},
-{"Dex": "236", "Ability": "Guts"},
-{"Dex": "236", "Ability": "Steadfast"},
-{"Dex": "237", "Ability": "Intimidate"},
-{"Dex": "237", "Ability": "Technician"},
-{"Dex": "238", "Ability": "Forewarn"},
-{"Dex": "238", "Ability": "Oblivious"},
-{"Dex": "239", "Ability": "Static"},
-{"Dex": "24", "Ability": "Intimidate"},
-{"Dex": "24", "Ability": "Shed Skin"},
-{"Dex": "240", "Ability": "Flame Body"},
-{"Dex": "241", "Ability": "Scrappy"},
-{"Dex": "241", "Ability": "Thick Fat"},
-{"Dex": "242", "Ability": "Natural Cure"},
-{"Dex": "242", "Ability": "Serene Grace"},
-{"Dex": "243", "Ability": "Pressure"},
-{"Dex": "244", "Ability": "Pressure"},
-{"Dex": "245", "Ability": "Pressure"},
-{"Dex": "246", "Ability": "Guts"},
-{"Dex": "247", "Ability": "Shed Skin"},
-{"Dex": "248", "Ability": "Sand Stream"},
-{"Dex": "249", "Ability": "Pressure"},
-{"Dex": "25", "Ability": "Static"},
-{"Dex": "250", "Ability": "Pressure"},
-{"Dex": "251", "Ability": "Natural Cure"},
-{"Dex": "252", "Ability": "Overgrow"},
-{"Dex": "253", "Ability": "Overgrow"},
-{"Dex": "254", "Ability": "Overgrow"},
-{"Dex": "255", "Ability": "Blaze"},
-{"Dex": "256", "Ability": "Blaze"},
-{"Dex": "257", "Ability": "Blaze"},
-{"Dex": "258", "Ability": "Torrent"},
-{"Dex": "259", "Ability": "Torrent"},
-{"Dex": "26", "Ability": "Static"},
-{"Dex": "260", "Ability": "Torrent"},
-{"Dex": "261", "Ability": "Quick Feet"},
-{"Dex": "261", "Ability": "Run Away"},
-{"Dex": "262", "Ability": "Intimidate"},
-{"Dex": "262", "Ability": "Quick Feet"},
-{"Dex": "263", "Ability": "Gluttony"},
-{"Dex": "263", "Ability": "Pickup"},
-{"Dex": "264", "Ability": "Gluttony"},
-{"Dex": "264", "Ability": "Pickup"},
-{"Dex": "265", "Ability": "Shield Dust"},
-{"Dex": "266", "Ability": "Shed Skin"},
-{"Dex": "267", "Ability": "Swarm"},
-{"Dex": "268", "Ability": "Shed Skin"},
-{"Dex": "269", "Ability": "Shield Dust"},
-{"Dex": "27", "Ability": "Sand Veil"},
-{"Dex": "270", "Ability": "Rain Dish"},
-{"Dex": "270", "Ability": "Swift Swim"},
-{"Dex": "271", "Ability": "Rain Dish"},
-{"Dex": "271", "Ability": "Swift Swim"},
-{"Dex": "272", "Ability": "Rain Dish"},
-{"Dex": "272", "Ability": "Swift Swim"},
-{"Dex": "273", "Ability": "Chlorophyll"},
-{"Dex": "273", "Ability": "Early Bird"},
-{"Dex": "274", "Ability": "Chlorophyll"},
-{"Dex": "274", "Ability": "Early Bird"},
-{"Dex": "275", "Ability": "Chlorophyll"},
-{"Dex": "275", "Ability": "Early Bird"},
-{"Dex": "276", "Ability": "Guts"},
-{"Dex": "277", "Ability": "Guts"},
-{"Dex": "278", "Ability": "Hydration"},
-{"Dex": "278", "Ability": "Keen Eye"},
-{"Dex": "279", "Ability": "Drizzle"},
-{"Dex": "279", "Ability": "Keen Eye"},
-{"Dex": "28", "Ability": "Sand Veil"},
-{"Dex": "280", "Ability": "Synchronize"},
-{"Dex": "280", "Ability": "Trace"},
-{"Dex": "281", "Ability": "Synchronize"},
-{"Dex": "281", "Ability": "Trace"},
-{"Dex": "282", "Ability": "Synchronize"},
-{"Dex": "282", "Ability": "Trace"},
-{"Dex": "283", "Ability": "Swift Swim"},
-{"Dex": "284", "Ability": "Intimidate"},
-{"Dex": "285", "Ability": "Effect Spore"},
-{"Dex": "285", "Ability": "Poison Heal"},
-{"Dex": "286", "Ability": "Effect Spore"},
-{"Dex": "286", "Ability": "Poison Heal"},
-{"Dex": "287", "Ability": "Truant"},
-{"Dex": "288", "Ability": "Vital Spirit"},
-{"Dex": "289", "Ability": "Truant"},
-{"Dex": "29", "Ability": "Poison Point"},
-{"Dex": "29", "Ability": "Rivalry"},
-{"Dex": "290", "Ability": "Compound Eyes"},
-{"Dex": "291", "Ability": "Speed Boost"},
-{"Dex": "292", "Ability": "Wonder Guard"},
-{"Dex": "293", "Ability": "Soundproof"},
-{"Dex": "294", "Ability": "Soundproof"},
-{"Dex": "295", "Ability": "Soundproof"},
-{"Dex": "296", "Ability": "Guts"},
-{"Dex": "296", "Ability": "Thick Fat"},
-{"Dex": "297", "Ability": "Guts"},
-{"Dex": "297", "Ability": "Thick Fat"},
-{"Dex": "298", "Ability": "Huge Power"},
-{"Dex": "298", "Ability": "Thick Fat"},
-{"Dex": "299", "Ability": "Magnet Pull"},
-{"Dex": "299", "Ability": "Sturdy"},
-{"Dex": "3", "Ability": "Overgrow"},
-{"Dex": "30", "Ability": "Poison Point"},
-{"Dex": "30", "Ability": "Rivalry"},
-{"Dex": "300", "Ability": "Cute Charm"},
-{"Dex": "300", "Ability": "Normalize"},
-{"Dex": "301", "Ability": "Cute Charm"},
-{"Dex": "301", "Ability": "Normalize"},
-{"Dex": "302", "Ability": "Keen Eye"},
-{"Dex": "302", "Ability": "Stall"},
-{"Dex": "303", "Ability": "Hyper Cutter"},
-{"Dex": "303", "Ability": "Intimidate"},
-{"Dex": "304", "Ability": "Rock Head"},
-{"Dex": "304", "Ability": "Sturdy"},
-{"Dex": "305", "Ability": "Rock Head"},
-{"Dex": "305", "Ability": "Sturdy"},
-{"Dex": "306", "Ability": "Rock Head"},
-{"Dex": "306", "Ability": "Sturdy"},
-{"Dex": "307", "Ability": "Pure Power"},
-{"Dex": "308", "Ability": "Pure Power"},
-{"Dex": "309", "Ability": "Lightning Rod"},
-{"Dex": "309", "Ability": "Static"},
-{"Dex": "31", "Ability": "Poison Point"},
-{"Dex": "31", "Ability": "Rivalry"},
-{"Dex": "310", "Ability": "Lightning Rod"},
-{"Dex": "310", "Ability": "Static"},
-{"Dex": "311", "Ability": "Plus"},
-{"Dex": "312", "Ability": "Minus"},
-{"Dex": "313", "Ability": "Illuminate"},
-{"Dex": "313", "Ability": "Swarm"},
-{"Dex": "314", "Ability": "Oblivious"},
-{"Dex": "314", "Ability": "Tinted Lens"},
-{"Dex": "315", "Ability": "Natural Cure"},
-{"Dex": "315", "Ability": "Poison Point"},
-{"Dex": "316", "Ability": "Liquid Ooze"},
-{"Dex": "316", "Ability": "Sticky Hold"},
-{"Dex": "317", "Ability": "Liquid Ooze"},
-{"Dex": "317", "Ability": "Sticky Hold"},
-{"Dex": "318", "Ability": "Rough Skin"},
-{"Dex": "319", "Ability": "Rough Skin"},
-{"Dex": "32", "Ability": "Poison Point"},
-{"Dex": "32", "Ability": "Rivalry"},
-{"Dex": "320", "Ability": "Oblivious"},
-{"Dex": "320", "Ability": "Water Veil"},
-{"Dex": "321", "Ability": "Oblivious"},
-{"Dex": "321", "Ability": "Water Veil"},
-{"Dex": "322", "Ability": "Oblivious"},
-{"Dex": "322", "Ability": "Simple"},
-{"Dex": "323", "Ability": "Magma Armor"},
-{"Dex": "323", "Ability": "Solid Rock"},
-{"Dex": "324", "Ability": "Drought"},
-{"Dex": "324", "Ability": "White Smoke"},
-{"Dex": "325", "Ability": "Own Tempo"},
-{"Dex": "325", "Ability": "Thick Fat"},
-{"Dex": "326", "Ability": "Own Tempo"},
-{"Dex": "326", "Ability": "Thick Fat"},
-{"Dex": "327", "Ability": "Own Tempo"},
-{"Dex": "327", "Ability": "Tangled Feet"},
-{"Dex": "328", "Ability": "Arena Trap"},
-{"Dex": "328", "Ability": "Hyper Cutter"},
-{"Dex": "329", "Ability": "Levitate"},
-{"Dex": "33", "Ability": "Poison Point"},
-{"Dex": "33", "Ability": "Rivalry"},
-{"Dex": "330", "Ability": "Levitate"},
-{"Dex": "331", "Ability": "Sand Veil"},
-{"Dex": "332", "Ability": "Sand Veil"},
-{"Dex": "333", "Ability": "Natural Cure"},
-{"Dex": "334", "Ability": "Natural Cure"},
-{"Dex": "335", "Ability": "Immunity"},
-{"Dex": "336", "Ability": "Shed Skin"},
-{"Dex": "337", "Ability": "Levitate"},
-{"Dex": "338", "Ability": "Levitate"},
-{"Dex": "339", "Ability": "Anticipation"},
-{"Dex": "339", "Ability": "Oblivious"},
-{"Dex": "34", "Ability": "Poison Point"},
-{"Dex": "34", "Ability": "Rivalry"},
-{"Dex": "340", "Ability": "Anticipation"},
-{"Dex": "340", "Ability": "Oblivious"},
-{"Dex": "341", "Ability": "Hyper Cutter"},
-{"Dex": "341", "Ability": "Shell Armor"},
-{"Dex": "342", "Ability": "Hyper Cutter"},
-{"Dex": "342", "Ability": "Shell Armor"},
-{"Dex": "343", "Ability": "Levitate"},
-{"Dex": "344", "Ability": "Levitate"},
-{"Dex": "345", "Ability": "Suction Cups"},
-{"Dex": "346", "Ability": "Suction Cups"},
-{"Dex": "347", "Ability": "Battle Armor"},
-{"Dex": "348", "Ability": "Battle Armor"},
-{"Dex": "349", "Ability": "Oblivious"},
-{"Dex": "349", "Ability": "Swift Swim"},
-{"Dex": "35", "Ability": "Cute Charm"},
-{"Dex": "35", "Ability": "Magic Guard"},
-{"Dex": "350", "Ability": "Competitive"},
-{"Dex": "350", "Ability": "Marvel Scale"},
-{"Dex": "351", "Ability": "Forecast"},
-{"Dex": "352", "Ability": "Color Change"},
-{"Dex": "353", "Ability": "Frisk"},
-{"Dex": "353", "Ability": "Insomnia"},
-{"Dex": "354", "Ability": "Frisk"},
-{"Dex": "354", "Ability": "Insomnia"},
-{"Dex": "355", "Ability": "Levitate"},
-{"Dex": "356", "Ability": "Pressure"},
-{"Dex": "357", "Ability": "Chlorophyll"},
-{"Dex": "357", "Ability": "Solar Power"},
-{"Dex": "358", "Ability": "Levitate"},
-{"Dex": "359", "Ability": "Pressure"},
-{"Dex": "359", "Ability": "Super Luck"},
-{"Dex": "36", "Ability": "Cute Charm"},
-{"Dex": "36", "Ability": "Magic Guard"},
-{"Dex": "360", "Ability": "Shadow Tag"},
-{"Dex": "361", "Ability": "Ice Body"},
-{"Dex": "361", "Ability": "Inner Focus"},
-{"Dex": "362", "Ability": "Ice Body"},
-{"Dex": "362", "Ability": "Inner Focus"},
-{"Dex": "363", "Ability": "Ice Body"},
-{"Dex": "363", "Ability": "Thick Fat"},
-{"Dex": "364", "Ability": "Ice Body"},
-{"Dex": "364", "Ability": "Thick Fat"},
-{"Dex": "365", "Ability": "Ice Body"},
-{"Dex": "365", "Ability": "Thick Fat"},
-{"Dex": "366", "Ability": "Shell Armor"},
-{"Dex": "367", "Ability": "Swift Swim"},
-{"Dex": "368", "Ability": "Swift Swim"},
-{"Dex": "369", "Ability": "Rock Head"},
-{"Dex": "369", "Ability": "Swift Swim"},
-{"Dex": "37", "Ability": "Flash Fire"},
-{"Dex": "370", "Ability": "Swift Swim"},
-{"Dex": "371", "Ability": "Rock Head"},
-{"Dex": "372", "Ability": "Rock Head"},
-{"Dex": "373", "Ability": "Intimidate"},
-{"Dex": "374", "Ability": "Clear Body"},
-{"Dex": "375", "Ability": "Clear Body"},
-{"Dex": "376", "Ability": "Clear Body"},
-{"Dex": "377", "Ability": "Clear Body"},
-{"Dex": "378", "Ability": "Clear Body"},
-{"Dex": "379", "Ability": "Clear Body"},
-{"Dex": "38", "Ability": "Flash Fire"},
-{"Dex": "380", "Ability": "Levitate"},
-{"Dex": "381", "Ability": "Levitate"},
-{"Dex": "382", "Ability": "Drizzle"},
-{"Dex": "383", "Ability": "Drought"},
-{"Dex": "384", "Ability": "Air Lock"},
-{"Dex": "385", "Ability": "Serene Grace"},
-{"Dex": "386", "Ability": "Pressure"},
-{"Dex": "39", "Ability": "Competitive"},
-{"Dex": "39", "Ability": "Cute Charm"},
-{"Dex": "4", "Ability": "Blaze"},
-{"Dex": "40", "Ability": "Competitive"},
-{"Dex": "40", "Ability": "Cute Charm"},
-{"Dex": "41", "Ability": "Inner Focus"},
-{"Dex": "42", "Ability": "Inner Focus"},
-{"Dex": "43", "Ability": "Chlorophyll"},
-{"Dex": "44", "Ability": "Chlorophyll"},
-{"Dex": "45", "Ability": "Chlorophyll"},
-{"Dex": "46", "Ability": "Dry Skin"},
-{"Dex": "46", "Ability": "Effect Spore"},
-{"Dex": "47", "Ability": "Dry Skin"},
-{"Dex": "47", "Ability": "Effect Spore"},
-{"Dex": "48", "Ability": "Compound Eyes"},
-{"Dex": "48", "Ability": "Tinted Lens"},
-{"Dex": "49", "Ability": "Shield Dust"},
-{"Dex": "49", "Ability": "Tinted Lens"},
-{"Dex": "5", "Ability": "Blaze"},
-{"Dex": "50", "Ability": "Arena Trap"},
-{"Dex": "50", "Ability": "Sand Veil"},
-{"Dex": "51", "Ability": "Arena Trap"},
-{"Dex": "51", "Ability": "Sand Veil"},
-{"Dex": "52", "Ability": "Pickup"},
-{"Dex": "52", "Ability": "Technician"},
-{"Dex": "53", "Ability": "Limber"},
-{"Dex": "53", "Ability": "Technician"},
-{"Dex": "54", "Ability": "Cloud Nine"},
-{"Dex": "54", "Ability": "Damp"},
-{"Dex": "55", "Ability": "Cloud Nine"},
-{"Dex": "55", "Ability": "Damp"},
-{"Dex": "56", "Ability": "Anger Point"},
-{"Dex": "56", "Ability": "Vital Spirit"},
-{"Dex": "57", "Ability": "Anger Point"},
-{"Dex": "57", "Ability": "Vital Spirit"},
-{"Dex": "58", "Ability": "Flash Fire"},
-{"Dex": "58", "Ability": "Intimidate"},
-{"Dex": "59", "Ability": "Flash Fire"},
-{"Dex": "59", "Ability": "Intimidate"},
-{"Dex": "6", "Ability": "Blaze"},
-{"Dex": "60", "Ability": "Damp"},
-{"Dex": "60", "Ability": "Water Absorb"},
-{"Dex": "61", "Ability": "Damp"},
-{"Dex": "61", "Ability": "Water Absorb"},
-{"Dex": "62", "Ability": "Damp"},
-{"Dex": "62", "Ability": "Water Absorb"},
-{"Dex": "63", "Ability": "Inner Focus"},
-{"Dex": "63", "Ability": "Synchronize"},
-{"Dex": "64", "Ability": "Inner Focus"},
-{"Dex": "64", "Ability": "Synchronize"},
-{"Dex": "65", "Ability": "Inner Focus"},
-{"Dex": "65", "Ability": "Synchronize"},
-{"Dex": "66", "Ability": "Guts"},
-{"Dex": "66", "Ability": "No Guard"},
-{"Dex": "67", "Ability": "Guts"},
-{"Dex": "67", "Ability": "No Guard"},
-{"Dex": "68", "Ability": "Guts"},
-{"Dex": "68", "Ability": "No Guard"},
-{"Dex": "69", "Ability": "Chlorophyll"},
-{"Dex": "7", "Ability": "Torrent"},
-{"Dex": "70", "Ability": "Chlorophyll"},
-{"Dex": "71", "Ability": "Chlorophyll"},
-{"Dex": "72", "Ability": "Clear Body"},
-{"Dex": "72", "Ability": "Liquid Ooze"},
-{"Dex": "73", "Ability": "Clear Body"},
-{"Dex": "73", "Ability": "Liquid Ooze"},
-{"Dex": "74", "Ability": "Rock Head"},
-{"Dex": "74", "Ability": "Sturdy"},
-{"Dex": "75", "Ability": "Rock Head"},
-{"Dex": "75", "Ability": "Sturdy"},
-{"Dex": "76", "Ability": "Rock Head"},
-{"Dex": "76", "Ability": "Sturdy"},
-{"Dex": "77", "Ability": "Flash Fire"},
-{"Dex": "77", "Ability": "Run Away"},
-{"Dex": "78", "Ability": "Flash Fire"},
-{"Dex": "78", "Ability": "Run Away"},
-{"Dex": "79", "Ability": "Oblivious"},
-{"Dex": "79", "Ability": "Own Tempo"},
-{"Dex": "8", "Ability": "Torrent"},
-{"Dex": "80", "Ability": "Oblivious"},
-{"Dex": "80", "Ability": "Own Tempo"},
-{"Dex": "81", "Ability": "Magnet Pull"},
-{"Dex": "81", "Ability": "Sturdy"},
-{"Dex": "82", "Ability": "Magnet Pull"},
-{"Dex": "82", "Ability": "Sturdy"},
-{"Dex": "83", "Ability": "Inner Focus"},
-{"Dex": "83", "Ability": "Keen Eye"},
-{"Dex": "84", "Ability": "Early Bird"},
-{"Dex": "84", "Ability": "Run Away"},
-{"Dex": "85", "Ability": "Early Bird"},
-{"Dex": "85", "Ability": "Run Away"},
-{"Dex": "86", "Ability": "Hydration"},
-{"Dex": "86", "Ability": "Thick Fat"},
-{"Dex": "87", "Ability": "Hydration"},
-{"Dex": "87", "Ability": "Thick Fat"},
-{"Dex": "88", "Ability": "Stench"},
-{"Dex": "88", "Ability": "Sticky Hold"},
-{"Dex": "89", "Ability": "Stench"},
-{"Dex": "89", "Ability": "Sticky Hold"},
-{"Dex": "9", "Ability": "Torrent"},
-{"Dex": "90", "Ability": "Shell Armor"},
-{"Dex": "90", "Ability": "Skill Link"},
-{"Dex": "91", "Ability": "Shell Armor"},
-{"Dex": "91", "Ability": "Skill Link"},
-{"Dex": "92", "Ability": "Levitate"},
-{"Dex": "93", "Ability": "Levitate"},
-{"Dex": "94", "Ability": "Cursed Body"},
-{"Dex": "95", "Ability": "Rock Head"},
-{"Dex": "95", "Ability": "Sturdy"},
-{"Dex": "96", "Ability": "Forewarn"},
-{"Dex": "96", "Ability": "Insomnia"},
-{"Dex": "97", "Ability": "Forewarn"},
-{"Dex": "97", "Ability": "Insomnia"},
-{"Dex": "98", "Ability": "Hyper Cutter"},
-{"Dex": "98", "Ability": "Shell Armor"},
-{"Dex": "99", "Ability": "Hyper Cutter"},
-{"Dex": "99", "Ability": "Shell Armor"}]}
+{
+    "abilities": [
+        {
+            "Dex": "1",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "10",
+            "Ability": "Shield Dust"
+        },
+        {
+            "Dex": "100",
+            "Ability": "Soundproof"
+        },
+        {
+            "Dex": "100",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "101",
+            "Ability": "Soundproof"
+        },
+        {
+            "Dex": "101",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "102",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "103",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "104",
+            "Ability": "Lightning Rod"
+        },
+        {
+            "Dex": "104",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "105",
+            "Ability": "Lightning Rod"
+        },
+        {
+            "Dex": "105",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "106",
+            "Ability": "Limber"
+        },
+        {
+            "Dex": "106",
+            "Ability": "Reckless"
+        },
+        {
+            "Dex": "107",
+            "Ability": "Iron Fist"
+        },
+        {
+            "Dex": "107",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "108",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "108",
+            "Ability": "Own Tempo"
+        },
+        {
+            "Dex": "109",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "109",
+            "Ability": "Neutralizing Gas"
+        },
+        {
+            "Dex": "11",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "110",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "110",
+            "Ability": "Neutralizing Gas"
+        },
+        {
+            "Dex": "111",
+            "Ability": "Lightning Rod"
+        },
+        {
+            "Dex": "111",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "112",
+            "Ability": "Lightning Rod"
+        },
+        {
+            "Dex": "112",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "113",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "113",
+            "Ability": "Serene Grace"
+        },
+        {
+            "Dex": "114",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "114",
+            "Ability": "Leaf Guard"
+        },
+        {
+            "Dex": "115",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "115",
+            "Ability": "Scrappy"
+        },
+        {
+            "Dex": "116",
+            "Ability": "Sniper"
+        },
+        {
+            "Dex": "116",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "117",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "117",
+            "Ability": "Sniper"
+        },
+        {
+            "Dex": "118",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "118",
+            "Ability": "Water Veil"
+        },
+        {
+            "Dex": "119",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "119",
+            "Ability": "Water Veil"
+        },
+        {
+            "Dex": "12",
+            "Ability": "Compound Eyes"
+        },
+        {
+            "Dex": "120",
+            "Ability": "Illuminate"
+        },
+        {
+            "Dex": "120",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "121",
+            "Ability": "Illuminate"
+        },
+        {
+            "Dex": "121",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "122",
+            "Ability": "Filter"
+        },
+        {
+            "Dex": "122",
+            "Ability": "Soundproof"
+        },
+        {
+            "Dex": "123",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "123",
+            "Ability": "Technician"
+        },
+        {
+            "Dex": "124",
+            "Ability": "Forewarn"
+        },
+        {
+            "Dex": "124",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "125",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "126",
+            "Ability": "Flame Body"
+        },
+        {
+            "Dex": "127",
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Dex": "127",
+            "Ability": "Mold Breaker"
+        },
+        {
+            "Dex": "128",
+            "Ability": "Anger Point"
+        },
+        {
+            "Dex": "128",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "129",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "13",
+            "Ability": "Shield Dust"
+        },
+        {
+            "Dex": "130",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "131",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "131",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "132",
+            "Ability": "Limber"
+        },
+        {
+            "Dex": "133",
+            "Ability": "Adaptability"
+        },
+        {
+            "Dex": "133",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "134",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "135",
+            "Ability": "Volt Absorb"
+        },
+        {
+            "Dex": "136",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "137",
+            "Ability": "Download"
+        },
+        {
+            "Dex": "137",
+            "Ability": "Trace"
+        },
+        {
+            "Dex": "138",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "138",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "139",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "139",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "14",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "140",
+            "Ability": "Battle Armor"
+        },
+        {
+            "Dex": "140",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "141",
+            "Ability": "Battle Armor"
+        },
+        {
+            "Dex": "141",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "142",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "142",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "143",
+            "Ability": "Immunity"
+        },
+        {
+            "Dex": "143",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "144",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "145",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "146",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "147",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "148",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "149",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "15",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "150",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "151",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "152",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "153",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "154",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "155",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "156",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "157",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "158",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "159",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "16",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "16",
+            "Ability": "Tangled Feet"
+        },
+        {
+            "Dex": "160",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "161",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "161",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "162",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "162",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "163",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "163",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "164",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "164",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "165",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "165",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "166",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "166",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "167",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "167",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "168",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "168",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "169",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "17",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "17",
+            "Ability": "Tangled Feet"
+        },
+        {
+            "Dex": "170",
+            "Ability": "Illuminate"
+        },
+        {
+            "Dex": "170",
+            "Ability": "Volt Absorb"
+        },
+        {
+            "Dex": "171",
+            "Ability": "Illuminate"
+        },
+        {
+            "Dex": "171",
+            "Ability": "Volt Absorb"
+        },
+        {
+            "Dex": "172",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "173",
+            "Ability": "Cute Charm"
+        },
+        {
+            "Dex": "173",
+            "Ability": "Magic Guard"
+        },
+        {
+            "Dex": "174",
+            "Ability": "Competitive"
+        },
+        {
+            "Dex": "174",
+            "Ability": "Cute Charm"
+        },
+        {
+            "Dex": "175",
+            "Ability": "Hustle"
+        },
+        {
+            "Dex": "175",
+            "Ability": "Serene Grace"
+        },
+        {
+            "Dex": "176",
+            "Ability": "Hustle"
+        },
+        {
+            "Dex": "176",
+            "Ability": "Serene Grace"
+        },
+        {
+            "Dex": "177",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "177",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "178",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "178",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "179",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "18",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "18",
+            "Ability": "Tangled Feet"
+        },
+        {
+            "Dex": "180",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "181",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "182",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "183",
+            "Ability": "Huge Power"
+        },
+        {
+            "Dex": "183",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "184",
+            "Ability": "Huge Power"
+        },
+        {
+            "Dex": "184",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "185",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "185",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "186",
+            "Ability": "Damp"
+        },
+        {
+            "Dex": "186",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "187",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "187",
+            "Ability": "Leaf Guard"
+        },
+        {
+            "Dex": "188",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "188",
+            "Ability": "Leaf Guard"
+        },
+        {
+            "Dex": "189",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "189",
+            "Ability": "Leaf Guard"
+        },
+        {
+            "Dex": "19",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "19",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "190",
+            "Ability": "Pickup"
+        },
+        {
+            "Dex": "190",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "191",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "191",
+            "Ability": "Solar Power"
+        },
+        {
+            "Dex": "192",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "192",
+            "Ability": "Solar Power"
+        },
+        {
+            "Dex": "193",
+            "Ability": "Compound Eyes"
+        },
+        {
+            "Dex": "193",
+            "Ability": "Speed Boost"
+        },
+        {
+            "Dex": "194",
+            "Ability": "Damp"
+        },
+        {
+            "Dex": "194",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "195",
+            "Ability": "Damp"
+        },
+        {
+            "Dex": "195",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "196",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "197",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "198",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "198",
+            "Ability": "Super Luck"
+        },
+        {
+            "Dex": "199",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "199",
+            "Ability": "Own Tempo"
+        },
+        {
+            "Dex": "2",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "20",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "20",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "200",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "201",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "202",
+            "Ability": "Shadow Tag"
+        },
+        {
+            "Dex": "203",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "203",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "204",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "205",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "206",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "206",
+            "Ability": "Serene Grace"
+        },
+        {
+            "Dex": "207",
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Dex": "207",
+            "Ability": "Sand Veil"
+        },
+        {
+            "Dex": "208",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "208",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "209",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "209",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "21",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "210",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "210",
+            "Ability": "Quick Feet"
+        },
+        {
+            "Dex": "211",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "211",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "212",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "212",
+            "Ability": "Technician"
+        },
+        {
+            "Dex": "213",
+            "Ability": "Gluttony"
+        },
+        {
+            "Dex": "213",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "214",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "214",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "215",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "215",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "216",
+            "Ability": "Pickup"
+        },
+        {
+            "Dex": "216",
+            "Ability": "Quick Feet"
+        },
+        {
+            "Dex": "217",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "217",
+            "Ability": "Quick Feet"
+        },
+        {
+            "Dex": "218",
+            "Ability": "Flame Body"
+        },
+        {
+            "Dex": "218",
+            "Ability": "Magma Armor"
+        },
+        {
+            "Dex": "219",
+            "Ability": "Flame Body"
+        },
+        {
+            "Dex": "219",
+            "Ability": "Magma Armor"
+        },
+        {
+            "Dex": "22",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "220",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "220",
+            "Ability": "Snow Cloak"
+        },
+        {
+            "Dex": "221",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "221",
+            "Ability": "Snow Cloak"
+        },
+        {
+            "Dex": "222",
+            "Ability": "Hustle"
+        },
+        {
+            "Dex": "222",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "223",
+            "Ability": "Hustle"
+        },
+        {
+            "Dex": "223",
+            "Ability": "Sniper"
+        },
+        {
+            "Dex": "224",
+            "Ability": "Sniper"
+        },
+        {
+            "Dex": "224",
+            "Ability": "Suction Cups"
+        },
+        {
+            "Dex": "225",
+            "Ability": "Hustle"
+        },
+        {
+            "Dex": "225",
+            "Ability": "Vital Spirit"
+        },
+        {
+            "Dex": "226",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "226",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "227",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "227",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "228",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "228",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "229",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "229",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "23",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "23",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "230",
+            "Ability": "Sniper"
+        },
+        {
+            "Dex": "230",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "231",
+            "Ability": "Pickup"
+        },
+        {
+            "Dex": "232",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "233",
+            "Ability": "Download"
+        },
+        {
+            "Dex": "233",
+            "Ability": "Trace"
+        },
+        {
+            "Dex": "234",
+            "Ability": "Frisk"
+        },
+        {
+            "Dex": "234",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "235",
+            "Ability": "Own Tempo"
+        },
+        {
+            "Dex": "235",
+            "Ability": "Technician"
+        },
+        {
+            "Dex": "236",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "236",
+            "Ability": "Steadfast"
+        },
+        {
+            "Dex": "237",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "237",
+            "Ability": "Technician"
+        },
+        {
+            "Dex": "238",
+            "Ability": "Forewarn"
+        },
+        {
+            "Dex": "238",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "239",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "24",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "24",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "240",
+            "Ability": "Flame Body"
+        },
+        {
+            "Dex": "241",
+            "Ability": "Scrappy"
+        },
+        {
+            "Dex": "241",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "242",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "242",
+            "Ability": "Serene Grace"
+        },
+        {
+            "Dex": "243",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "244",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "245",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "246",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "247",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "248",
+            "Ability": "Sand Stream"
+        },
+        {
+            "Dex": "249",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "25",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "250",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "251",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "252",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "253",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "254",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "255",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "256",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "257",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "258",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "259",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "26",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "260",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "261",
+            "Ability": "Quick Feet"
+        },
+        {
+            "Dex": "261",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "262",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "262",
+            "Ability": "Quick Feet"
+        },
+        {
+            "Dex": "263",
+            "Ability": "Gluttony"
+        },
+        {
+            "Dex": "263",
+            "Ability": "Pickup"
+        },
+        {
+            "Dex": "264",
+            "Ability": "Gluttony"
+        },
+        {
+            "Dex": "264",
+            "Ability": "Pickup"
+        },
+        {
+            "Dex": "265",
+            "Ability": "Shield Dust"
+        },
+        {
+            "Dex": "266",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "267",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "268",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "269",
+            "Ability": "Shield Dust"
+        },
+        {
+            "Dex": "27",
+            "Ability": "Sand Veil"
+        },
+        {
+            "Dex": "270",
+            "Ability": "Rain Dish"
+        },
+        {
+            "Dex": "270",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "271",
+            "Ability": "Rain Dish"
+        },
+        {
+            "Dex": "271",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "272",
+            "Ability": "Rain Dish"
+        },
+        {
+            "Dex": "272",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "273",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "273",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "274",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "274",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "275",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "275",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "276",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "277",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "278",
+            "Ability": "Hydration"
+        },
+        {
+            "Dex": "278",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "279",
+            "Ability": "Drizzle"
+        },
+        {
+            "Dex": "279",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "28",
+            "Ability": "Sand Veil"
+        },
+        {
+            "Dex": "280",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "280",
+            "Ability": "Trace"
+        },
+        {
+            "Dex": "281",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "281",
+            "Ability": "Trace"
+        },
+        {
+            "Dex": "282",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "282",
+            "Ability": "Trace"
+        },
+        {
+            "Dex": "283",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "284",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "285",
+            "Ability": "Effect Spore"
+        },
+        {
+            "Dex": "285",
+            "Ability": "Poison Heal"
+        },
+        {
+            "Dex": "286",
+            "Ability": "Effect Spore"
+        },
+        {
+            "Dex": "286",
+            "Ability": "Poison Heal"
+        },
+        {
+            "Dex": "287",
+            "Ability": "Truant"
+        },
+        {
+            "Dex": "288",
+            "Ability": "Vital Spirit"
+        },
+        {
+            "Dex": "289",
+            "Ability": "Truant"
+        },
+        {
+            "Dex": "29",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "29",
+            "Ability": "Rivalry"
+        },
+        {
+            "Dex": "290",
+            "Ability": "Compound Eyes"
+        },
+        {
+            "Dex": "291",
+            "Ability": "Speed Boost"
+        },
+        {
+            "Dex": "292",
+            "Ability": "Wonder Guard"
+        },
+        {
+            "Dex": "293",
+            "Ability": "Soundproof"
+        },
+        {
+            "Dex": "294",
+            "Ability": "Soundproof"
+        },
+        {
+            "Dex": "295",
+            "Ability": "Soundproof"
+        },
+        {
+            "Dex": "296",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "296",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "297",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "297",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "298",
+            "Ability": "Huge Power"
+        },
+        {
+            "Dex": "298",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "299",
+            "Ability": "Magnet Pull"
+        },
+        {
+            "Dex": "299",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "3",
+            "Ability": "Overgrow"
+        },
+        {
+            "Dex": "30",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "30",
+            "Ability": "Rivalry"
+        },
+        {
+            "Dex": "300",
+            "Ability": "Cute Charm"
+        },
+        {
+            "Dex": "300",
+            "Ability": "Normalize"
+        },
+        {
+            "Dex": "301",
+            "Ability": "Cute Charm"
+        },
+        {
+            "Dex": "301",
+            "Ability": "Normalize"
+        },
+        {
+            "Dex": "302",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "302",
+            "Ability": "Stall"
+        },
+        {
+            "Dex": "303",
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Dex": "303",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "304",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "304",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "305",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "305",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "306",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "306",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "307",
+            "Ability": "Pure Power"
+        },
+        {
+            "Dex": "308",
+            "Ability": "Pure Power"
+        },
+        {
+            "Dex": "309",
+            "Ability": "Lightning Rod"
+        },
+        {
+            "Dex": "309",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "31",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "31",
+            "Ability": "Rivalry"
+        },
+        {
+            "Dex": "310",
+            "Ability": "Lightning Rod"
+        },
+        {
+            "Dex": "310",
+            "Ability": "Static"
+        },
+        {
+            "Dex": "311",
+            "Ability": "Plus"
+        },
+        {
+            "Dex": "312",
+            "Ability": "Minus"
+        },
+        {
+            "Dex": "313",
+            "Ability": "Illuminate"
+        },
+        {
+            "Dex": "313",
+            "Ability": "Swarm"
+        },
+        {
+            "Dex": "314",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "314",
+            "Ability": "Tinted Lens"
+        },
+        {
+            "Dex": "315",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "315",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "316",
+            "Ability": "Liquid Ooze"
+        },
+        {
+            "Dex": "316",
+            "Ability": "Sticky Hold"
+        },
+        {
+            "Dex": "317",
+            "Ability": "Liquid Ooze"
+        },
+        {
+            "Dex": "317",
+            "Ability": "Sticky Hold"
+        },
+        {
+            "Dex": "318",
+            "Ability": "Rough Skin"
+        },
+        {
+            "Dex": "319",
+            "Ability": "Rough Skin"
+        },
+        {
+            "Dex": "32",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "32",
+            "Ability": "Rivalry"
+        },
+        {
+            "Dex": "320",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "320",
+            "Ability": "Water Veil"
+        },
+        {
+            "Dex": "321",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "321",
+            "Ability": "Water Veil"
+        },
+        {
+            "Dex": "322",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "322",
+            "Ability": "Simple"
+        },
+        {
+            "Dex": "323",
+            "Ability": "Magma Armor"
+        },
+        {
+            "Dex": "323",
+            "Ability": "Solid Rock"
+        },
+        {
+            "Dex": "324",
+            "Ability": "Drought"
+        },
+        {
+            "Dex": "324",
+            "Ability": "White Smoke"
+        },
+        {
+            "Dex": "325",
+            "Ability": "Own Tempo"
+        },
+        {
+            "Dex": "325",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "326",
+            "Ability": "Own Tempo"
+        },
+        {
+            "Dex": "326",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "327",
+            "Ability": "Own Tempo"
+        },
+        {
+            "Dex": "327",
+            "Ability": "Tangled Feet"
+        },
+        {
+            "Dex": "328",
+            "Ability": "Arena Trap"
+        },
+        {
+            "Dex": "328",
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Dex": "329",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "33",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "33",
+            "Ability": "Rivalry"
+        },
+        {
+            "Dex": "330",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "331",
+            "Ability": "Sand Veil"
+        },
+        {
+            "Dex": "332",
+            "Ability": "Sand Veil"
+        },
+        {
+            "Dex": "333",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "334",
+            "Ability": "Natural Cure"
+        },
+        {
+            "Dex": "335",
+            "Ability": "Immunity"
+        },
+        {
+            "Dex": "336",
+            "Ability": "Shed Skin"
+        },
+        {
+            "Dex": "337",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "338",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "339",
+            "Ability": "Anticipation"
+        },
+        {
+            "Dex": "339",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "34",
+            "Ability": "Poison Point"
+        },
+        {
+            "Dex": "34",
+            "Ability": "Rivalry"
+        },
+        {
+            "Dex": "340",
+            "Ability": "Anticipation"
+        },
+        {
+            "Dex": "340",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "341",
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Dex": "341",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "342",
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Dex": "342",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "343",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "344",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "345",
+            "Ability": "Suction Cups"
+        },
+        {
+            "Dex": "346",
+            "Ability": "Suction Cups"
+        },
+        {
+            "Dex": "347",
+            "Ability": "Battle Armor"
+        },
+        {
+            "Dex": "348",
+            "Ability": "Battle Armor"
+        },
+        {
+            "Dex": "349",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "349",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "35",
+            "Ability": "Cute Charm"
+        },
+        {
+            "Dex": "35",
+            "Ability": "Magic Guard"
+        },
+        {
+            "Dex": "350",
+            "Ability": "Competitive"
+        },
+        {
+            "Dex": "350",
+            "Ability": "Marvel Scale"
+        },
+        {
+            "Dex": "351",
+            "Ability": "Forecast"
+        },
+        {
+            "Dex": "352",
+            "Ability": "Color Change"
+        },
+        {
+            "Dex": "353",
+            "Ability": "Frisk"
+        },
+        {
+            "Dex": "353",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "354",
+            "Ability": "Frisk"
+        },
+        {
+            "Dex": "354",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "355",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "356",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "357",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "357",
+            "Ability": "Solar Power"
+        },
+        {
+            "Dex": "358",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "359",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "359",
+            "Ability": "Super Luck"
+        },
+        {
+            "Dex": "36",
+            "Ability": "Cute Charm"
+        },
+        {
+            "Dex": "36",
+            "Ability": "Magic Guard"
+        },
+        {
+            "Dex": "360",
+            "Ability": "Shadow Tag"
+        },
+        {
+            "Dex": "361",
+            "Ability": "Ice Body"
+        },
+        {
+            "Dex": "361",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "362",
+            "Ability": "Ice Body"
+        },
+        {
+            "Dex": "362",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "363",
+            "Ability": "Ice Body"
+        },
+        {
+            "Dex": "363",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "364",
+            "Ability": "Ice Body"
+        },
+        {
+            "Dex": "364",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "365",
+            "Ability": "Ice Body"
+        },
+        {
+            "Dex": "365",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "366",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "367",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "368",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "369",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "369",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "37",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "370",
+            "Ability": "Swift Swim"
+        },
+        {
+            "Dex": "371",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "372",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "373",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "374",
+            "Ability": "Clear Body"
+        },
+        {
+            "Dex": "375",
+            "Ability": "Clear Body"
+        },
+        {
+            "Dex": "376",
+            "Ability": "Clear Body"
+        },
+        {
+            "Dex": "377",
+            "Ability": "Clear Body"
+        },
+        {
+            "Dex": "378",
+            "Ability": "Clear Body"
+        },
+        {
+            "Dex": "379",
+            "Ability": "Clear Body"
+        },
+        {
+            "Dex": "38",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "380",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "381",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "382",
+            "Ability": "Drizzle"
+        },
+        {
+            "Dex": "383",
+            "Ability": "Drought"
+        },
+        {
+            "Dex": "384",
+            "Ability": "Air Lock"
+        },
+        {
+            "Dex": "385",
+            "Ability": "Serene Grace"
+        },
+        {
+            "Dex": "386",
+            "Ability": "Pressure"
+        },
+        {
+            "Dex": "39",
+            "Ability": "Competitive"
+        },
+        {
+            "Dex": "39",
+            "Ability": "Cute Charm"
+        },
+        {
+            "Dex": "4",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "40",
+            "Ability": "Competitive"
+        },
+        {
+            "Dex": "40",
+            "Ability": "Cute Charm"
+        },
+        {
+            "Dex": "41",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "42",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "43",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "44",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "45",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "46",
+            "Ability": "Dry Skin"
+        },
+        {
+            "Dex": "46",
+            "Ability": "Effect Spore"
+        },
+        {
+            "Dex": "47",
+            "Ability": "Dry Skin"
+        },
+        {
+            "Dex": "47",
+            "Ability": "Effect Spore"
+        },
+        {
+            "Dex": "48",
+            "Ability": "Compound Eyes"
+        },
+        {
+            "Dex": "48",
+            "Ability": "Tinted Lens"
+        },
+        {
+            "Dex": "49",
+            "Ability": "Shield Dust"
+        },
+        {
+            "Dex": "49",
+            "Ability": "Tinted Lens"
+        },
+        {
+            "Dex": "5",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "50",
+            "Ability": "Arena Trap"
+        },
+        {
+            "Dex": "50",
+            "Ability": "Sand Veil"
+        },
+        {
+            "Dex": "51",
+            "Ability": "Arena Trap"
+        },
+        {
+            "Dex": "51",
+            "Ability": "Sand Veil"
+        },
+        {
+            "Dex": "52",
+            "Ability": "Pickup"
+        },
+        {
+            "Dex": "52",
+            "Ability": "Technician"
+        },
+        {
+            "Dex": "53",
+            "Ability": "Limber"
+        },
+        {
+            "Dex": "53",
+            "Ability": "Technician"
+        },
+        {
+            "Dex": "54",
+            "Ability": "Cloud Nine"
+        },
+        {
+            "Dex": "54",
+            "Ability": "Damp"
+        },
+        {
+            "Dex": "55",
+            "Ability": "Cloud Nine"
+        },
+        {
+            "Dex": "55",
+            "Ability": "Damp"
+        },
+        {
+            "Dex": "56",
+            "Ability": "Anger Point"
+        },
+        {
+            "Dex": "56",
+            "Ability": "Vital Spirit"
+        },
+        {
+            "Dex": "57",
+            "Ability": "Anger Point"
+        },
+        {
+            "Dex": "57",
+            "Ability": "Vital Spirit"
+        },
+        {
+            "Dex": "58",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "58",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "59",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "59",
+            "Ability": "Intimidate"
+        },
+        {
+            "Dex": "6",
+            "Ability": "Blaze"
+        },
+        {
+            "Dex": "60",
+            "Ability": "Damp"
+        },
+        {
+            "Dex": "60",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "61",
+            "Ability": "Damp"
+        },
+        {
+            "Dex": "61",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "62",
+            "Ability": "Damp"
+        },
+        {
+            "Dex": "62",
+            "Ability": "Water Absorb"
+        },
+        {
+            "Dex": "63",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "63",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "64",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "64",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "65",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "65",
+            "Ability": "Synchronize"
+        },
+        {
+            "Dex": "66",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "66",
+            "Ability": "No Guard"
+        },
+        {
+            "Dex": "67",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "67",
+            "Ability": "No Guard"
+        },
+        {
+            "Dex": "68",
+            "Ability": "Guts"
+        },
+        {
+            "Dex": "68",
+            "Ability": "No Guard"
+        },
+        {
+            "Dex": "69",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "7",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "70",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "71",
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Dex": "72",
+            "Ability": "Clear Body"
+        },
+        {
+            "Dex": "72",
+            "Ability": "Liquid Ooze"
+        },
+        {
+            "Dex": "73",
+            "Ability": "Clear Body"
+        },
+        {
+            "Dex": "73",
+            "Ability": "Liquid Ooze"
+        },
+        {
+            "Dex": "74",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "74",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "75",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "75",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "76",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "76",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "77",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "77",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "78",
+            "Ability": "Flash Fire"
+        },
+        {
+            "Dex": "78",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "79",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "79",
+            "Ability": "Own Tempo"
+        },
+        {
+            "Dex": "8",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "80",
+            "Ability": "Oblivious"
+        },
+        {
+            "Dex": "80",
+            "Ability": "Own Tempo"
+        },
+        {
+            "Dex": "81",
+            "Ability": "Magnet Pull"
+        },
+        {
+            "Dex": "81",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "82",
+            "Ability": "Magnet Pull"
+        },
+        {
+            "Dex": "82",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "83",
+            "Ability": "Inner Focus"
+        },
+        {
+            "Dex": "83",
+            "Ability": "Keen Eye"
+        },
+        {
+            "Dex": "84",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "84",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "85",
+            "Ability": "Early Bird"
+        },
+        {
+            "Dex": "85",
+            "Ability": "Run Away"
+        },
+        {
+            "Dex": "86",
+            "Ability": "Hydration"
+        },
+        {
+            "Dex": "86",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "87",
+            "Ability": "Hydration"
+        },
+        {
+            "Dex": "87",
+            "Ability": "Thick Fat"
+        },
+        {
+            "Dex": "88",
+            "Ability": "Stench"
+        },
+        {
+            "Dex": "88",
+            "Ability": "Sticky Hold"
+        },
+        {
+            "Dex": "89",
+            "Ability": "Stench"
+        },
+        {
+            "Dex": "89",
+            "Ability": "Sticky Hold"
+        },
+        {
+            "Dex": "9",
+            "Ability": "Torrent"
+        },
+        {
+            "Dex": "90",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "90",
+            "Ability": "Skill Link"
+        },
+        {
+            "Dex": "91",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "91",
+            "Ability": "Skill Link"
+        },
+        {
+            "Dex": "92",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "93",
+            "Ability": "Levitate"
+        },
+        {
+            "Dex": "94",
+            "Ability": "Cursed Body"
+        },
+        {
+            "Dex": "95",
+            "Ability": "Rock Head"
+        },
+        {
+            "Dex": "95",
+            "Ability": "Sturdy"
+        },
+        {
+            "Dex": "96",
+            "Ability": "Forewarn"
+        },
+        {
+            "Dex": "96",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "97",
+            "Ability": "Forewarn"
+        },
+        {
+            "Dex": "97",
+            "Ability": "Insomnia"
+        },
+        {
+            "Dex": "98",
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Dex": "98",
+            "Ability": "Shell Armor"
+        },
+        {
+            "Dex": "99",
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Dex": "99",
+            "Ability": "Shell Armor"
+        }
+    ]
+}
