@@ -161,7 +161,7 @@
 
         selectStat: { value: 'stat', id: '0'},
         stats: [
-          { value: 'testStat'},
+          { value: 'testStat', id: '1'},
         ],
 
         selectEvolutions: { value: 'evolution', id: '0'},
@@ -176,14 +176,14 @@
     setVisibilty(query){ //use this function to make required dropdowns visible for appropriate queries
       this.setAllHidden();
       switch(query){
-        case 1: {
+        case '1': {
           this.statVisible = true;
           break;
         }
-        case 2:{
+        case '2':{
           this.evolutionVisible = true;
           break;
-        }
+        } 
       }
     },
 
@@ -193,6 +193,7 @@
         this.moveVisible = false;
         this.statVisible = false;
         this.evolutionVisible = false;
+        //add all remaining selections here
     }
   },
 
