@@ -539,7 +539,7 @@
           {Level: 255},
         ],
 
-        selectLocation: { LocationName: 'location'},
+        selectLocation: { LocationName: '0'},
         locations: [
           {LocationName: "Abandoned Ship"},
           {LocationName: "Altering Cave"},
@@ -649,7 +649,7 @@
           {LocationName: "Weather Institute"}
         ],
 
-        selectAbility: {Dex: 'dex', Ability: 'name'},
+        selectAbility: {Dex: '0', Ability: '0'},
         abilities: [
           {Dex: "1", Ability: "Overgrow"},
           {Dex: "10", Ability: "Shield Dust"},
@@ -1263,7 +1263,7 @@
           {Dex: "99", Ability: "Shell Armor"}
         ],
 
-        selectType: {TypeName: 'name', Category: 'cat'},
+        selectType: {TypeName: '0', Category: '0'},
         types:[
           {TypeName: "???", Category: ""},
           {TypeName: "Bug", Category: "Physical"},
@@ -1285,7 +1285,7 @@
           {TypeName: "Water", Category: "Special"}
         ],
         
-        selectTrainer: {},
+        selectTrainer: {TrainerName: "0", TrainerClass: '0'},
         trainers:[
         {
             TID: "1",
@@ -3754,7 +3754,7 @@
         }
         ],
 
-        selectPokemon:{},
+        selectPokemon:{PokemonName: '0'},
         pokemon: [
         {
             Dex: "1",
@@ -24269,6 +24269,8 @@
     },
 
     setAllHidden(){
+        //FIGURE OUT HOW TO RESET ALL SELECTED VALUES!!
+
         //set all Visible tags to false
         this.locationVisible = false;
         this.abilityVisible = false;
