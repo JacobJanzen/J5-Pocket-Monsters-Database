@@ -3,9 +3,10 @@
         <h1>Interact with the Database!</h1>
 
         <h3 id ="temp">Select which info you're looking for in the drop-down below</h3>
-      
-    <v-container fluid class="querySelect">
+    
+    <v-container fluid class="querySelect" v-if="queryVisible">
       <v-row align="center">
+          <v-col cols="8">
           <v-autocomplete 
             v-model="selectQuery"
             :items="queries"
@@ -16,8 +17,16 @@
             return-object
             single-line
           ></v-autocomplete>
+          </v-col>
+
+        <v-col cols="4">
+             <v-btn @click="makeQuery()">Query!</v-btn>
+        </v-col>
+
       </v-row>
     </v-container>
+
+   
 
       <h3>Select the specific data you're requesting below...</h3>
 
@@ -263,6 +272,7 @@
         levelSelectVisible: false,
         moveVisible:false,
         breedingMethodVisible: false,
+        queryVisible:true,
         //add all other params here
 
         selectQuery: { value: 'query', id: '0' },
@@ -288,8 +298,8 @@
           { value: 'Moves that are supereffective against a given Pokemon', id: '15' },
           { value: 'Moves that are neutral against a given Pokemon', id: '16' },
           { value: 'Moves that are not effective against a given Pokemon', id: '17' },
-          { value: '/moves_non_effective_against_pokemon/<pokemon_name>', id: '18' },//idk wtf that one does
-          { value: '/moves_effectiveness_against_pokemon/<pokemon_name>', id: '19' },//^
+          { value: '/moves_non_effective_against_pokemon/<pokemon_name>', id: '18' },
+          { value: '/moves_effectiveness_against_pokemon/<pokemon_name>', id: '19' },
           { value: 'List all status moves', id: '20' },
           { value: 'Ways a Pokemon learns a given move', id: '21' },
           { value: 'Moves of a given type that a Pokemon can learn', id: '22' },
@@ -13836,8 +13846,8 @@
         case '8':{ this.trainerClassVisible = true; break;}
         case '9':{ this.trainerClassVisible = true; break;}
         case '10':{ this.levelSelectVisible = true; break;}
-        case '11':{ break;} //nothing needed
-        case '12':{ break;} //nothing needed
+        case '11':{ break;} 
+        case '12':{ break;}
         case '13':{ this.pokemonNameVisible = true; break;}
         case '14':{ this.pokemonNameVisible = true; break;}
         case '15':{ this.pokemonNameVisible = true; break;}
@@ -13845,17 +13855,17 @@
         case '17':{ this.pokemonNameVisible = true; break;}
         case '18':{ break;} //idk what this query does ._.
         case '19':{ break;} //idk what this query does ._.
-        case '20':{ break;} //nothing needed
+        case '20':{ break;} 
         case '21':{ this.moveVisible = true; break;}
         case '22':{ this.typeVisible = true; break;}
         case '23':{ this.typeVisible = true; break;}
         case '24':{ this.pokemonNameVisible = true; this.breedingMethodVisible = true; break;}
         case '25':{ this.pokemonNameVisible = true; break;}
         case '26':{ this.pokemonNameVisible = true; break;}
-        case '27':{ break;} //nothing needed
-        case '28':{ break;} //nothing needed
-        case '29':{ break;} //nothing needed
-        case '30':{ break;} //nothing needed
+        case '27':{ break;} 
+        case '28':{ break;} 
+        case '29':{ break;} 
+        case '30':{ break;} 
         case '31':{ this.pokemonNameVisible = true; break;}
         case '32':{ this.pokemonNameVisible = true; break;}
         case '33':{ this.moveVisible = true; break;}
@@ -13872,7 +13882,7 @@
         case '44':{ this.moveVisible = true; break;}
         case '45':{ this.moveVisible = true; break;}
         case '46':{ this.moveVisible = true; break;}
-        case '47':{ break;} //nothing needed
+        case '47':{ break;} 
         case '48':{ this.abilityVisible = true; break;}
         case '49':{ this.typeVisible = true; this.secondTypeVisible = true; break;}
         case '50':{ this.typeVisible = true; this.secondTypeVisible = true; break;}
@@ -13880,10 +13890,20 @@
         case '52':{ this.pokemonNameVisible = true; break;}
         case '53':{ this.levelSelectVisible = true; break;}
         case '54':{ this.levelSelectVisible = true; break;}
-        case '55':{ break;} //nothing needed
-        case '56':{ break;} //nothing needed
-        case '57':{ break;} //nothing needed
+        case '55':{ break;} 
+        case '56':{ break;} 
+        case '57':{ break;} 
        }
+    },
+
+    makeQuery(){
+        //if all parameters filled for selected query:
+            this.queryVisible = false;
+            this.setAllHidden();
+            //display results
+            //make 'new query' button visible
+        //else display error
+
     },
 
     setAllHidden(){
