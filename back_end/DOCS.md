@@ -85,3 +85,11 @@ This contains the names of all the implemented API methods in the Flask app.
 | pokemon_in_egg_group | GET | egg_group_name | Lists all Pokemon in a given egg group |
 | pokemon_can_breed_with | GET | pokemon_name | Lists all Pokemon that a given Pokemon can breed with |
 
+## Team Selection
+
+|Method Name |HTTP Method | Parameters | Description|
+|---|---|---|---|
+| teams_with_trainer | GET | trainer_id | Lists all of the teams of a given trainer | 
+| teams_with_pokemon | GET | pokemon_name | Lists all of the teams with a given Pokemon |
+| teams_with_minimum_level | GET | minimum_level | Lists all of the teams with a given minimum level |
+| teams_with_maximum_level | GET | maximum_level | Lists all of the teams with a given maximum level |
