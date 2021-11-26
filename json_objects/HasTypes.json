@@ -1,557 +1,2232 @@
-{"hastypes":[{"Dex": "1", "TypeName": "Grass"},
-{"Dex": "1", "TypeName": "Poison"},
-{"Dex": "2", "TypeName": "Grass"},
-{"Dex": "2", "TypeName": "Poison"},
-{"Dex": "3", "TypeName": "Grass"},
-{"Dex": "3", "TypeName": "Poison"},
-{"Dex": "4", "TypeName": "Fire"},
-{"Dex": "5", "TypeName": "Fire"},
-{"Dex": "6", "TypeName": "Fire"},
-{"Dex": "6", "TypeName": "Flying"},
-{"Dex": "7", "TypeName": "Water"},
-{"Dex": "8", "TypeName": "Water"},
-{"Dex": "9", "TypeName": "Water"},
-{"Dex": "10", "TypeName": "Bug"},
-{"Dex": "11", "TypeName": "Bug"},
-{"Dex": "12", "TypeName": "Bug"},
-{"Dex": "12", "TypeName": "Flying"},
-{"Dex": "13", "TypeName": "Bug"},
-{"Dex": "13", "TypeName": "Poison"},
-{"Dex": "14", "TypeName": "Bug"},
-{"Dex": "14", "TypeName": "Poison"},
-{"Dex": "15", "TypeName": "Bug"},
-{"Dex": "15", "TypeName": "Poison"},
-{"Dex": "16", "TypeName": "Flying"},
-{"Dex": "16", "TypeName": "Normal"},
-{"Dex": "17", "TypeName": "Flying"},
-{"Dex": "17", "TypeName": "Normal"},
-{"Dex": "18", "TypeName": "Flying"},
-{"Dex": "18", "TypeName": "Normal"},
-{"Dex": "19", "TypeName": "Normal"},
-{"Dex": "20", "TypeName": "Normal"},
-{"Dex": "21", "TypeName": "Flying"},
-{"Dex": "21", "TypeName": "Normal"},
-{"Dex": "22", "TypeName": "Flying"},
-{"Dex": "22", "TypeName": "Normal"},
-{"Dex": "23", "TypeName": "Poison"},
-{"Dex": "24", "TypeName": "Poison"},
-{"Dex": "25", "TypeName": "Electric"},
-{"Dex": "26", "TypeName": "Electric"},
-{"Dex": "27", "TypeName": "Ground"},
-{"Dex": "28", "TypeName": "Ground"},
-{"Dex": "29", "TypeName": "Poison"},
-{"Dex": "30", "TypeName": "Poison"},
-{"Dex": "31", "TypeName": "Ground"},
-{"Dex": "31", "TypeName": "Poison"},
-{"Dex": "32", "TypeName": "Poison"},
-{"Dex": "33", "TypeName": "Poison"},
-{"Dex": "34", "TypeName": "Ground"},
-{"Dex": "34", "TypeName": "Poison"},
-{"Dex": "35", "TypeName": "Normal"},
-{"Dex": "36", "TypeName": "Normal"},
-{"Dex": "37", "TypeName": "Fire"},
-{"Dex": "38", "TypeName": "Fire"},
-{"Dex": "39", "TypeName": "Normal"},
-{"Dex": "40", "TypeName": "Normal"},
-{"Dex": "41", "TypeName": "Flying"},
-{"Dex": "41", "TypeName": "Poison"},
-{"Dex": "42", "TypeName": "Flying"},
-{"Dex": "42", "TypeName": "Poison"},
-{"Dex": "43", "TypeName": "Grass"},
-{"Dex": "43", "TypeName": "Poison"},
-{"Dex": "44", "TypeName": "Grass"},
-{"Dex": "44", "TypeName": "Poison"},
-{"Dex": "45", "TypeName": "Grass"},
-{"Dex": "45", "TypeName": "Poison"},
-{"Dex": "46", "TypeName": "Bug"},
-{"Dex": "46", "TypeName": "Grass"},
-{"Dex": "47", "TypeName": "Bug"},
-{"Dex": "47", "TypeName": "Grass"},
-{"Dex": "48", "TypeName": "Bug"},
-{"Dex": "48", "TypeName": "Poison"},
-{"Dex": "49", "TypeName": "Bug"},
-{"Dex": "49", "TypeName": "Poison"},
-{"Dex": "50", "TypeName": "Ground"},
-{"Dex": "51", "TypeName": "Ground"},
-{"Dex": "52", "TypeName": "Normal"},
-{"Dex": "53", "TypeName": "Normal"},
-{"Dex": "54", "TypeName": "Water"},
-{"Dex": "55", "TypeName": "Water"},
-{"Dex": "56", "TypeName": "Fighting"},
-{"Dex": "57", "TypeName": "Fighting"},
-{"Dex": "58", "TypeName": "Fire"},
-{"Dex": "59", "TypeName": "Fire"},
-{"Dex": "60", "TypeName": "Water"},
-{"Dex": "61", "TypeName": "Water"},
-{"Dex": "62", "TypeName": "Fighting"},
-{"Dex": "62", "TypeName": "Water"},
-{"Dex": "63", "TypeName": "Psychic"},
-{"Dex": "64", "TypeName": "Psychic"},
-{"Dex": "65", "TypeName": "Psychic"},
-{"Dex": "66", "TypeName": "Fighting"},
-{"Dex": "67", "TypeName": "Fighting"},
-{"Dex": "68", "TypeName": "Fighting"},
-{"Dex": "69", "TypeName": "Grass"},
-{"Dex": "69", "TypeName": "Poison"},
-{"Dex": "70", "TypeName": "Grass"},
-{"Dex": "70", "TypeName": "Poison"},
-{"Dex": "71", "TypeName": "Grass"},
-{"Dex": "71", "TypeName": "Poison"},
-{"Dex": "72", "TypeName": "Poison"},
-{"Dex": "72", "TypeName": "Water"},
-{"Dex": "73", "TypeName": "Poison"},
-{"Dex": "73", "TypeName": "Water"},
-{"Dex": "74", "TypeName": "Ground"},
-{"Dex": "74", "TypeName": "Rock"},
-{"Dex": "75", "TypeName": "Ground"},
-{"Dex": "75", "TypeName": "Rock"},
-{"Dex": "76", "TypeName": "Ground"},
-{"Dex": "76", "TypeName": "Rock"},
-{"Dex": "77", "TypeName": "Fire"},
-{"Dex": "78", "TypeName": "Fire"},
-{"Dex": "79", "TypeName": "Psychic"},
-{"Dex": "79", "TypeName": "Water"},
-{"Dex": "80", "TypeName": "Psychic"},
-{"Dex": "80", "TypeName": "Water"},
-{"Dex": "81", "TypeName": "Electric"},
-{"Dex": "81", "TypeName": "Steel"},
-{"Dex": "82", "TypeName": "Electric"},
-{"Dex": "82", "TypeName": "Steel"},
-{"Dex": "83", "TypeName": "Flying"},
-{"Dex": "83", "TypeName": "Normal"},
-{"Dex": "84", "TypeName": "Flying"},
-{"Dex": "84", "TypeName": "Normal"},
-{"Dex": "85", "TypeName": "Flying"},
-{"Dex": "85", "TypeName": "Normal"},
-{"Dex": "86", "TypeName": "Water"},
-{"Dex": "87", "TypeName": "Ice"},
-{"Dex": "87", "TypeName": "Water"},
-{"Dex": "88", "TypeName": "Poison"},
-{"Dex": "89", "TypeName": "Poison"},
-{"Dex": "90", "TypeName": "Water"},
-{"Dex": "91", "TypeName": "Ice"},
-{"Dex": "91", "TypeName": "Water"},
-{"Dex": "92", "TypeName": "Ghost"},
-{"Dex": "92", "TypeName": "Poison"},
-{"Dex": "93", "TypeName": "Ghost"},
-{"Dex": "93", "TypeName": "Poison"},
-{"Dex": "94", "TypeName": "Ghost"},
-{"Dex": "94", "TypeName": "Poison"},
-{"Dex": "95", "TypeName": "Ground"},
-{"Dex": "95", "TypeName": "Rock"},
-{"Dex": "96", "TypeName": "Psychic"},
-{"Dex": "97", "TypeName": "Psychic"},
-{"Dex": "98", "TypeName": "Water"},
-{"Dex": "99", "TypeName": "Water"},
-{"Dex": "100", "TypeName": "Electric"},
-{"Dex": "101", "TypeName": "Electric"},
-{"Dex": "102", "TypeName": "Grass"},
-{"Dex": "102", "TypeName": "Psychic"},
-{"Dex": "103", "TypeName": "Grass"},
-{"Dex": "103", "TypeName": "Psychic"},
-{"Dex": "104", "TypeName": "Ground"},
-{"Dex": "105", "TypeName": "Ground"},
-{"Dex": "106", "TypeName": "Fighting"},
-{"Dex": "107", "TypeName": "Fighting"},
-{"Dex": "108", "TypeName": "Normal"},
-{"Dex": "109", "TypeName": "Poison"},
-{"Dex": "110", "TypeName": "Poison"},
-{"Dex": "111", "TypeName": "Ground"},
-{"Dex": "111", "TypeName": "Rock"},
-{"Dex": "112", "TypeName": "Ground"},
-{"Dex": "112", "TypeName": "Rock"},
-{"Dex": "113", "TypeName": "Normal"},
-{"Dex": "114", "TypeName": "Grass"},
-{"Dex": "115", "TypeName": "Normal"},
-{"Dex": "116", "TypeName": "Water"},
-{"Dex": "117", "TypeName": "Water"},
-{"Dex": "118", "TypeName": "Water"},
-{"Dex": "119", "TypeName": "Water"},
-{"Dex": "120", "TypeName": "Water"},
-{"Dex": "121", "TypeName": "Psychic"},
-{"Dex": "121", "TypeName": "Water"},
-{"Dex": "122", "TypeName": "Psychic"},
-{"Dex": "123", "TypeName": "Bug"},
-{"Dex": "123", "TypeName": "Flying"},
-{"Dex": "124", "TypeName": "Ice"},
-{"Dex": "124", "TypeName": "Psychic"},
-{"Dex": "125", "TypeName": "Electric"},
-{"Dex": "126", "TypeName": "Fire"},
-{"Dex": "127", "TypeName": "Bug"},
-{"Dex": "128", "TypeName": "Normal"},
-{"Dex": "129", "TypeName": "Water"},
-{"Dex": "130", "TypeName": "Flying"},
-{"Dex": "130", "TypeName": "Water"},
-{"Dex": "131", "TypeName": "Ice"},
-{"Dex": "131", "TypeName": "Water"},
-{"Dex": "132", "TypeName": "Normal"},
-{"Dex": "133", "TypeName": "Normal"},
-{"Dex": "134", "TypeName": "Water"},
-{"Dex": "135", "TypeName": "Electric"},
-{"Dex": "136", "TypeName": "Fire"},
-{"Dex": "137", "TypeName": "Normal"},
-{"Dex": "138", "TypeName": "Rock"},
-{"Dex": "138", "TypeName": "Water"},
-{"Dex": "139", "TypeName": "Rock"},
-{"Dex": "139", "TypeName": "Water"},
-{"Dex": "140", "TypeName": "Rock"},
-{"Dex": "140", "TypeName": "Water"},
-{"Dex": "141", "TypeName": "Rock"},
-{"Dex": "141", "TypeName": "Water"},
-{"Dex": "142", "TypeName": "Flying"},
-{"Dex": "142", "TypeName": "Rock"},
-{"Dex": "143", "TypeName": "Normal"},
-{"Dex": "144", "TypeName": "Flying"},
-{"Dex": "144", "TypeName": "Ice"},
-{"Dex": "145", "TypeName": "Electric"},
-{"Dex": "145", "TypeName": "Flying"},
-{"Dex": "146", "TypeName": "Fire"},
-{"Dex": "146", "TypeName": "Flying"},
-{"Dex": "147", "TypeName": "Dragon"},
-{"Dex": "148", "TypeName": "Dragon"},
-{"Dex": "149", "TypeName": "Dragon"},
-{"Dex": "149", "TypeName": "Flying"},
-{"Dex": "150", "TypeName": "Psychic"},
-{"Dex": "151", "TypeName": "Psychic"},
-{"Dex": "152", "TypeName": "Grass"},
-{"Dex": "153", "TypeName": "Grass"},
-{"Dex": "154", "TypeName": "Grass"},
-{"Dex": "155", "TypeName": "Fire"},
-{"Dex": "156", "TypeName": "Fire"},
-{"Dex": "157", "TypeName": "Fire"},
-{"Dex": "158", "TypeName": "Water"},
-{"Dex": "159", "TypeName": "Water"},
-{"Dex": "160", "TypeName": "Water"},
-{"Dex": "161", "TypeName": "Normal"},
-{"Dex": "162", "TypeName": "Normal"},
-{"Dex": "163", "TypeName": "Flying"},
-{"Dex": "163", "TypeName": "Normal"},
-{"Dex": "164", "TypeName": "Flying"},
-{"Dex": "164", "TypeName": "Normal"},
-{"Dex": "165", "TypeName": "Bug"},
-{"Dex": "165", "TypeName": "Flying"},
-{"Dex": "166", "TypeName": "Bug"},
-{"Dex": "166", "TypeName": "Flying"},
-{"Dex": "167", "TypeName": "Bug"},
-{"Dex": "167", "TypeName": "Poison"},
-{"Dex": "168", "TypeName": "Bug"},
-{"Dex": "168", "TypeName": "Poison"},
-{"Dex": "169", "TypeName": "Flying"},
-{"Dex": "169", "TypeName": "Poison"},
-{"Dex": "170", "TypeName": "Electric"},
-{"Dex": "170", "TypeName": "Water"},
-{"Dex": "171", "TypeName": "Electric"},
-{"Dex": "171", "TypeName": "Water"},
-{"Dex": "172", "TypeName": "Electric"},
-{"Dex": "173", "TypeName": "Normal"},
-{"Dex": "174", "TypeName": "Normal"},
-{"Dex": "175", "TypeName": "Normal"},
-{"Dex": "176", "TypeName": "Flying"},
-{"Dex": "176", "TypeName": "Normal"},
-{"Dex": "177", "TypeName": "Flying"},
-{"Dex": "177", "TypeName": "Psychic"},
-{"Dex": "178", "TypeName": "Flying"},
-{"Dex": "178", "TypeName": "Psychic"},
-{"Dex": "179", "TypeName": "Electric"},
-{"Dex": "180", "TypeName": "Electric"},
-{"Dex": "181", "TypeName": "Electric"},
-{"Dex": "182", "TypeName": "Grass"},
-{"Dex": "183", "TypeName": "Water"},
-{"Dex": "184", "TypeName": "Water"},
-{"Dex": "185", "TypeName": "Rock"},
-{"Dex": "186", "TypeName": "Water"},
-{"Dex": "187", "TypeName": "Flying"},
-{"Dex": "187", "TypeName": "Grass"},
-{"Dex": "188", "TypeName": "Flying"},
-{"Dex": "188", "TypeName": "Grass"},
-{"Dex": "189", "TypeName": "Flying"},
-{"Dex": "189", "TypeName": "Grass"},
-{"Dex": "190", "TypeName": "Normal"},
-{"Dex": "191", "TypeName": "Grass"},
-{"Dex": "192", "TypeName": "Grass"},
-{"Dex": "193", "TypeName": "Bug"},
-{"Dex": "193", "TypeName": "Flying"},
-{"Dex": "194", "TypeName": "Ground"},
-{"Dex": "194", "TypeName": "Water"},
-{"Dex": "195", "TypeName": "Ground"},
-{"Dex": "195", "TypeName": "Water"},
-{"Dex": "196", "TypeName": "Psychic"},
-{"Dex": "197", "TypeName": "Dark"},
-{"Dex": "198", "TypeName": "Dark"},
-{"Dex": "198", "TypeName": "Flying"},
-{"Dex": "199", "TypeName": "Psychic"},
-{"Dex": "199", "TypeName": "Water"},
-{"Dex": "200", "TypeName": "Ghost"},
-{"Dex": "201", "TypeName": "Psychic"},
-{"Dex": "202", "TypeName": "Psychic"},
-{"Dex": "203", "TypeName": "Normal"},
-{"Dex": "203", "TypeName": "Psychic"},
-{"Dex": "204", "TypeName": "Bug"},
-{"Dex": "205", "TypeName": "Bug"},
-{"Dex": "205", "TypeName": "Steel"},
-{"Dex": "206", "TypeName": "Normal"},
-{"Dex": "207", "TypeName": "Flying"},
-{"Dex": "207", "TypeName": "Ground"},
-{"Dex": "208", "TypeName": "Ground"},
-{"Dex": "208", "TypeName": "Steel"},
-{"Dex": "209", "TypeName": "Normal"},
-{"Dex": "210", "TypeName": "Normal"},
-{"Dex": "211", "TypeName": "Poison"},
-{"Dex": "211", "TypeName": "Water"},
-{"Dex": "212", "TypeName": "Bug"},
-{"Dex": "212", "TypeName": "Steel"},
-{"Dex": "213", "TypeName": "Bug"},
-{"Dex": "213", "TypeName": "Rock"},
-{"Dex": "214", "TypeName": "Bug"},
-{"Dex": "214", "TypeName": "Fighting"},
-{"Dex": "215", "TypeName": "Dark"},
-{"Dex": "215", "TypeName": "Ice"},
-{"Dex": "216", "TypeName": "Normal"},
-{"Dex": "217", "TypeName": "Normal"},
-{"Dex": "218", "TypeName": "Fire"},
-{"Dex": "219", "TypeName": "Fire"},
-{"Dex": "219", "TypeName": "Rock"},
-{"Dex": "220", "TypeName": "Ground"},
-{"Dex": "220", "TypeName": "Ice"},
-{"Dex": "221", "TypeName": "Ground"},
-{"Dex": "221", "TypeName": "Ice"},
-{"Dex": "222", "TypeName": "Rock"},
-{"Dex": "222", "TypeName": "Water"},
-{"Dex": "223", "TypeName": "Water"},
-{"Dex": "224", "TypeName": "Water"},
-{"Dex": "225", "TypeName": "Flying"},
-{"Dex": "225", "TypeName": "Ice"},
-{"Dex": "226", "TypeName": "Flying"},
-{"Dex": "226", "TypeName": "Water"},
-{"Dex": "227", "TypeName": "Flying"},
-{"Dex": "227", "TypeName": "Steel"},
-{"Dex": "228", "TypeName": "Dark"},
-{"Dex": "228", "TypeName": "Fire"},
-{"Dex": "229", "TypeName": "Dark"},
-{"Dex": "229", "TypeName": "Fire"},
-{"Dex": "230", "TypeName": "Dragon"},
-{"Dex": "230", "TypeName": "Water"},
-{"Dex": "231", "TypeName": "Ground"},
-{"Dex": "232", "TypeName": "Ground"},
-{"Dex": "233", "TypeName": "Normal"},
-{"Dex": "234", "TypeName": "Normal"},
-{"Dex": "235", "TypeName": "Normal"},
-{"Dex": "236", "TypeName": "Fighting"},
-{"Dex": "237", "TypeName": "Fighting"},
-{"Dex": "238", "TypeName": "Ice"},
-{"Dex": "238", "TypeName": "Psychic"},
-{"Dex": "239", "TypeName": "Electric"},
-{"Dex": "240", "TypeName": "Fire"},
-{"Dex": "241", "TypeName": "Normal"},
-{"Dex": "242", "TypeName": "Normal"},
-{"Dex": "243", "TypeName": "Electric"},
-{"Dex": "244", "TypeName": "Fire"},
-{"Dex": "245", "TypeName": "Water"},
-{"Dex": "246", "TypeName": "Ground"},
-{"Dex": "246", "TypeName": "Rock"},
-{"Dex": "247", "TypeName": "Ground"},
-{"Dex": "247", "TypeName": "Rock"},
-{"Dex": "248", "TypeName": "Dark"},
-{"Dex": "248", "TypeName": "Rock"},
-{"Dex": "249", "TypeName": "Flying"},
-{"Dex": "249", "TypeName": "Psychic"},
-{"Dex": "250", "TypeName": "Fire"},
-{"Dex": "250", "TypeName": "Flying"},
-{"Dex": "251", "TypeName": "Grass"},
-{"Dex": "251", "TypeName": "Psychic"},
-{"Dex": "252", "TypeName": "Grass"},
-{"Dex": "253", "TypeName": "Grass"},
-{"Dex": "254", "TypeName": "Grass"},
-{"Dex": "255", "TypeName": "Fire"},
-{"Dex": "256", "TypeName": "Fighting"},
-{"Dex": "256", "TypeName": "Fire"},
-{"Dex": "257", "TypeName": "Fighting"},
-{"Dex": "257", "TypeName": "Fire"},
-{"Dex": "258", "TypeName": "Water"},
-{"Dex": "259", "TypeName": "Ground"},
-{"Dex": "259", "TypeName": "Water"},
-{"Dex": "260", "TypeName": "Ground"},
-{"Dex": "260", "TypeName": "Water"},
-{"Dex": "261", "TypeName": "Dark"},
-{"Dex": "262", "TypeName": "Dark"},
-{"Dex": "263", "TypeName": "Normal"},
-{"Dex": "264", "TypeName": "Normal"},
-{"Dex": "265", "TypeName": "Bug"},
-{"Dex": "266", "TypeName": "Bug"},
-{"Dex": "267", "TypeName": "Bug"},
-{"Dex": "267", "TypeName": "Flying"},
-{"Dex": "268", "TypeName": "Bug"},
-{"Dex": "269", "TypeName": "Bug"},
-{"Dex": "269", "TypeName": "Poison"},
-{"Dex": "270", "TypeName": "Grass"},
-{"Dex": "270", "TypeName": "Water"},
-{"Dex": "271", "TypeName": "Grass"},
-{"Dex": "271", "TypeName": "Water"},
-{"Dex": "272", "TypeName": "Grass"},
-{"Dex": "272", "TypeName": "Water"},
-{"Dex": "273", "TypeName": "Grass"},
-{"Dex": "274", "TypeName": "Dark"},
-{"Dex": "274", "TypeName": "Grass"},
-{"Dex": "275", "TypeName": "Dark"},
-{"Dex": "275", "TypeName": "Grass"},
-{"Dex": "276", "TypeName": "Flying"},
-{"Dex": "276", "TypeName": "Normal"},
-{"Dex": "277", "TypeName": "Flying"},
-{"Dex": "277", "TypeName": "Normal"},
-{"Dex": "278", "TypeName": "Flying"},
-{"Dex": "278", "TypeName": "Water"},
-{"Dex": "279", "TypeName": "Flying"},
-{"Dex": "279", "TypeName": "Water"},
-{"Dex": "280", "TypeName": "Psychic"},
-{"Dex": "281", "TypeName": "Psychic"},
-{"Dex": "282", "TypeName": "Psychic"},
-{"Dex": "283", "TypeName": "Bug"},
-{"Dex": "283", "TypeName": "Water"},
-{"Dex": "284", "TypeName": "Bug"},
-{"Dex": "284", "TypeName": "Flying"},
-{"Dex": "285", "TypeName": "Grass"},
-{"Dex": "286", "TypeName": "Fighting"},
-{"Dex": "286", "TypeName": "Grass"},
-{"Dex": "287", "TypeName": "Normal"},
-{"Dex": "288", "TypeName": "Normal"},
-{"Dex": "289", "TypeName": "Normal"},
-{"Dex": "290", "TypeName": "Bug"},
-{"Dex": "290", "TypeName": "Ground"},
-{"Dex": "291", "TypeName": "Bug"},
-{"Dex": "291", "TypeName": "Flying"},
-{"Dex": "292", "TypeName": "Bug"},
-{"Dex": "292", "TypeName": "Ghost"},
-{"Dex": "293", "TypeName": "Normal"},
-{"Dex": "294", "TypeName": "Normal"},
-{"Dex": "295", "TypeName": "Normal"},
-{"Dex": "296", "TypeName": "Fighting"},
-{"Dex": "297", "TypeName": "Fighting"},
-{"Dex": "298", "TypeName": "Normal"},
-{"Dex": "299", "TypeName": "Rock"},
-{"Dex": "300", "TypeName": "Normal"},
-{"Dex": "301", "TypeName": "Normal"},
-{"Dex": "302", "TypeName": "Dark"},
-{"Dex": "302", "TypeName": "Ghost"},
-{"Dex": "303", "TypeName": "Steel"},
-{"Dex": "304", "TypeName": "Rock"},
-{"Dex": "304", "TypeName": "Steel"},
-{"Dex": "305", "TypeName": "Rock"},
-{"Dex": "305", "TypeName": "Steel"},
-{"Dex": "306", "TypeName": "Rock"},
-{"Dex": "306", "TypeName": "Steel"},
-{"Dex": "307", "TypeName": "Fighting"},
-{"Dex": "307", "TypeName": "Psychic"},
-{"Dex": "308", "TypeName": "Fighting"},
-{"Dex": "308", "TypeName": "Psychic"},
-{"Dex": "309", "TypeName": "Electric"},
-{"Dex": "310", "TypeName": "Electric"},
-{"Dex": "311", "TypeName": "Electric"},
-{"Dex": "312", "TypeName": "Electric"},
-{"Dex": "313", "TypeName": "Bug"},
-{"Dex": "314", "TypeName": "Bug"},
-{"Dex": "315", "TypeName": "Grass"},
-{"Dex": "315", "TypeName": "Poison"},
-{"Dex": "316", "TypeName": "Poison"},
-{"Dex": "317", "TypeName": "Poison"},
-{"Dex": "318", "TypeName": "Dark"},
-{"Dex": "318", "TypeName": "Water"},
-{"Dex": "319", "TypeName": "Dark"},
-{"Dex": "319", "TypeName": "Water"},
-{"Dex": "320", "TypeName": "Water"},
-{"Dex": "321", "TypeName": "Water"},
-{"Dex": "322", "TypeName": "Fire"},
-{"Dex": "322", "TypeName": "Ground"},
-{"Dex": "323", "TypeName": "Fire"},
-{"Dex": "323", "TypeName": "Ground"},
-{"Dex": "324", "TypeName": "Fire"},
-{"Dex": "325", "TypeName": "Psychic"},
-{"Dex": "326", "TypeName": "Psychic"},
-{"Dex": "327", "TypeName": "Normal"},
-{"Dex": "328", "TypeName": "Ground"},
-{"Dex": "329", "TypeName": "Dragon"},
-{"Dex": "329", "TypeName": "Ground"},
-{"Dex": "330", "TypeName": "Dragon"},
-{"Dex": "330", "TypeName": "Ground"},
-{"Dex": "331", "TypeName": "Grass"},
-{"Dex": "332", "TypeName": "Dark"},
-{"Dex": "332", "TypeName": "Grass"},
-{"Dex": "333", "TypeName": "Flying"},
-{"Dex": "333", "TypeName": "Normal"},
-{"Dex": "334", "TypeName": "Dragon"},
-{"Dex": "334", "TypeName": "Flying"},
-{"Dex": "335", "TypeName": "Normal"},
-{"Dex": "336", "TypeName": "Poison"},
-{"Dex": "337", "TypeName": "Psychic"},
-{"Dex": "337", "TypeName": "Rock"},
-{"Dex": "338", "TypeName": "Psychic"},
-{"Dex": "338", "TypeName": "Rock"},
-{"Dex": "339", "TypeName": "Ground"},
-{"Dex": "339", "TypeName": "Water"},
-{"Dex": "340", "TypeName": "Ground"},
-{"Dex": "340", "TypeName": "Water"},
-{"Dex": "341", "TypeName": "Water"},
-{"Dex": "342", "TypeName": "Dark"},
-{"Dex": "342", "TypeName": "Water"},
-{"Dex": "343", "TypeName": "Ground"},
-{"Dex": "343", "TypeName": "Psychic"},
-{"Dex": "344", "TypeName": "Ground"},
-{"Dex": "344", "TypeName": "Psychic"},
-{"Dex": "345", "TypeName": "Grass"},
-{"Dex": "345", "TypeName": "Rock"},
-{"Dex": "346", "TypeName": "Grass"},
-{"Dex": "346", "TypeName": "Rock"},
-{"Dex": "347", "TypeName": "Bug"},
-{"Dex": "347", "TypeName": "Rock"},
-{"Dex": "348", "TypeName": "Bug"},
-{"Dex": "348", "TypeName": "Rock"},
-{"Dex": "349", "TypeName": "Water"},
-{"Dex": "350", "TypeName": "Water"},
-{"Dex": "351", "TypeName": "Normal"},
-{"Dex": "352", "TypeName": "Normal"},
-{"Dex": "353", "TypeName": "Ghost"},
-{"Dex": "354", "TypeName": "Ghost"},
-{"Dex": "355", "TypeName": "Ghost"},
-{"Dex": "356", "TypeName": "Ghost"},
-{"Dex": "357", "TypeName": "Flying"},
-{"Dex": "357", "TypeName": "Grass"},
-{"Dex": "358", "TypeName": "Psychic"},
-{"Dex": "359", "TypeName": "Dark"},
-{"Dex": "360", "TypeName": "Psychic"},
-{"Dex": "361", "TypeName": "Ice"},
-{"Dex": "362", "TypeName": "Ice"},
-{"Dex": "363", "TypeName": "Ice"},
-{"Dex": "363", "TypeName": "Water"},
-{"Dex": "364", "TypeName": "Ice"},
-{"Dex": "364", "TypeName": "Water"},
-{"Dex": "365", "TypeName": "Ice"},
-{"Dex": "365", "TypeName": "Water"},
-{"Dex": "366", "TypeName": "Water"},
-{"Dex": "367", "TypeName": "Water"},
-{"Dex": "368", "TypeName": "Water"},
-{"Dex": "369", "TypeName": "Rock"},
-{"Dex": "369", "TypeName": "Water"},
-{"Dex": "370", "TypeName": "Water"},
-{"Dex": "371", "TypeName": "Dragon"},
-{"Dex": "372", "TypeName": "Dragon"},
-{"Dex": "373", "TypeName": "Dragon"},
-{"Dex": "373", "TypeName": "Flying"},
-{"Dex": "374", "TypeName": "Psychic"},
-{"Dex": "374", "TypeName": "Steel"},
-{"Dex": "375", "TypeName": "Psychic"},
-{"Dex": "375", "TypeName": "Steel"},
-{"Dex": "376", "TypeName": "Psychic"},
-{"Dex": "376", "TypeName": "Steel"},
-{"Dex": "377", "TypeName": "Rock"},
-{"Dex": "378", "TypeName": "Ice"},
-{"Dex": "379", "TypeName": "Steel"},
-{"Dex": "380", "TypeName": "Dragon"},
-{"Dex": "380", "TypeName": "Psychic"},
-{"Dex": "381", "TypeName": "Dragon"},
-{"Dex": "381", "TypeName": "Psychic"},
-{"Dex": "382", "TypeName": "Water"},
-{"Dex": "383", "TypeName": "Ground"},
-{"Dex": "384", "TypeName": "Dragon"},
-{"Dex": "384", "TypeName": "Flying"},
-{"Dex": "385", "TypeName": "Psychic"},
-{"Dex": "385", "TypeName": "Steel"},
-{"Dex": "386", "TypeName": "Psychic"}]}
+{
+    "hastypes": [
+        {
+            "Dex": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "1",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "2",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "2",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "3",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "3",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "4",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "5",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "6",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "6",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "7",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "8",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "9",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "10",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "11",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "12",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "12",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "13",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "13",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "14",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "14",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "15",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "15",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "16",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "16",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "17",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "17",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "18",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "18",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "19",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "20",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "21",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "21",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "22",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "22",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "23",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "24",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "25",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "26",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "27",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "28",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "29",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "30",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "31",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "31",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "32",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "33",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "34",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "34",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "35",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "36",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "37",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "38",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "39",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "40",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "41",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "41",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "42",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "42",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "43",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "43",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "44",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "44",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "45",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "45",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "46",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "46",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "47",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "47",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "48",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "48",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "49",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "49",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "50",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "51",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "52",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "53",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "54",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "55",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "56",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "57",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "58",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "59",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "60",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "61",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "62",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "62",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "63",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "64",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "65",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "66",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "67",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "68",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "69",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "69",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "70",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "70",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "71",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "71",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "72",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "72",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "73",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "73",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "74",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "74",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "75",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "75",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "76",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "76",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "77",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "78",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "79",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "79",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "80",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "80",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "81",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "81",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "82",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "82",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "83",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "83",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "84",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "84",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "85",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "85",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "86",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "87",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "87",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "88",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "89",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "90",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "91",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "91",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "92",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "92",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "93",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "93",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "94",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "94",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "95",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "95",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "96",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "97",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "98",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "99",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "100",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "101",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "102",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "102",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "103",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "103",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "104",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "105",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "106",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "107",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "108",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "109",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "110",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "111",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "111",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "112",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "112",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "113",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "114",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "115",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "116",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "117",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "118",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "119",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "120",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "121",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "121",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "122",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "123",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "123",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "124",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "124",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "125",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "126",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "127",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "128",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "129",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "130",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "130",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "131",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "131",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "132",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "133",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "134",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "135",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "136",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "137",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "138",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "138",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "139",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "139",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "140",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "140",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "141",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "141",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "142",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "142",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "143",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "144",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "144",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "145",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "145",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "146",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "146",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "147",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "148",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "149",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "149",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "150",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "151",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "152",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "153",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "154",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "155",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "156",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "157",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "158",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "159",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "160",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "161",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "162",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "163",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "163",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "164",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "164",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "165",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "165",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "166",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "166",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "167",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "167",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "168",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "168",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "169",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "169",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "170",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "170",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "171",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "171",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "172",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "173",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "174",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "175",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "176",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "176",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "177",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "177",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "178",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "178",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "179",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "180",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "181",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "182",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "183",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "184",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "185",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "186",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "187",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "187",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "188",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "188",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "189",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "189",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "190",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "191",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "192",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "193",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "193",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "194",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "194",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "195",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "195",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "196",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "197",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "198",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "198",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "199",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "199",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "200",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "201",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "202",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "203",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "203",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "204",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "205",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "205",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "206",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "207",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "207",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "208",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "208",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "209",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "210",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "211",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "211",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "212",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "212",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "213",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "213",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "214",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "214",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "215",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "215",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "216",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "217",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "218",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "219",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "219",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "220",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "220",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "221",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "221",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "222",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "222",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "223",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "224",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "225",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "225",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "226",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "226",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "227",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "227",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "228",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "228",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "229",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "229",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "230",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "230",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "231",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "232",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "233",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "234",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "235",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "236",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "237",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "238",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "238",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "239",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "240",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "241",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "242",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "243",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "244",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "245",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "246",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "246",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "247",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "247",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "248",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "248",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "249",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "249",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "250",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "250",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "251",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "251",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "252",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "253",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "254",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "255",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "256",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "256",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "257",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "257",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "258",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "259",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "259",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "260",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "260",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "261",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "262",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "263",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "264",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "265",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "266",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "267",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "267",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "268",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "269",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "269",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "270",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "270",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "271",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "271",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "272",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "272",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "273",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "274",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "274",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "275",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "275",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "276",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "276",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "277",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "277",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "278",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "278",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "279",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "279",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "280",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "281",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "282",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "283",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "283",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "284",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "284",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "285",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "286",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "286",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "287",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "288",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "289",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "290",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "290",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "291",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "291",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "292",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "292",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "293",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "294",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "295",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "296",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "297",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "298",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "299",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "300",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "301",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "302",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "302",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "303",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "304",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "304",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "305",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "305",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "306",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "306",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "307",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "307",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "308",
+            "TypeName": "Fighting"
+        },
+        {
+            "Dex": "308",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "309",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "310",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "311",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "312",
+            "TypeName": "Electric"
+        },
+        {
+            "Dex": "313",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "314",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "315",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "315",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "316",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "317",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "318",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "318",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "319",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "319",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "320",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "321",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "322",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "322",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "323",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "323",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "324",
+            "TypeName": "Fire"
+        },
+        {
+            "Dex": "325",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "326",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "327",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "328",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "329",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "329",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "330",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "330",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "331",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "332",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "332",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "333",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "333",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "334",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "334",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "335",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "336",
+            "TypeName": "Poison"
+        },
+        {
+            "Dex": "337",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "337",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "338",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "338",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "339",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "339",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "340",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "340",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "341",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "342",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "342",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "343",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "343",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "344",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "344",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "345",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "345",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "346",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "346",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "347",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "347",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "348",
+            "TypeName": "Bug"
+        },
+        {
+            "Dex": "348",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "349",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "350",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "351",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "352",
+            "TypeName": "Normal"
+        },
+        {
+            "Dex": "353",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "354",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "355",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "356",
+            "TypeName": "Ghost"
+        },
+        {
+            "Dex": "357",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "357",
+            "TypeName": "Grass"
+        },
+        {
+            "Dex": "358",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "359",
+            "TypeName": "Dark"
+        },
+        {
+            "Dex": "360",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "361",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "362",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "363",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "363",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "364",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "364",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "365",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "365",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "366",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "367",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "368",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "369",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "369",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "370",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "371",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "372",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "373",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "373",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "374",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "374",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "375",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "375",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "376",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "376",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "377",
+            "TypeName": "Rock"
+        },
+        {
+            "Dex": "378",
+            "TypeName": "Ice"
+        },
+        {
+            "Dex": "379",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "380",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "380",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "381",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "381",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "382",
+            "TypeName": "Water"
+        },
+        {
+            "Dex": "383",
+            "TypeName": "Ground"
+        },
+        {
+            "Dex": "384",
+            "TypeName": "Dragon"
+        },
+        {
+            "Dex": "384",
+            "TypeName": "Flying"
+        },
+        {
+            "Dex": "385",
+            "TypeName": "Psychic"
+        },
+        {
+            "Dex": "385",
+            "TypeName": "Steel"
+        },
+        {
+            "Dex": "386",
+            "TypeName": "Psychic"
+        }
+    ]
+}
