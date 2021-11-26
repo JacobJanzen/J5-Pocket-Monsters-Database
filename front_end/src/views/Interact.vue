@@ -6,7 +6,7 @@
       
     <v-container fluid class="querySelect">
       <v-row align="center">
-          <v-select 
+          <v-autocomplete 
             v-model="selectQuery"
             :items="queries"
             item-text="value"
@@ -15,7 +15,7 @@
             persistent-hint
             return-object
             single-line
-          ></v-select>
+          ></v-autocomplete>
       </v-row>
     </v-container>
 
@@ -134,14 +134,75 @@
         //add all other params here
 
 
+        //Queries are ordered in file order
+        //breeding > locations > moves > pokemon > teams > types
         selectQuery: { value: 'query', id: '0' },
         queries: [
           { value: 'What do you want to know?', id: '0' },
-          { value: 'All stats from a pokemon', id: '1' },
-          { value: 'All evolutions of a pokemon', id: '2' },
-          { value: 'All pokemon that learn a certain move', id: '3' },
-          { value: 'query4', id: '4' },
-          { value: 'query5', id: '5' },
+          //Breeding File
+          { value: 'The Pokemon in a given egg group', id: '1' },
+          { value: 'The Pokemon a given Pokemon can breed with', id: '2' },
+          //Locations File
+          { value: 'The locations a Pokemon may be found at', id: '3' },
+          { value: 'The locations a Pokemon may be found and the method which they can be found', id: '4' },
+          { value: 'The locations a Pokemon of given type can be found', id: '5' },
+          { value: 'The locations that a Pokemon with two given types can be found', id: '6' }, //NEED TO ALLOW MULTIPLE SELECTIONS HERE
+          { value: 'The locations with a given trainer', id: '7' },
+          { value: 'The locations with trainers of a given trainer class', id: '8' },
+          { value: 'The locations where a certain trainer class can be fought', id: '9' },
+          { value: 'The locations where a certain Pokemon of at least a certain level can be found', id: '10' },
+          //Moves File
+          { value: 'List the moves that are learned by all Pokemon', id: '11' },
+          { value: 'Moves that are learned by all Pokemon and the method by which they\'re learned', id: '12' },
+          { value: 'Moves that are learned by a given Pokemon', id: '13' },
+          { value: 'Moves that are learned by a given Pokemon and the method by which they\'re learned', id: '14' },
+          { value: 'Moves that are supereffective against a given Pokemon', id: '15' }, //combine 15-17 into a dropdown for effectiveness??
+          { value: 'Moves that are neutral against a given Pokemon', id: '16' },
+          { value: 'Moves that are not effective against a given Pokemon', id: '17' },
+          { value: '/moves_non_effective_against_pokemon/<pokemon_name>', id: '18' },//idk wtf that one does
+          { value: '/moves_effectiveness_against_pokemon/<pokemon_name>', id: '19' },//^
+          { value: 'List all status moves', id: '20' },
+          { value: 'Ways a Pokemon learns a given move', id: '21' },
+          { value: 'Moves of a given type that a Pokemon can learn', id: '22' },
+          { value: 'Moves of a given type that a Pokemon can learn and the method by which they\'re learned', id: '23' },
+          { value: 'Moves a given Pokemon learns with a given breeding method', id: '24' },
+          { value: 'Moves a Pokemon learns through breeding', id: '25' },
+          { value: 'Moves a Pokemon can learn through breeding with a given father', id: '26' },
+          //Pokemon File
+          { value: 'All Pokemon names', id: '27' },
+          { value: 'All Move names', id: '28' },
+          { value: 'Pokemon and their pokedex position', id: '29' },
+          { value: 'All Trainer data', id: '30' },
+          { value: 'Stats of a given Pokemon', id: '31' },
+          { value: 'Evolutions of a given Pokemon', id: '32' },
+          { value: 'Pokemon with a given move', id: '33' },
+          { value: 'Pokemon from each type with the highest value in a given stat', id: '34' },
+          { value: 'Pokemon from each type with the lowest value in a given stat', id: '35' },
+          { value: 'Pokemon having minimum value of a given stat', id: '36' },     
+          { value: 'Pokemon having a maximum value of a given stat', id: '37' },  
+          { value: 'Pokemon which can be caught at a given location', id: '38' },  
+          { value: 'Pokemon which can be caught at a given location from a given encounter', id: '39' },  
+          { value: 'Pokemon which can learn a move that is supereffective on a given Pokemon', id: '40' },  
+          { value: 'Pokemon that can be caught at a given location that can learn a move that is supereffective one a given Pokemon', id: '41' },    
+          { value: 'Pokemon that a given move is supereffective against', id: '42' },  //combine 42-45 with a effectiveness dropdown
+          { value: 'Pokemon that a given move is neutral against', id: '43' },  
+          { value: 'Pokemon that a given move is weak against', id: '44' },  
+          { value: 'Pokemon that a given move is not effective against', id: '45' },  
+          { value: 'Effects a given move has on a Pokemon', id: '46' },  
+          { value: 'All Abilities Pokemon have', id: '47' },  
+          { value: 'Pokemon with a given ability', id: '48' },
+          { value: 'Pokemon of a given type that can learn moves of a given type', id: '49' },
+          { value: 'Pokemon of a given type that can learn moves of a given type and the methods by which they\'re learned', id: '50' },
+          //Teams File
+          { value: 'All teams of a given Trainer', id: '51' },
+          { value: 'All teams with a given Pokemon', id: '52' },
+          { value: 'All teams with minimum level', id: '53' },
+          { value: 'All teams with a maximum level', id: '54' },
+          //Types File
+          { value: 'Number of Pokemon per type', id: '55' },
+          { value: 'Types with physical damage type', id: '56' },
+          { value: 'Types with special damage type', id: '57' },
+
         ],
 
         selectPokemon: { value: 'pokemon', id: '0' },
@@ -177,11 +238,23 @@
       this.setAllHidden();
       switch(query){
         case '1': {
-          this.statVisible = true;
+          
           break;
         }
         case '2':{
-          this.evolutionVisible = true;
+          
+          break;
+        } 
+        case '3':{
+          
+          break;
+        } 
+        case '4':{
+          
+          break;
+        } 
+        case '5':{
+          
           break;
         } 
       }
