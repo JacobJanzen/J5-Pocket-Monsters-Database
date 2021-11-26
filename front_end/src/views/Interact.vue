@@ -165,6 +165,24 @@
       </v-row>
     </v-container>
 
+        <v-container fluid class="selectBreedingMethod" v-if="breedingTypeVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectBreedingMethod"
+            :items="breedingMethods"
+            item-text=MoveMethod
+            item-value=MoveMethod
+            label="Which Breeding Type are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
     <v-container fluid class="selectLevel" v-if="levelSelectVisible">
       <v-row align="center">
         <v-col cols="6">
@@ -174,6 +192,42 @@
             item-text=Level
             item-value=Level
             label="Which Level are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
+        <v-container fluid class="selectMove" v-if="moveVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectMove"
+            :items="moves"
+            item-text=MoveName
+            item-value=MoveName
+            label="Which move are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
+            <v-container fluid class="selectStat" v-if="statVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectStat"
+            :items="stats"
+            item-text=stat
+            item-value=stat
+            label="Which stat are you looking for?"
             persistent-hint
             return-object
             single-line
@@ -207,6 +261,8 @@
         pokemonNameVisible:false,
         eggGroupVisible: false,
         levelSelectVisible: false,
+        moveVisible:false,
+        breedingMethodVisible: false,
         //add all other params here
 
         selectQuery: { value: 'query', id: '0' },
@@ -229,7 +285,7 @@
           { value: 'Moves that are learned by all Pokemon and the method by which they\'re learned', id: '12' },
           { value: 'Moves that are learned by a given Pokemon', id: '13' },
           { value: 'Moves that are learned by a given Pokemon and the method by which they\'re learned', id: '14' },
-          { value: 'Moves that are supereffective against a given Pokemon', id: '15' }, //combine 15-17 into a dropdown for effectiveness??
+          { value: 'Moves that are supereffective against a given Pokemon', id: '15' },
           { value: 'Moves that are neutral against a given Pokemon', id: '16' },
           { value: 'Moves that are not effective against a given Pokemon', id: '17' },
           { value: '/moves_non_effective_against_pokemon/<pokemon_name>', id: '18' },//idk wtf that one does
@@ -13752,6 +13808,17 @@
         {"MoveName": "Shadow Punch"},
         {"MoveName": "Role Play"}
         ],
+
+        selectStat:{},
+        stats:[
+            {stat: "HP"},
+            {stat: "Atk"},
+            {stat: "Def"},
+            {stat: "SpA"},
+            {stat: "Spd"},
+            {stat: "Spe"},
+        ]
+
       }
   },
 
@@ -13771,59 +13838,56 @@
         case '10':{ this.levelSelectVisible = true; break;}
         case '11':{ break;} //nothing needed
         case '12':{ break;} //nothing needed
-        case '13':{ break;}
-        case '14':{ break;}
-        case '15':{ break;}
-        case '16':{ break;}
-        case '17':{ break;}
-        case '18':{ break;}
-        case '19':{ break;}
-        case '20':{ break;}
-        case '21':{ break;}
-        case '22':{ break;}
-        case '23':{ break;}
-        case '24':{ break;}
-        case '25':{ break;}
-        case '26':{ break;}
-        case '27':{ break;}
-        case '28':{ break;}
-        case '29':{ break;}
-        case '30':{ break;}
-        case '31':{ break;}
-        case '32':{ break;}
-        case '33':{ break;}
-        case '34':{ break;}
-        case '35':{ break;}
-        case '36':{ break;}
-        case '37':{ break;}
-        case '38':{ break;}
-        case '39':{ break;}
-        case '40':{ break;}
-        case '41':{ break;}
-        case '42':{ break;}
-        case '43':{ break;}
-        case '44':{ break;}
-        case '45':{ break;}
-        case '46':{ break;}
-        case '47':{ break;}
-        case '48':{ break;}
-        case '49':{ break;}
-        case '50':{ break;}
-        case '51':{ break;}
-        case '52':{ break;}
-        case '53':{ break;}
-        case '54':{ break;}
-        case '55':{ break;}
-        case '56':{ break;}
-        case '57':{ break;}
-        case '58':{ break;}
-        case '59':{ break;}
-        case '60':{ break;}
+        case '13':{ this.pokemonNameVisible = true; break;}
+        case '14':{ this.pokemonNameVisible = true; break;}
+        case '15':{ this.pokemonNameVisible = true; break;}
+        case '16':{ this.pokemonNameVisible = true; break;}
+        case '17':{ this.pokemonNameVisible = true; break;}
+        case '18':{ break;} //idk what this query does ._.
+        case '19':{ break;} //idk what this query does ._.
+        case '20':{ break;} //nothing needed
+        case '21':{ this.moveVisible = true; break;}
+        case '22':{ this.typeVisible = true; break;}
+        case '23':{ this.typeVisible = true; break;}
+        case '24':{ this.pokemonNameVisible = true; this.breedingMethodVisible = true; break;}
+        case '25':{ this.pokemonNameVisible = true; break;}
+        case '26':{ this.pokemonNameVisible = true; break;}
+        case '27':{ break;} //nothing needed
+        case '28':{ break;} //nothing needed
+        case '29':{ break;} //nothing needed
+        case '30':{ break;} //nothing needed
+        case '31':{ this.pokemonNameVisible = true; break;}
+        case '32':{ this.pokemonNameVisible = true; break;}
+        case '33':{ this.moveVisible = true; break;}
+        case '34':{ this.statVisible = true; break;} 
+        case '35':{ this.statVisible = true; break;} 
+        case '36':{ this.statVisible = true; break;} 
+        case '37':{ this.statVisible = true; break;} 
+        case '38':{ this.locationVisible = true; break;}
+        case '39':{ this.locationVisible = true; break;} //need to make encounters visible too
+        case '40':{ this.pokemonNameVisible = true; break;} 
+        case '41':{ this.locationVisible = true; this.pokemonNameVisible = true; break;}
+        case '42':{ this.moveVisible = true; break;}
+        case '43':{ this.moveVisible = true; break;}
+        case '44':{ this.moveVisible = true; break;}
+        case '45':{ this.moveVisible = true; break;}
+        case '46':{ this.moveVisible = true; break;}
+        case '47':{ break;} //nothing needed
+        case '48':{ this.abilityVisible = true; break;}
+        case '49':{ this.typeVisible = true; this.secondTypeVisible = true; break;}
+        case '50':{ this.typeVisible = true; this.secondTypeVisible = true; break;}
+        case '51':{ this.trainerNameVisible = true; break;} //idk if this should be name or class?
+        case '52':{ this.pokemonNameVisible = true; break;}
+        case '53':{ this.levelSelectVisible = true; break;}
+        case '54':{ this.levelSelectVisible = true; break;}
+        case '55':{ break;} //nothing needed
+        case '56':{ break;} //nothing needed
+        case '57':{ break;} //nothing needed
        }
     },
 
     setAllHidden(){
-        //FIGURE OUT HOW TO RESET ALL SELECTED VALUES!!
+        //figure out how to reset selected values??
 
         //set all Visible tags to false
         this.locationVisible = false;
@@ -13835,6 +13899,8 @@
         this.pokemonNameVisible = false;
         this.eggGroupVisible = false;
         this.levelSelectVisible = false;
+        this.moveVisible = false;
+        this.breedingMethodVisible = false;
     }
   },
 
