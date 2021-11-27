@@ -1,10 +1,19 @@
 <template>
     <div class="INTERACThome">
-        <h1>Interact with the Database!</h1>
 
-        <h3 id ="temp">Select which info you're looking for in the drop-down below</h3>
+        <!-- this title forces polling of the query box and triggers
+        the param dropdowns to appear ik its terrible go away -->
+        <h1>{{vaidateQuery}}</h1>
+
     
-    <v-container fluid class="querySelect" v-if="queryVisible">
+    <v-container fluid class="querySelect" v-if="queryVisible" @change="validateQuery()">
+          
+         <v-row align="center">
+          <v-col cols="8">
+            <h3 id ="temp">Select which info you're looking for in the drop-down below</h3>
+          </v-col>
+         </v-row>
+
       <v-row align="center">
           <v-col cols="8">
           <v-autocomplete 
@@ -24,11 +33,32 @@
         </v-col>
 
       </v-row>
+
+    <v-row align="center">
+    <v-col cols="8">
+        <h3>Select the specific data you're requesting below...</h3>    
+    </v-col>
+    </v-row>
+
     </v-container>
 
-   
+    <v-container fluid class="resultView" v-if="resultsVisible">
+      <v-row align="center">
+          <v-col cols="8">
+              <h3>View your query results below when they've loaded...</h3>
+          </v-col>
 
-      <h3>Select the specific data you're requesting below...</h3>
+        <v-col cols="4">
+             <v-btn @click="newQuery()">New Query!</v-btn>
+        </v-col>
+
+      </v-row>
+
+      <v-row align="center">
+        <!-- Display results here?? -->
+
+      </v-row>
+    </v-container>
 
     <v-container fluid class="selectLocation" v-if="locationVisible">
       <v-row align="center">
@@ -228,7 +258,7 @@
       </v-row>
     </v-container>
 
-            <v-container fluid class="selectStat" v-if="statVisible">
+    <v-container fluid class="selectStat" v-if="statVisible">
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
@@ -246,17 +276,28 @@
       </v-row>
     </v-container>
 
-
-    <!-- temp display of what is currently selected -->
-    <label id="query">
-      {{updateQuery}}
-    </label>
+    <v-container fluid class="selectEncounter" v-if="encounterVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectEncounter"
+            :items="encounters"
+            item-text=Encounter
+            item-value=Encounter
+            label="Which Encounter are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
 
     </div>
 </template>
 
 <script> 
-
  export default {
      data () {
       return {
@@ -272,7 +313,9 @@
         levelSelectVisible: false,
         moveVisible:false,
         breedingMethodVisible: false,
+        encounterVisible: false,
         queryVisible:true,
+        resultsVisible: false,
         //add all other params here
 
         selectQuery: { value: 'query', id: '0' },
@@ -344,7 +387,6 @@
 
         ],
 
-        // Max level is 100
         selectLevel: {},
         levels:[
           {Level: 1},
@@ -13827,8 +13869,35 @@
             {stat: "SpA"},
             {stat: "Spd"},
             {stat: "Spe"},
-        ]
+        ],
 
+        selectEncounter:{},
+        encounters: [
+        {"Encounter": "Basement"},
+        { "Encounter": "Entrance"},
+        { "Encounter": "Fake"},
+        { "Encounter": "Cave"},
+        { "Encounter": "Grass"},
+        { "Encounter": "Fish Super"},
+        { "Encounter": "Trade"},
+        { "Encounter": "Fish Good"},
+        { "Encounter": "Fish Old"},
+        { "Encounter": "Surf"},
+        { "Encounter": "Gift"},
+        { "Encounter": "Dive"},
+        { "Encounter": "Long grass"},
+        { "Encounter": "Rock Smash"},
+        { "Encounter": "Starter"},
+        { "Encounter": "Special"},
+        { "Encounter": "Sand"},
+        { "Encounter": "Swarm"},
+        { "Encounter": "1F"},
+        { "Encounter": "3F"},
+        { "Encounter": "5F"},
+        { "Encounter": "Egg"},
+        { "Encounter": "Eon"},
+        { "Encounter": "Aurora"}
+        ]
       }
   },
 
@@ -13874,7 +13943,7 @@
         case '36':{ this.statVisible = true; break;} 
         case '37':{ this.statVisible = true; break;} 
         case '38':{ this.locationVisible = true; break;}
-        case '39':{ this.locationVisible = true; break;} //need to make encounters visible too
+        case '39':{ this.locationVisible = true; this.encounterVisible = true; break;} 
         case '40':{ this.pokemonNameVisible = true; break;} 
         case '41':{ this.locationVisible = true; this.pokemonNameVisible = true; break;}
         case '42':{ this.moveVisible = true; break;}
@@ -13900,10 +13969,17 @@
         //if all parameters filled for selected query:
             this.queryVisible = false;
             this.setAllHidden();
+            this.resultsVisible = true;
             //display results
             //make 'new query' button visible
         //else display error
 
+    },
+
+    newQuery(){
+        this.resultsVisible = false;
+        this.queryVisible = true;
+        this.setAllHidden();
     },
 
     setAllHidden(){
@@ -13921,6 +13997,7 @@
         this.levelSelectVisible = false;
         this.moveVisible = false;
         this.breedingMethodVisible = false;
+        this.encounterVisible = false;
     }
   },
 
@@ -13928,20 +14005,9 @@
     //make sure all appropriate values are selected for selected query
     vaidateQuery(){
       this.setVisibilty(this.selectQuery.id);
-      if(this.selectQuery.id!=0){//make sure to change these tests
-        return true;
-      } 
-      return false;
+      if(this.selectQuery.id!=0){return "Interact with the Database!";}
+      return "Interact with the Database!";
     },
-
-    //should be triggered by a 'query' button - currently placeholder doesnt do shit
-    updateQuery(){
-      if(this.vaidateQuery){
-        return "use this concept to diplay query results prolly";
-      }
-      return "";//required for computed property apparently
-    },
-
   },
 
 
