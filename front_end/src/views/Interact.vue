@@ -373,7 +373,7 @@ export default {
           { value: 'Pokemon which can be caught at a given location from a given encounter', id: '39' },  
           { value: 'Pokemon which can learn a move that is supereffective on a given Pokemon', id: '40' },  
           { value: 'Pokemon that can be caught at a given location that can learn a move that is supereffective one a given Pokemon', id: '41' },    
-          { value: 'Pokemon that a given move is supereffective against', id: '42' },  //combine 42-45 with a effectiveness dropdown
+          { value: 'Pokemon that a given move is supereffective against', id: '42' }, 
           { value: 'Pokemon that a given move is neutral against', id: '43' },  
           { value: 'Pokemon that a given move is weak against', id: '44' },  
           { value: 'Pokemon that a given move is not effective against', id: '45' },  
@@ -394,8 +394,9 @@ export default {
 
         ],
 
-        selectLevel: {},
+        selectLevel: {Level: -1},
         levels:[
+          {Level: "Which level are you looking for?"},//default value
           {Level: 1},
           {Level: 2},
           {Level: 3},
@@ -500,6 +501,7 @@ export default {
 
         selectLocation: { LocationName: '0'},
         locations: [
+            {LocationName: "Which Location are you looking for?"},//default value
           {LocationName: "Abandoned Ship"},
           {LocationName: "Altering Cave"},
           {LocationName: "Ancient Tomb"},
@@ -610,6 +612,8 @@ export default {
 
         selectAbility: { Ability: '0'},
         abilities: [
+        {Ability: "Which Ability are you looking for?"},//default value
+
         {
             "Ability": "Overgrow"
         },
@@ -954,6 +958,7 @@ export default {
         selectSecondType: {TypeName: '0', Category: '0'},
         selectType: {TypeName: '0', Category: '0'},
         types:[
+        {TypeName: "Which Type are you looking for?"},//default value
           {TypeName: "???", Category: ""},
           {TypeName: "Bug", Category: "Physical"},
           {TypeName: "Dark", Category: "Special"},
@@ -976,6 +981,11 @@ export default {
         
         selectTrainer: {TrainerName: "0", TrainerClass: '0'},
         trainers:[
+        {
+            TID: "-1",
+            TrainerName: "Which Trainer are you looking for?",
+            TrainerClass: "Which Trainer Class are you looking for?"
+        },       
         {
             TID: "1",
             TrainerName: "Thalia",
@@ -3445,6 +3455,9 @@ export default {
 
         selectPokemon:{PokemonName: null},
         pokemon: [
+        {
+            PokemonName: "Which Pokemon are you looking for?",
+        },
         {
             Dex: "1",
             PokemonName: "Bulbasaur",
@@ -10783,6 +10796,7 @@ export default {
 
         selectEggGroup:{GroupName: null},
         egggroups: [
+        {GroupName: "Which Egg Group are you looking for?"},
         {
             "GroupName": "Grass"
         },
@@ -10832,6 +10846,7 @@ export default {
 
         selectMove:{},
         moves: [
+        {MoveName: "Which Move are you looking for?"},
         {
             "MoveName": "Absorb",
             "Accuracy": "100",
@@ -13668,6 +13683,7 @@ export default {
 
         selectBreedingMethod:{MoveName: null},
         breedingMethods:[
+        {MoveName: "Which Breeding Method are you looking for?"},
         {"MoveName": "Safeguard"},
         {"MoveName": "Light Screen"},
         {"MoveName": "Curse"},
@@ -13871,6 +13887,7 @@ export default {
 
         selectStat:{stat: null},
         stats:[
+            {stat: "Which Stat are you looking for?"},
             {stat: "HP"},
             {stat: "Atk"},
             {stat: "Def"},
@@ -13881,6 +13898,7 @@ export default {
 
         selectEncounter:{Encounter: null},
         encounters: [
+        {Encounter: "Which Encounter are you looking for?"},
         {"Encounter": "Basement"},
         { "Encounter": "Entrance"},
         { "Encounter": "Fake"},
@@ -14105,6 +14123,21 @@ export default {
     },
 
     newQuery(){
+        //Reset all selected values - THIS DOESNT ACTUALLY WORK??
+        this.selectQuery = this.queries[0];
+        this.selectLevel = this.levels[0];
+        this.selectLocation = this.locations[0];
+        this.selectAbility = this.abilities[0];
+        this.selectSecondType = this.types[0];
+        this.selectType = this.types[0];
+        this.selectTrainer = this.trainers[0];
+        this.selectPokemon = this.pokemon[0];
+        this.selectEggGroup = this.egggroups[0];
+        this.selectMove = this.moves[0];
+        this.selectBreedingMethod = this.breedingMethods[0];
+        this.selectStat = this.stats[0];
+        this.selectEncounter = this.encounters[0];
+
         this.resultsVisible = false;
         this.queryVisible = true;
         this.setAllHidden();
@@ -14112,10 +14145,6 @@ export default {
     },
 
     setAllHidden(){
-        //figure out how to reset selected values??
-        this.selectQuery = this.queries[0];
-        
-
         //set all Visible tags to false
         this.locationVisible = false;
         this.abilityVisible = false;
