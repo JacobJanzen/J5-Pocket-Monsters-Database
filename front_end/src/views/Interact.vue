@@ -1,11 +1,20 @@
 <template>
     <div class="INTERACThome">
-        <h1>Interact with the Database!</h1>
 
-        <h3 id ="temp">Select which info you're looking for in the drop-down below</h3>
-      
-    <v-container fluid class="querySelect">
+        <!-- this title forces polling of the query box and triggers
+        the param dropdowns to appear ik its terrible go away -->
+        <h1>{{vaidateQuery}}</h1>
+    
+    <v-container fluid class="querySelect" v-if="queryVisible">
+          
+         <v-row align="center">
+          <v-col cols="8">
+            <h3 id ="temp">Select which info you're looking for in the drop-down below</h3>
+          </v-col>
+         </v-row>
+
       <v-row align="center">
+          <v-col cols="8">
           <v-autocomplete 
             v-model="selectQuery"
             :items="queries"
@@ -16,10 +25,41 @@
             return-object
             single-line
           ></v-autocomplete>
+          </v-col>
+
+        <v-col cols="4">
+             <v-btn @click="makeQuery()">Query!</v-btn>
+             <p v-if="errorMessageVisible" style="color:red;"> Selection Required </p>
+        </v-col>
+            
       </v-row>
+
+    <v-row align="center" v-if="dropdownMessageVisible">
+    <v-col cols="8">
+        <h3>Select the specific data you're requesting below...</h3>    
+    </v-col>
+    </v-row>
+
     </v-container>
 
-      <h3>Select the specific data you're requesting below...</h3>
+    <v-container fluid class="resultView" v-if="resultsVisible">
+      <v-row align="center">
+          <v-col cols="8">
+              <h3>View your query results below when they've loaded...</h3>
+          </v-col>
+
+        <v-col cols="4">
+             <v-btn @click="newQuery()">New Query!</v-btn>
+        </v-col>
+
+      </v-row>
+
+    <v-row align="center">
+          <p> {{getQuery}} </p>
+        <!-- Display results here?? -->
+    </v-row>
+
+    </v-container>
 
     <v-container fluid class="selectLocation" v-if="locationVisible">
       <v-row align="center">
@@ -64,7 +104,7 @@
             v-model="selectType"
             :items="types"
             item-text="TypeName"
-            item-value="Category"
+            item-value="TypeName"
             label="Which type are you looking for?"
             persistent-hint
             return-object
@@ -82,7 +122,7 @@
             v-model="selectSecondType"
             :items="types"
             item-text="TypeName"
-            item-value="Category"
+            item-value="TypeName"
             label="What is the second type are you looking for?"
             persistent-hint
             return-object
@@ -133,10 +173,10 @@
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
-            v-model="selectPokemonName"
+            v-model="selectPokemon"
             :items="pokemon"
             item-text=PokemonName
-            item-value=Dex
+            item-value=PokemonName
             label="Which Pokemon are you looking for?"
             persistent-hint
             return-object
@@ -154,8 +194,26 @@
             v-model="selectEggGroup"
             :items="egggroups"
             item-text=GroupName
-            item-value=Dex
+            item-value=GroupName
             label="Which Egg Group are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
+        <v-container fluid class="selectBreedingMethod" v-if="breedingTypeVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectBreedingMethod"
+            :items="breedingMethods"
+            item-text=MoveMethod
+            item-value=MoveMethod
+            label="Which Breeding Type are you looking for?"
             persistent-hint
             return-object
             single-line
@@ -183,18 +241,68 @@
       </v-row>
     </v-container>
 
+        <v-container fluid class="selectMove" v-if="moveVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectMove"
+            :items="moves"
+            item-text=MoveName
+            item-value=MoveName
+            label="Which move are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
 
-    <!-- temp display of what is currently selected -->
-    <label id="query">
-      {{updateQuery}}
-    </label>
+    <v-container fluid class="selectStat" v-if="statVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectStat"
+            :items="stats"
+            item-text=stat
+            item-value=stat
+            label="Which stat are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container fluid class="selectEncounter" v-if="encounterVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectEncounter"
+            :items="encounters"
+            item-text=Encounter
+            item-value=Encounter
+            label="Which Encounter are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
 
     </div>
 </template>
 
 <script> 
+let results = "default";
+let url = "";
 
- export default {
+export default {
      data () {
       return {
         //prolly set all to false to begin with??
@@ -207,6 +315,14 @@
         pokemonNameVisible:false,
         eggGroupVisible: false,
         levelSelectVisible: false,
+        moveVisible:false,
+        breedingMethodVisible: false,
+        encounterVisible: false,
+        dropdownMessageVisible: false,
+        queryVisible:true,
+        resultsVisible: false,
+        errorMessageVisible: false,
+
         //add all other params here
 
         selectQuery: { value: 'query', id: '0' },
@@ -219,7 +335,7 @@
           { value: 'The locations a Pokemon may be found at', id: '3' },
           { value: 'The locations a Pokemon may be found and the method which they can be found', id: '4' },
           { value: 'The locations a Pokemon of given type can be found', id: '5' },
-          { value: 'The locations that a Pokemon with two given types can be found', id: '6' }, //NEED TO ALLOW MULTIPLE SELECTIONS HERE
+          { value: 'The locations that a Pokemon with two given types can be found', id: '6' },
           { value: 'The locations with a given trainer', id: '7' },
           { value: 'The locations with trainers of a given trainer class', id: '8' },
           { value: 'The locations where a certain trainer class can be fought', id: '9' },
@@ -229,11 +345,11 @@
           { value: 'Moves that are learned by all Pokemon and the method by which they\'re learned', id: '12' },
           { value: 'Moves that are learned by a given Pokemon', id: '13' },
           { value: 'Moves that are learned by a given Pokemon and the method by which they\'re learned', id: '14' },
-          { value: 'Moves that are supereffective against a given Pokemon', id: '15' }, //combine 15-17 into a dropdown for effectiveness??
+          { value: 'Moves that are supereffective against a given Pokemon', id: '15' },
           { value: 'Moves that are neutral against a given Pokemon', id: '16' },
           { value: 'Moves that are not effective against a given Pokemon', id: '17' },
-          { value: '/moves_non_effective_against_pokemon/<pokemon_name>', id: '18' },//idk wtf that one does
-          { value: '/moves_effectiveness_against_pokemon/<pokemon_name>', id: '19' },//^
+          { value: '/moves_non_effective_against_pokemon/<pokemon_name>', id: '18' },
+          { value: '/moves_effectiveness_against_pokemon/<pokemon_name>', id: '19' },
           { value: 'List all status moves', id: '20' },
           { value: 'Ways a Pokemon learns a given move', id: '21' },
           { value: 'Moves of a given type that a Pokemon can learn', id: '22' },
@@ -257,7 +373,7 @@
           { value: 'Pokemon which can be caught at a given location from a given encounter', id: '39' },  
           { value: 'Pokemon which can learn a move that is supereffective on a given Pokemon', id: '40' },  
           { value: 'Pokemon that can be caught at a given location that can learn a move that is supereffective one a given Pokemon', id: '41' },    
-          { value: 'Pokemon that a given move is supereffective against', id: '42' },  //combine 42-45 with a effectiveness dropdown
+          { value: 'Pokemon that a given move is supereffective against', id: '42' }, 
           { value: 'Pokemon that a given move is neutral against', id: '43' },  
           { value: 'Pokemon that a given move is weak against', id: '44' },  
           { value: 'Pokemon that a given move is not effective against', id: '45' },  
@@ -278,10 +394,9 @@
 
         ],
 
-        // Max level is 100
-        //http://www.mynikko.com/tools/tool_incrementstr.html
-        selectLevel: {},
+        selectLevel: {Level: -1},
         levels:[
+          {Level: "Which level are you looking for?"},//default value
           {Level: 1},
           {Level: 2},
           {Level: 3},
@@ -386,6 +501,7 @@
 
         selectLocation: { LocationName: '0'},
         locations: [
+            {LocationName: "Which Location are you looking for?"},//default value
           {LocationName: "Abandoned Ship"},
           {LocationName: "Altering Cave"},
           {LocationName: "Ancient Tomb"},
@@ -494,622 +610,355 @@
           {LocationName: "Weather Institute"}
         ],
 
-        selectAbility: {Dex: '0', Ability: '0'},
+        selectAbility: { Ability: '0'},
         abilities: [
-          {Dex: "1", Ability: "Overgrow"},
-          {Dex: "10", Ability: "Shield Dust"},
-          {Dex: "100", Ability: "Soundproof"},
-          {Dex: "100", Ability: "Static"},
-          {Dex: "101", Ability: "Soundproof"},
-          {Dex: "101", Ability: "Static"},
-          {Dex: "102", Ability: "Chlorophyll"},
-          {Dex: "103", Ability: "Chlorophyll"},
-          {Dex: "104", Ability: "Lightning Rod"},
-          {Dex: "104", Ability: "Rock Head"},
-          {Dex: "105", Ability: "Lightning Rod"},
-          {Dex: "105", Ability: "Rock Head"},
-          {Dex: "106", Ability: "Limber"},
-          {Dex: "106", Ability: "Reckless"},
-          {Dex: "107", Ability: "Iron Fist"},
-          {Dex: "107", Ability: "Keen Eye"},
-          {Dex: "108", Ability: "Oblivious"},
-          {Dex: "108", Ability: "Own Tempo"},
-          {Dex: "109", Ability: "Levitate"},
-          {Dex: "109", Ability: "Neutralizing Gas"},
-          {Dex: "11", Ability: "Shed Skin"},
-          {Dex: "110", Ability: "Levitate"},
-          {Dex: "110", Ability: "Neutralizing Gas"},
-          {Dex: "111", Ability: "Lightning Rod"},
-          {Dex: "111", Ability: "Rock Head"},
-          {Dex: "112", Ability: "Lightning Rod"},
-          {Dex: "112", Ability: "Rock Head"},
-          {Dex: "113", Ability: "Natural Cure"},
-          {Dex: "113", Ability: "Serene Grace"},
-          {Dex: "114", Ability: "Chlorophyll"},
-          {Dex: "114", Ability: "Leaf Guard"},
-          {Dex: "115", Ability: "Early Bird"},
-          {Dex: "115", Ability: "Scrappy"},
-          {Dex: "116", Ability: "Sniper"},
-          {Dex: "116", Ability: "Swift Swim"},
-          {Dex: "117", Ability: "Poison Point"},
-          {Dex: "117", Ability: "Sniper"},
-          {Dex: "118", Ability: "Swift Swim"},
-          {Dex: "118", Ability: "Water Veil"},
-          {Dex: "119", Ability: "Swift Swim"},
-          {Dex: "119", Ability: "Water Veil"},
-          {Dex: "12", Ability: "Compound Eyes"},
-          {Dex: "120", Ability: "Illuminate"},
-          {Dex: "120", Ability: "Natural Cure"},
-          {Dex: "121", Ability: "Illuminate"},
-          {Dex: "121", Ability: "Natural Cure"},
-          {Dex: "122", Ability: "Filter"},
-          {Dex: "122", Ability: "Soundproof"},
-          {Dex: "123", Ability: "Swarm"},
-          {Dex: "123", Ability: "Technician"},
-          {Dex: "124", Ability: "Forewarn"},
-          {Dex: "124", Ability: "Oblivious"},
-          {Dex: "125", Ability: "Static"},
-          {Dex: "126", Ability: "Flame Body"},
-          {Dex: "127", Ability: "Hyper Cutter"},
-          {Dex: "127", Ability: "Mold Breaker"},
-          {Dex: "128", Ability: "Anger Point"},
-          {Dex: "128", Ability: "Intimidate"},
-          {Dex: "129", Ability: "Swift Swim"},
-          {Dex: "13", Ability: "Shield Dust"},
-          {Dex: "130", Ability: "Intimidate"},
-          {Dex: "131", Ability: "Shell Armor"},
-          {Dex: "131", Ability: "Water Absorb"},
-          {Dex: "132", Ability: "Limber"},
-          {Dex: "133", Ability: "Adaptability"},
-          {Dex: "133", Ability: "Run Away"},
-          {Dex: "134", Ability: "Water Absorb"},
-          {Dex: "135", Ability: "Volt Absorb"},
-          {Dex: "136", Ability: "Flash Fire"},
-          {Dex: "137", Ability: "Download"},
-          {Dex: "137", Ability: "Trace"},
-          {Dex: "138", Ability: "Shell Armor"},
-          {Dex: "138", Ability: "Swift Swim"},
-          {Dex: "139", Ability: "Shell Armor"},
-          {Dex: "139", Ability: "Swift Swim"},
-          {Dex: "14", Ability: "Shed Skin"},
-          {Dex: "140", Ability: "Battle Armor"},
-          {Dex: "140", Ability: "Swift Swim"},
-          {Dex: "141", Ability: "Battle Armor"},
-          {Dex: "141", Ability: "Swift Swim"},
-          {Dex: "142", Ability: "Pressure"},
-          {Dex: "142", Ability: "Rock Head"},
-          {Dex: "143", Ability: "Immunity"},
-          {Dex: "143", Ability: "Thick Fat"},
-          {Dex: "144", Ability: "Pressure"},
-          {Dex: "145", Ability: "Pressure"},
-          {Dex: "146", Ability: "Pressure"},
-          {Dex: "147", Ability: "Shed Skin"},
-          {Dex: "148", Ability: "Shed Skin"},
-          {Dex: "149", Ability: "Inner Focus"},
-          {Dex: "15", Ability: "Swarm"},
-          {Dex: "150", Ability: "Pressure"},
-          {Dex: "151", Ability: "Synchronize"},
-          {Dex: "152", Ability: "Overgrow"},
-          {Dex: "153", Ability: "Overgrow"},
-          {Dex: "154", Ability: "Overgrow"},
-          {Dex: "155", Ability: "Blaze"},
-          {Dex: "156", Ability: "Blaze"},
-          {Dex: "157", Ability: "Blaze"},
-          {Dex: "158", Ability: "Torrent"},
-          {Dex: "159", Ability: "Torrent"},
-          {Dex: "16", Ability: "Keen Eye"},
-          {Dex: "16", Ability: "Tangled Feet"},
-          {Dex: "160", Ability: "Torrent"},
-          {Dex: "161", Ability: "Keen Eye"},
-          {Dex: "161", Ability: "Run Away"},
-          {Dex: "162", Ability: "Keen Eye"},
-          {Dex: "162", Ability: "Run Away"},
-          {Dex: "163", Ability: "Insomnia"},
-          {Dex: "163", Ability: "Keen Eye"},
-          {Dex: "164", Ability: "Insomnia"},
-          {Dex: "164", Ability: "Keen Eye"},
-          {Dex: "165", Ability: "Early Bird"},
-          {Dex: "165", Ability: "Swarm"},
-          {Dex: "166", Ability: "Early Bird"},
-          {Dex: "166", Ability: "Swarm"},
-          {Dex: "167", Ability: "Insomnia"},
-          {Dex: "167", Ability: "Swarm"},
-          {Dex: "168", Ability: "Insomnia"},
-          {Dex: "168", Ability: "Swarm"},
-          {Dex: "169", Ability: "Inner Focus"},
-          {Dex: "17", Ability: "Keen Eye"},
-          {Dex: "17", Ability: "Tangled Feet"},
-          {Dex: "170", Ability: "Illuminate"},
-          {Dex: "170", Ability: "Volt Absorb"},
-          {Dex: "171", Ability: "Illuminate"},
-          {Dex: "171", Ability: "Volt Absorb"},
-          {Dex: "172", Ability: "Static"},
-          {Dex: "173", Ability: "Cute Charm"},
-          {Dex: "173", Ability: "Magic Guard"},
-          {Dex: "174", Ability: "Competitive"},
-          {Dex: "174", Ability: "Cute Charm"},
-          {Dex: "175", Ability: "Hustle"},
-          {Dex: "175", Ability: "Serene Grace"},
-          {Dex: "176", Ability: "Hustle"},
-          {Dex: "176", Ability: "Serene Grace"},
-          {Dex: "177", Ability: "Early Bird"},
-          {Dex: "177", Ability: "Synchronize"},
-          {Dex: "178", Ability: "Early Bird"},
-          {Dex: "178", Ability: "Synchronize"},
-          {Dex: "179", Ability: "Static"},
-          {Dex: "18", Ability: "Keen Eye"},
-          {Dex: "18", Ability: "Tangled Feet"},
-          {Dex: "180", Ability: "Static"},
-          {Dex: "181", Ability: "Static"},
-          {Dex: "182", Ability: "Chlorophyll"},
-          {Dex: "183", Ability: "Huge Power"},
-          {Dex: "183", Ability: "Thick Fat"},
-          {Dex: "184", Ability: "Huge Power"},
-          {Dex: "184", Ability: "Thick Fat"},
-          {Dex: "185", Ability: "Rock Head"},
-          {Dex: "185", Ability: "Sturdy"},
-          {Dex: "186", Ability: "Damp"},
-          {Dex: "186", Ability: "Water Absorb"},
-          {Dex: "187", Ability: "Chlorophyll"},
-          {Dex: "187", Ability: "Leaf Guard"},
-          {Dex: "188", Ability: "Chlorophyll"},
-          {Dex: "188", Ability: "Leaf Guard"},
-          {Dex: "189", Ability: "Chlorophyll"},
-          {Dex: "189", Ability: "Leaf Guard"},
-          {Dex: "19", Ability: "Guts"},
-          {Dex: "19", Ability: "Run Away"},
-          {Dex: "190", Ability: "Pickup"},
-          {Dex: "190", Ability: "Run Away"},
-          {Dex: "191", Ability: "Chlorophyll"},
-          {Dex: "191", Ability: "Solar Power"},
-          {Dex: "192", Ability: "Chlorophyll"},
-          {Dex: "192", Ability: "Solar Power"},
-          {Dex: "193", Ability: "Compound Eyes"},
-          {Dex: "193", Ability: "Speed Boost"},
-          {Dex: "194", Ability: "Damp"},
-          {Dex: "194", Ability: "Water Absorb"},
-          {Dex: "195", Ability: "Damp"},
-          {Dex: "195", Ability: "Water Absorb"},
-          {Dex: "196", Ability: "Synchronize"},
-          {Dex: "197", Ability: "Synchronize"},
-          {Dex: "198", Ability: "Insomnia"},
-          {Dex: "198", Ability: "Super Luck"},
-          {Dex: "199", Ability: "Oblivious"},
-          {Dex: "199", Ability: "Own Tempo"},
-          {Dex: "2", Ability: "Overgrow"},
-          {Dex: "20", Ability: "Guts"},
-          {Dex: "20", Ability: "Run Away"},
-          {Dex: "200", Ability: "Levitate"},
-          {Dex: "201", Ability: "Levitate"},
-          {Dex: "202", Ability: "Shadow Tag"},
-          {Dex: "203", Ability: "Early Bird"},
-          {Dex: "203", Ability: "Inner Focus"},
-          {Dex: "204", Ability: "Sturdy"},
-          {Dex: "205", Ability: "Sturdy"},
-          {Dex: "206", Ability: "Run Away"},
-          {Dex: "206", Ability: "Serene Grace"},
-          {Dex: "207", Ability: "Hyper Cutter"},
-          {Dex: "207", Ability: "Sand Veil"},
-          {Dex: "208", Ability: "Rock Head"},
-          {Dex: "208", Ability: "Sturdy"},
-          {Dex: "209", Ability: "Intimidate"},
-          {Dex: "209", Ability: "Run Away"},
-          {Dex: "21", Ability: "Keen Eye"},
-          {Dex: "210", Ability: "Intimidate"},
-          {Dex: "210", Ability: "Quick Feet"},
-          {Dex: "211", Ability: "Poison Point"},
-          {Dex: "211", Ability: "Swift Swim"},
-          {Dex: "212", Ability: "Swarm"},
-          {Dex: "212", Ability: "Technician"},
-          {Dex: "213", Ability: "Gluttony"},
-          {Dex: "213", Ability: "Sturdy"},
-          {Dex: "214", Ability: "Guts"},
-          {Dex: "214", Ability: "Swarm"},
-          {Dex: "215", Ability: "Inner Focus"},
-          {Dex: "215", Ability: "Keen Eye"},
-          {Dex: "216", Ability: "Pickup"},
-          {Dex: "216", Ability: "Quick Feet"},
-          {Dex: "217", Ability: "Guts"},
-          {Dex: "217", Ability: "Quick Feet"},
-          {Dex: "218", Ability: "Flame Body"},
-          {Dex: "218", Ability: "Magma Armor"},
-          {Dex: "219", Ability: "Flame Body"},
-          {Dex: "219", Ability: "Magma Armor"},
-          {Dex: "22", Ability: "Keen Eye"},
-          {Dex: "220", Ability: "Oblivious"},
-          {Dex: "220", Ability: "Snow Cloak"},
-          {Dex: "221", Ability: "Oblivious"},
-          {Dex: "221", Ability: "Snow Cloak"},
-          {Dex: "222", Ability: "Hustle"},
-          {Dex: "222", Ability: "Natural Cure"},
-          {Dex: "223", Ability: "Hustle"},
-          {Dex: "223", Ability: "Sniper"},
-          {Dex: "224", Ability: "Sniper"},
-          {Dex: "224", Ability: "Suction Cups"},
-          {Dex: "225", Ability: "Hustle"},
-          {Dex: "225", Ability: "Vital Spirit"},
-          {Dex: "226", Ability: "Swift Swim"},
-          {Dex: "226", Ability: "Water Absorb"},
-          {Dex: "227", Ability: "Keen Eye"},
-          {Dex: "227", Ability: "Sturdy"},
-          {Dex: "228", Ability: "Early Bird"},
-          {Dex: "228", Ability: "Flash Fire"},
-          {Dex: "229", Ability: "Early Bird"},
-          {Dex: "229", Ability: "Flash Fire"},
-          {Dex: "23", Ability: "Intimidate"},
-          {Dex: "23", Ability: "Shed Skin"},
-          {Dex: "230", Ability: "Sniper"},
-          {Dex: "230", Ability: "Swift Swim"},
-          {Dex: "231", Ability: "Pickup"},
-          {Dex: "232", Ability: "Sturdy"},
-          {Dex: "233", Ability: "Download"},
-          {Dex: "233", Ability: "Trace"},
-          {Dex: "234", Ability: "Frisk"},
-          {Dex: "234", Ability: "Intimidate"},
-          {Dex: "235", Ability: "Own Tempo"},
-          {Dex: "235", Ability: "Technician"},
-          {Dex: "236", Ability: "Guts"},
-          {Dex: "236", Ability: "Steadfast"},
-          {Dex: "237", Ability: "Intimidate"},
-          {Dex: "237", Ability: "Technician"},
-          {Dex: "238", Ability: "Forewarn"},
-          {Dex: "238", Ability: "Oblivious"},
-          {Dex: "239", Ability: "Static"},
-          {Dex: "24", Ability: "Intimidate"},
-          {Dex: "24", Ability: "Shed Skin"},
-          {Dex: "240", Ability: "Flame Body"},
-          {Dex: "241", Ability: "Scrappy"},
-          {Dex: "241", Ability: "Thick Fat"},
-          {Dex: "242", Ability: "Natural Cure"},
-          {Dex: "242", Ability: "Serene Grace"},
-          {Dex: "243", Ability: "Pressure"},
-          {Dex: "244", Ability: "Pressure"},
-          {Dex: "245", Ability: "Pressure"},
-          {Dex: "246", Ability: "Guts"},
-          {Dex: "247", Ability: "Shed Skin"},
-          {Dex: "248", Ability: "Sand Stream"},
-          {Dex: "249", Ability: "Pressure"},
-          {Dex: "25", Ability: "Static"},
-          {Dex: "250", Ability: "Pressure"},
-          {Dex: "251", Ability: "Natural Cure"},
-          {Dex: "252", Ability: "Overgrow"},
-          {Dex: "253", Ability: "Overgrow"},
-          {Dex: "254", Ability: "Overgrow"},
-          {Dex: "255", Ability: "Blaze"},
-          {Dex: "256", Ability: "Blaze"},
-          {Dex: "257", Ability: "Blaze"},
-          {Dex: "258", Ability: "Torrent"},
-          {Dex: "259", Ability: "Torrent"},
-          {Dex: "26", Ability: "Static"},
-          {Dex: "260", Ability: "Torrent"},
-          {Dex: "261", Ability: "Quick Feet"},
-          {Dex: "261", Ability: "Run Away"},
-          {Dex: "262", Ability: "Intimidate"},
-          {Dex: "262", Ability: "Quick Feet"},
-          {Dex: "263", Ability: "Gluttony"},
-          {Dex: "263", Ability: "Pickup"},
-          {Dex: "264", Ability: "Gluttony"},
-          {Dex: "264", Ability: "Pickup"},
-          {Dex: "265", Ability: "Shield Dust"},
-          {Dex: "266", Ability: "Shed Skin"},
-          {Dex: "267", Ability: "Swarm"},
-          {Dex: "268", Ability: "Shed Skin"},
-          {Dex: "269", Ability: "Shield Dust"},
-          {Dex: "27", Ability: "Sand Veil"},
-          {Dex: "270", Ability: "Rain Dish"},
-          {Dex: "270", Ability: "Swift Swim"},
-          {Dex: "271", Ability: "Rain Dish"},
-          {Dex: "271", Ability: "Swift Swim"},
-          {Dex: "272", Ability: "Rain Dish"},
-          {Dex: "272", Ability: "Swift Swim"},
-          {Dex: "273", Ability: "Chlorophyll"},
-          {Dex: "273", Ability: "Early Bird"},
-          {Dex: "274", Ability: "Chlorophyll"},
-          {Dex: "274", Ability: "Early Bird"},
-          {Dex: "275", Ability: "Chlorophyll"},
-          {Dex: "275", Ability: "Early Bird"},
-          {Dex: "276", Ability: "Guts"},
-          {Dex: "277", Ability: "Guts"},
-          {Dex: "278", Ability: "Hydration"},
-          {Dex: "278", Ability: "Keen Eye"},
-          {Dex: "279", Ability: "Drizzle"},
-          {Dex: "279", Ability: "Keen Eye"},
-          {Dex: "28", Ability: "Sand Veil"},
-          {Dex: "280", Ability: "Synchronize"},
-          {Dex: "280", Ability: "Trace"},
-          {Dex: "281", Ability: "Synchronize"},
-          {Dex: "281", Ability: "Trace"},
-          {Dex: "282", Ability: "Synchronize"},
-          {Dex: "282", Ability: "Trace"},
-          {Dex: "283", Ability: "Swift Swim"},
-          {Dex: "284", Ability: "Intimidate"},
-          {Dex: "285", Ability: "Effect Spore"},
-          {Dex: "285", Ability: "Poison Heal"},
-          {Dex: "286", Ability: "Effect Spore"},
-          {Dex: "286", Ability: "Poison Heal"},
-          {Dex: "287", Ability: "Truant"},
-          {Dex: "288", Ability: "Vital Spirit"},
-          {Dex: "289", Ability: "Truant"},
-          {Dex: "29", Ability: "Poison Point"},
-          {Dex: "29", Ability: "Rivalry"},
-          {Dex: "290", Ability: "Compound Eyes"},
-          {Dex: "291", Ability: "Speed Boost"},
-          {Dex: "292", Ability: "Wonder Guard"},
-          {Dex: "293", Ability: "Soundproof"},
-          {Dex: "294", Ability: "Soundproof"},
-          {Dex: "295", Ability: "Soundproof"},
-          {Dex: "296", Ability: "Guts"},
-          {Dex: "296", Ability: "Thick Fat"},
-          {Dex: "297", Ability: "Guts"},
-          {Dex: "297", Ability: "Thick Fat"},
-          {Dex: "298", Ability: "Huge Power"},
-          {Dex: "298", Ability: "Thick Fat"},
-          {Dex: "299", Ability: "Magnet Pull"},
-          {Dex: "299", Ability: "Sturdy"},
-          {Dex: "3", Ability: "Overgrow"},
-          {Dex: "30", Ability: "Poison Point"},
-          {Dex: "30", Ability: "Rivalry"},
-          {Dex: "300", Ability: "Cute Charm"},
-          {Dex: "300", Ability: "Normalize"},
-          {Dex: "301", Ability: "Cute Charm"},
-          {Dex: "301", Ability: "Normalize"},
-          {Dex: "302", Ability: "Keen Eye"},
-          {Dex: "302", Ability: "Stall"},
-          {Dex: "303", Ability: "Hyper Cutter"},
-          {Dex: "303", Ability: "Intimidate"},
-          {Dex: "304", Ability: "Rock Head"},
-          {Dex: "304", Ability: "Sturdy"},
-          {Dex: "305", Ability: "Rock Head"},
-          {Dex: "305", Ability: "Sturdy"},
-          {Dex: "306", Ability: "Rock Head"},
-          {Dex: "306", Ability: "Sturdy"},
-          {Dex: "307", Ability: "Pure Power"},
-          {Dex: "308", Ability: "Pure Power"},
-          {Dex: "309", Ability: "Lightning Rod"},
-          {Dex: "309", Ability: "Static"},
-          {Dex: "31", Ability: "Poison Point"},
-          {Dex: "31", Ability: "Rivalry"},
-          {Dex: "310", Ability: "Lightning Rod"},
-          {Dex: "310", Ability: "Static"},
-          {Dex: "311", Ability: "Plus"},
-          {Dex: "312", Ability: "Minus"},
-          {Dex: "313", Ability: "Illuminate"},
-          {Dex: "313", Ability: "Swarm"},
-          {Dex: "314", Ability: "Oblivious"},
-          {Dex: "314", Ability: "Tinted Lens"},
-          {Dex: "315", Ability: "Natural Cure"},
-          {Dex: "315", Ability: "Poison Point"},
-          {Dex: "316", Ability: "Liquid Ooze"},
-          {Dex: "316", Ability: "Sticky Hold"},
-          {Dex: "317", Ability: "Liquid Ooze"},
-          {Dex: "317", Ability: "Sticky Hold"},
-          {Dex: "318", Ability: "Rough Skin"},
-          {Dex: "319", Ability: "Rough Skin"},
-          {Dex: "32", Ability: "Poison Point"},
-          {Dex: "32", Ability: "Rivalry"},
-          {Dex: "320", Ability: "Oblivious"},
-          {Dex: "320", Ability: "Water Veil"},
-          {Dex: "321", Ability: "Oblivious"},
-          {Dex: "321", Ability: "Water Veil"},
-          {Dex: "322", Ability: "Oblivious"},
-          {Dex: "322", Ability: "Simple"},
-          {Dex: "323", Ability: "Magma Armor"},
-          {Dex: "323", Ability: "Solid Rock"},
-          {Dex: "324", Ability: "Drought"},
-          {Dex: "324", Ability: "White Smoke"},
-          {Dex: "325", Ability: "Own Tempo"},
-          {Dex: "325", Ability: "Thick Fat"},
-          {Dex: "326", Ability: "Own Tempo"},
-          {Dex: "326", Ability: "Thick Fat"},
-          {Dex: "327", Ability: "Own Tempo"},
-          {Dex: "327", Ability: "Tangled Feet"},
-          {Dex: "328", Ability: "Arena Trap"},
-          {Dex: "328", Ability: "Hyper Cutter"},
-          {Dex: "329", Ability: "Levitate"},
-          {Dex: "33", Ability: "Poison Point"},
-          {Dex: "33", Ability: "Rivalry"},
-          {Dex: "330", Ability: "Levitate"},
-          {Dex: "331", Ability: "Sand Veil"},
-          {Dex: "332", Ability: "Sand Veil"},
-          {Dex: "333", Ability: "Natural Cure"},
-          {Dex: "334", Ability: "Natural Cure"},
-          {Dex: "335", Ability: "Immunity"},
-          {Dex: "336", Ability: "Shed Skin"},
-          {Dex: "337", Ability: "Levitate"},
-          {Dex: "338", Ability: "Levitate"},
-          {Dex: "339", Ability: "Anticipation"},
-          {Dex: "339", Ability: "Oblivious"},
-          {Dex: "34", Ability: "Poison Point"},
-          {Dex: "34", Ability: "Rivalry"},
-          {Dex: "340", Ability: "Anticipation"},
-          {Dex: "340", Ability: "Oblivious"},
-          {Dex: "341", Ability: "Hyper Cutter"},
-          {Dex: "341", Ability: "Shell Armor"},
-          {Dex: "342", Ability: "Hyper Cutter"},
-          {Dex: "342", Ability: "Shell Armor"},
-          {Dex: "343", Ability: "Levitate"},
-          {Dex: "344", Ability: "Levitate"},
-          {Dex: "345", Ability: "Suction Cups"},
-          {Dex: "346", Ability: "Suction Cups"},
-          {Dex: "347", Ability: "Battle Armor"},
-          {Dex: "348", Ability: "Battle Armor"},
-          {Dex: "349", Ability: "Oblivious"},
-          {Dex: "349", Ability: "Swift Swim"},
-          {Dex: "35", Ability: "Cute Charm"},
-          {Dex: "35", Ability: "Magic Guard"},
-          {Dex: "350", Ability: "Competitive"},
-          {Dex: "350", Ability: "Marvel Scale"},
-          {Dex: "351", Ability: "Forecast"},
-          {Dex: "352", Ability: "Color Change"},
-          {Dex: "353", Ability: "Frisk"},
-          {Dex: "353", Ability: "Insomnia"},
-          {Dex: "354", Ability: "Frisk"},
-          {Dex: "354", Ability: "Insomnia"},
-          {Dex: "355", Ability: "Levitate"},
-          {Dex: "356", Ability: "Pressure"},
-          {Dex: "357", Ability: "Chlorophyll"},
-          {Dex: "357", Ability: "Solar Power"},
-          {Dex: "358", Ability: "Levitate"},
-          {Dex: "359", Ability: "Pressure"},
-          {Dex: "359", Ability: "Super Luck"},
-          {Dex: "36", Ability: "Cute Charm"},
-          {Dex: "36", Ability: "Magic Guard"},
-          {Dex: "360", Ability: "Shadow Tag"},
-          {Dex: "361", Ability: "Ice Body"},
-          {Dex: "361", Ability: "Inner Focus"},
-          {Dex: "362", Ability: "Ice Body"},
-          {Dex: "362", Ability: "Inner Focus"},
-          {Dex: "363", Ability: "Ice Body"},
-          {Dex: "363", Ability: "Thick Fat"},
-          {Dex: "364", Ability: "Ice Body"},
-          {Dex: "364", Ability: "Thick Fat"},
-          {Dex: "365", Ability: "Ice Body"},
-          {Dex: "365", Ability: "Thick Fat"},
-          {Dex: "366", Ability: "Shell Armor"},
-          {Dex: "367", Ability: "Swift Swim"},
-          {Dex: "368", Ability: "Swift Swim"},
-          {Dex: "369", Ability: "Rock Head"},
-          {Dex: "369", Ability: "Swift Swim"},
-          {Dex: "37", Ability: "Flash Fire"},
-          {Dex: "370", Ability: "Swift Swim"},
-          {Dex: "371", Ability: "Rock Head"},
-          {Dex: "372", Ability: "Rock Head"},
-          {Dex: "373", Ability: "Intimidate"},
-          {Dex: "374", Ability: "Clear Body"},
-          {Dex: "375", Ability: "Clear Body"},
-          {Dex: "376", Ability: "Clear Body"},
-          {Dex: "377", Ability: "Clear Body"},
-          {Dex: "378", Ability: "Clear Body"},
-          {Dex: "379", Ability: "Clear Body"},
-          {Dex: "38", Ability: "Flash Fire"},
-          {Dex: "380", Ability: "Levitate"},
-          {Dex: "381", Ability: "Levitate"},
-          {Dex: "382", Ability: "Drizzle"},
-          {Dex: "383", Ability: "Drought"},
-          {Dex: "384", Ability: "Air Lock"},
-          {Dex: "385", Ability: "Serene Grace"},
-          {Dex: "386", Ability: "Pressure"},
-          {Dex: "39", Ability: "Competitive"},
-          {Dex: "39", Ability: "Cute Charm"},
-          {Dex: "4", Ability: "Blaze"},
-          {Dex: "40", Ability: "Competitive"},
-          {Dex: "40", Ability: "Cute Charm"},
-          {Dex: "41", Ability: "Inner Focus"},
-          {Dex: "42", Ability: "Inner Focus"},
-          {Dex: "43", Ability: "Chlorophyll"},
-          {Dex: "44", Ability: "Chlorophyll"},
-          {Dex: "45", Ability: "Chlorophyll"},
-          {Dex: "46", Ability: "Dry Skin"},
-          {Dex: "46", Ability: "Effect Spore"},
-          {Dex: "47", Ability: "Dry Skin"},
-          {Dex: "47", Ability: "Effect Spore"},
-          {Dex: "48", Ability: "Compound Eyes"},
-          {Dex: "48", Ability: "Tinted Lens"},
-          {Dex: "49", Ability: "Shield Dust"},
-          {Dex: "49", Ability: "Tinted Lens"},
-          {Dex: "5", Ability: "Blaze"},
-          {Dex: "50", Ability: "Arena Trap"},
-          {Dex: "50", Ability: "Sand Veil"},
-          {Dex: "51", Ability: "Arena Trap"},
-          {Dex: "51", Ability: "Sand Veil"},
-          {Dex: "52", Ability: "Pickup"},
-          {Dex: "52", Ability: "Technician"},
-          {Dex: "53", Ability: "Limber"},
-          {Dex: "53", Ability: "Technician"},
-          {Dex: "54", Ability: "Cloud Nine"},
-          {Dex: "54", Ability: "Damp"},
-          {Dex: "55", Ability: "Cloud Nine"},
-          {Dex: "55", Ability: "Damp"},
-          {Dex: "56", Ability: "Anger Point"},
-          {Dex: "56", Ability: "Vital Spirit"},
-          {Dex: "57", Ability: "Anger Point"},
-          {Dex: "57", Ability: "Vital Spirit"},
-          {Dex: "58", Ability: "Flash Fire"},
-          {Dex: "58", Ability: "Intimidate"},
-          {Dex: "59", Ability: "Flash Fire"},
-          {Dex: "59", Ability: "Intimidate"},
-          {Dex: "6", Ability: "Blaze"},
-          {Dex: "60", Ability: "Damp"},
-          {Dex: "60", Ability: "Water Absorb"},
-          {Dex: "61", Ability: "Damp"},
-          {Dex: "61", Ability: "Water Absorb"},
-          {Dex: "62", Ability: "Damp"},
-          {Dex: "62", Ability: "Water Absorb"},
-          {Dex: "63", Ability: "Inner Focus"},
-          {Dex: "63", Ability: "Synchronize"},
-          {Dex: "64", Ability: "Inner Focus"},
-          {Dex: "64", Ability: "Synchronize"},
-          {Dex: "65", Ability: "Inner Focus"},
-          {Dex: "65", Ability: "Synchronize"},
-          {Dex: "66", Ability: "Guts"},
-          {Dex: "66", Ability: "No Guard"},
-          {Dex: "67", Ability: "Guts"},
-          {Dex: "67", Ability: "No Guard"},
-          {Dex: "68", Ability: "Guts"},
-          {Dex: "68", Ability: "No Guard"},
-          {Dex: "69", Ability: "Chlorophyll"},
-          {Dex: "7", Ability: "Torrent"},
-          {Dex: "70", Ability: "Chlorophyll"},
-          {Dex: "71", Ability: "Chlorophyll"},
-          {Dex: "72", Ability: "Clear Body"},
-          {Dex: "72", Ability: "Liquid Ooze"},
-          {Dex: "73", Ability: "Clear Body"},
-          {Dex: "73", Ability: "Liquid Ooze"},
-          {Dex: "74", Ability: "Rock Head"},
-          {Dex: "74", Ability: "Sturdy"},
-          {Dex: "75", Ability: "Rock Head"},
-          {Dex: "75", Ability: "Sturdy"},
-          {Dex: "76", Ability: "Rock Head"},
-          {Dex: "76", Ability: "Sturdy"},
-          {Dex: "77", Ability: "Flash Fire"},
-          {Dex: "77", Ability: "Run Away"},
-          {Dex: "78", Ability: "Flash Fire"},
-          {Dex: "78", Ability: "Run Away"},
-          {Dex: "79", Ability: "Oblivious"},
-          {Dex: "79", Ability: "Own Tempo"},
-          {Dex: "8", Ability: "Torrent"},
-          {Dex: "80", Ability: "Oblivious"},
-          {Dex: "80", Ability: "Own Tempo"},
-          {Dex: "81", Ability: "Magnet Pull"},
-          {Dex: "81", Ability: "Sturdy"},
-          {Dex: "82", Ability: "Magnet Pull"},
-          {Dex: "82", Ability: "Sturdy"},
-          {Dex: "83", Ability: "Inner Focus"},
-          {Dex: "83", Ability: "Keen Eye"},
-          {Dex: "84", Ability: "Early Bird"},
-          {Dex: "84", Ability: "Run Away"},
-          {Dex: "85", Ability: "Early Bird"},
-          {Dex: "85", Ability: "Run Away"},
-          {Dex: "86", Ability: "Hydration"},
-          {Dex: "86", Ability: "Thick Fat"},
-          {Dex: "87", Ability: "Hydration"},
-          {Dex: "87", Ability: "Thick Fat"},
-          {Dex: "88", Ability: "Stench"},
-          {Dex: "88", Ability: "Sticky Hold"},
-          {Dex: "89", Ability: "Stench"},
-          {Dex: "89", Ability: "Sticky Hold"},
-          {Dex: "9", Ability: "Torrent"},
-          {Dex: "90", Ability: "Shell Armor"},
-          {Dex: "90", Ability: "Skill Link"},
-          {Dex: "91", Ability: "Shell Armor"},
-          {Dex: "91", Ability: "Skill Link"},
-          {Dex: "92", Ability: "Levitate"},
-          {Dex: "93", Ability: "Levitate"},
-          {Dex: "94", Ability: "Cursed Body"},
-          {Dex: "95", Ability: "Rock Head"},
-          {Dex: "95", Ability: "Sturdy"},
-          {Dex: "96", Ability: "Forewarn"},
-          {Dex: "96", Ability: "Insomnia"},
-          {Dex: "97", Ability: "Forewarn"},
-          {Dex: "97", Ability: "Insomnia"},
-          {Dex: "98", Ability: "Hyper Cutter"},
-          {Dex: "98", Ability: "Shell Armor"},
-          {Dex: "99", Ability: "Hyper Cutter"},
-          {Dex: "99", Ability: "Shell Armor"}
+        {Ability: "Which Ability are you looking for?"},//default value
+
+        {
+            "Ability": "Overgrow"
+        },
+        {
+            "Ability": "Shield Dust"
+        },
+        {
+            "Ability": "Soundproof"
+        },
+        {
+            "Ability": "Static"
+        },
+        {
+            "Ability": "Chlorophyll"
+        },
+        {
+            "Ability": "Lightning Rod"
+        },
+        {
+            "Ability": "Rock Head"
+        },
+        {
+            "Ability": "Limber"
+        },
+        {
+            "Ability": "Reckless"
+        },
+        {
+            "Ability": "Iron Fist"
+        },
+        {
+            "Ability": "Keen Eye"
+        },
+        {
+            "Ability": "Oblivious"
+        },
+        {
+            "Ability": "Own Tempo"
+        },
+        {
+            "Ability": "Levitate"
+        },
+        {
+            "Ability": "Neutralizing Gas"
+        },
+        {
+            "Ability": "Shed Skin"
+        },
+        {
+            "Ability": "Natural Cure"
+        },
+        {
+            "Ability": "Serene Grace"
+        },
+        {
+            "Ability": "Leaf Guard"
+        },
+        {
+            "Ability": "Early Bird"
+        },
+        {
+            "Ability": "Scrappy"
+        },
+        {
+            "Ability": "Sniper"
+        },
+        {
+            "Ability": "Swift Swim"
+        },
+        {
+            "Ability": "Poison Point"
+        },
+        {
+            "Ability": "Water Veil"
+        },
+        {
+            "Ability": "Compound Eyes"
+        },
+        {
+            "Ability": "Illuminate"
+        },
+        {
+            "Ability": "Filter"
+        },
+        {
+            "Ability": "Swarm"
+        },
+        {
+            "Ability": "Technician"
+        },
+        {
+            "Ability": "Forewarn"
+        },
+        {
+            "Ability": "Flame Body"
+        },
+        {
+            "Ability": "Hyper Cutter"
+        },
+        {
+            "Ability": "Mold Breaker"
+        },
+        {
+            "Ability": "Anger Point"
+        },
+        {
+            "Ability": "Intimidate"
+        },
+        {
+            "Ability": "Shell Armor"
+        },
+        {
+            "Ability": "Water Absorb"
+        },
+        {
+            "Ability": "Adaptability"
+        },
+        {
+            "Ability": "Run Away"
+        },
+        {
+            "Ability": "Volt Absorb"
+        },
+        {
+            "Ability": "Flash Fire"
+        },
+        {
+            "Ability": "Download"
+        },
+        {
+            "Ability": "Trace"
+        },
+        {
+            "Ability": "Battle Armor"
+        },
+        {
+            "Ability": "Pressure"
+        },
+        {
+            "Ability": "Immunity"
+        },
+        {
+            "Ability": "Thick Fat"
+        },
+        {
+            "Ability": "Inner Focus"
+        },
+        {
+            "Ability": "Synchronize"
+        },
+        {
+            "Ability": "Blaze"
+        },
+        {
+            "Ability": "Torrent"
+        },
+        {
+            "Ability": "Tangled Feet"
+        },
+        {
+            "Ability": "Insomnia"
+        },
+        {
+            "Ability": "Cute Charm"
+        },
+        {
+            "Ability": "Magic Guard"
+        },
+        {
+            "Ability": "Competitive"
+        },
+        {
+            "Ability": "Hustle"
+        },
+        {
+            "Ability": "Huge Power"
+        },
+        {
+            "Ability": "Sturdy"
+        },
+        {
+            "Ability": "Damp"
+        },
+        {
+            "Ability": "Guts"
+        },
+        {
+            "Ability": "Pickup"
+        },
+        {
+            "Ability": "Solar Power"
+        },
+        {
+            "Ability": "Speed Boost"
+        },
+        {
+            "Ability": "Super Luck"
+        },
+        {
+            "Ability": "Shadow Tag"
+        },
+        {
+            "Ability": "Sand Veil"
+        },
+        {
+            "Ability": "Quick Feet"
+        },
+        {
+            "Ability": "Gluttony"
+        },
+        {
+            "Ability": "Magma Armor"
+        },
+        {
+            "Ability": "Snow Cloak"
+        },
+        {
+            "Ability": "Suction Cups"
+        },
+        {
+            "Ability": "Vital Spirit"
+        },
+        {
+            "Ability": "Frisk"
+        },
+        {
+            "Ability": "Steadfast"
+        },
+        {
+            "Ability": "Sand Stream"
+        },
+        {
+            "Ability": "Rain Dish"
+        },
+        {
+            "Ability": "Hydration"
+        },
+        {
+            "Ability": "Drizzle"
+        },
+        {
+            "ability": "Effect Spore"
+        },
+        {
+            "ability": "Poison Heal"
+        },
+        {
+            "ability": "Truant"
+        },
+        {
+            "ability": "Wonder Guard"
+        },
+        {
+            "ability": "Magnet Pull"
+        },
+        {
+            "ability": "Normalize"
+        },
+        {
+            "ability": "Stall"
+        },
+        {
+            "Ability": "Pure Power"
+        },
+        {
+            "Ability": "Rivalry"
+        },
+        {
+            "Ability": "Plus"
+        },
+        {
+            "Ability": "Minus"
+        },
+        {
+            "Ability": "Tinted Lens"
+        },
+        {
+            "Ability": "Liquid Ooze"
+        },
+        {
+            "Ability": "Sticky Hold"
+        },
+        {
+            "Ability": "Rough Skin"
+        },
+        {
+            "Ability": "Simple"
+        },
+        {
+            "Ability": "Solid Rock"
+        },
+        {
+            "Ability": "Drought"
+        },
+        {
+            "Ability": "White Smoke"
+        },
+        {
+            "Ability": "Arena Trap"
+        },
+        {
+            "Ability": "Anticipation"
+        },
+        {
+            "Ability": "Marvel Scale"
+        },
+        {
+            "Ability": "Forecast"
+        },
+        {
+            "Ability": "Color Change"
+        },
+        {
+            "Ability": "Ice Body"
+        },
+        {
+            "Ability": "Clear Body"
+        },
+        {
+            "Ability": "Air Lock"
+        },
+        {
+            "Ability": "Dry Skin"
+        },
+        {
+            "Ability": "Cloud Nine"
+        },
+        {
+            "Ability": "No Guard"
+        },
+        {
+            "Ability": "Stench"
+        },
+        {
+            "Ability": "Skill Link"
+        },
+        {
+            "Ability": "Cursed Body"
+        }
         ],
 
+        selectSecondType: {TypeName: '0', Category: '0'},
         selectType: {TypeName: '0', Category: '0'},
         types:[
+        {TypeName: "Which Type are you looking for?"},//default value
           {TypeName: "???", Category: ""},
           {TypeName: "Bug", Category: "Physical"},
           {TypeName: "Dark", Category: "Special"},
@@ -1132,6 +981,11 @@
         
         selectTrainer: {TrainerName: "0", TrainerClass: '0'},
         trainers:[
+        {
+            TID: "-1",
+            TrainerName: "Which Trainer are you looking for?",
+            TrainerClass: "Which Trainer Class are you looking for?"
+        },       
         {
             TID: "1",
             TrainerName: "Thalia",
@@ -3599,8 +3453,11 @@
         }
         ],
 
-        selectPokemon:{PokemonName: '0'},
+        selectPokemon:{PokemonName: null},
         pokemon: [
+        {
+            PokemonName: "Which Pokemon are you looking for?",
+        },
         {
             Dex: "1",
             PokemonName: "Bulbasaur",
@@ -10937,13185 +10794,3357 @@
         }
         ],
 
-        //dunno y 3 values
-        selectEffectiveness:{},
-        effectiveness: [
-        {
-            "Attacker": "???",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Steel",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "???",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Dark",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Fighting",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Fire",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Flying",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Ghost",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Grass",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Poison",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Psychic",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Bug",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Dark",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Fighting",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Ghost",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Psychic",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Steel",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dark",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Dragon",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Dragon",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Dragon",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Electric",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Flying",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Grass",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Ground",
-            "Quality": "0.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Steel",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Electric",
-            "Defender": "Water",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Bug",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Dark",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Flying",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Ghost",
-            "Quality": "0.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Ice",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Normal",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Poison",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Psychic",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Rock",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Steel",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fighting",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Bug",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Dragon",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Fire",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Grass",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Ice",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Rock",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Steel",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Fire",
-            "Defender": "Water",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Bug",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Electric",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Fighting",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Grass",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Rock",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Flying",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Dark",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Ghost",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Normal",
-            "Quality": "0.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Psychic",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Steel",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ghost",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Bug",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Dragon",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Fire",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Flying",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Grass",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Ground",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Poison",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Rock",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Grass",
-            "Defender": "Water",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Bug",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Electric",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Fire",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Flying",
-            "Quality": "0.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Grass",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Poison",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Rock",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Steel",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ground",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Dragon",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Fire",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Flying",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Grass",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Ground",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Ice",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Ice",
-            "Defender": "Water",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Ghost",
-            "Quality": "0.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Rock",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Normal",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Ghost",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Grass",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Ground",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Poison",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Rock",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Steel",
-            "Quality": "0.0"
-        },
-        {
-            "Attacker": "Poison",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Dark",
-            "Quality": "0.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Fighting",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Fire",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Poison",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Psychic",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Psychic",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Bug",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Fighting",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Fire",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Flying",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Ground",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Ice",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Rock",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Rock",
-            "Defender": "Water",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Dragon",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Electric",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Fire",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Grass",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Ground",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Ice",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Rock",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Steel",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Steel",
-            "Defender": "Water",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "???",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Bug",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Dark",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Dragon",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Electric",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Fighting",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Fire",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Flying",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Ghost",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Grass",
-            "Quality": "0.5"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Ground",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Ice",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Normal",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Poison",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Psychic",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Rock",
-            "Quality": "2.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Steel",
-            "Quality": "1.0"
-        },
-        {
-            "Attacker": "Water",
-            "Defender": "Water",
-            "Quality": "0.5"
-        }
-        ],
-
-        selectEggGroups:{},
+        selectEggGroup:{GroupName: null},
         egggroups: [
+        {GroupName: "Which Egg Group are you looking for?"},
         {
-            "Dex": "1",
             "GroupName": "Grass"
         },
         {
-            "Dex": "1",
             "GroupName": "Monster"
         },
         {
-            "Dex": "10",
             "GroupName": "Bug"
         },
         {
-            "Dex": "100",
             "GroupName": "Mineral"
         },
         {
-            "Dex": "101",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "102",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "103",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "104",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "105",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "106",
             "GroupName": "Human-Like"
         },
         {
-            "Dex": "107",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "108",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "109",
             "GroupName": "Amorphous"
         },
         {
-            "Dex": "11",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "110",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "111",
             "GroupName": "Field"
         },
         {
-            "Dex": "111",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "112",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "112",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "113",
             "GroupName": "Fairy"
         },
         {
-            "Dex": "114",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "115",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "116",
             "GroupName": "Dragon"
         },
         {
-            "Dex": "116",
             "GroupName": "Water 1"
         },
         {
-            "Dex": "117",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "117",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "118",
             "GroupName": "Water 2"
         },
         {
-            "Dex": "119",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "12",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "120",
             "GroupName": "Water 3"
         },
         {
-            "Dex": "121",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "122",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "123",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "124",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "125",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "126",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "127",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "128",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "129",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "129",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "13",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "130",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "130",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "131",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "131",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "132",
             "GroupName": "Ditto"
         },
         {
-            "Dex": "133",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "134",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "135",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "136",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "137",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "138",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "138",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "139",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "139",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "14",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "140",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "140",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "141",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "141",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "142",
             "GroupName": "Flying"
         },
         {
-            "Dex": "143",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "144",
             "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "145",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "146",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "147",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "147",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "148",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "148",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "149",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "149",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "15",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "150",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "151",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "152",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "152",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "153",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "153",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "154",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "154",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "155",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "156",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "157",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "158",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "158",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "159",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "159",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "16",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "160",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "160",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "161",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "162",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "163",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "164",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "165",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "166",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "167",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "168",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "169",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "17",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "170",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "171",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "172",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "173",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "174",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "175",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "176",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "176",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "177",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "178",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "179",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "179",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "18",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "180",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "180",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "181",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "181",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "182",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "183",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "183",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "184",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "184",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "185",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "186",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "187",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "187",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "188",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "188",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "189",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "189",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "19",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "190",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "191",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "192",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "193",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "194",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "194",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "195",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "195",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "196",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "197",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "198",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "199",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "199",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "2",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "2",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "20",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "200",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "201",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "202",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "203",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "204",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "205",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "206",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "207",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "208",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "209",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "209",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "21",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "210",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "210",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "211",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "212",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "213",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "214",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "215",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "216",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "217",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "218",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "219",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "22",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "220",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "221",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "222",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "222",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "223",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "223",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "224",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "224",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "225",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "225",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "226",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "227",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "228",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "229",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "23",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "23",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "230",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "230",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "231",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "232",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "233",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "234",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "235",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "236",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "237",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "238",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "239",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "24",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "24",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "240",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "241",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "242",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "243",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "244",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "245",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "246",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "247",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "248",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "249",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "25",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "25",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "250",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "251",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "252",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "252",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "253",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "253",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "254",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "254",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "255",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "256",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "257",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "258",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "258",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "259",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "259",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "26",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "26",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "260",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "260",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "261",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "262",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "263",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "264",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "265",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "266",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "267",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "268",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "269",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "27",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "270",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "270",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "271",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "271",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "272",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "272",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "273",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "273",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "274",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "274",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "275",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "275",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "276",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "277",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "278",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "278",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "279",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "279",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "28",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "280",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "280",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "281",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "281",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "282",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "282",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "283",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "283",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "284",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "284",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "285",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "285",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "286",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "286",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "287",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "288",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "289",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "29",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "29",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "290",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "291",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "292",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "293",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "293",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "294",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "294",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "295",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "295",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "296",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "297",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "298",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "299",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "3",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "3",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "30",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "300",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "300",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "301",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "301",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "302",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "303",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "303",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "304",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "305",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "306",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "307",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "308",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "309",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "31",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "310",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "311",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "312",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "313",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "313",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "314",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "314",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "315",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "315",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "316",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "317",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "318",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "319",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "32",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "32",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "320",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "320",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "321",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "321",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "322",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "323",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "324",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "325",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "326",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "327",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "327",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "328",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "328",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "329",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "329",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "33",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "33",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "330",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "330",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "331",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "331",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "332",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "332",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "333",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "333",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "334",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "334",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "335",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "336",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "336",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "337",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "338",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "339",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "34",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "34",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "340",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "341",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "341",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "342",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "342",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "343",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "344",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "345",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "346",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "347",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "348",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "349",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "349",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "35",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "350",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "350",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "351",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "351",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "352",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "353",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "354",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "355",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "356",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "357",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "357",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "358",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "359",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "36",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "360",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "361",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "361",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "362",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "362",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "363",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "363",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "364",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "364",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "365",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "365",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "366",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "367",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "368",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "369",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "369",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "37",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "370",
-            "GroupName": "Water 2"
-        },
-        {
-            "Dex": "371",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "372",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "373",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "374",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "375",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "376",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "377",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "378",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "379",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "38",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "380",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "381",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "382",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "383",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "384",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "385",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "386",
-            "GroupName": "Undiscovered"
-        },
-        {
-            "Dex": "39",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "4",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "4",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "40",
-            "GroupName": "Fairy"
-        },
-        {
-            "Dex": "41",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "42",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "43",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "44",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "45",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "46",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "46",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "47",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "47",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "48",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "49",
-            "GroupName": "Bug"
-        },
-        {
-            "Dex": "5",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "5",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "50",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "51",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "52",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "53",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "54",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "54",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "55",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "55",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "56",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "57",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "58",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "59",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "6",
-            "GroupName": "Dragon"
-        },
-        {
-            "Dex": "6",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "60",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "61",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "62",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "63",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "64",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "65",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "66",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "67",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "68",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "69",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "7",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "7",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "70",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "71",
-            "GroupName": "Grass"
-        },
-        {
-            "Dex": "72",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "73",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "74",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "75",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "76",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "77",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "78",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "79",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "79",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "8",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "8",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "80",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "80",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "81",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "82",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "83",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "83",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "84",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "85",
-            "GroupName": "Flying"
-        },
-        {
-            "Dex": "86",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "86",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "87",
-            "GroupName": "Field"
-        },
-        {
-            "Dex": "87",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "88",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "89",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "9",
-            "GroupName": "Monster"
-        },
-        {
-            "Dex": "9",
-            "GroupName": "Water 1"
-        },
-        {
-            "Dex": "90",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "91",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "92",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "93",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "94",
-            "GroupName": "Amorphous"
-        },
-        {
-            "Dex": "95",
-            "GroupName": "Mineral"
-        },
-        {
-            "Dex": "96",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "97",
-            "GroupName": "Human-Like"
-        },
-        {
-            "Dex": "98",
-            "GroupName": "Water 3"
-        },
-        {
-            "Dex": "99",
-            "GroupName": "Water 3"
         }
         ],
 
-        //dunno if used?
-        selectFoughtAt:{},
-        foughtat: [
-        {
-            "TID": "1",
-            "LocationName": "Abandoned Ship"
-        },
-        {
-            "TID": "10",
-            "LocationName": "Ever Grande City"
-        },
-        {
-            "TID": "100",
-            "LocationName": "Hoenn Route 112"
-        },
-        {
-            "TID": "101",
-            "LocationName": "Hoenn Route 112"
-        },
-        {
-            "TID": "102",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "103",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "104",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "105",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "106",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "107",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "108",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "109",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "11",
-            "LocationName": "Ever Grande City"
-        },
-        {
-            "TID": "110",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "111",
-            "LocationName": "Hoenn Route 113"
-        },
-        {
-            "TID": "112",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "113",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "114",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "115",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "116",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "117",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "118",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "119",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "12",
-            "LocationName": "Ever Grande City"
-        },
-        {
-            "TID": "120",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "121",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "122",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "123",
-            "LocationName": "Hoenn Route 114"
-        },
-        {
-            "TID": "124",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "125",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "126",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "127",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "128",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "129",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "13",
-            "LocationName": "Hoenn Route 102"
-        },
-        {
-            "TID": "130",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "131",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "132",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "133",
-            "LocationName": "Hoenn Route 115"
-        },
-        {
-            "TID": "134",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "135",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "136",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "137",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "138",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "139",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "14",
-            "LocationName": "Hoenn Route 102"
-        },
-        {
-            "TID": "140",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "141",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "142",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "143",
-            "LocationName": "Hoenn Route 116"
-        },
-        {
-            "TID": "144",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "145",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "146",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "147",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "148",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "149",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "15",
-            "LocationName": "Hoenn Route 102"
-        },
-        {
-            "TID": "150",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "151",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "152",
-            "LocationName": "Hoenn Route 117"
-        },
-        {
-            "TID": "153",
-            "LocationName": "Hoenn Route 118"
-        },
-        {
-            "TID": "154",
-            "LocationName": "Hoenn Route 118"
-        },
-        {
-            "TID": "155",
-            "LocationName": "Hoenn Route 118"
-        },
-        {
-            "TID": "156",
-            "LocationName": "Hoenn Route 118"
-        },
-        {
-            "TID": "157",
-            "LocationName": "Hoenn Route 118"
-        },
-        {
-            "TID": "158",
-            "LocationName": "Hoenn Route 118"
-        },
-        {
-            "TID": "159",
-            "LocationName": "Hoenn Route 118"
-        },
-        {
-            "TID": "16",
-            "LocationName": "Hoenn Route 102"
-        },
-        {
-            "TID": "160",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "161",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "162",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "163",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "164",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "165",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "166",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "167",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "168",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "169",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "17",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "17",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "17",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "17",
-            "LocationName": "Lilycove City"
-        },
-        {
-            "TID": "17",
-            "LocationName": "Rustboro City"
-        },
-        {
-            "TID": "170",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "171",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "172",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "173",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "174",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "175",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "176",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "177",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "178",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "179",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "18",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "18",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "18",
-            "LocationName": "Hoenn Route 119"
-        },
-        {
-            "TID": "18",
-            "LocationName": "Lilycove City"
-        },
-        {
-            "TID": "18",
-            "LocationName": "Rustboro City"
-        },
-        {
-            "TID": "180",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "181",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "182",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "183",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "184",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "185",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "186",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "187",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "188",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "189",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "19",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "190",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "191",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "192",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "193",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "194",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "195",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "196",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "197",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "198",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "199",
-            "LocationName": "Hoenn Route 121"
-        },
-        {
-            "TID": "2",
-            "LocationName": "Abandoned Ship"
-        },
-        {
-            "TID": "20",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "200",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "201",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "202",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "203",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "204",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "205",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "206",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "207",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "208",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "209",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "21",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "210",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "211",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "212",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "213",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "214",
-            "LocationName": "Hoenn Route 123"
-        },
-        {
-            "TID": "215",
-            "LocationName": "Hoenn Route 124"
-        },
-        {
-            "TID": "216",
-            "LocationName": "Hoenn Route 124"
-        },
-        {
-            "TID": "217",
-            "LocationName": "Hoenn Route 124"
-        },
-        {
-            "TID": "218",
-            "LocationName": "Hoenn Route 124"
-        },
-        {
-            "TID": "219",
-            "LocationName": "Hoenn Route 124"
-        },
-        {
-            "TID": "22",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "220",
-            "LocationName": "Hoenn Route 124"
-        },
-        {
-            "TID": "221",
-            "LocationName": "Hoenn Route 124"
-        },
-        {
-            "TID": "222",
-            "LocationName": "Hoenn Route 124"
-        },
-        {
-            "TID": "223",
-            "LocationName": "Hoenn Route 125"
-        },
-        {
-            "TID": "224",
-            "LocationName": "Hoenn Route 125"
-        },
-        {
-            "TID": "225",
-            "LocationName": "Hoenn Route 125"
-        },
-        {
-            "TID": "226",
-            "LocationName": "Hoenn Route 125"
-        },
-        {
-            "TID": "227",
-            "LocationName": "Hoenn Route 125"
-        },
-        {
-            "TID": "228",
-            "LocationName": "Hoenn Route 125"
-        },
-        {
-            "TID": "229",
-            "LocationName": "Hoenn Route 125"
-        },
-        {
-            "TID": "23",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "230",
-            "LocationName": "Hoenn Route 125"
-        },
-        {
-            "TID": "231",
-            "LocationName": "Hoenn Route 126"
-        },
-        {
-            "TID": "232",
-            "LocationName": "Hoenn Route 126"
-        },
-        {
-            "TID": "233",
-            "LocationName": "Hoenn Route 126"
-        },
-        {
-            "TID": "234",
-            "LocationName": "Hoenn Route 126"
-        },
-        {
-            "TID": "235",
-            "LocationName": "Hoenn Route 126"
-        },
-        {
-            "TID": "236",
-            "LocationName": "Hoenn Route 126"
-        },
-        {
-            "TID": "237",
-            "LocationName": "Hoenn Route 126"
-        },
-        {
-            "TID": "238",
-            "LocationName": "Hoenn Route 126"
-        },
-        {
-            "TID": "239",
-            "LocationName": "Hoenn Route 127"
-        },
-        {
-            "TID": "24",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "240",
-            "LocationName": "Hoenn Route 127"
-        },
-        {
-            "TID": "241",
-            "LocationName": "Hoenn Route 127"
-        },
-        {
-            "TID": "242",
-            "LocationName": "Hoenn Route 127"
-        },
-        {
-            "TID": "243",
-            "LocationName": "Hoenn Route 127"
-        },
-        {
-            "TID": "244",
-            "LocationName": "Hoenn Route 127"
-        },
-        {
-            "TID": "245",
-            "LocationName": "Hoenn Route 127"
-        },
-        {
-            "TID": "246",
-            "LocationName": "Hoenn Route 127"
-        },
-        {
-            "TID": "247",
-            "LocationName": "Hoenn Route 128"
-        },
-        {
-            "TID": "248",
-            "LocationName": "Hoenn Route 128"
-        },
-        {
-            "TID": "249",
-            "LocationName": "Hoenn Route 128"
-        },
-        {
-            "TID": "25",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "250",
-            "LocationName": "Hoenn Route 128"
-        },
-        {
-            "TID": "251",
-            "LocationName": "Hoenn Route 128"
-        },
-        {
-            "TID": "252",
-            "LocationName": "Hoenn Route 128"
-        },
-        {
-            "TID": "253",
-            "LocationName": "Hoenn Route 128"
-        },
-        {
-            "TID": "254",
-            "LocationName": "Hoenn Route 129"
-        },
-        {
-            "TID": "255",
-            "LocationName": "Hoenn Route 129"
-        },
-        {
-            "TID": "256",
-            "LocationName": "Hoenn Route 129"
-        },
-        {
-            "TID": "257",
-            "LocationName": "Hoenn Route 129"
-        },
-        {
-            "TID": "258",
-            "LocationName": "Hoenn Route 129"
-        },
-        {
-            "TID": "259",
-            "LocationName": "Hoenn Route 130"
-        },
-        {
-            "TID": "26",
-            "LocationName": "Hoenn Route 103"
-        },
-        {
-            "TID": "260",
-            "LocationName": "Hoenn Route 130"
-        },
-        {
-            "TID": "261",
-            "LocationName": "Hoenn Route 130"
-        },
-        {
-            "TID": "262",
-            "LocationName": "Hoenn Route 131"
-        },
-        {
-            "TID": "263",
-            "LocationName": "Hoenn Route 131"
-        },
-        {
-            "TID": "264",
-            "LocationName": "Hoenn Route 131"
-        },
-        {
-            "TID": "265",
-            "LocationName": "Hoenn Route 131"
-        },
-        {
-            "TID": "266",
-            "LocationName": "Hoenn Route 131"
-        },
-        {
-            "TID": "267",
-            "LocationName": "Hoenn Route 131"
-        },
-        {
-            "TID": "268",
-            "LocationName": "Hoenn Route 131"
-        },
-        {
-            "TID": "269",
-            "LocationName": "Hoenn Route 132"
-        },
-        {
-            "TID": "27",
-            "LocationName": "Hoenn Route 105"
-        },
-        {
-            "TID": "270",
-            "LocationName": "Hoenn Route 132"
-        },
-        {
-            "TID": "271",
-            "LocationName": "Hoenn Route 132"
-        },
-        {
-            "TID": "272",
-            "LocationName": "Hoenn Route 132"
-        },
-        {
-            "TID": "273",
-            "LocationName": "Hoenn Route 132"
-        },
-        {
-            "TID": "274",
-            "LocationName": "Hoenn Route 132"
-        },
-        {
-            "TID": "275",
-            "LocationName": "Hoenn Route 132"
-        },
-        {
-            "TID": "276",
-            "LocationName": "Hoenn Route 132"
-        },
-        {
-            "TID": "277",
-            "LocationName": "Hoenn Route 133"
-        },
-        {
-            "TID": "278",
-            "LocationName": "Hoenn Route 133"
-        },
-        {
-            "TID": "279",
-            "LocationName": "Hoenn Route 133"
-        },
-        {
-            "TID": "28",
-            "LocationName": "Hoenn Route 105"
-        },
-        {
-            "TID": "280",
-            "LocationName": "Hoenn Route 133"
-        },
-        {
-            "TID": "281",
-            "LocationName": "Hoenn Route 133"
-        },
-        {
-            "TID": "282",
-            "LocationName": "Hoenn Route 133"
-        },
-        {
-            "TID": "283",
-            "LocationName": "Hoenn Route 133"
-        },
-        {
-            "TID": "284",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "285",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "286",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "287",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "288",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "289",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "29",
-            "LocationName": "Hoenn Route 105"
-        },
-        {
-            "TID": "290",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "291",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "292",
-            "LocationName": "Hoenn Route 134"
-        },
-        {
-            "TID": "293",
-            "LocationName": "Jagged Pass"
-        },
-        {
-            "TID": "294",
-            "LocationName": "Jagged Pass"
-        },
-        {
-            "TID": "294",
-            "LocationName": "Magma Hideout (Jagged Pass)"
-        },
-        {
-            "TID": "294",
-            "LocationName": "Mossdeep Space Center"
-        },
-        {
-            "TID": "294",
-            "LocationName": "Mt. Chimney"
-        },
-        {
-            "TID": "294",
-            "LocationName": "Rusturf Tunnel"
-        },
-        {
-            "TID": "295",
-            "LocationName": "Jagged Pass"
-        },
-        {
-            "TID": "296",
-            "LocationName": "Jagged Pass"
-        },
-        {
-            "TID": "297",
-            "LocationName": "Jagged Pass"
-        },
-        {
-            "TID": "298",
-            "LocationName": "Jagged Pass"
-        },
-        {
-            "TID": "299",
-            "LocationName": "Magma Hideout (Jagged Pass)"
-        },
-        {
-            "TID": "299",
-            "LocationName": "Mossdeep Space Center"
-        },
-        {
-            "TID": "299",
-            "LocationName": "Mt. Chimney"
-        },
-        {
-            "TID": "3",
-            "LocationName": "Abandoned Ship"
-        },
-        {
-            "TID": "30",
-            "LocationName": "Hoenn Route 105"
-        },
-        {
-            "TID": "300",
-            "LocationName": "Magma Hideout (Jagged Pass)"
-        },
-        {
-            "TID": "300",
-            "LocationName": "Mossdeep Space Center"
-        },
-        {
-            "TID": "300",
-            "LocationName": "Mt. Chimney"
-        },
-        {
-            "TID": "301",
-            "LocationName": "Mauville City"
-        },
-        {
-            "TID": "301",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "302",
-            "LocationName": "Meteor Falls"
-        },
-        {
-            "TID": "303",
-            "LocationName": "Meteor Falls"
-        },
-        {
-            "TID": "304",
-            "LocationName": "Meteor Falls"
-        },
-        {
-            "TID": "304",
-            "LocationName": "Mossdeep Space Center"
-        },
-        {
-            "TID": "305",
-            "LocationName": "Mt. Chimney"
-        },
-        {
-            "TID": "306",
-            "LocationName": "Mt. Chimney"
-        },
-        {
-            "TID": "307",
-            "LocationName": "Mt. Chimney"
-        },
-        {
-            "TID": "308",
-            "LocationName": "Mt. Chimney"
-        },
-        {
-            "TID": "309",
-            "LocationName": "Mt. Chimney"
-        },
-        {
-            "TID": "31",
-            "LocationName": "Hoenn Route 105"
-        },
-        {
-            "TID": "310",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "311",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "312",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "313",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "314",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "315",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "316",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "317",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "318",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "319",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "32",
-            "LocationName": "Hoenn Route 105"
-        },
-        {
-            "TID": "320",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "321",
-            "LocationName": "Mt. Pyre"
-        },
-        {
-            "TID": "321",
-            "LocationName": "Oceanic Museum"
-        },
-        {
-            "TID": "321",
-            "LocationName": "Petalburg Woods"
-        },
-        {
-            "TID": "321",
-            "LocationName": "Rusturf Tunnel"
-        },
-        {
-            "TID": "321",
-            "LocationName": "Seafloor Cavern"
-        },
-        {
-            "TID": "321",
-            "LocationName": "Team Aqua Hideout"
-        },
-        {
-            "TID": "321",
-            "LocationName": "Weather Institute"
-        },
-        {
-            "TID": "322",
-            "LocationName": "Petalburg Woods"
-        },
-        {
-            "TID": "323",
-            "LocationName": "Petalburg Woods"
-        },
-        {
-            "TID": "326",
-            "LocationName": "Rusturf Tunnel"
-        },
-        {
-            "TID": "327",
-            "LocationName": "S.S. Tidal"
-        },
-        {
-            "TID": "328",
-            "LocationName": "S.S. Tidal"
-        },
-        {
-            "TID": "329",
-            "LocationName": "S.S. Tidal"
-        },
-        {
-            "TID": "33",
-            "LocationName": "Hoenn Route 105"
-        },
-        {
-            "TID": "330",
-            "LocationName": "S.S. Tidal"
-        },
-        {
-            "TID": "331",
-            "LocationName": "S.S. Tidal"
-        },
-        {
-            "TID": "332",
-            "LocationName": "S.S. Tidal"
-        },
-        {
-            "TID": "333",
-            "LocationName": "S.S. Tidal"
-        },
-        {
-            "TID": "334",
-            "LocationName": "S.S. Tidal"
-        },
-        {
-            "TID": "335",
-            "LocationName": "Seafloor Cavern"
-        },
-        {
-            "TID": "335",
-            "LocationName": "Weather Institute"
-        },
-        {
-            "TID": "336",
-            "LocationName": "Seafloor Cavern"
-        },
-        {
-            "TID": "337",
-            "LocationName": "Seaside Cycling Road"
-        },
-        {
-            "TID": "338",
-            "LocationName": "Seaside Cycling Road"
-        },
-        {
-            "TID": "339",
-            "LocationName": "Seaside Cycling Road"
-        },
-        {
-            "TID": "34",
-            "LocationName": "Hoenn Route 106"
-        },
-        {
-            "TID": "340",
-            "LocationName": "Seaside Cycling Road"
-        },
-        {
-            "TID": "341",
-            "LocationName": "Seaside Cycling Road"
-        },
-        {
-            "TID": "342",
-            "LocationName": "Seaside Cycling Road"
-        },
-        {
-            "TID": "343",
-            "LocationName": "Team Aqua Hideout"
-        },
-        {
-            "TID": "344",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "345",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "346",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "347",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "348",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "349",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "35",
-            "LocationName": "Hoenn Route 106"
-        },
-        {
-            "TID": "350",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "351",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "352",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "353",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "354",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "355",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "356",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "357",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "358",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "359",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "36",
-            "LocationName": "Hoenn Route 106"
-        },
-        {
-            "TID": "360",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "361",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "362",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "363",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "364",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "365",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "366",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "367",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "368",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "369",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "37",
-            "LocationName": "Hoenn Route 106"
-        },
-        {
-            "TID": "370",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "371",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "372",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "373",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "374",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "375",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "376",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "377",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "378",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "379",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "38",
-            "LocationName": "Hoenn Route 107"
-        },
-        {
-            "TID": "380",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "381",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "382",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "383",
-            "LocationName": "Trainer Hill"
-        },
-        {
-            "TID": "384",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "385",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "386",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "387",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "388",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "389",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "39",
-            "LocationName": "Hoenn Route 107"
-        },
-        {
-            "TID": "390",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "391",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "392",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "393",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "394",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "395",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "396",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "397",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "398",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "399",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "4",
-            "LocationName": "Abandoned Ship"
-        },
-        {
-            "TID": "40",
-            "LocationName": "Hoenn Route 107"
-        },
-        {
-            "TID": "400",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "401",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "402",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "403",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "404",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "405",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "406",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "407",
-            "LocationName": "Trick House"
-        },
-        {
-            "TID": "408",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "409",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "41",
-            "LocationName": "Hoenn Route 107"
-        },
-        {
-            "TID": "410",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "411",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "412",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "413",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "414",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "415",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "416",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "417",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "418",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "419",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "42",
-            "LocationName": "Hoenn Route 107"
-        },
-        {
-            "TID": "420",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "421",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "422",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "423",
-            "LocationName": "Victory Road (Hoenn)"
-        },
-        {
-            "TID": "424",
-            "LocationName": "Rustboro City"
-        },
-        {
-            "TID": "425",
-            "LocationName": "Rustboro City"
-        },
-        {
-            "TID": "426",
-            "LocationName": "Rustboro City"
-        },
-        {
-            "TID": "427",
-            "LocationName": "Rustboro City"
-        },
-        {
-            "TID": "428",
-            "LocationName": "Dewford Town"
-        },
-        {
-            "TID": "429",
-            "LocationName": "Dewford Town"
-        },
-        {
-            "TID": "43",
-            "LocationName": "Hoenn Route 107"
-        },
-        {
-            "TID": "430",
-            "LocationName": "Dewford Town"
-        },
-        {
-            "TID": "431",
-            "LocationName": "Dewford Town"
-        },
-        {
-            "TID": "432",
-            "LocationName": "Dewford Town"
-        },
-        {
-            "TID": "433",
-            "LocationName": "Dewford Town"
-        },
-        {
-            "TID": "434",
-            "LocationName": "Dewford Town"
-        },
-        {
-            "TID": "435",
-            "LocationName": "Mauville City"
-        },
-        {
-            "TID": "436",
-            "LocationName": "Mauville City"
-        },
-        {
-            "TID": "437",
-            "LocationName": "Mauville City"
-        },
-        {
-            "TID": "438",
-            "LocationName": "Mauville City"
-        },
-        {
-            "TID": "439",
-            "LocationName": "Mauville City"
-        },
-        {
-            "TID": "44",
-            "LocationName": "Hoenn Route 108"
-        },
-        {
-            "TID": "440",
-            "LocationName": "Mauville City"
-        },
-        {
-            "TID": "441",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "442",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "443",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "444",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "445",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "446",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "447",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "448",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "449",
-            "LocationName": "Lavaridge Town"
-        },
-        {
-            "TID": "45",
-            "LocationName": "Hoenn Route 108"
-        },
-        {
-            "TID": "450",
-            "LocationName": "Petalburg City"
-        },
-        {
-            "TID": "451",
-            "LocationName": "Petalburg City"
-        },
-        {
-            "TID": "452",
-            "LocationName": "Petalburg City"
-        },
-        {
-            "TID": "453",
-            "LocationName": "Petalburg City"
-        },
-        {
-            "TID": "454",
-            "LocationName": "Petalburg City"
-        },
-        {
-            "TID": "455",
-            "LocationName": "Petalburg City"
-        },
-        {
-            "TID": "456",
-            "LocationName": "Petalburg City"
-        },
-        {
-            "TID": "457",
-            "LocationName": "Petalburg City"
-        },
-        {
-            "TID": "458",
-            "LocationName": "Fortree City"
-        },
-        {
-            "TID": "459",
-            "LocationName": "Fortree City"
-        },
-        {
-            "TID": "46",
-            "LocationName": "Hoenn Route 108"
-        },
-        {
-            "TID": "460",
-            "LocationName": "Fortree City"
-        },
-        {
-            "TID": "461",
-            "LocationName": "Fortree City"
-        },
-        {
-            "TID": "462",
-            "LocationName": "Fortree City"
-        },
-        {
-            "TID": "463",
-            "LocationName": "Fortree City"
-        },
-        {
-            "TID": "464",
-            "LocationName": "Fortree City"
-        },
-        {
-            "TID": "465",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "466",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "467",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "468",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "469",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "47",
-            "LocationName": "Hoenn Route 108"
-        },
-        {
-            "TID": "470",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "471",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "472",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "473",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "474",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "475",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "476",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "477",
-            "LocationName": "Mossdeep City"
-        },
-        {
-            "TID": "478",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "479",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "48",
-            "LocationName": "Hoenn Route 108"
-        },
-        {
-            "TID": "480",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "481",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "482",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "483",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "484",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "485",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "486",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "487",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "488",
-            "LocationName": "Sootopolis City"
-        },
-        {
-            "TID": "489",
-            "LocationName": "Hoenn Route 104"
-        },
-        {
-            "TID": "49",
-            "LocationName": "Hoenn Route 108"
-        },
-        {
-            "TID": "490",
-            "LocationName": "Hoenn Route 104"
-        },
-        {
-            "TID": "491",
-            "LocationName": "Hoenn Route 104"
-        },
-        {
-            "TID": "492",
-            "LocationName": "Hoenn Route 104"
-        },
-        {
-            "TID": "493",
-            "LocationName": "Hoenn Route 104"
-        },
-        {
-            "TID": "494",
-            "LocationName": "Hoenn Route 104"
-        },
-        {
-            "TID": "495",
-            "LocationName": "Hoenn Route 104"
-        },
-        {
-            "TID": "5",
-            "LocationName": "Abandoned Ship"
-        },
-        {
-            "TID": "50",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "51",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "52",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "53",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "54",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "55",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "56",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "57",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "58",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "59",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "6",
-            "LocationName": "Abandoned Ship"
-        },
-        {
-            "TID": "60",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "61",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "62",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "63",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "64",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "65",
-            "LocationName": "Hoenn Route 109"
-        },
-        {
-            "TID": "66",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "67",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "68",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "69",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "7",
-            "LocationName": "Abandoned Ship"
-        },
-        {
-            "TID": "70",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "71",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "72",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "73",
-            "LocationName": "Hoenn Route 110"
-        },
-        {
-            "TID": "74",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "75",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "76",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "77",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "78",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "79",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "8",
-            "LocationName": "Ever Grande City"
-        },
-        {
-            "TID": "80",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "81",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "82",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "82",
-            "LocationName": "Hoenn Route 118"
-        },
-        {
-            "TID": "82",
-            "LocationName": "Hoenn Route 120"
-        },
-        {
-            "TID": "83",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "84",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "85",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "86",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "87",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "88",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "89",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "9",
-            "LocationName": "Ever Grande City"
-        },
-        {
-            "TID": "90",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "91",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "92",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "93",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "94",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "95",
-            "LocationName": "Hoenn Route 111"
-        },
-        {
-            "TID": "96",
-            "LocationName": "Hoenn Route 112"
-        },
-        {
-            "TID": "97",
-            "LocationName": "Hoenn Route 112"
-        },
-        {
-            "TID": "98",
-            "LocationName": "Hoenn Route 112"
-        },
-        {
-            "TID": "99",
-            "LocationName": "Hoenn Route 112"
+        selectMove:{},
+        moves: [
+        {MoveName: "Which Move are you looking for?"},
+        {
+            "MoveName": "Absorb",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Acid Armor",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Acid",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Aerial Ace",
+            "Accuracy": "",
+            "Power": "60",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Aeroblast",
+            "Accuracy": "95",
+            "Power": "100",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Agility",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Air Cutter",
+            "Accuracy": "95",
+            "Power": "55",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Amnesia",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Ancient Power",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Rock"
+        },
+        {
+            "MoveName": "Arm Thrust",
+            "Accuracy": "100",
+            "Power": "15",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Aromatherapy",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Assist",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Astonish",
+            "Accuracy": "100",
+            "Power": "30",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Attract",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Aurora Beam",
+            "Accuracy": "100",
+            "Power": "65",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Barrage",
+            "Accuracy": "85",
+            "Power": "15",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Barrier",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Baton Pass",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Beat Up",
+            "Accuracy": "100",
+            "Power": "10",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Belly Drum",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Bide",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Bind",
+            "Accuracy": "75",
+            "Power": "15",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Bite",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Blast Burn",
+            "Accuracy": "90",
+            "Power": "150",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Blaze Kick",
+            "Accuracy": "90",
+            "Power": "85",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Blizzard",
+            "Accuracy": "70",
+            "Power": "120",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Block",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Body Slam",
+            "Accuracy": "100",
+            "Power": "85",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Bone Club",
+            "Accuracy": "85",
+            "Power": "65",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Bone Rush",
+            "Accuracy": "80",
+            "Power": "25",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Bonemerang",
+            "Accuracy": "90",
+            "Power": "50",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Bounce",
+            "Accuracy": "85",
+            "Power": "85",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Brick Break",
+            "Accuracy": "100",
+            "Power": "75",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Bubble Beam",
+            "Accuracy": "100",
+            "Power": "65",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Bubble",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Bulk Up",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Bullet Seed",
+            "Accuracy": "100",
+            "Power": "10",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Calm Mind",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Camouflage",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Charge",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Charm",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Clamp",
+            "Accuracy": "75",
+            "Power": "35",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Comet Punch",
+            "Accuracy": "85",
+            "Power": "18",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Confuse Ray",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Confusion",
+            "Accuracy": "100",
+            "Power": "50",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Constrict",
+            "Accuracy": "100",
+            "Power": "10",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Conversion 2",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Conversion",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Cosmic Power",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Cotton Spore",
+            "Accuracy": "85",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Counter",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Covet",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "40",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Crabhammer",
+            "Accuracy": "85",
+            "Power": "90",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Cross Chop",
+            "Accuracy": "80",
+            "Power": "100",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Crunch",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Crush Claw",
+            "Accuracy": "95",
+            "Power": "75",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Curse",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "???"
+        },
+        {
+            "MoveName": "Cut",
+            "Accuracy": "95",
+            "Power": "50",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Defense Curl",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Destiny Bond",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Detect",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Dig",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Disable",
+            "Accuracy": "55",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Dive",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Dizzy Punch",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Doom Desire",
+            "Accuracy": "85",
+            "Power": "120",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Steel"
+        },
+        {
+            "MoveName": "Double Kick",
+            "Accuracy": "100",
+            "Power": "30",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Double Slap",
+            "Accuracy": "85",
+            "Power": "15",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Double Team",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Double-Edge",
+            "Accuracy": "100",
+            "Power": "120",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Dragon Breath",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Dragon"
+        },
+        {
+            "MoveName": "Dragon Claw",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Dragon"
+        },
+        {
+            "MoveName": "Dragon Dance",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Dragon"
+        },
+        {
+            "MoveName": "Dragon Rage",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Dragon"
+        },
+        {
+            "MoveName": "Dream Eater",
+            "Accuracy": "100",
+            "Power": "100",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Drill Peck",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Dynamic Punch",
+            "Accuracy": "50",
+            "Power": "100",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Earthquake",
+            "Accuracy": "100",
+            "Power": "100",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Egg Bomb",
+            "Accuracy": "75",
+            "Power": "100",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Ember",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Encore",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Endeavor",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Endure",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Eruption",
+            "Accuracy": "100",
+            "Power": "150",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Explosion",
+            "Accuracy": "100",
+            "Power": "250",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Extrasensory",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Extreme Speed",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Facade",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Fake Out",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Fake Tears",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "False Swipe",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "40",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Feather Dance",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Feint Attack",
+            "Accuracy": "",
+            "Power": "60",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Fire Blast",
+            "Accuracy": "85",
+            "Power": "120",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Fire Punch",
+            "Accuracy": "100",
+            "Power": "75",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Fire Spin",
+            "Accuracy": "70",
+            "Power": "15",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Fissure",
+            "Accuracy": "30",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Flail",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Flame Wheel",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Flamethrower",
+            "Accuracy": "100",
+            "Power": "95",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Flash",
+            "Accuracy": "70",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Flatter",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Fly",
+            "Accuracy": "95",
+            "Power": "70",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Focus Energy",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Focus Punch",
+            "Accuracy": "100",
+            "Power": "150",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Follow Me",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Foresight",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Frenzy Plant",
+            "Accuracy": "90",
+            "Power": "150",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Frustration",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Fury Attack",
+            "Accuracy": "85",
+            "Power": "15",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Fury Cutter",
+            "Accuracy": "95",
+            "Power": "10",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Fury Swipes",
+            "Accuracy": "80",
+            "Power": "18",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Future Sight",
+            "Accuracy": "90",
+            "Power": "80",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Giga Drain",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Glare",
+            "Accuracy": "75",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Grass Whistle",
+            "Accuracy": "55",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Growl",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Growth",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Grudge",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Guillotine",
+            "Accuracy": "30",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Gust",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Hail",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Harden",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Haze",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Headbutt",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Heal Bell",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Heat Wave",
+            "Accuracy": "90",
+            "Power": "100",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Helping Hand",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Hidden Power",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "High Jump Kick",
+            "Accuracy": "90",
+            "Power": "85",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Horn Attack",
+            "Accuracy": "100",
+            "Power": "65",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Horn Drill",
+            "Accuracy": "30",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Howl",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Hydro Cannon",
+            "Accuracy": "90",
+            "Power": "150",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Hydro Pump",
+            "Accuracy": "80",
+            "Power": "120",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Hyper Beam",
+            "Accuracy": "90",
+            "Power": "150",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Hyper Fang",
+            "Accuracy": "90",
+            "Power": "80",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Hyper Voice",
+            "Accuracy": "100",
+            "Power": "90",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Hypnosis",
+            "Accuracy": "60",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Ice Ball",
+            "Accuracy": "90",
+            "Power": "30",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Ice Beam",
+            "Accuracy": "100",
+            "Power": "95",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Ice Punch",
+            "Accuracy": "100",
+            "Power": "75",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Icicle Spear",
+            "Accuracy": "100",
+            "Power": "10",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Icy Wind",
+            "Accuracy": "95",
+            "Power": "55",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Imprison",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Ingrain",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Iron Defense",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Steel"
+        },
+        {
+            "MoveName": "Iron Tail",
+            "Accuracy": "75",
+            "Power": "100",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Steel"
+        },
+        {
+            "MoveName": "Jump Kick",
+            "Accuracy": "95",
+            "Power": "70",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Karate Chop",
+            "Accuracy": "100",
+            "Power": "50",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Kinesis",
+            "Accuracy": "80",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Knock Off",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Leaf Blade",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Leech Life",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Leech Seed",
+            "Accuracy": "90",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Leer",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Lick",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Light Screen",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Lock-On",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Lovely Kiss",
+            "Accuracy": "75",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Low Kick",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Luster Purge",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Mach Punch",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Magic Coat",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Magical Leaf",
+            "Accuracy": "",
+            "Power": "60",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Magnitude",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Mean Look",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Meditate",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Mega Drain",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Mega Kick",
+            "Accuracy": "75",
+            "Power": "120",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Mega Punch",
+            "Accuracy": "85",
+            "Power": "80",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Megahorn",
+            "Accuracy": "85",
+            "Power": "120",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Memento",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Metal Claw",
+            "Accuracy": "95",
+            "Power": "50",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Steel"
+        },
+        {
+            "MoveName": "Metal Sound",
+            "Accuracy": "85",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Steel"
+        },
+        {
+            "MoveName": "Meteor Mash",
+            "Accuracy": "85",
+            "Power": "100",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Steel"
+        },
+        {
+            "MoveName": "Metronome",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Milk Drink",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Mimic",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Mind Reader",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Minimize",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Mirror Coat",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Mirror Move",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Mist Ball",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Mist",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Moonlight",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Morning Sun",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Mud Shot",
+            "Accuracy": "95",
+            "Power": "55",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Mud Sport",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Mud-Slap",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Muddy Water",
+            "Accuracy": "85",
+            "Power": "95",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Nature Power",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Needle Arm",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Night Shade",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Nightmare",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Octazooka",
+            "Accuracy": "85",
+            "Power": "65",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Odor Sleuth",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Outrage",
+            "Accuracy": "100",
+            "Power": "90",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Dragon"
+        },
+        {
+            "MoveName": "Overheat",
+            "Accuracy": "90",
+            "Power": "140",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Pain Split",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Pay Day",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Peck",
+            "Accuracy": "100",
+            "Power": "35",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Perish Song",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Petal Dance",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Pin Missile",
+            "Accuracy": "85",
+            "Power": "14",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Poison Fang",
+            "Accuracy": "100",
+            "Power": "50",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Poison Gas",
+            "Accuracy": "55",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Poison Powder",
+            "Accuracy": "75",
+            "Power": "0",
+            "PP": "35",
+            "Status": "1",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Poison Sting",
+            "Accuracy": "100",
+            "Power": "15",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Poison Tail",
+            "Accuracy": "100",
+            "Power": "50",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Pound",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Powder Snow",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Present",
+            "Accuracy": "90",
+            "Power": "0",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Protect",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Psybeam",
+            "Accuracy": "100",
+            "Power": "65",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Psych Up",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Psychic",
+            "Accuracy": "100",
+            "Power": "90",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Psycho Boost",
+            "Accuracy": "90",
+            "Power": "140",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Psywave",
+            "Accuracy": "80",
+            "Power": "0",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Pursuit",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Quick Attack",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Rage",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Rain Dance",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Rapid Spin",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "40",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Razor Leaf",
+            "Accuracy": "95",
+            "Power": "55",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Razor Wind",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Recover",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Recycle",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Reflect",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Refresh",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Rest",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Return",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Revenge",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Reversal",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Roar",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Rock Blast",
+            "Accuracy": "80",
+            "Power": "25",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Rock"
+        },
+        {
+            "MoveName": "Rock Slide",
+            "Accuracy": "90",
+            "Power": "75",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Rock"
+        },
+        {
+            "MoveName": "Rock Smash",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Rock Throw",
+            "Accuracy": "90",
+            "Power": "50",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Rock"
+        },
+        {
+            "MoveName": "Rock Tomb",
+            "Accuracy": "80",
+            "Power": "50",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Rock"
+        },
+        {
+            "MoveName": "Role Play",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Rolling Kick",
+            "Accuracy": "85",
+            "Power": "60",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Rollout",
+            "Accuracy": "90",
+            "Power": "30",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Rock"
+        },
+        {
+            "MoveName": "Sacred Fire",
+            "Accuracy": "95",
+            "Power": "100",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Safeguard",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "25",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sand Attack",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Sand Tomb",
+            "Accuracy": "70",
+            "Power": "15",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Sandstorm",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Rock"
+        },
+        {
+            "MoveName": "Scary Face",
+            "Accuracy": "90",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Scratch",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Screech",
+            "Accuracy": "85",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Secret Power",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Seismic Toss",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Self-Destruct",
+            "Accuracy": "100",
+            "Power": "200",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Shadow Ball",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Shadow Punch",
+            "Accuracy": "",
+            "Power": "60",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Sharpen",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sheer Cold",
+            "Accuracy": "30",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Ice"
+        },
+        {
+            "MoveName": "Shock Wave",
+            "Accuracy": "",
+            "Power": "60",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Signal Beam",
+            "Accuracy": "100",
+            "Power": "75",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Silver Wind",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Sing",
+            "Accuracy": "55",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sketch",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "1",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Skill Swap",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Skull Bash",
+            "Accuracy": "100",
+            "Power": "100",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sky Attack",
+            "Accuracy": "90",
+            "Power": "140",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Sky Uppercut",
+            "Accuracy": "90",
+            "Power": "85",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Slack Off",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Slam",
+            "Accuracy": "75",
+            "Power": "80",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Slash",
+            "Accuracy": "100",
+            "Power": "70",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sleep Powder",
+            "Accuracy": "75",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Sleep Talk",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sludge Bomb",
+            "Accuracy": "100",
+            "Power": "90",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Sludge",
+            "Accuracy": "100",
+            "Power": "65",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Smelling Salts",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Smog",
+            "Accuracy": "70",
+            "Power": "20",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Smokescreen",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Snatch",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Snore",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Soft-Boiled",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Solar Beam",
+            "Accuracy": "100",
+            "Power": "120",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Sonic Boom",
+            "Accuracy": "90",
+            "Power": "0",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Spark",
+            "Accuracy": "100",
+            "Power": "65",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Spider Web",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Spike Cannon",
+            "Accuracy": "100",
+            "Power": "20",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Spikes",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Ground"
+        },
+        {
+            "MoveName": "Spit Up",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Spite",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Ghost"
+        },
+        {
+            "MoveName": "Splash",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Spore",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Steel Wing",
+            "Accuracy": "90",
+            "Power": "70",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Steel"
+        },
+        {
+            "MoveName": "Stockpile",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Stomp",
+            "Accuracy": "100",
+            "Power": "65",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Strength",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "String Shot",
+            "Accuracy": "95",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Struggle",
+            "Accuracy": "100",
+            "Power": "50",
+            "PP": "1",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Stun Spore",
+            "Accuracy": "75",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Submission",
+            "Accuracy": "80",
+            "Power": "80",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Substitute",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sunny Day",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Super Fang",
+            "Accuracy": "90",
+            "Power": "0",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Superpower",
+            "Accuracy": "100",
+            "Power": "120",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Supersonic",
+            "Accuracy": "55",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Surf",
+            "Accuracy": "100",
+            "Power": "95",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Swagger",
+            "Accuracy": "90",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Swallow",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sweet Kiss",
+            "Accuracy": "75",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Sweet Scent",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Swift",
+            "Accuracy": "",
+            "Power": "60",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Swords Dance",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Synthesis",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "5",
+            "Status": "1",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Tackle",
+            "Accuracy": "95",
+            "Power": "35",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Tail Glow",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Tail Whip",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "30",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Take Down",
+            "Accuracy": "85",
+            "Power": "90",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Taunt",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Teeter Dance",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Teleport",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Thief",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Thrash",
+            "Accuracy": "100",
+            "Power": "90",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Thunder Punch",
+            "Accuracy": "100",
+            "Power": "75",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Thunder Shock",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Thunder Wave",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Thunder",
+            "Accuracy": "70",
+            "Power": "120",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Thunderbolt",
+            "Accuracy": "100",
+            "Power": "95",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Tickle",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Torment",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Dark"
+        },
+        {
+            "MoveName": "Toxic",
+            "Accuracy": "85",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Poison"
+        },
+        {
+            "MoveName": "Transform",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Tri Attack",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Trick",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Psychic"
+        },
+        {
+            "MoveName": "Triple Kick",
+            "Accuracy": "90",
+            "Power": "10",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Twineedle",
+            "Accuracy": "100",
+            "Power": "25",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Bug"
+        },
+        {
+            "MoveName": "Twister",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Dragon"
+        },
+        {
+            "MoveName": "Uproar",
+            "Accuracy": "100",
+            "Power": "50",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Vine Whip",
+            "Accuracy": "100",
+            "Power": "35",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Grass"
+        },
+        {
+            "MoveName": "Vise Grip",
+            "Accuracy": "100",
+            "Power": "55",
+            "PP": "30",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Vital Throw",
+            "Accuracy": "",
+            "Power": "70",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Fighting"
+        },
+        {
+            "MoveName": "Volt Tackle",
+            "Accuracy": "100",
+            "Power": "120",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Electric"
+        },
+        {
+            "MoveName": "Water Gun",
+            "Accuracy": "100",
+            "Power": "40",
+            "PP": "25",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Water Pulse",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Water Sport",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Water Spout",
+            "Accuracy": "100",
+            "Power": "150",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Waterfall",
+            "Accuracy": "100",
+            "Power": "80",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Weather Ball",
+            "Accuracy": "100",
+            "Power": "50",
+            "PP": "10",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Whirlpool",
+            "Accuracy": "70",
+            "Power": "15",
+            "PP": "15",
+            "Status": "0",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Whirlwind",
+            "Accuracy": "100",
+            "Power": "0",
+            "PP": "20",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Will-O-Wisp",
+            "Accuracy": "75",
+            "Power": "0",
+            "PP": "15",
+            "Status": "1",
+            "TypeName": "Fire"
+        },
+        {
+            "MoveName": "Wing Attack",
+            "Accuracy": "100",
+            "Power": "60",
+            "PP": "35",
+            "Status": "0",
+            "TypeName": "Flying"
+        },
+        {
+            "MoveName": "Wish",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Withdraw",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "40",
+            "Status": "1",
+            "TypeName": "Water"
+        },
+        {
+            "MoveName": "Wrap",
+            "Accuracy": "85",
+            "Power": "15",
+            "PP": "20",
+            "Status": "0",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Yawn",
+            "Accuracy": "",
+            "Power": "0",
+            "PP": "10",
+            "Status": "1",
+            "TypeName": "Normal"
+        },
+        {
+            "MoveName": "Zap Cannon",
+            "Accuracy": "50",
+            "Power": "100",
+            "PP": "5",
+            "Status": "0",
+            "TypeName": "Electric"
         }
         ],
 
-        //just use location instead?? - need encounter tag?
-        selectFoundAt:{},
-        foundat: [
-        {
-            "Dex": "100",
-            "LocationName": "New Mauville",
-            "Encounter": "Basement",
-            "Min": "22",
-            "Max": "26",
-            "Rate": "49"
-        },
-        {
-            "Dex": "100",
-            "LocationName": "New Mauville",
-            "Encounter": "Entrance",
-            "Min": "22",
-            "Max": "26",
-            "Rate": "50"
-        },
-        {
-            "Dex": "100",
-            "LocationName": "New Mauville",
-            "Encounter": "Fake",
-            "Min": "25",
-            "Max": "25",
-            "Rate": ""
-        },
-        {
-            "Dex": "101",
-            "LocationName": "New Mauville",
-            "Encounter": "Basement",
-            "Min": "26",
-            "Max": "26",
-            "Rate": "1"
-        },
-        {
-            "Dex": "101",
-            "LocationName": "Team Aqua Hideout",
-            "Encounter": "Fake",
-            "Min": "30",
-            "Max": "30",
-            "Rate": ""
-        },
-        {
-            "Dex": "109",
-            "LocationName": "Fiery Path",
-            "Encounter": "Cave",
-            "Min": "15",
-            "Max": "16",
-            "Rate": "25"
-        },
-        {
-            "Dex": "111",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "27",
-            "Max": "29",
-            "Rate": "30"
-        },
-        {
-            "Dex": "116",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "15"
-        },
-        {
-            "Dex": "116",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "15"
-        },
-        {
-            "Dex": "116",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "15"
-        },
-        {
-            "Dex": "116",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Trade",
-            "Min": "",
-            "Max": "",
-            "Rate": ""
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Surf",
-            "Min": "20",
-            "Max": "30",
-            "Rate": "1"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Surf",
-            "Min": "20",
-            "Max": "30",
-            "Rate": "1"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Surf",
-            "Min": "20",
-            "Max": "30",
-            "Rate": "1"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Surf",
-            "Min": "20",
-            "Max": "30",
-            "Rate": "1"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Surf",
-            "Min": "20",
-            "Max": "30",
-            "Rate": "1"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Petalburg City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Petalburg City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "40"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "40"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "118",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "119",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "40",
-            "Rate": "20"
-        },
-        {
-            "Dex": "120",
-            "LocationName": "Lilycove City",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "15"
-        },
-        {
-            "Dex": "127",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "27",
-            "Max": "29",
-            "Rate": "5"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Abandoned Ship",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Abandoned Ship",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Dewford Town",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Dewford Town",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "100"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "100"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Lilycove City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Lilycove City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Petalburg City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Petalburg City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "30",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Slateport City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Slateport City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Sootopolis City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "100"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Sootopolis City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Sootopolis City",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "80"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Sootopolis City",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "100"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "129",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "70"
-        },
-        {
-            "Dex": "130",
-            "LocationName": "Sootopolis City",
-            "Encounter": "Fish Super",
-            "Min": "5",
-            "Max": "45",
-            "Rate": "20"
-        },
-        {
-            "Dex": "132",
-            "LocationName": "Desert Underpass",
-            "Encounter": "Cave",
-            "Min": "38",
-            "Max": "40",
-            "Rate": "43"
-        },
-        {
-            "Dex": "152",
-            "LocationName": "Littleroot Town",
-            "Encounter": "Gift",
-            "Min": "5",
-            "Max": "5",
-            "Rate": ""
-        },
-        {
-            "Dex": "155",
-            "LocationName": "Littleroot Town",
-            "Encounter": "Gift",
-            "Min": "5",
-            "Max": "5",
-            "Rate": ""
-        },
-        {
-            "Dex": "158",
-            "LocationName": "Littleroot Town",
-            "Encounter": "Gift",
-            "Min": "5",
-            "Max": "5",
-            "Rate": ""
-        },
-        {
-            "Dex": "163",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "35",
-            "Max": "35",
-            "Rate": "5"
-        },
-        {
-            "Dex": "165",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "33",
-            "Max": "33",
-            "Rate": "10"
-        },
-        {
-            "Dex": "167",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "33",
-            "Max": "33",
-            "Rate": "10"
-        },
-        {
-            "Dex": "170",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Dive",
-            "Min": "20",
-            "Max": "30",
-            "Rate": "30"
-        },
-        {
-            "Dex": "170",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Dive",
-            "Min": "20",
-            "Max": "30",
-            "Rate": "30"
-        },
-        {
-            "Dex": "170",
-            "LocationName": "Underwater",
-            "Encounter": "Dive",
-            "Min": "20",
-            "Max": "30",
-            "Rate": "30"
-        },
-        {
-            "Dex": "177",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "10"
-        },
-        {
-            "Dex": "178",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "29",
-            "Max": "31",
-            "Rate": "5"
-        },
-        {
-            "Dex": "179",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "3",
-            "Max": "13",
-            "Rate": "100"
-        },
-        {
-            "Dex": "179",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "34",
-            "Max": "36",
-            "Rate": "30"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "99"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Grass",
-            "Min": "4",
-            "Max": "5",
-            "Rate": "20"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "99"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 112",
-            "Encounter": "Grass",
-            "Min": "14",
-            "Max": "16",
-            "Rate": "25"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "99"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Grass",
-            "Min": "13",
-            "Max": "13",
-            "Rate": "10"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "99"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "15"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "99"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Petalburg City",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "100"
-        },
-        {
-            "Dex": "183",
-            "LocationName": "Safari Zone",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "35",
-            "Rate": "39"
-        },
-        {
-            "Dex": "190",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "18",
-            "Max": "28",
-            "Rate": "100"
-        },
-        {
-            "Dex": "190",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "33",
-            "Max": "35",
-            "Rate": "30"
-        },
-        {
-            "Dex": "191",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "33",
-            "Max": "35",
-            "Rate": "30"
-        },
-        {
-            "Dex": "194",
-            "LocationName": "Safari Zone",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "60"
-        },
-        {
-            "Dex": "195",
-            "LocationName": "Safari Zone",
-            "Encounter": "Surf",
-            "Min": "35",
-            "Max": "40",
-            "Rate": "1"
-        },
-        {
-            "Dex": "202",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "27",
-            "Max": "29",
-            "Rate": "10"
-        },
-        {
-            "Dex": "203",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "20"
-        },
-        {
-            "Dex": "204",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "19",
-            "Max": "29",
-            "Rate": "100"
-        },
-        {
-            "Dex": "204",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "34",
-            "Max": "34",
-            "Rate": "5"
-        },
-        {
-            "Dex": "207",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "37",
-            "Max": "40",
-            "Rate": "5"
-        },
-        {
-            "Dex": "209",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "34",
-            "Max": "34",
-            "Rate": "5"
-        },
-        {
-            "Dex": "213",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "18",
-            "Max": "28",
-            "Rate": "100"
-        },
-        {
-            "Dex": "213",
-            "LocationName": "Safari Zone",
-            "Encounter": "Rock Smash",
-            "Min": "20",
-            "Max": "40",
-            "Rate": "100"
-        },
-        {
-            "Dex": "214",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "27",
-            "Max": "29",
-            "Rate": "5"
-        },
-        {
-            "Dex": "216",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "18",
-            "Max": "28",
-            "Rate": "100"
-        },
-        {
-            "Dex": "216",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "34",
-            "Max": "36",
-            "Rate": "30"
-        },
-        {
-            "Dex": "218",
-            "LocationName": "Fiery Path",
-            "Encounter": "Cave",
-            "Min": "15",
-            "Max": "15",
-            "Rate": "10"
-        },
-        {
-            "Dex": "218",
-            "LocationName": "Hoenn Route 113",
-            "Encounter": "Grass",
-            "Min": "14",
-            "Max": "16",
-            "Rate": "25"
-        },
-        {
-            "Dex": "222",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "15"
-        },
-        {
-            "Dex": "222",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "15"
-        },
-        {
-            "Dex": "223",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Good",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "20"
-        },
-        {
-            "Dex": "223",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "35",
-            "Rate": "59"
-        },
-        {
-            "Dex": "224",
-            "LocationName": "Safari Zone",
-            "Encounter": "Fish Super",
-            "Min": "35",
-            "Max": "40",
-            "Rate": "1"
-        },
-        {
-            "Dex": "227",
-            "LocationName": "Hoenn Route 113",
-            "Encounter": "Grass",
-            "Min": "16",
-            "Max": "16",
-            "Rate": "5"
-        },
-        {
-            "Dex": "228",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "12",
-            "Max": "20",
-            "Rate": "100"
-        },
-        {
-            "Dex": "228",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "36",
-            "Max": "39",
-            "Rate": "5"
-        },
-        {
-            "Dex": "231",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "27",
-            "Max": "29",
-            "Rate": "30"
-        },
-        {
-            "Dex": "234",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "18",
-            "Max": "28",
-            "Rate": "100"
-        },
-        {
-            "Dex": "234",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "36",
-            "Max": "39",
-            "Rate": "5"
-        },
-        {
-            "Dex": "235",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "18",
-            "Max": "28",
-            "Rate": "100"
-        },
-        {
-            "Dex": "235",
-            "LocationName": "Artisan Cave",
-            "Encounter": "Cave",
-            "Min": "40",
-            "Max": "50",
-            "Rate": "100"
-        },
-        {
-            "Dex": "241",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "37",
-            "Max": "40",
-            "Rate": "5"
-        },
-        {
-            "Dex": "25",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "5"
-        },
-        {
-            "Dex": "252",
-            "LocationName": "Hoenn Route 101",
-            "Encounter": "Starter",
-            "Min": "5",
-            "Max": "5",
-            "Rate": ""
-        },
-        {
-            "Dex": "255",
-            "LocationName": "Hoenn Route 101",
-            "Encounter": "Starter",
-            "Min": "5",
-            "Max": "5",
-            "Rate": ""
-        },
-        {
-            "Dex": "258",
-            "LocationName": "Hoenn Route 101",
-            "Encounter": "Starter",
-            "Min": "5",
-            "Max": "5",
-            "Rate": ""
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 101",
-            "Encounter": "Grass",
-            "Min": "2",
-            "Max": "3",
-            "Rate": "45"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Grass",
-            "Min": "3",
-            "Max": "4",
-            "Rate": "30"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Grass",
-            "Min": "2",
-            "Max": "4",
-            "Rate": "60"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Grass",
-            "Min": "4",
-            "Max": "5",
-            "Rate": "40"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Grass",
-            "Min": "12",
-            "Max": "12",
-            "Rate": "20"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 116",
-            "Encounter": "Grass",
-            "Min": "6",
-            "Max": "8",
-            "Rate": "28"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Grass",
-            "Min": "13",
-            "Max": "14",
-            "Rate": "30"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "20"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "26",
-            "Rate": "20"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "26",
-            "Rate": "20"
-        },
-        {
-            "Dex": "261",
-            "LocationName": "Petalburg Woods",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "6",
-            "Rate": "30"
-        },
-        {
-            "Dex": "262",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "30"
-        },
-        {
-            "Dex": "262",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "20"
-        },
-        {
-            "Dex": "262",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "20"
-        },
-        {
-            "Dex": "263",
-            "LocationName": "Hoenn Route 101",
-            "Encounter": "Grass",
-            "Min": "2",
-            "Max": "3",
-            "Rate": "10"
-        },
-        {
-            "Dex": "263",
-            "LocationName": "Hoenn Route 101",
-            "Encounter": "Special",
-            "Min": "2",
-            "Max": "2",
-            "Rate": ""
-        },
-        {
-            "Dex": "263",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Grass",
-            "Min": "3",
-            "Max": "4",
-            "Rate": "15"
-        },
-        {
-            "Dex": "263",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Grass",
-            "Min": "3",
-            "Max": "4",
-            "Rate": "20"
-        },
-        {
-            "Dex": "263",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Grass",
-            "Min": "24",
-            "Max": "26",
-            "Rate": "30"
-        },
-        {
-            "Dex": "263",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "30"
-        },
-        {
-            "Dex": "264",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "26",
-            "Rate": "10"
-        },
-        {
-            "Dex": "264",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "30"
-        },
-        {
-            "Dex": "265",
-            "LocationName": "Hoenn Route 101",
-            "Encounter": "Grass",
-            "Min": "2",
-            "Max": "3",
-            "Rate": "45"
-        },
-        {
-            "Dex": "265",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Grass",
-            "Min": "3",
-            "Max": "4",
-            "Rate": "30"
-        },
-        {
-            "Dex": "265",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Grass",
-            "Min": "4",
-            "Max": "4",
-            "Rate": "20"
-        },
-        {
-            "Dex": "265",
-            "LocationName": "Petalburg Woods",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "6",
-            "Rate": "25"
-        },
-        {
-            "Dex": "266",
-            "LocationName": "Petalburg Woods",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "5",
-            "Rate": "10"
-        },
-        {
-            "Dex": "268",
-            "LocationName": "Petalburg Woods",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "5",
-            "Rate": "10"
-        },
-        {
-            "Dex": "27",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Sand",
-            "Min": "19",
-            "Max": "21",
-            "Rate": "35"
-        },
-        {
-            "Dex": "270",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Grass",
-            "Min": "3",
-            "Max": "4",
-            "Rate": "20"
-        },
-        {
-            "Dex": "270",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Grass",
-            "Min": "15",
-            "Max": "16",
-            "Rate": "30"
-        },
-        {
-            "Dex": "271",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Grass",
-            "Min": "16",
-            "Max": "18",
-            "Rate": "20"
-        },
-        {
-            "Dex": "273",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Grass",
-            "Min": "3",
-            "Max": "3",
-            "Rate": "1"
-        },
-        {
-            "Dex": "273",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Swarm",
-            "Min": "3",
-            "Max": "3",
-            "Rate": "50"
-        },
-        {
-            "Dex": "273",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Grass",
-            "Min": "13",
-            "Max": "13",
-            "Rate": "1"
-        },
-        {
-            "Dex": "273",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Swarm",
-            "Min": "13",
-            "Max": "13",
-            "Rate": "50"
-        },
-        {
-            "Dex": "273",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "1"
-        },
-        {
-            "Dex": "273",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Swarm",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "50"
-        },
-        {
-            "Dex": "273",
-            "LocationName": "Rustboro City",
-            "Encounter": "Trade",
-            "Min": "",
-            "Max": "",
-            "Rate": ""
-        },
-        {
-            "Dex": "274",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Grass",
-            "Min": "15",
-            "Max": "15",
-            "Rate": "1"
-        },
-        {
-            "Dex": "274",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Swarm",
-            "Min": "15",
-            "Max": "15",
-            "Rate": "50"
-        },
-        {
-            "Dex": "276",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Grass",
-            "Min": "4",
-            "Max": "5",
-            "Rate": "10"
-        },
-        {
-            "Dex": "276",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Grass",
-            "Min": "23",
-            "Max": "25",
-            "Rate": "40"
-        },
-        {
-            "Dex": "276",
-            "LocationName": "Hoenn Route 116",
-            "Encounter": "Grass",
-            "Min": "6",
-            "Max": "8",
-            "Rate": "20"
-        },
-        {
-            "Dex": "276",
-            "LocationName": "Petalburg Woods",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "6",
-            "Rate": "5"
-        },
-        {
-            "Dex": "277",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "10"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Dewford Town",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Grass",
-            "Min": "2",
-            "Max": "4",
-            "Rate": "20"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Grass",
-            "Min": "3",
-            "Max": "5",
-            "Rate": "10"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "95"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Grass",
-            "Min": "12",
-            "Max": "12",
-            "Rate": "8"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Grass",
-            "Min": "24",
-            "Max": "26",
-            "Rate": "10"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "19"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "9"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "9"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Lilycove City",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Mt. Pyre",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "10"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "278",
-            "LocationName": "Slateport City",
-            "Encounter": "Surf",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "35"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Dewford Town",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 104",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "4"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Lilycove City",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "279",
-            "LocationName": "Slateport City",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "5"
-        },
-        {
-            "Dex": "280",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Grass",
-            "Min": "4",
-            "Max": "4",
-            "Rate": "4"
-        },
-        {
-            "Dex": "285",
-            "LocationName": "Petalburg Woods",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "6",
-            "Rate": "15"
-        },
-        {
-            "Dex": "287",
-            "LocationName": "Petalburg Woods",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "6",
-            "Rate": "5"
-        },
-        {
-            "Dex": "290",
-            "LocationName": "Hoenn Route 116",
-            "Encounter": "Grass",
-            "Min": "6",
-            "Max": "7",
-            "Rate": "20"
-        },
-        {
-            "Dex": "293",
-            "LocationName": "Desert Underpass",
-            "Encounter": "Cave",
-            "Min": "35",
-            "Max": "36",
-            "Rate": "38"
-        },
-        {
-            "Dex": "293",
-            "LocationName": "Hoenn Route 116",
-            "Encounter": "Grass",
-            "Min": "6",
-            "Max": "6",
-            "Rate": "20"
-        },
-        {
-            "Dex": "293",
-            "LocationName": "Rusturf Tunnel",
-            "Encounter": "Cave",
-            "Min": "5",
-            "Max": "8",
-            "Rate": "100"
-        },
-        {
-            "Dex": "293",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "36",
-            "Max": "36",
-            "Rate": "5"
-        },
-        {
-            "Dex": "294",
-            "LocationName": "Desert Underpass",
-            "Encounter": "Cave",
-            "Min": "38",
-            "Max": "44",
-            "Rate": "16"
-        },
-        {
-            "Dex": "294",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "40",
-            "Max": "40",
-            "Rate": "10"
-        },
-        {
-            "Dex": "296",
-            "LocationName": "Granite Cave",
-            "Encounter": "Cave",
-            "Min": "10",
-            "Max": "11",
-            "Rate": "10"
-        },
-        {
-            "Dex": "296",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "36",
-            "Max": "36",
-            "Rate": "10"
-        },
-        {
-            "Dex": "297",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "38",
-            "Max": "40",
-            "Rate": "25"
-        },
-        {
-            "Dex": "299",
-            "LocationName": "Granite Cave",
-            "Encounter": "Rock Smash",
-            "Min": "10",
-            "Max": "20",
-            "Rate": "30"
-        },
-        {
-            "Dex": "300",
-            "LocationName": "Hoenn Route 116",
-            "Encounter": "Grass",
-            "Min": "7",
-            "Max": "8",
-            "Rate": "2"
-        },
-        {
-            "Dex": "300",
-            "LocationName": "Hoenn Route 116",
-            "Encounter": "Swarm",
-            "Min": "8",
-            "Max": "8",
-            "Rate": "50"
-        },
-        {
-            "Dex": "302",
-            "LocationName": "Cave of Origin",
-            "Encounter": "Cave",
-            "Min": "30",
-            "Max": "34",
-            "Rate": "30"
-        },
-        {
-            "Dex": "302",
-            "LocationName": "Granite Cave",
-            "Encounter": "Cave",
-            "Min": "10",
-            "Max": "12",
-            "Rate": "20"
-        },
-        {
-            "Dex": "302",
-            "LocationName": "Sky Pillar",
-            "Encounter": "1F",
-            "Min": "33",
-            "Max": "34",
-            "Rate": "30"
-        },
-        {
-            "Dex": "302",
-            "LocationName": "Sky Pillar",
-            "Encounter": "3F",
-            "Min": "33",
-            "Max": "34",
-            "Rate": "30"
-        },
-        {
-            "Dex": "302",
-            "LocationName": "Sky Pillar",
-            "Encounter": "5F",
-            "Min": "33",
-            "Max": "34",
-            "Rate": "30"
-        },
-        {
-            "Dex": "302",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "40",
-            "Max": "44",
-            "Rate": "35"
-        },
-        {
-            "Dex": "303",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "38",
-            "Max": "38",
-            "Rate": "5"
-        },
-        {
-            "Dex": "304",
-            "LocationName": "Granite Cave",
-            "Encounter": "Cave",
-            "Min": "10",
-            "Max": "12",
-            "Rate": "40"
-        },
-        {
-            "Dex": "304",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "36",
-            "Max": "36",
-            "Rate": "5"
-        },
-        {
-            "Dex": "305",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "40",
-            "Max": "40",
-            "Rate": "10"
-        },
-        {
-            "Dex": "309",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Grass",
-            "Min": "12",
-            "Max": "13",
-            "Rate": "30"
-        },
-        {
-            "Dex": "309",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Grass",
-            "Min": "24",
-            "Max": "26",
-            "Rate": "30"
-        },
-        {
-            "Dex": "310",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "26",
-            "Rate": "10"
-        },
-        {
-            "Dex": "311",
-            "LocationName": "Fortree City",
-            "Encounter": "Trade",
-            "Min": "",
-            "Max": "",
-            "Rate": ""
-        },
-        {
-            "Dex": "311",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Grass",
-            "Min": "12",
-            "Max": "13",
-            "Rate": "2"
-        },
-        {
-            "Dex": "312",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Grass",
-            "Min": "13",
-            "Max": "13",
-            "Rate": "15"
-        },
-        {
-            "Dex": "313",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Grass",
-            "Min": "13",
-            "Max": "13",
-            "Rate": "1"
-        },
-        {
-            "Dex": "314",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Grass",
-            "Min": "13",
-            "Max": "14",
-            "Rate": "18"
-        },
-        {
-            "Dex": "316",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Grass",
-            "Min": "12",
-            "Max": "13",
-            "Rate": "15"
-        },
-        {
-            "Dex": "318",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "318",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "25",
-            "Rate": "30"
-        },
-        {
-            "Dex": "318",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "318",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "319",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Dewford Town",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Dewford Town",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "45",
-            "Rate": "45"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "45",
-            "Rate": "45"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "45",
-            "Rate": "45"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "45",
-            "Rate": "45"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "45",
-            "Rate": "45"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Lilycove City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Lilycove City",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "85"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "45",
-            "Rate": "60"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Slateport City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "320",
-            "LocationName": "Slateport City",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "321",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "30",
-            "Rate": "1"
-        },
-        {
-            "Dex": "322",
-            "LocationName": "Fiery Path",
-            "Encounter": "Cave",
-            "Min": "15",
-            "Max": "16",
-            "Rate": "30"
-        },
-        {
-            "Dex": "322",
-            "LocationName": "Hoenn Route 112",
-            "Encounter": "Grass",
-            "Min": "14",
-            "Max": "16",
-            "Rate": "75"
-        },
-        {
-            "Dex": "322",
-            "LocationName": "Jagged Pass",
-            "Encounter": "Grass",
-            "Min": "20",
-            "Max": "22",
-            "Rate": "55"
-        },
-        {
-            "Dex": "324",
-            "LocationName": "Fiery Path",
-            "Encounter": "Cave",
-            "Min": "14",
-            "Max": "16",
-            "Rate": "18"
-        },
-        {
-            "Dex": "324",
-            "LocationName": "Magma Hideout",
-            "Encounter": "Cave",
-            "Min": "28",
-            "Max": "30",
-            "Rate": "30"
-        },
-        {
-            "Dex": "325",
-            "LocationName": "Jagged Pass",
-            "Encounter": "Grass",
-            "Min": "20",
-            "Max": "22",
-            "Rate": "20"
-        },
-        {
-            "Dex": "327",
-            "LocationName": "Hoenn Route 113",
-            "Encounter": "Grass",
-            "Min": "14",
-            "Max": "16",
-            "Rate": "70"
-        },
-        {
-            "Dex": "328",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Sand",
-            "Min": "19",
-            "Max": "21",
-            "Rate": "35"
-        },
-        {
-            "Dex": "331",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Sand",
-            "Min": "20",
-            "Max": "22",
-            "Rate": "6"
-        },
-        {
-            "Dex": "333",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Grass",
-            "Min": "15",
-            "Max": "17",
-            "Rate": "40"
-        },
-        {
-            "Dex": "333",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Grass",
-            "Min": "23",
-            "Max": "25",
-            "Rate": "30"
-        },
-        {
-            "Dex": "334",
-            "LocationName": "Sky Pillar",
-            "Encounter": "5F",
-            "Min": "38",
-            "Max": "39",
-            "Rate": "6"
-        },
-        {
-            "Dex": "336",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Grass",
-            "Min": "15",
-            "Max": "17",
-            "Rate": "9"
-        },
-        {
-            "Dex": "339",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "339",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "339",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "339",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "339",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "339",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "339",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "339",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "35",
-            "Rate": "80"
-        },
-        {
-            "Dex": "340",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "45",
-            "Rate": "20"
-        },
-        {
-            "Dex": "341",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "341",
-            "LocationName": "Hoenn Route 102",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "341",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "341",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "341",
-            "LocationName": "Petalburg City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "341",
-            "LocationName": "Petalburg City",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "45",
-            "Rate": "100"
-        },
-        {
-            "Dex": "343",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Sand",
-            "Min": "19",
-            "Max": "21",
-            "Rate": "24"
-        },
-        {
-            "Dex": "344",
-            "LocationName": "Sky Pillar",
-            "Encounter": "1F",
-            "Min": "36",
-            "Max": "38",
-            "Rate": "25"
-        },
-        {
-            "Dex": "344",
-            "LocationName": "Sky Pillar",
-            "Encounter": "3F",
-            "Min": "36",
-            "Max": "38",
-            "Rate": "25"
-        },
-        {
-            "Dex": "344",
-            "LocationName": "Sky Pillar",
-            "Encounter": "5F",
-            "Min": "36",
-            "Max": "38",
-            "Rate": "19"
-        },
-        {
-            "Dex": "349",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Good",
-            "Min": "20",
-            "Max": "25",
-            "Rate": "5"
-        },
-        {
-            "Dex": "349",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Old",
-            "Min": "20",
-            "Max": "25",
-            "Rate": "5"
-        },
-        {
-            "Dex": "349",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "25",
-            "Rate": "5"
-        },
-        {
-            "Dex": "351",
-            "LocationName": "Weather Institute",
-            "Encounter": "Gift",
-            "Min": "25",
-            "Max": "25",
-            "Rate": ""
-        },
-        {
-            "Dex": "352",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "1"
-        },
-        {
-            "Dex": "352",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "1"
-        },
-        {
-            "Dex": "352",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Special",
-            "Min": "30",
-            "Max": "30",
-            "Rate": ""
-        },
-        {
-            "Dex": "352",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "1"
-        },
-        {
-            "Dex": "352",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Special",
-            "Min": "30",
-            "Max": "30",
-            "Rate": ""
-        },
-        {
-            "Dex": "352",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "1"
-        },
-        {
-            "Dex": "352",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "1"
-        },
-        {
-            "Dex": "353",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "30"
-        },
-        {
-            "Dex": "353",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "30"
-        },
-        {
-            "Dex": "353",
-            "LocationName": "Mt. Pyre",
-            "Encounter": "Grass",
-            "Min": "24",
-            "Max": "30",
-            "Rate": "85"
-        },
-        {
-            "Dex": "354",
-            "LocationName": "Sky Pillar",
-            "Encounter": "1F",
-            "Min": "37",
-            "Max": "38",
-            "Rate": "15"
-        },
-        {
-            "Dex": "354",
-            "LocationName": "Sky Pillar",
-            "Encounter": "3F",
-            "Min": "37",
-            "Max": "38",
-            "Rate": "15"
-        },
-        {
-            "Dex": "354",
-            "LocationName": "Sky Pillar",
-            "Encounter": "5F",
-            "Min": "37",
-            "Max": "38",
-            "Rate": "15"
-        },
-        {
-            "Dex": "355",
-            "LocationName": "Mt. Pyre",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "30",
-            "Rate": "13"
-        },
-        {
-            "Dex": "357",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "9"
-        },
-        {
-            "Dex": "358",
-            "LocationName": "Mt. Pyre",
-            "Encounter": "Grass",
-            "Min": "28",
-            "Max": "28",
-            "Rate": "2"
-        },
-        {
-            "Dex": "359",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "8"
-        },
-        {
-            "Dex": "360",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "15"
-        },
-        {
-            "Dex": "360",
-            "LocationName": "Lavaridge Town",
-            "Encounter": "Egg",
-            "Min": "5",
-            "Max": "5",
-            "Rate": ""
-        },
-        {
-            "Dex": "360",
-            "LocationName": "Mirage Island",
-            "Encounter": "Grass",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "15"
-        },
-        {
-            "Dex": "361",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Cave",
-            "Min": "26",
-            "Max": "30",
-            "Rate": "10"
-        },
-        {
-            "Dex": "363",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Cave",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "30"
-        },
-        {
-            "Dex": "363",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "35",
-            "Rate": "10"
-        },
-        {
-            "Dex": "366",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Dive",
-            "Min": "20",
-            "Max": "35",
-            "Rate": "65"
-        },
-        {
-            "Dex": "366",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Dive",
-            "Min": "20",
-            "Max": "35",
-            "Rate": "65"
-        },
-        {
-            "Dex": "366",
-            "LocationName": "Underwater",
-            "Encounter": "Dive",
-            "Min": "20",
-            "Max": "35",
-            "Rate": "65"
-        },
-        {
-            "Dex": "369",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Dive",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "5"
-        },
-        {
-            "Dex": "369",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Dive",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "5"
-        },
-        {
-            "Dex": "369",
-            "LocationName": "Underwater",
-            "Encounter": "Dive",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "5"
-        },
-        {
-            "Dex": "37",
-            "LocationName": "Mt. Pyre",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "29",
-            "Rate": "30"
-        },
-        {
-            "Dex": "370",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "370",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "370",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "370",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Fish Super",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "40"
-        },
-        {
-            "Dex": "374",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Gift",
-            "Min": "5",
-            "Max": "5",
-            "Rate": ""
-        },
-        {
-            "Dex": "377",
-            "LocationName": "Desert Ruins",
-            "Encounter": "Special",
-            "Min": "40",
-            "Max": "40",
-            "Rate": ""
-        },
-        {
-            "Dex": "378",
-            "LocationName": "Island Cave",
-            "Encounter": "Special",
-            "Min": "40",
-            "Max": "40",
-            "Rate": ""
-        },
-        {
-            "Dex": "379",
-            "LocationName": "Ancient Tomb",
-            "Encounter": "Special",
-            "Min": "40",
-            "Max": "40",
-            "Rate": ""
-        },
-        {
-            "Dex": "380",
-            "LocationName": "Southern Island",
-            "Encounter": "Eon",
-            "Min": "50",
-            "Max": "50",
-            "Rate": ""
-        },
-        {
-            "Dex": "381",
-            "LocationName": "Southern Island",
-            "Encounter": "Eon",
-            "Min": "50",
-            "Max": "50",
-            "Rate": ""
-        },
-        {
-            "Dex": "382",
-            "LocationName": "Marine Cave",
-            "Encounter": "Special",
-            "Min": "70",
-            "Max": "70",
-            "Rate": ""
-        },
-        {
-            "Dex": "383",
-            "LocationName": "Terra Cave",
-            "Encounter": "Special",
-            "Min": "70",
-            "Max": "70",
-            "Rate": ""
-        },
-        {
-            "Dex": "384",
-            "LocationName": "Sky Pillar",
-            "Encounter": "Special",
-            "Min": "70",
-            "Max": "70",
-            "Rate": ""
-        },
-        {
-            "Dex": "386",
-            "LocationName": "Birth Island",
-            "Encounter": "Aurora",
-            "Min": "30",
-            "Max": "30",
-            "Rate": ""
-        },
-        {
-            "Dex": "39",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Grass",
-            "Min": "24",
-            "Max": "25",
-            "Rate": "10"
-        },
-        {
-            "Dex": "41",
-            "LocationName": "Altering Cave",
-            "Encounter": "Cave",
-            "Min": "6",
-            "Max": "16",
-            "Rate": "100"
-        },
-        {
-            "Dex": "41",
-            "LocationName": "Cave of Origin",
-            "Encounter": "Cave",
-            "Min": "28",
-            "Max": "35",
-            "Rate": "90"
-        },
-        {
-            "Dex": "41",
-            "LocationName": "Granite Cave",
-            "Encounter": "Cave",
-            "Min": "10",
-            "Max": "11",
-            "Rate": "30"
-        },
-        {
-            "Dex": "41",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Cave",
-            "Min": "28",
-            "Max": "35",
-            "Rate": "90"
-        },
-        {
-            "Dex": "41",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "35"
-        },
-        {
-            "Dex": "41",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Cave",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "30"
-        },
-        {
-            "Dex": "41",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "30"
-        },
-        {
-            "Dex": "41",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "36",
-            "Max": "36",
-            "Rate": "10"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Cave of Origin",
-            "Encounter": "Cave",
-            "Min": "33",
-            "Max": "36",
-            "Rate": "10"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Cave",
-            "Min": "33",
-            "Max": "36",
-            "Rate": "10"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Surf",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "5"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Cave",
-            "Min": "30",
-            "Max": "32",
-            "Rate": "5"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Sky Pillar",
-            "Encounter": "1F",
-            "Min": "34",
-            "Max": "35",
-            "Rate": "30"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Sky Pillar",
-            "Encounter": "3F",
-            "Min": "34",
-            "Max": "35",
-            "Rate": "30"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Sky Pillar",
-            "Encounter": "5F",
-            "Min": "34",
-            "Max": "35",
-            "Rate": "30"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Cave",
-            "Min": "38",
-            "Max": "40",
-            "Rate": "25"
-        },
-        {
-            "Dex": "42",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "40",
-            "Rate": "100"
-        },
-        {
-            "Dex": "43",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Grass",
-            "Min": "13",
-            "Max": "13",
-            "Rate": "10"
-        },
-        {
-            "Dex": "43",
-            "LocationName": "Hoenn Route 117",
-            "Encounter": "Grass",
-            "Min": "13",
-            "Max": "14",
-            "Rate": "40"
-        },
-        {
-            "Dex": "43",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Long grass",
-            "Min": "24",
-            "Max": "27",
-            "Rate": "30"
-        },
-        {
-            "Dex": "43",
-            "LocationName": "Hoenn Route 120",
-            "Encounter": "Long grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "25"
-        },
-        {
-            "Dex": "43",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "15"
-        },
-        {
-            "Dex": "43",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Grass",
-            "Min": "26",
-            "Max": "28",
-            "Rate": "15"
-        },
-        {
-            "Dex": "43",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "27",
-            "Rate": "40"
-        },
-        {
-            "Dex": "44",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Grass",
-            "Min": "28",
-            "Max": "28",
-            "Rate": "5"
-        },
-        {
-            "Dex": "44",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Grass",
-            "Min": "28",
-            "Max": "28",
-            "Rate": "5"
-        },
-        {
-            "Dex": "44",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "5"
-        },
-        {
-            "Dex": "54",
-            "LocationName": "Safari Zone",
-            "Encounter": "Surf",
-            "Min": "20",
-            "Max": "35",
-            "Rate": "100"
-        },
-        {
-            "Dex": "55",
-            "LocationName": "Safari Zone",
-            "Encounter": "Surf",
-            "Min": "25",
-            "Max": "40",
-            "Rate": "5"
-        },
-        {
-            "Dex": "63",
-            "LocationName": "Granite Cave",
-            "Encounter": "Cave",
-            "Min": "10",
-            "Max": "10",
-            "Rate": "10"
-        },
-        {
-            "Dex": "63",
-            "LocationName": "Hoenn Route 116",
-            "Encounter": "Grass",
-            "Min": "7",
-            "Max": "7",
-            "Rate": "10"
-        },
-        {
-            "Dex": "66",
-            "LocationName": "Fiery Path",
-            "Encounter": "Cave",
-            "Min": "15",
-            "Max": "16",
-            "Rate": "15"
-        },
-        {
-            "Dex": "66",
-            "LocationName": "Jagged Pass",
-            "Encounter": "Grass",
-            "Min": "20",
-            "Max": "22",
-            "Rate": "25"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Abandoned Ship",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "40"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Abandoned Ship",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Abandoned Ship",
-            "Encounter": "Fish Super",
-            "Min": "25",
-            "Max": "35",
-            "Rate": "80"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Abandoned Ship",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "99"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Dewford Town",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Dewford Town",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Dewford Town",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Ever Grande City",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 103",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 105",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 106",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 107",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 108",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 109",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 110",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 115",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 118",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 119",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 121",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 122",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 123",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 124",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 125",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 126",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 127",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 128",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 129",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 130",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 131",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 132",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 133",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Hoenn Route 134",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Lilycove City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Lilycove City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Lilycove City",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Mossdeep City",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Pacifidlog Town",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Seafloor Cavern",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Shoal Cave",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Slateport City",
-            "Encounter": "Fish Good",
-            "Min": "10",
-            "Max": "30",
-            "Rate": "20"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Slateport City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Slateport City",
-            "Encounter": "Surf",
-            "Min": "5",
-            "Max": "35",
-            "Rate": "60"
-        },
-        {
-            "Dex": "72",
-            "LocationName": "Sootopolis City",
-            "Encounter": "Fish Old",
-            "Min": "5",
-            "Max": "10",
-            "Rate": "30"
-        },
-        {
-            "Dex": "73",
-            "LocationName": "Abandoned Ship",
-            "Encounter": "Fish Super",
-            "Min": "20",
-            "Max": "35",
-            "Rate": "20"
-        },
-        {
-            "Dex": "73",
-            "LocationName": "Abandoned Ship",
-            "Encounter": "Surf",
-            "Min": "30",
-            "Max": "35",
-            "Rate": "1"
-        },
-        {
-            "Dex": "74",
-            "LocationName": "Granite Cave",
-            "Encounter": "Cave",
-            "Min": "6",
-            "Max": "9",
-            "Rate": "10"
-        },
-        {
-            "Dex": "74",
-            "LocationName": "Granite Cave",
-            "Encounter": "Rock Smash",
-            "Min": "5",
-            "Max": "20",
-            "Rate": "70"
-        },
-        {
-            "Dex": "74",
-            "LocationName": "Hoenn Route 111",
-            "Encounter": "Rock Smash",
-            "Min": "5",
-            "Max": "20",
-            "Rate": "100"
-        },
-        {
-            "Dex": "74",
-            "LocationName": "Hoenn Route 114",
-            "Encounter": "Rock Smash",
-            "Min": "5",
-            "Max": "20",
-            "Rate": "100"
-        },
-        {
-            "Dex": "74",
-            "LocationName": "Magma Hideout",
-            "Encounter": "Cave",
-            "Min": "27",
-            "Max": "30",
-            "Rate": "55"
-        },
-        {
-            "Dex": "74",
-            "LocationName": "Safari Zone",
-            "Encounter": "Rock Smash",
-            "Min": "5",
-            "Max": "30",
-            "Rate": "100"
-        },
-        {
-            "Dex": "74",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Rock Smash",
-            "Min": "30",
-            "Max": "40",
-            "Rate": "30"
-        },
-        {
-            "Dex": "75",
-            "LocationName": "Magma Hideout",
-            "Encounter": "Cave",
-            "Min": "30",
-            "Max": "33",
-            "Rate": "15"
-        },
-        {
-            "Dex": "75",
-            "LocationName": "Victory Road (Hoenn)",
-            "Encounter": "Rock Smash",
-            "Min": "30",
-            "Max": "40",
-            "Rate": "70"
-        },
-        {
-            "Dex": "81",
-            "LocationName": "New Mauville",
-            "Encounter": "Basement",
-            "Min": "22",
-            "Max": "26",
-            "Rate": "49"
-        },
-        {
-            "Dex": "81",
-            "LocationName": "New Mauville",
-            "Encounter": "Entrance",
-            "Min": "22",
-            "Max": "26",
-            "Rate": "50"
-        },
-        {
-            "Dex": "82",
-            "LocationName": "New Mauville",
-            "Encounter": "Basement",
-            "Min": "26",
-            "Max": "26",
-            "Rate": "1"
-        },
-        {
-            "Dex": "84",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "25",
-            "Max": "25",
-            "Rate": "10"
-        },
-        {
-            "Dex": "85",
-            "LocationName": "Safari Zone",
-            "Encounter": "Grass",
-            "Min": "29",
-            "Max": "31",
-            "Rate": "5"
-        },
-        {
-            "Dex": "88",
-            "LocationName": "Fiery Path",
-            "Encounter": "Cave",
-            "Min": "14",
-            "Max": "14",
-            "Rate": "2"
-        }
+        selectBreedingMethod:{MoveName: null},
+        breedingMethods:[
+        {MoveName: "Which Breeding Method are you looking for?"},
+        {"MoveName": "Safeguard"},
+        {"MoveName": "Light Screen"},
+        {"MoveName": "Curse"},
+        {"MoveName": "Charm"},
+        {"MoveName": "Grass Whistle"},
+        {"MoveName": "Petal Dance"},
+        {"MoveName": "Magical Leaf"},
+        {"MoveName": "Skull Bash"},
+        {"MoveName": "Ancient Power"},
+        {"MoveName": "Reflect"},
+        {"MoveName": "Moonlight"},
+        {"MoveName": "Psych Up"},
+        {"MoveName": "Synthesis"},
+        {"MoveName": "Ingrain"},
+        {"MoveName": "Swords Dance"},
+        {"MoveName": "Perish Song"},
+        {"MoveName": "Belly Drum"},
+        {"MoveName": "Rock Slide"},
+        {"MoveName": "Screech"},
+        {"MoveName": "High Jump Kick"},
+        {"MoveName": "Mind Reader"},
+        {"MoveName": "Helping Hand"},
+        {"MoveName": "Mach Punch"},
+        {"MoveName": "Rapid Spin"},
+        {"MoveName": "Magnitude"},
+        {"MoveName": "Substitute"},
+        {"MoveName": "Snore"},
+        {"MoveName": "Smelling Salts"},
+        {"MoveName": "Sleep Talk"},
+        {"MoveName": "Body Slam"},
+        {"MoveName": "Pain Split"},
+        {"MoveName": "Psybeam"},
+        {"MoveName": "Destiny Bond"},
+        {"MoveName": "Will-O-Wisp"},
+        {"MoveName": "Psywave"},
+        {"MoveName": "Counter"},
+        {"MoveName": "Reversal"},
+        {"MoveName": "Crush Claw"},
+        {"MoveName": "Crunch"},
+        {"MoveName": "Metronome"},
+        {"MoveName": "Present"},
+        {"MoveName": "Heal Bell"},
+        {"MoveName": "Aromatherapy"},
+        {"MoveName": "Confusion"},
+        {"MoveName": "Flail"},
+        {"MoveName": "Amnesia"},
+        {"MoveName": "Nature Power"},
+        {"MoveName": "Mega Drain"},
+        {"MoveName": "Leech Seed"},
+        {"MoveName": "Focus Energy"},
+        {"MoveName": "Disable"},
+        {"MoveName": "Foresight"},
+        {"MoveName": "Stomp"},
+        {"MoveName": "Dragon Rage"},
+        {"MoveName": "Octazooka"},
+        {"MoveName": "Splash"},
+        {"MoveName": "Aurora Beam"},
+        {"MoveName": "Dragon Breath"},
+        {"MoveName": "Haze"},
+        {"MoveName": "Hydro Pump"},
+        {"MoveName": "Mud Sport"},
+        {"MoveName": "Trick"},
+        {"MoveName": "Fake Out"},
+        {"MoveName": "Hypnosis"},
+        {"MoveName": "Mimic"},
+        {"MoveName": "Future Sight"},
+        {"MoveName": "Endure"},
+        {"MoveName": "Silver Wind"},
+        {"MoveName": "Baton Pass"},
+        {"MoveName": "Ice Punch"},
+        {"MoveName": "Meditate"},
+        {"MoveName": "Wish"},
+        {"MoveName": "Barrier"},
+        {"MoveName": "Rolling Kick"},
+        {"MoveName": "Fire Punch"},
+        {"MoveName": "Cross Chop"},
+        {"MoveName": "Karate Chop"},
+        {"MoveName": "Mega Punch"},
+        {"MoveName": "Thunder Punch"},
+        {"MoveName": "Fury Attack"},
+        {"MoveName": "False Swipe"},
+        {"MoveName": "Feint Attack"},
+        {"MoveName": "Horn Drill"},
+        {"MoveName": "Tickle"},
+        {"MoveName": "Dragon Dance"},
+        {"MoveName": "Refresh"},
+        {"MoveName": "Slam"},
+        {"MoveName": "Supersonic"},
+        {"MoveName": "Bubble Beam"},
+        {"MoveName": "Spikes"},
+        {"MoveName": "Knock Off"},
+        {"MoveName": "Confuse Ray"},
+        {"MoveName": "Dig"},
+        {"MoveName": "Whirlwind"},
+        {"MoveName": "Steel Wing"},
+        {"MoveName": "Pursuit"},
+        {"MoveName": "Lick"},
+        {"MoveName": "Double-Edge"},
+        {"MoveName": "Mist"},
+        {"MoveName": "Vine Whip"},
+        {"MoveName": "Covet"},
+        {"MoveName": "Howl"},
+        {"MoveName": "Thrash"},
+        {"MoveName": "Fury Swipes"},
+        {"MoveName": "Quick Attack"},
+        {"MoveName": "Dragon Claw"},
+        {"MoveName": "Water Sport"},
+        {"MoveName": "Air Cutter"},
+        {"MoveName": "Assist"},
+        {"MoveName": "Slash"},
+        {"MoveName": "Feather Dance"},
+        {"MoveName": "Mirror Move"},
+        {"MoveName": "Wing Attack"},
+        {"MoveName": "Sky Attack"},
+        {"MoveName": "Bide"},
+        {"MoveName": "Sonic Boom"},
+        {"MoveName": "Signal Beam"},
+        {"MoveName": "Gust"},
+        {"MoveName": "Double Slap"},
+        {"MoveName": "Charge"},
+        {"MoveName": "Encore"},
+        {"MoveName": "Fake Tears"},
+        {"MoveName": "Peck"},
+        {"MoveName": "Drill Peck"},
+        {"MoveName": "Take Down"},
+        {"MoveName": "Odor Sleuth"},
+        {"MoveName": "Razor Leaf"},
+        {"MoveName": "Sing"},
+        {"MoveName": "Self-Destruct"},
+        {"MoveName": "Ice Ball"},
+        {"MoveName": "Flame Wheel"},
+        {"MoveName": "Uproar"},
+        {"MoveName": "Swagger"},
+        {"MoveName": "Bite"},
+        {"MoveName": "Spite"},
+        {"MoveName": "Agility"},
+        {"MoveName": "Beat Up"},
+        {"MoveName": "Leech Life"},
+        {"MoveName": "Spit Up"},
+        {"MoveName": "Stockpile"},
+        {"MoveName": "Swallow"},
+        {"MoveName": "Imprison"},
+        {"MoveName": "Magic Coat"},
+        {"MoveName": "Pin Missile"},
+        {"MoveName": "Swift"},
+        {"MoveName": "Sand Tomb"},
+        {"MoveName": "Headbutt"},
+        {"MoveName": "Astonish"},
+        {"MoveName": "Razor Wind"},
+        {"MoveName": "Metal Claw"},
+        {"MoveName": "Block"},
+        {"MoveName": "Explosion"},
+        {"MoveName": "Scary Face"},
+        {"MoveName": "Tri Attack"},
+        {"MoveName": "Sweet Scent"},
+        {"MoveName": "Harden"},
+        {"MoveName": "Yawn"},
+        {"MoveName": "Seismic Toss"},
+        {"MoveName": "Heat Wave"},
+        {"MoveName": "Acid Armor"},
+        {"MoveName": "Mud Shot"},
+        {"MoveName": "Icicle Spear"},
+        {"MoveName": "Thunder Wave"},
+        {"MoveName": "Rock Blast"},
+        {"MoveName": "Twister"},
+        {"MoveName": "Rage"},
+        {"MoveName": "Fire Spin"},
+        {"MoveName": "Poison Fang"},
+        {"MoveName": "Fissure"},
+        {"MoveName": "Extrasensory"},
+        {"MoveName": "Outrage"},
+        {"MoveName": "Endeavor"},
+        {"MoveName": "Mirror Coat"},
+        {"MoveName": "Leer"},
+        {"MoveName": "Water Gun"},
+        {"MoveName": "Memento"},
+        {"MoveName": "Mean Look"},
+        {"MoveName": "Detect"},
+        {"MoveName": "Revenge"},
+        {"MoveName": "Dynamic Punch"},
+        {"MoveName": "Rollout"},
+        {"MoveName": "Recover"},
+        {"MoveName": "Growth"},
+        {"MoveName": "Cotton Spore"},
+        {"MoveName": "Smog"},
+        {"MoveName": "Dream Eater"},
+        {"MoveName": "Defense Curl"},
+        {"MoveName": "Eruption"},
+        {"MoveName": "Teeter Dance"},
+        {"MoveName": "Acid"},
+        {"MoveName": "Double Kick"},
+        {"MoveName": "Roar"},
+        {"MoveName": "Spark"},
+        {"MoveName": "Whirlpool"},
+        {"MoveName": "Grudge"},
+        {"MoveName": "Giga Drain"},
+        {"MoveName": "Psychic"},
+        {"MoveName": "Shadow Punch"},
+        {"MoveName": "Role Play"}
         ],
 
-        //dunno if used?? - just use type?
-        selectHasTypes:{},
-        hastypes: [
-        {
-            "Dex": "1",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "1",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "2",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "2",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "3",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "3",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "4",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "5",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "6",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "6",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "7",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "8",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "9",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "10",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "11",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "12",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "12",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "13",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "13",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "14",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "14",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "15",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "15",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "16",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "16",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "17",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "17",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "18",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "18",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "19",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "20",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "21",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "21",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "22",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "22",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "23",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "24",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "25",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "26",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "27",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "28",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "29",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "30",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "31",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "31",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "32",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "33",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "34",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "34",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "35",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "36",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "37",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "38",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "39",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "40",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "41",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "41",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "42",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "42",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "43",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "43",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "44",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "44",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "45",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "45",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "46",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "46",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "47",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "47",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "48",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "48",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "49",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "49",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "50",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "51",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "52",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "53",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "54",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "55",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "56",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "57",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "58",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "59",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "60",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "61",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "62",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "62",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "63",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "64",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "65",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "66",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "67",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "68",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "69",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "69",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "70",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "70",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "71",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "71",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "72",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "72",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "73",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "73",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "74",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "74",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "75",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "75",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "76",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "76",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "77",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "78",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "79",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "79",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "80",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "80",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "81",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "81",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "82",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "82",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "83",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "83",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "84",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "84",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "85",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "85",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "86",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "87",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "87",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "88",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "89",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "90",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "91",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "91",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "92",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "92",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "93",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "93",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "94",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "94",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "95",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "95",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "96",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "97",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "98",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "99",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "100",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "101",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "102",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "102",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "103",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "103",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "104",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "105",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "106",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "107",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "108",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "109",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "110",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "111",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "111",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "112",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "112",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "113",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "114",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "115",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "116",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "117",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "118",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "119",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "120",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "121",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "121",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "122",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "123",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "123",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "124",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "124",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "125",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "126",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "127",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "128",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "129",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "130",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "130",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "131",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "131",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "132",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "133",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "134",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "135",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "136",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "137",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "138",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "138",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "139",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "139",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "140",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "140",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "141",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "141",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "142",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "142",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "143",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "144",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "144",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "145",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "145",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "146",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "146",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "147",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "148",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "149",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "149",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "150",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "151",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "152",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "153",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "154",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "155",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "156",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "157",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "158",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "159",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "160",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "161",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "162",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "163",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "163",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "164",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "164",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "165",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "165",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "166",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "166",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "167",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "167",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "168",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "168",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "169",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "169",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "170",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "170",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "171",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "171",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "172",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "173",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "174",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "175",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "176",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "176",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "177",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "177",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "178",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "178",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "179",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "180",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "181",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "182",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "183",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "184",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "185",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "186",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "187",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "187",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "188",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "188",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "189",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "189",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "190",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "191",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "192",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "193",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "193",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "194",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "194",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "195",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "195",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "196",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "197",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "198",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "198",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "199",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "199",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "200",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "201",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "202",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "203",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "203",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "204",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "205",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "205",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "206",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "207",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "207",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "208",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "208",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "209",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "210",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "211",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "211",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "212",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "212",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "213",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "213",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "214",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "214",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "215",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "215",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "216",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "217",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "218",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "219",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "219",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "220",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "220",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "221",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "221",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "222",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "222",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "223",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "224",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "225",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "225",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "226",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "226",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "227",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "227",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "228",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "228",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "229",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "229",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "230",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "230",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "231",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "232",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "233",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "234",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "235",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "236",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "237",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "238",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "238",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "239",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "240",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "241",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "242",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "243",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "244",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "245",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "246",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "246",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "247",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "247",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "248",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "248",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "249",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "249",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "250",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "250",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "251",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "251",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "252",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "253",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "254",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "255",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "256",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "256",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "257",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "257",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "258",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "259",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "259",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "260",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "260",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "261",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "262",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "263",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "264",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "265",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "266",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "267",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "267",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "268",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "269",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "269",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "270",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "270",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "271",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "271",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "272",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "272",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "273",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "274",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "274",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "275",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "275",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "276",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "276",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "277",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "277",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "278",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "278",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "279",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "279",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "280",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "281",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "282",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "283",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "283",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "284",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "284",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "285",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "286",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "286",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "287",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "288",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "289",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "290",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "290",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "291",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "291",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "292",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "292",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "293",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "294",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "295",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "296",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "297",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "298",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "299",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "300",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "301",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "302",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "302",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "303",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "304",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "304",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "305",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "305",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "306",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "306",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "307",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "307",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "308",
-            "TypeName": "Fighting"
-        },
-        {
-            "Dex": "308",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "309",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "310",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "311",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "312",
-            "TypeName": "Electric"
-        },
-        {
-            "Dex": "313",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "314",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "315",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "315",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "316",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "317",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "318",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "318",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "319",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "319",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "320",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "321",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "322",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "322",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "323",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "323",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "324",
-            "TypeName": "Fire"
-        },
-        {
-            "Dex": "325",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "326",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "327",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "328",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "329",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "329",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "330",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "330",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "331",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "332",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "332",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "333",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "333",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "334",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "334",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "335",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "336",
-            "TypeName": "Poison"
-        },
-        {
-            "Dex": "337",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "337",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "338",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "338",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "339",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "339",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "340",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "340",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "341",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "342",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "342",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "343",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "343",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "344",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "344",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "345",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "345",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "346",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "346",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "347",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "347",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "348",
-            "TypeName": "Bug"
-        },
-        {
-            "Dex": "348",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "349",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "350",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "351",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "352",
-            "TypeName": "Normal"
-        },
-        {
-            "Dex": "353",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "354",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "355",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "356",
-            "TypeName": "Ghost"
-        },
-        {
-            "Dex": "357",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "357",
-            "TypeName": "Grass"
-        },
-        {
-            "Dex": "358",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "359",
-            "TypeName": "Dark"
-        },
-        {
-            "Dex": "360",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "361",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "362",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "363",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "363",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "364",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "364",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "365",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "365",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "366",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "367",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "368",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "369",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "369",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "370",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "371",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "372",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "373",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "373",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "374",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "374",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "375",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "375",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "376",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "376",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "377",
-            "TypeName": "Rock"
-        },
-        {
-            "Dex": "378",
-            "TypeName": "Ice"
-        },
-        {
-            "Dex": "379",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "380",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "380",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "381",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "381",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "382",
-            "TypeName": "Water"
-        },
-        {
-            "Dex": "383",
-            "TypeName": "Ground"
-        },
-        {
-            "Dex": "384",
-            "TypeName": "Dragon"
-        },
-        {
-            "Dex": "384",
-            "TypeName": "Flying"
-        },
-        {
-            "Dex": "385",
-            "TypeName": "Psychic"
-        },
-        {
-            "Dex": "385",
-            "TypeName": "Steel"
-        },
-        {
-            "Dex": "386",
-            "TypeName": "Psychic"
-        }
+        selectStat:{stat: null},
+        stats:[
+            {stat: "Which Stat are you looking for?"},
+            {stat: "HP"},
+            {stat: "Atk"},
+            {stat: "Def"},
+            {stat: "SpA"},
+            {stat: "Spd"},
+            {stat: "Spe"},
         ],
 
-        //need to import remaining json files - going to start on visibility modifiers
-
-    }
+        selectEncounter:{Encounter: null},
+        encounters: [
+        {Encounter: "Which Encounter are you looking for?"},
+        {"Encounter": "Basement"},
+        { "Encounter": "Entrance"},
+        { "Encounter": "Fake"},
+        { "Encounter": "Cave"},
+        { "Encounter": "Grass"},
+        { "Encounter": "Fish Super"},
+        { "Encounter": "Trade"},
+        { "Encounter": "Fish Good"},
+        { "Encounter": "Fish Old"},
+        { "Encounter": "Surf"},
+        { "Encounter": "Gift"},
+        { "Encounter": "Dive"},
+        { "Encounter": "Long grass"},
+        { "Encounter": "Rock Smash"},
+        { "Encounter": "Starter"},
+        { "Encounter": "Special"},
+        { "Encounter": "Sand"},
+        { "Encounter": "Swarm"},
+        { "Encounter": "1F"},
+        { "Encounter": "3F"},
+        { "Encounter": "5F"},
+        { "Encounter": "Egg"},
+        { "Encounter": "Eon"},
+        { "Encounter": "Aurora"}
+        ]
+      }
   },
 
    methods:{
     setVisibilty(query){ //use this function to make required dropdowns visible for appropriate queries
       this.setAllHidden();
       switch(query){
-        case '1':{ this.eggGroupVisible = true; break;}
-        case '2':{ this.pokemonNameVisible = true; break;} 
-        case '3':{ this.pokemonNameVisible = true; break;} 
-        case '4':{ this.pokemonNameVisible = true; break;} 
-        case '5':{ this.typeVisible = true; break;}
-        case '6':{ this.typeVisible = true; this.secondTypeVisible = true; break;}
-        case '7':{ this.trainerNameVisible = true; break;}
-        case '8':{ this.trainerClassVisible = true; break;}
-        case '9':{ this.trainerClassVisible = true; break;}
-        case '10':{ this.levelSelectVisible = true; break;}
-        case '11':{ break;} //nothing needed??
-        case '12':{ break;} //nothing needed?
+        case '1':{ this.dropdownMessageVisible = true; this.eggGroupVisible = true; break;}
+        case '2':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+        case '3':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+        case '4':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+        case '5':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
+        case '6':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
+        case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
+        case '8':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
+        case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
+        case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
+        case '11':{ break;} 
+        case '12':{ break;}
+        case '13':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '14':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '15':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '16':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '17':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '18':{ break;} //idk what this query does ._.
+        case '19':{ break;} //idk what this query does ._.
+        case '20':{ break;} 
+        case '21':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+        case '22':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
+        case '23':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
+        case '24':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.breedingMethodVisible = true; break;}
+        case '25':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '26':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '27':{ break;} 
+        case '28':{ break;} 
+        case '29':{ break;} 
+        case '30':{ break;} 
+        case '31':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '32':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '33':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+        case '34':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
+        case '35':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
+        case '36':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
+        case '37':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
+        case '38':{ this.dropdownMessageVisible = true; this.locationVisible = true; break;}
+        case '39':{ this.dropdownMessageVisible = true; this.locationVisible = true; this.encounterVisible = true; break;} 
+        case '40':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+        case '41':{ this.dropdownMessageVisible = true; this.locationVisible = true; this.pokemonNameVisible = true; break;}
+        case '42':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+        case '43':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+        case '44':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+        case '45':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+        case '46':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+        case '47':{ break;} 
+        case '48':{ this.dropdownMessageVisible = true; this.abilityVisible = true; break;}
+        case '49':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
+        case '50':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
+        case '51':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;} //idk if this should be name or class?
+        case '52':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '53':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
+        case '54':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
+        case '55':{ break;} 
+        case '56':{ break;} 
+        case '57':{ break;} 
        }
     },
 
-    setAllHidden(){
-        //FIGURE OUT HOW TO RESET ALL SELECTED VALUES!!
+    makeQuery(){ //function validates input and calls api
+        let query = this.selectQuery.id;
+        let valid = false;
+        let URL = "temp/";
+        
+        switch(query){
+        case '1':{ 
+            if(this.selectEggGroup.GroupName != null){ 
+                url = URL+this.selectEggGroup.GroupName;
+                valid = true;
+            } break;}
+        case '2':{ 
+            if(this.selectPokemon.PokemonName != null){
+                url = URL+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;} 
+        case '3':{ 
+            if(this.selectPokemon.PokemonName != null){
+                url = URL+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;} 
+        case '4':{ 
+            if(this.selectPokemon.PokemonName != null){
+                url = URL+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '5':{ 
+            if(this.selectType.TypeName != null){
+                url = URL+this.selectType.TypeName;
+                valid = true;
+            }break;}
+        case '6':{ 
+            if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
+                url = URL+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                valid = true;
+            }break;}
+        case '7':{ 
+            if(this.selectTrainer.TrainerName != null){
+                url = URL+this.selectTrainer.TrainerName;
+                valid = true;
+            }break;}
 
+            //NEED TO MAKE DEFAULT VALUES FOR ALL DROP-DOWNS AND RESET THEM BEFORE CONTINUING
+        case '8':{ 
+            if(this != null){
+                url = URL+this;
+                valid = true;
+            }break;}
+        case '9':{ 
+            if(this != null){
+                url = URL+this;
+                valid = true;
+            }break;}
+        case '10':{ 
+            if(this != null){
+                url = URL+this;
+                valid = true;
+            }break;}
+        case '11':{ 
+            if(this != null){
+                url = URL+this;
+                valid = true;
+            }break;} 
+        case '12':{ 
+            if(this != null){
+                url = URL+this;
+                valid = true;
+            }break;}
+        case '13':{ 
+            if(this != null){
+                url = URL+this;
+                valid = true;
+            }break;}
+        case '14':{ break;}
+        case '15':{ break;}
+        case '16':{ break;}
+        case '17':{ break;}
+        case '18':{ break;} 
+        case '19':{ break;} 
+        case '20':{ break;} 
+        case '21':{ break;}
+        case '22':{ break;}
+        case '23':{ break;}
+        case '24':{ break;}
+        case '25':{ break;}
+        case '26':{ break;}
+        case '27':{ break;} 
+        case '28':{ break;} 
+        case '29':{ break;} 
+        case '30':{ break;} 
+        case '31':{ break;}
+        case '32':{ break;}
+        case '33':{ break;}
+        case '34':{ break;} 
+        case '35':{ break;} 
+        case '36':{ break;} 
+        case '37':{ break;} 
+        case '38':{ break;}
+        case '39':{ break;} 
+        case '40':{ break;} 
+        case '41':{ break;}
+        case '42':{ break;}
+        case '43':{ break;}
+        case '44':{ break;}
+        case '45':{ break;}
+        case '46':{ break;}
+        case '47':{ break;} 
+        case '48':{ break;}
+        case '49':{ break;}
+        case '50':{ break;}
+        case '51':{ break;}
+        case '52':{ break;}
+        case '53':{ break;}
+        case '54':{ break;}
+        case '55':{ break;} 
+        case '56':{ break;} 
+        case '57':{ break;} 
+       }
+
+       if(valid){
+            this.queryVisible = false;
+            this.setAllHidden();
+            this.resultsVisible = true;
+
+            results = "api call("+url+")";//except for real tho
+
+       }else{
+           this.errorMessageVisible = true;
+       }
+    },
+
+    newQuery(){
+        //Reset all selected values - THIS DOESNT ACTUALLY WORK??
+        this.selectQuery = this.queries[0];
+        this.selectLevel = this.levels[0];
+        this.selectLocation = this.locations[0];
+        this.selectAbility = this.abilities[0];
+        this.selectSecondType = this.types[0];
+        this.selectType = this.types[0];
+        this.selectTrainer = this.trainers[0];
+        this.selectPokemon = this.pokemon[0];
+        this.selectEggGroup = this.egggroups[0];
+        this.selectMove = this.moves[0];
+        this.selectBreedingMethod = this.breedingMethods[0];
+        this.selectStat = this.stats[0];
+        this.selectEncounter = this.encounters[0];
+
+        this.resultsVisible = false;
+        this.queryVisible = true;
+        this.setAllHidden();
+        url = "";
+    },
+
+    setAllHidden(){
         //set all Visible tags to false
         this.locationVisible = false;
         this.abilityVisible = false;
@@ -24126,6 +14155,11 @@
         this.pokemonNameVisible = false;
         this.eggGroupVisible = false;
         this.levelSelectVisible = false;
+        this.moveVisible = false;
+        this.breedingMethodVisible = false;
+        this.encounterVisible = false;
+        this.dropdownMessageVisible = false; 
+        this.errorMessageVisible = false;
     }
   },
 
@@ -24133,23 +14167,15 @@
     //make sure all appropriate values are selected for selected query
     vaidateQuery(){
       this.setVisibilty(this.selectQuery.id);
-      if(this.selectQuery.id!=0){//make sure to change these tests
-        return true;
-      } 
-      return false;
+      if(this.selectQuery.id!=0){return "Interact with the Database!";}
+      return "Interact with the Database!";
     },
 
-    //should be triggered by a 'query' button - currently placeholder doesnt do shit
-    updateQuery(){
-      if(this.vaidateQuery){
-        return "use this concept to diplay query results prolly";
-      }
-      return "";//required for computed property apparently
+     getQuery(){
+      return results;
     },
 
   },
-
-
 }
 
 </script>
