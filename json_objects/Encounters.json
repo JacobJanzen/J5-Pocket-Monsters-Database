@@ -1,0 +1,28 @@
+{
+    "encounters": [
+       {"Encounter": "Basement"},
+       { "Encounter": "Entrance"},
+       { "Encounter": "Fake"},
+       { "Encounter": "Cave"},
+       { "Encounter": "Grass"},
+       { "Encounter": "Fish Super"},
+       { "Encounter": "Trade"},
+       { "Encounter": "Fish Good"},
+       { "Encounter": "Fish Old"},
+       { "Encounter": "Surf"},
+       { "Encounter": "Gift"},
+       { "Encounter": "Dive"},
+       { "Encounter": "Long grass"},
+       { "Encounter": "Rock Smash"},
+       { "Encounter": "Starter"},
+       { "Encounter": "Special"},
+       { "Encounter": "Sand"},
+       { "Encounter": "Swarm"},
+       { "Encounter": "1F"},
+       { "Encounter": "3F"},
+       { "Encounter": "5F"},
+       { "Encounter": "Egg"},
+       { "Encounter": "Eon"},
+       { "Encounter": "Aurora"}
+    ]
+}
