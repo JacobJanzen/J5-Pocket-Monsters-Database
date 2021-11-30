@@ -48,9 +48,12 @@
               <h3>View your query results below when they've loaded...</h3>
           </v-col>
 
-        <v-col cols="4">
-             <v-btn @click="newQuery()">New Query!</v-btn>
+        <v-col cols="4" >
+             <v-btn class="button" @click="newQuery()">New Query</v-btn>
+             <!-- THIS BUTTON DOESNT WORK - DOWNLOAD POPS UP BUT NOTHING HAPPENS -->
+             <a class="button" href = "../../example.csv" download><v-btn>Download</v-btn></a>
         </v-col>
+
 
       </v-row>
 
@@ -326,6 +329,7 @@ export default {
         errorMessageVisible: false,
         statVisible: false,
 
+
         //add all other params here
 
         selectQuery: { value: 'query', id: '0' },
@@ -351,8 +355,8 @@ export default {
           { value: 'Moves that are supereffective against a given Pokemon', id: '15' },
           { value: 'Moves that are neutral against a given Pokemon', id: '16' },
           { value: 'Moves that are not effective against a given Pokemon', id: '17' },
-          { value: '/moves_non_effective_against_pokemon/<pokemon_name>', id: '18' },
-          { value: '/moves_effectiveness_against_pokemon/<pokemon_name>', id: '19' },
+          { value: 'Moves that are non-effective against a given Pokemon', id: '18' },
+          { value: 'All moves\' effectiveness against a given Pokemon', id: '19' },
           { value: 'List all status moves', id: '20' },
           { value: 'Ways a Pokemon learns a given move', id: '21' },
           { value: 'Moves of a given type that a Pokemon can learn', id: '22' },
@@ -14022,8 +14026,8 @@ export default {
         case '15':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '16':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '17':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '18':{ break;} //idk what this query does ._.
-        case '19':{ break;} //idk what this query does ._.
+        case '18':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+        case '19':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
         case '20':{ break;} 
         case '21':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
         case '22':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
@@ -14393,7 +14397,6 @@ export default {
 
 
 }
-
 </script>
 
 
@@ -14403,5 +14406,10 @@ export default {
   .INTERACThome{
       padding:25px;
   }  
+
+  .button{
+      margin: 5px;
+      text-decoration: none;
+  }
 
 </style>
