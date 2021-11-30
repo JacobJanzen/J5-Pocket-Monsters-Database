@@ -59,19 +59,19 @@
         <!-- Display results here -->
         <v-data-table
             dense
-            :items="desserts"
-            :headers="headers"
+            :items="queryResults.data"
+            :headers="queryResults.headers"
             item-key="name"
             class="elevation-1"
-            loading
+            :loading= "doLoad"
             loading-text="Loading Results... Please wait"
         ></v-data-table>
-        <!-- add loading?? -->
     </v-row>
 
-    <v-row align="center">
-          <p> {{getQuery}} </p>
-    </v-row>
+       <v-row align="center">
+          <!-- remove prolly -->
+        <p> {{getQuery}} </p>
+       </v-row>
 
     </v-container>
 
@@ -322,7 +322,9 @@ export default {
         //used to display results of api call maybe??
         results: {value: "default"},
 
-        //queryResults:{},
+        queryResults:{},
+
+        doLoad:true,
 
         //prolly set all to false to begin with??
         locationVisible: false,
@@ -14364,12 +14366,16 @@ export default {
        }
 
        if(valid){
+            //enable table loading
+            this.doLoad = true;
+
             this.queryVisible = false;
             this.setAllHidden();
             this.resultsVisible = true;
 
             this.results.value = "api call("+this.apiStr.url+")";//except for real tho
-            this.queryResults = {desserts: [
+            this.queryResults = { // PASS API JSON RETURN HERE
+                data: [
                     {
                     name: 'Frozen Yogurt',
                     calories: 159,
@@ -14464,7 +14470,8 @@ export default {
                     { text: 'Protein (g)', value: 'protein' },
                     { text: 'Iron (%)', value: 'iron' },
                 ],}
-
+            //disable table loading
+            this.doLoad = false;
        }else{
            this.errorMessageVisible = true;
        }
