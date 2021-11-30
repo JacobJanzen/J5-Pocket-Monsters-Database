@@ -299,12 +299,12 @@
 </template>
 
 <script> 
-let results = "default";
-let url = "";
-
 export default {
      data () {
       return {
+
+        apiStr:{url: "init"},
+        results: {value: "default"},
         //prolly set all to false to begin with??
         locationVisible: false,
         abilityVisible: false,
@@ -396,7 +396,7 @@ export default {
 
         selectLevel: {Level: -1},
         levels:[
-          {Level: "Which level are you looking for?"},//default value
+          //{Level: "Which level are you looking for?"},//default value
           {Level: 1},
           {Level: 2},
           {Level: 3},
@@ -501,7 +501,7 @@ export default {
 
         selectLocation: { LocationName: '0'},
         locations: [
-            {LocationName: "Which Location are you looking for?"},//default value
+          //{LocationName: "Which Location are you looking for?"},//default value
           {LocationName: "Abandoned Ship"},
           {LocationName: "Altering Cave"},
           {LocationName: "Ancient Tomb"},
@@ -612,7 +612,7 @@ export default {
 
         selectAbility: { Ability: '0'},
         abilities: [
-        {Ability: "Which Ability are you looking for?"},//default value
+        //{Ability: "Which Ability are you looking for?"},//default value
 
         {
             "Ability": "Overgrow"
@@ -958,7 +958,7 @@ export default {
         selectSecondType: {TypeName: '0', Category: '0'},
         selectType: {TypeName: '0', Category: '0'},
         types:[
-        {TypeName: "Which Type are you looking for?"},//default value
+        //{TypeName: "Which Type are you looking for?"},//default value
           {TypeName: "???", Category: ""},
           {TypeName: "Bug", Category: "Physical"},
           {TypeName: "Dark", Category: "Special"},
@@ -981,11 +981,11 @@ export default {
         
         selectTrainer: {TrainerName: "0", TrainerClass: '0'},
         trainers:[
-        {
+        /*{
             TID: "-1",
             TrainerName: "Which Trainer are you looking for?",
             TrainerClass: "Which Trainer Class are you looking for?"
-        },       
+        },  */     
         {
             TID: "1",
             TrainerName: "Thalia",
@@ -3455,9 +3455,7 @@ export default {
 
         selectPokemon:{PokemonName: null},
         pokemon: [
-        {
-            PokemonName: "Which Pokemon are you looking for?",
-        },
+        //{PokemonName: "Which Pokemon are you looking for?"},
         {
             Dex: "1",
             PokemonName: "Bulbasaur",
@@ -10796,7 +10794,7 @@ export default {
 
         selectEggGroup:{GroupName: null},
         egggroups: [
-        {GroupName: "Which Egg Group are you looking for?"},
+        //{GroupName: "Which Egg Group are you looking for?"},
         {
             "GroupName": "Grass"
         },
@@ -10846,7 +10844,7 @@ export default {
 
         selectMove:{},
         moves: [
-        {MoveName: "Which Move are you looking for?"},
+        //{MoveName: "Which Move are you looking for?"},
         {
             "MoveName": "Absorb",
             "Accuracy": "100",
@@ -13683,7 +13681,7 @@ export default {
 
         selectBreedingMethod:{MoveName: null},
         breedingMethods:[
-        {MoveName: "Which Breeding Method are you looking for?"},
+        //{MoveName: "Which Breeding Method are you looking for?"},
         {"MoveName": "Safeguard"},
         {"MoveName": "Light Screen"},
         {"MoveName": "Curse"},
@@ -13887,7 +13885,7 @@ export default {
 
         selectStat:{stat: null},
         stats:[
-            {stat: "Which Stat are you looking for?"},
+            //{stat: "Which Stat are you looking for?"},
             {stat: "HP"},
             {stat: "Atk"},
             {stat: "Def"},
@@ -13898,7 +13896,7 @@ export default {
 
         selectEncounter:{Encounter: null},
         encounters: [
-        {Encounter: "Which Encounter are you looking for?"},
+        //{Encounter: "Which Encounter are you looking for?"},
         {"Encounter": "Basement"},
         { "Encounter": "Entrance"},
         { "Encounter": "Fake"},
@@ -13928,6 +13926,21 @@ export default {
   },
 
    methods:{
+
+    newQuery(){
+        //FIGURE OUT HOW TO:
+        //Reset all selected param dropdowns???? 
+
+        //Reset Query selection && api string
+        this.selectQuery = this.queries[0];
+        this.apiStr.url = "reset";
+
+        this.resultsVisible = false;
+        this.queryVisible = true;
+        this.setAllHidden();
+            
+    },
+
     setVisibilty(query){ //use this function to make required dropdowns visible for appropriate queries
       this.setAllHidden();
       switch(query){
@@ -13994,74 +14007,62 @@ export default {
     makeQuery(){ //function validates input and calls api
         let query = this.selectQuery.id;
         let valid = false;
-        let URL = "temp/";
         
         switch(query){
         case '1':{ 
             if(this.selectEggGroup.GroupName != null){ 
-                url = URL+this.selectEggGroup.GroupName;
+               this.apiStr.url = ""+this.selectEggGroup.GroupName;
                 valid = true;
             } break;}
         case '2':{ 
             if(this.selectPokemon.PokemonName != null){
-                url = URL+this.selectPokemon.PokemonName;
+                this.apiStr.url = ""+this.selectPokemon.PokemonName
                 valid = true;
             }break;} 
         case '3':{ 
             if(this.selectPokemon.PokemonName != null){
-                url = URL+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '4':{ 
             if(this.selectPokemon.PokemonName != null){
-                url = URL+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '5':{ 
             if(this.selectType.TypeName != null){
-                url = URL+this.selectType.TypeName;
                 valid = true;
             }break;}
         case '6':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                url = URL+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '7':{ 
             if(this.selectTrainer.TrainerName != null){
-                url = URL+this.selectTrainer.TrainerName;
                 valid = true;
             }break;}
 
             //NEED TO MAKE DEFAULT VALUES FOR ALL DROP-DOWNS AND RESET THEM BEFORE CONTINUING
         case '8':{ 
             if(this != null){
-                url = URL+this;
                 valid = true;
             }break;}
         case '9':{ 
             if(this != null){
-                url = URL+this;
                 valid = true;
             }break;}
         case '10':{ 
             if(this != null){
-                url = URL+this;
                 valid = true;
             }break;}
         case '11':{ 
             if(this != null){
-                url = URL+this;
                 valid = true;
             }break;} 
         case '12':{ 
             if(this != null){
-                url = URL+this;
                 valid = true;
             }break;}
         case '13':{ 
             if(this != null){
-                url = URL+this;
                 valid = true;
             }break;}
         case '14':{ break;}
@@ -14115,33 +14116,11 @@ export default {
             this.setAllHidden();
             this.resultsVisible = true;
 
-            results = "api call("+url+")";//except for real tho
+            this.results.value = "api call("+this.apiStr.url+")";//except for real tho
 
        }else{
            this.errorMessageVisible = true;
        }
-    },
-
-    newQuery(){
-        //Reset all selected values - THIS DOESNT ACTUALLY WORK??
-        this.selectQuery = this.queries[0];
-        this.selectLevel = this.levels[0];
-        this.selectLocation = this.locations[0];
-        this.selectAbility = this.abilities[0];
-        this.selectSecondType = this.types[0];
-        this.selectType = this.types[0];
-        this.selectTrainer = this.trainers[0];
-        this.selectPokemon = this.pokemon[0];
-        this.selectEggGroup = this.egggroups[0];
-        this.selectMove = this.moves[0];
-        this.selectBreedingMethod = this.breedingMethods[0];
-        this.selectStat = this.stats[0];
-        this.selectEncounter = this.encounters[0];
-
-        this.resultsVisible = false;
-        this.queryVisible = true;
-        this.setAllHidden();
-        url = "";
     },
 
     setAllHidden(){
@@ -14172,10 +14151,11 @@ export default {
     },
 
      getQuery(){
-      return results;
+      return this.results.value;
     },
+},
 
-  },
+
 }
 
 </script>
