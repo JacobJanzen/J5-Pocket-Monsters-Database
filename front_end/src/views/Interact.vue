@@ -138,9 +138,9 @@
         <v-col cols="6">
           <v-autocomplete
             v-model="selectTrainerName"
-            :items="trainers"
+            :items="trainerNames"
             item-text=TrainerName
-            item-value=TID
+            item-value=TrainerName
             label="Which trainer are you looking for?"
             persistent-hint
             return-object
@@ -156,10 +156,10 @@
         <v-col cols="6">
           <v-autocomplete
             v-model="selectTrainerClass"
-            :items="trainers"
+            :items="trainerClasses"
             item-text=TrainerClass
-            item-value=TID
-            label="Which trainer class are you looking for?"
+            item-value=TrainerClass
+            label="Which Trainer Class are you looking for?"
             persistent-hint
             return-object
             single-line
@@ -205,14 +205,14 @@
       </v-row>
     </v-container>
 
-        <v-container fluid class="selectBreedingMethod" v-if="breedingTypeVisible">
+        <v-container fluid class="selectBreedingMethod" v-if="breedingMethodVisible">
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
             v-model="selectBreedingMethod"
             :items="breedingMethods"
-            item-text=MoveMethod
-            item-value=MoveMethod
+            item-text=MoveName
+            item-value=MoveName
             label="Which Breeding Type are you looking for?"
             persistent-hint
             return-object
@@ -302,9 +302,11 @@
 export default {
      data () {
       return {
-
+        //used to track current selections
         apiStr:{url: "init"},
+        //used to display results of api call maybe??
         results: {value: "default"},
+
         //prolly set all to false to begin with??
         locationVisible: false,
         abilityVisible: false,
@@ -322,6 +324,7 @@ export default {
         queryVisible:true,
         resultsVisible: false,
         errorMessageVisible: false,
+        statVisible: false,
 
         //add all other params here
 
@@ -394,7 +397,7 @@ export default {
 
         ],
 
-        selectLevel: {Level: -1},
+        selectLevel: {Level: null},
         levels:[
           //{Level: "Which level are you looking for?"},//default value
           {Level: 1},
@@ -499,7 +502,7 @@ export default {
           {Level: 100},
         ],
 
-        selectLocation: { LocationName: '0'},
+        selectLocation: { LocationName: null},
         locations: [
           //{LocationName: "Which Location are you looking for?"},//default value
           {LocationName: "Abandoned Ship"},
@@ -610,7 +613,7 @@ export default {
           {LocationName: "Weather Institute"}
         ],
 
-        selectAbility: { Ability: '0'},
+        selectAbility: { Ability: null},
         abilities: [
         //{Ability: "Which Ability are you looking for?"},//default value
 
@@ -955,8 +958,8 @@ export default {
         }
         ],
 
-        selectSecondType: {TypeName: '0', Category: '0'},
-        selectType: {TypeName: '0', Category: '0'},
+        selectSecondType: {TypeName: null, Category: null},
+        selectType: {TypeName: null, Category: null},
         types:[
         //{TypeName: "Which Type are you looking for?"},//default value
           {TypeName: "???", Category: ""},
@@ -979,8 +982,66 @@ export default {
           {TypeName: "Water", Category: "Special"}
         ],
         
-        selectTrainer: {TrainerName: "0", TrainerClass: '0'},
-        trainers:[
+        selectTrainerClass: { TrainerClass: null},
+        trainerClasses: [
+            {"TrainerClass": "Beauty"},
+            {"TrainerClass": "Youngster"},
+            {"TrainerClass": "Sailor"},
+            {"TrainerClass": "Tuber"},
+            {"TrainerClass": "Ruin Maniac"},
+            {"TrainerClass": "Young Couple"},
+            {"TrainerClass": "Elite Four"},
+            {"TrainerClass": "Champion"},
+            {"TrainerClass": "Bug Catcher"},
+            {"TrainerClass": "Lass"},
+            {"TrainerClass": "Pokemon Trainer"},
+            {"TrainerClass": "Swimmer"},
+            {"TrainerClass": "Aroma Lady"},
+            {"TrainerClass": "Twins"},
+            {"TrainerClass": "Pokefan"},
+            {"TrainerClass": "Fisherman"},
+            {"TrainerClass": "Black Belt"},
+            {"TrainerClass": "Guitarist"},
+            {"TrainerClass": "Bird Keeper"},
+            {"TrainerClass": "Sis and Bro"},
+            {"TrainerClass": "Triathlete"},
+            {"TrainerClass": "Cooltrainer"},
+            {"TrainerClass": "Collector"},
+            {"TrainerClass": "Psychic"},
+            {"TrainerClass": "Winstrate"},
+            {"TrainerClass": "Camper"},
+            {"TrainerClass": "Picnicker"},
+            {"TrainerClass": "Kindler"},
+            {"TrainerClass": "Interviewer"},
+            {"TrainerClass": "Hiker"},
+            {"TrainerClass": "Ninja Boy"},
+            {"TrainerClass": "PokeManiac"},
+            {"TrainerClass": "Parasol Lady"},
+            {"TrainerClass": "Sr. and Jr."},
+            {"TrainerClass": "Battle Girl"},
+            {"TrainerClass": "Expert"},
+            {"TrainerClass": "School Kid"},
+            {"TrainerClass": "Lady"},
+            {"TrainerClass": "Rich Boy"},
+            {"TrainerClass": "Pokemon Breeder"},
+            {"TrainerClass": "Bug Maniac"},
+            {"TrainerClass": "Pokemon Ranger"},
+            {"TrainerClass": "Hex Maniac"},
+            {"TrainerClass": "Gentleman"},
+            {"TrainerClass": "Cool Trainer"},
+            {"TrainerClass": "Dragon Tamer"},
+            {"TrainerClass": "Team Magma Grunt"},
+            {"TrainerClass": "Magma Admin"},
+            {"TrainerClass": "Magma Leader"},
+            {"TrainerClass": "Old Couple"},
+            {"TrainerClass": "Team Aqua Grunt"},
+            {"TrainerClass": "Aqua Admin"},
+            {"TrainerClass": "Aqua Leader"},
+            {"TrainerClass": "Leader"}
+        ],
+
+        selectTrainerName: {TrainerName: null},
+        trainerNames:[
         /*{
             TID: "-1",
             TrainerName: "Which Trainer are you looking for?",
@@ -10842,7 +10903,7 @@ export default {
         }
         ],
 
-        selectMove:{},
+        selectMove:{MoveName: null},
         moves: [
         //{MoveName: "Which Move are you looking for?"},
         {
@@ -14011,7 +14072,7 @@ export default {
         switch(query){
         case '1':{ 
             if(this.selectEggGroup.GroupName != null){ 
-               this.apiStr.url = ""+this.selectEggGroup.GroupName;
+                this.apiStr.url = ""+this.selectEggGroup.GroupName;
                 valid = true;
             } break;}
         case '2':{ 
@@ -14021,94 +14082,267 @@ export default {
             }break;} 
         case '3':{ 
             if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '4':{ 
             if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '5':{ 
             if(this.selectType.TypeName != null){
+                this.apiStr.url = ""+this.selectType.TypeName;
                 valid = true;
             }break;}
         case '6':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
+                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '7':{ 
-            if(this.selectTrainer.TrainerName != null){
+            if(this.selectTrainerName.TrainerName != null){
+                this.apiStr.url = ""+this.selectTrainerName.TrainerName;
                 valid = true;
             }break;}
-
-            //NEED TO MAKE DEFAULT VALUES FOR ALL DROP-DOWNS AND RESET THEM BEFORE CONTINUING
         case '8':{ 
-            if(this != null){
+            if(this.selectTrainerClass.TrainerClass != null){
+                this.apiStr.url = ""+this.selectTrainerClass.TrainerClass;
                 valid = true;
             }break;}
         case '9':{ 
-            if(this != null){
+            if(this.selectTrainerClass.TrainerClass != null){
+                this.apiStr.url = ""+this.selectTrainerClass.TrainerClass;
                 valid = true;
             }break;}
         case '10':{ 
-            if(this != null){
+            if(this.selectLevel.Level != null){
+                this.apiStr.url = ""+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '11':{ 
-            if(this != null){
-                valid = true;
-            }break;} 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
         case '12':{ 
-            if(this != null){
-                valid = true;
-            }break;}
+            this.apiStr.url = "no params";
+            valid = true;
+            break;}
         case '13':{ 
             if(this != null){
                 valid = true;
             }break;}
-        case '14':{ break;}
-        case '15':{ break;}
-        case '16':{ break;}
-        case '17':{ break;}
-        case '18':{ break;} 
-        case '19':{ break;} 
-        case '20':{ break;} 
-        case '21':{ break;}
-        case '22':{ break;}
-        case '23':{ break;}
-        case '24':{ break;}
-        case '25':{ break;}
-        case '26':{ break;}
-        case '27':{ break;} 
-        case '28':{ break;} 
-        case '29':{ break;} 
-        case '30':{ break;} 
-        case '31':{ break;}
-        case '32':{ break;}
-        case '33':{ break;}
-        case '34':{ break;} 
-        case '35':{ break;} 
-        case '36':{ break;} 
-        case '37':{ break;} 
-        case '38':{ break;}
-        case '39':{ break;} 
-        case '40':{ break;} 
-        case '41':{ break;}
-        case '42':{ break;}
-        case '43':{ break;}
-        case '44':{ break;}
-        case '45':{ break;}
-        case '46':{ break;}
-        case '47':{ break;} 
-        case '48':{ break;}
-        case '49':{ break;}
-        case '50':{ break;}
-        case '51':{ break;}
-        case '52':{ break;}
-        case '53':{ break;}
-        case '54':{ break;}
-        case '55':{ break;} 
-        case '56':{ break;} 
-        case '57':{ break;} 
+        case '14':{
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '15':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '16':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '17':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '18':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;} 
+        case '19':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;} 
+        case '20':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
+        case '21':{ 
+            if(this.selectMove.MoveName != null){
+                this.apiStr.url = ""+this.selectMove.MoveName;
+                valid = true;
+            }break;}
+        case '22':{ 
+            if(this.selectType.TypeName != null){
+                this.apiStr.url = ""+this.selectType.TypeName;
+                valid = true;
+            }break;}
+        case '23':{ 
+            if(this.selectType.TypeName != null){
+                this.apiStr.url = ""+this.selectType.TypeName;
+                valid = true;
+            }break;}
+        case '24':{ 
+            if(this.selectPokemon.PokemonName != null && this.selectBreedingMethod.MoveName !=null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
+                valid = true;
+            }break;}
+        case '25':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '26':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '27':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
+        case '28':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
+        case '29':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
+        case '30':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
+        case '31':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '32':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '33':{ 
+            if(this.selectMove.MoveName != null){
+                this.apiStr.url = ""+this.selectMove.MoveName;
+                valid = true;
+            }break;}
+        case '34':{ 
+            if(this.selectStat.stat != null){
+                this.apiStr.url = ""+this.selectStat.stat;
+                valid = true;
+            }break;} 
+        case '35':{ 
+            if(this.selectStat.stat != null){
+                this.apiStr.url = ""+this.selectStat.stat;
+                valid = true;
+            }break;} 
+        case '36':{ 
+            if(this.selectStat.stat != null){
+                this.apiStr.url = ""+this.selectStat.stat;
+                valid = true;
+            }break;} 
+        case '37':{ 
+            if(this.selectStat.stat != null){
+                this.apiStr.url = ""+this.selectStat.stat;
+                valid = true;
+            }break;} 
+        case '38':{ 
+            if(this.selectLocation.LocationName != null){
+                this.apiStr.url = ""+this.selectLocation.LocationName;
+                valid = true;
+            }break;}
+        case '39':{ 
+            if(this.selectLocation.LocationName != null && this.selectEncounter.Encounter != null){
+                this.apiStr.url = ""+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
+                valid = true;
+            }break;} 
+        case '40':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;} 
+        case '41':{ 
+            if(this.selectLocation.LocationName != null && this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectLocation.LocationName + "&"+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '42':{ 
+            if(this.selectMove.MoveName != null){
+                this.apiStr.url = ""+this.selectMove.MoveName;
+                valid = true;
+            }break;}
+        case '43':{ 
+            if(this.selectMove.MoveName != null){
+                this.apiStr.url = ""+this.selectMove.MoveName;
+                valid = true;
+            }break;}
+        case '44':{ 
+            if(this.selectMove.MoveName != null){
+                this.apiStr.url = ""+this.selectMove.MoveName;
+                valid = true;
+            }break;}
+        case '45':{ 
+            if(this.selectMove.MoveName != null){
+                this.apiStr.url = ""+this.selectMove.MoveName;
+                valid = true;
+            }break;}
+        case '46':{ 
+            if(this.selectMove.MoveName != null){
+                this.apiStr.url = ""+this.selectMove.MoveName;
+                valid = true;
+            }break;}
+        case '47':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
+        case '48':{ 
+            if(this.selectAbility.Ability != null){
+                this.apiStr.url = ""+this.selectAbility.Ability;
+                valid = true;
+            }break;}
+        case '49':{ 
+            if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
+                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                valid = true;
+            }break;}
+        case '50':{ 
+            if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
+                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                valid = true;
+            }break;}
+        case '51':{  
+            if(this.selectTrainerName.TrainerName != null){
+                this.apiStr.url = ""+this.selectTrainerName.TrainerName;
+                valid = true;
+            }break;}
+        case '52':{ 
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                valid = true;
+            }break;}
+        case '53':{ 
+            if(this.selectLevel.Level != null){
+                this.apiStr.url = ""+this.selectLevel.Level;
+                valid = true;
+            }break;}
+        case '54':{ 
+            if(this.selectLevel.Level != null){
+                this.apiStr.url = ""+this.selectLevel.Level;
+                valid = true;
+            }break;}
+        case '55':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
+        case '56':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
+        case '57':{ 
+            this.apiStr.url = "no params";
+            valid = true;
+            break;} 
        }
 
        if(valid){
@@ -14139,6 +14373,7 @@ export default {
         this.encounterVisible = false;
         this.dropdownMessageVisible = false; 
         this.errorMessageVisible = false;
+        this.statVisible = false;
     }
   },
 
@@ -14146,6 +14381,7 @@ export default {
     //make sure all appropriate values are selected for selected query
     vaidateQuery(){
       this.setVisibilty(this.selectQuery.id);
+      //this is a stupid way to force polling on the visibility
       if(this.selectQuery.id!=0){return "Interact with the Database!";}
       return "Interact with the Database!";
     },
