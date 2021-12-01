@@ -1060,7 +1060,7 @@ export default {
             {"TrainerClass": "Leader"}
         ],
 
-        selectTrainerName: {TrainerName: null},
+        selectTrainerName: {TrainerName: null, TID: null},
         trainerNames:[
         /*{
             TID: "-1",
@@ -14034,11 +14034,12 @@ export default {
         case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
         case '8':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
-        case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
+        case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; this.pokemonNameVisible = true; break;}
         case '11':{ break;} 
         case '12':{ break;}
         case '13':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '14':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        //NEED TO ADD QUALITY v
         case '15':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '16':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '17':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
@@ -14088,107 +14089,109 @@ export default {
     makeQuery(){ //function validates input and calls api
         let query = this.selectQuery.id;
         let valid = false;
+        this.apiStr.url = "http://127.0.0.1:5000/";
         
         switch(query){
         case '1':{ 
             if(this.selectEggGroup.GroupName != null){ 
-                this.apiStr.url = ""+this.selectEggGroup.GroupName;
+                this.apiStr.url += "breeding/pokemon_in_egg_group/"+this.selectEggGroup.GroupName;
                 valid = true;
             } break;}
         case '2':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName
+                this.apiStr.url += "breeding/pokemon_can_breed_with/"+this.selectPokemon.PokemonName
                 valid = true;
             }break;} 
         case '3':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "locations/locations_pokemon_can_be_found/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '4':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "locations/locations_pokemon_can_be_found_with_method/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '5':{ 
             if(this.selectType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName;
+                this.apiStr.url += "locations/locations_with_pokemon_of_type/"+this.selectType.TypeName;
                 valid = true;
             }break;}
         case '6':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                this.apiStr.url += "locations/locations_with_pokemon_of_dual_type/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '7':{ 
-            if(this.selectTrainerName.TrainerName != null){
-                this.apiStr.url = ""+this.selectTrainerName.TrainerName;
+            if(this.selectTrainerName.TID != null){
+                this.apiStr.url += "locations/locations_with_trainer/"+this.selectTrainerName.TID;//havnt tested with TID??
                 valid = true;
             }break;}
         case '8':{ 
             if(this.selectTrainerClass.TrainerClass != null){
-                this.apiStr.url = ""+this.selectTrainerClass.TrainerClass;
+                this.apiStr.url += "locations/locations_with_trainer_class/"+this.selectTrainerClass.TrainerClass;
                 valid = true;
             }break;}
         case '9':{ 
             if(this.selectTrainerClass.TrainerClass != null){
-                this.apiStr.url = ""+this.selectTrainerClass.TrainerClass;
+                this.apiStr.url += "locations/locations_with_trainer_class_fight/"+this.selectTrainerClass.TrainerClass;
                 valid = true;
             }break;}
         case '10':{ 
-            if(this.selectLevel.Level != null){
-                this.apiStr.url = ""+this.selectLevel.Level;
+            if(this.selectLevel.Level != null && this.selectPokemon.PokemonName !=null){
+                this.apiStr.url += "locations/locations_with_pokemon_of_level/"+this.selectPokemon.PokemonName+"&"+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '11':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "moves/moves_learned_by_all_pokemon";
             valid = true;
             break;} 
         case '12':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "moves/moves_learned_by_pokemon_by_method";
             valid = true;
             break;}
         case '13':{ 
-            if(this != null){
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url += "moves/moves_learned_by_a_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '14':{
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_learned_by_a_pokemon_by_method/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
-        case '15':{ 
+        case '15':{ //NEED TO ADD QUALITY DROPDOWN
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '16':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '17':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '18':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '19':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '20':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '21':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '22':{ 
@@ -14198,169 +14201,169 @@ export default {
             }break;}
         case '23':{ 
             if(this.selectType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName;
+                this.apiStr.url += ""+this.selectType.TypeName;
                 valid = true;
             }break;}
         case '24':{ 
             if(this.selectPokemon.PokemonName != null && this.selectBreedingMethod.MoveName !=null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
                 valid = true;
             }break;}
         case '25':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '26':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '27':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '28':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '29':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '30':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '31':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '32':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '33':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '34':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url = ""+this.selectStat.stat;
+                this.apiStr.url += ""+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '35':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url = ""+this.selectStat.stat;
+                this.apiStr.url += ""+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '36':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url = ""+this.selectStat.stat;
+                this.apiStr.url += ""+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '37':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url = ""+this.selectStat.stat;
+                this.apiStr.url += ""+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '38':{ 
             if(this.selectLocation.LocationName != null){
-                this.apiStr.url = ""+this.selectLocation.LocationName;
+                this.apiStr.url += ""+this.selectLocation.LocationName;
                 valid = true;
             }break;}
         case '39':{ 
             if(this.selectLocation.LocationName != null && this.selectEncounter.Encounter != null){
-                this.apiStr.url = ""+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
+                this.apiStr.url += ""+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
                 valid = true;
             }break;} 
         case '40':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '41':{ 
             if(this.selectLocation.LocationName != null && this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectLocation.LocationName + "&"+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectLocation.LocationName + "&"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '42':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '43':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '44':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '45':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '46':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '47':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '48':{ 
             if(this.selectAbility.Ability != null){
-                this.apiStr.url = ""+this.selectAbility.Ability;
+                this.apiStr.url += ""+this.selectAbility.Ability;
                 valid = true;
             }break;}
         case '49':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                this.apiStr.url += ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '50':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                this.apiStr.url += ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '51':{  
             if(this.selectTrainerName.TrainerName != null){
-                this.apiStr.url = ""+this.selectTrainerName.TrainerName;
+                this.apiStr.url += ""+this.selectTrainerName.TrainerName;
                 valid = true;
             }break;}
         case '52':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '53':{ 
             if(this.selectLevel.Level != null){
-                this.apiStr.url = ""+this.selectLevel.Level;
+                this.apiStr.url += ""+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '54':{ 
             if(this.selectLevel.Level != null){
-                this.apiStr.url = ""+this.selectLevel.Level;
+                this.apiStr.url += ""+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '55':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '56':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '57':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
        }
@@ -14373,7 +14376,8 @@ export default {
             this.setAllHidden();
             this.resultsVisible = true;
 
-            this.results.value = "api call("+this.apiStr.url+")";//except for real tho
+            //this.results.value = axios(this.apiStr.url);
+            this.results.value = this.apiStr.url;
             this.queryResults = { // PASS API JSON RETURN HERE
                 data: [
                     {
@@ -14461,7 +14465,7 @@ export default {
                     {
                     text: 'Dessert (100g serving)',
                     align: 'start',
-                    sortable: false,
+                    sortable: true,
                     value: 'name',
                     },
                     { text: 'Calories', value: 'calories' },
