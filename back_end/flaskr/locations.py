@@ -1,6 +1,4 @@
-import json
-
-from flask import request, Blueprint, jsonify
+from flask import Blueprint, jsonify
 
 from flaskr.db import get_db
 
@@ -98,7 +96,7 @@ def locations_with_trainer(trainer_id):
     for row in cur.fetchall():
         l.append(row[0])
 
-    return jsonify(d)
+    return jsonify(l)
 
 
 @bp.route('/locations_with_trainer_class/<trainer_class>')

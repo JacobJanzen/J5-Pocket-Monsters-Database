@@ -1,6 +1,4 @@
-import json
-
-from flask import request, Blueprint, jsonify
+from flask import Blueprint, jsonify
 
 from flaskr.db import get_db
 
@@ -168,6 +166,7 @@ def pokemon_from_types_with_lowest_stat(stat_name: str):
 
     return jsonify(d)
 
+
 @bp.route('/pokemon_with_stat_greater_than/<stat_name>&<min_value>')
 def pokemon_with_stat_greater_than(stat_name: str, min_value: int):
     """Lists the pokemon having a minimum value of a given stat"""
@@ -218,7 +217,7 @@ def pokemon_can_be_caught_at_location(location_name: str):
     for row in cur.fetchall():
         d[row[1]] = {row.keys()[0]: row[0], row.keys()[2]: row[2]}
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/pokemon_can_be_caught_at_location_from_encounter/<location_name>&<encounter_name>')
@@ -237,6 +236,7 @@ def pokemon_can_be_caught_at_location_from_encounter(location_name: str, encount
 
     return jsonify(d)
 
+
 @bp.route('/pokemon_with_supereffective_against_pokemon/<pokemon_name>')
 def pokemon_with_supereffective_against_pokemon(pokemon_name: str):
     """Lists the pokemon that can learn a move that is supereffective on a given pokemon"""
@@ -250,7 +250,7 @@ def pokemon_with_supereffective_against_pokemon(pokemon_name: str):
                     Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
                     join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
                     join Pokemon on HasTypes.Dex = Pokemon.Dex
-                    where Move.Status = 0 and Pokemon.PokemonName = "Magikarp"
+                    where Move.Status = 0 and Pokemon.PokemonName = {pokemon_name}
                     group by MoveName
                     having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
                 ) 
@@ -262,7 +262,7 @@ def pokemon_with_supereffective_against_pokemon(pokemon_name: str):
                     Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
                     join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
                     join Pokemon on HasTypes.Dex = Pokemon.Dex
-                    where Move.Status = 0 and Pokemon.PokemonName = "Magikarp"
+                    where Move.Status = 0 and Pokemon.PokemonName = {pokemon_name}
                     group by MoveName
                     having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
                 ) 

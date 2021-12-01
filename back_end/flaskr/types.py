@@ -1,6 +1,4 @@
-import json
-
-from flask import request, Blueprint, jsonify
+from flask import Blueprint, jsonify
 
 from flaskr.db import get_db
 
