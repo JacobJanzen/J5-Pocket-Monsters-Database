@@ -309,6 +309,24 @@
       </v-row>
     </v-container>
 
+    <v-container fluid class="selectQuality" v-if="qualityVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectQuality"
+            :items="quality"
+            item-text=Quality
+            item-value=Quality
+            label="Which Quality are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
     </div>
 </template>
 
@@ -328,6 +346,7 @@ export default {
 
         //prolly set all to false to begin with??
         locationVisible: false,
+        qualityVisible: false,
         abilityVisible: false,
         typeVisible: false,
         secondTypeVisible:false,
@@ -368,6 +387,7 @@ export default {
           { value: 'Moves that are learned by all Pokemon and the method by which they\'re learned', id: '12' },
           { value: 'Moves that are learned by a given Pokemon', id: '13' },
           { value: 'Moves that are learned by a given Pokemon and the method by which they\'re learned', id: '14' },
+          //MISSING QUERY: Lists the moves that have a given effectiveness against a given type
           { value: 'Moves that are supereffective against a given Pokemon', id: '15' },
           { value: 'Moves that are neutral against a given Pokemon', id: '16' },
           { value: 'Moves that are not effective against a given Pokemon', id: '17' },
@@ -415,6 +435,13 @@ export default {
           { value: 'Types with physical damage type', id: '56' },
           { value: 'Types with special damage type', id: '57' },
 
+        ],
+
+        selectQuality:{Quality: null},
+        quality: [
+            {"Quality": "0.5"},
+            {"Quality": "1.0"},
+            {"Quality": "2.0"}
         ],
 
         selectLevel: {Level: null},
@@ -14039,7 +14066,6 @@ export default {
         case '12':{ break;}
         case '13':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '14':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        //NEED TO ADD QUALITY v
         case '15':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '16':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '17':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
@@ -14160,11 +14186,14 @@ export default {
                 this.apiStr.url += "moves/moves_learned_by_a_pokemon_by_method/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
-        case '15':{ //NEED TO ADD QUALITY DROPDOWN
+
+            //NEED TO ADD MISSING QUERY
+        case '15':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_supereffective_against_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
+            //continue adding api urls here
         case '16':{ 
             if(this.selectPokemon.PokemonName != null){
                 this.apiStr.url += ""+this.selectPokemon.PokemonName;
@@ -14498,6 +14527,7 @@ export default {
         this.dropdownMessageVisible = false; 
         this.errorMessageVisible = false;
         this.statVisible = false;
+        this.qualityVisible = false;
     }
   },
 
