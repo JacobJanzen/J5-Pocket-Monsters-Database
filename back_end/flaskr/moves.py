@@ -1,6 +1,6 @@
 import json
 
-from flask import request, Blueprint
+from flask import request, Blueprint, jsonify
 
 from flaskr.db import get_db
 
@@ -25,7 +25,7 @@ def moves_learned_by_all_pokemon():
         else:
             d[row[0]].append(row[1])
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_learned_by_pokemon_by_method')
@@ -47,7 +47,7 @@ def moves_learned_by_pokemon_by_method():
         else:
             d[row[0]].append([row[1], row[2]])
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_learned_by_a_pokemon/<pokemon_name>')
@@ -67,7 +67,7 @@ def moves_learned_by_a_pokemon(pokemon_name: str):
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
 
 
 @bp.route('/moves_learned_by_a_pokemon_by_method/<pokemon_name>')
@@ -91,7 +91,7 @@ def moves_learned_by_a_pokemon_by_method(pokemon_name: str):
         else:
             d[row[0]].append(row[1])
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_with_effectiveness_against_type/<type_name>&<quality>')
@@ -109,7 +109,7 @@ def moves_with_effectiveness_against_type(type_name: str, quality):
     for row in cur.fetchall():
         d[row[0]] = row[1]
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_supereffective_against_pokemon/<pokemon_name>')
@@ -132,7 +132,7 @@ def moves_supereffective_against_pokemon(pokemon_name: str):
     for row in cur.fetchall():
         d[row[0]] = [row[1], row[2]]
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_neutral_against_pokemon/<pokemon_name>')
@@ -155,7 +155,7 @@ def moves_neutral_against_pokemon(pokemon_name: str):
     for row in cur.fetchall():
         d[row[0]] = [row[1], row[2]]
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_noteffective_against_pokemon/<pokemon_name>')
@@ -178,7 +178,7 @@ def moves_not_very_effective_against_pokemon(pokemon_name: str):
     for row in cur.fetchall():
         d[row[0]] = [row[1], row[2]]
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_non_effective_against_pokemon/<pokemon_name>')
@@ -200,7 +200,7 @@ def moves_non_effective_against_pokemon(pokemon_name: str):
     for row in cur.fetchall():
         d[row[0]] = [row[1], row[2]]
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_effectiveness_against_pokemon/<pokemon_name>')
@@ -252,7 +252,7 @@ def moves_effectiveness_against_pokemon(pokemon_name: str):
     for row in cur.fetchall():
         d[row[0]] = [row[1], row[2]]
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/status_moves/')
@@ -268,7 +268,7 @@ def status_moves():
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
 
 
 @bp.route('/methods_pokemon_can_learn_move/<pokemon_name>&<move_name>')
@@ -292,7 +292,7 @@ def methods_pokemon_can_learn_move(pokemon_name: str, move_name: str):
         else:
             d[row[0]].append(row[1])
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_of_type_that_pokemon_can_learn/<pokemon_name>&<type_name>')
@@ -312,7 +312,7 @@ def moves_of_type_that_pokemon_can_learn(pokemon_name: str, type_name: str):
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
 
 
 @bp.route('/moves_of_type_that_pokemon_can_learn_by_method/<pokemon_name>&<type_name>')
@@ -336,7 +336,7 @@ def moves_of_type_that_pokemon_can_learn_by_method(pokemon_name: str, type_name:
         else:
             d[row[0]].append(row[1])
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_pokemon_learns_with_method/<pokemon_name>&<method_name>')
@@ -353,7 +353,7 @@ def moves_pokemon_learns_with_method(pokemon_name: str, method_name: str):
     for row in cur.fetchall():
         d[row[0]] = row[1]
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_pokemon_learns_by_breeding/<pokemon_name>')
@@ -374,7 +374,7 @@ def moves_pokemon_learns_by_breeding(pokemon_name: str):
         else:
             d[row[0]].append(row[1])
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/moves_pokemon_learns_by_breeding_with_father/<pokemon_name>&<father_name>')
@@ -392,4 +392,4 @@ def moves_pokemon_learns_by_breeding_with_father(pokemon_name: str, father_name:
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)

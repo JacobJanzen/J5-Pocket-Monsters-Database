@@ -1,6 +1,6 @@
 import json
 
-from flask import request, Blueprint
+from flask import request, Blueprint, jsonify
 
 from flaskr.db import get_db
 
@@ -21,7 +21,7 @@ def pokemon_in_egg_group(egg_group_name: str):
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
 
 
 @bp.route('/pokemon_can_breed_with/<pokemon_name>')
@@ -42,4 +42,4 @@ def pokemon_can_breed_with(pokemon_name: str):
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
