@@ -1,6 +1,4 @@
-import json
-
-from flask import request, Blueprint
+from flask import Blueprint, jsonify
 
 from flaskr.db import get_db
 
@@ -22,7 +20,7 @@ def number_of_pokemon_per_type():
     for row in cur.fetchall():
         d[row[0]] = row[1]
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/types_with_physical_damage')
@@ -38,7 +36,7 @@ def types_with_physical_damage():
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
 
 
 @bp.route('/types_with_special_damage')
@@ -54,4 +52,4 @@ def types_with_special_damage():
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
