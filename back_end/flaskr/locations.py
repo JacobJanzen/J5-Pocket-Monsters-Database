@@ -1,6 +1,4 @@
-import json
-
-from flask import request, Blueprint
+from flask import Blueprint, jsonify
 
 from flaskr.db import get_db
 
@@ -21,7 +19,7 @@ def locations_pokemon_can_be_found(pokemon_name: str):
     for row in cur.fetchall():
         d[row[0]] = {row.keys()[1]: row[1]}
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/locations_pokemon_can_be_found_with_method/<pokemon_name>&<method_name>')
@@ -38,7 +36,7 @@ def locations_pokemon_can_be_found_with_method(pokemon_name: str, method_name: s
     for row in cur.fetchall():
         d[row[0]] = {row.keys()[1]: row[1]}
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/locations_with_pokemon_of_type/<type_name>')
@@ -58,7 +56,7 @@ def locations_with_pokemon_of_type(type_name: str):
         else:
             d[row[0]].append({row.keys()[1]: row[1], row.keys()[2]: row[2]})
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/locations_with_pokemon_of_dual_type/<first_type_name>&<second_type_name>')
@@ -81,7 +79,7 @@ def locations_with_pokemon_of_dual_type(first_type_name: str, second_type_name: 
         else:
             d[row[0]].append({row.keys()[1]: row[1], row.keys()[2]: row[2]})
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/locations_with_trainer/<trainer_id>')
@@ -98,7 +96,7 @@ def locations_with_trainer(trainer_id):
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
 
 
 @bp.route('/locations_with_trainer_class/<trainer_class>')
@@ -115,7 +113,7 @@ def locations_with_trainer_class(trainer_class: str):
     for row in cur.fetchall():
         l.append(row[0])
 
-    return json.dumps(l)
+    return jsonify(l)
 
 
 @bp.route('/locations_with_trainer_class_fight/<trainer_class>')
@@ -136,7 +134,7 @@ def locations_with_trainer_class_fight(trainer_class: str):
         else:
             d[row[0]].append({row.keys()[1]: row[1], row.keys()[2]: row[2]})
 
-    return json.dumps(d)
+    return jsonify(d)
 
 
 @bp.route('/locations_with_pokemon_of_level/<pokemon_name>&<minimum_level>')
@@ -158,5 +156,4 @@ def locations_with_pokemon_of_level(pokemon_name: str, minimum_level: int):
         else:
             d[row[0]].append({row.keys()[1]: row[1], row.keys()[2]: row[2]})
 
-    return json.dumps(d)
-
+    return jsonify(d)
