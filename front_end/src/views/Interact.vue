@@ -51,16 +51,27 @@
         <v-col cols="4" >
              <v-btn class="button" @click="newQuery()">New Query</v-btn>
              <!-- THIS BUTTON DOESNT WORK - DOWNLOAD POPS UP BUT NOTHING HAPPENS -->
-             <a class="button" href = "../../example.csv" download><v-btn>Download</v-btn></a>
+             <a class="button" target = "_blank" href = "../../example.csv" download="results.csv"><v-btn>Download</v-btn></a>
         </v-col>
-
-
       </v-row>
 
     <v-row align="center">
-          <p> {{getQuery}} </p>
-        <!-- Display results here?? -->
+        <!-- Display results here -->
+        <v-data-table
+            dense
+            :items="queryResults.data"
+            :headers="queryResults.headers"
+            item-key="name"
+            class="elevation-1"
+            :loading= "doLoad"
+            loading-text="Loading Results... Please wait"
+        ></v-data-table>
     </v-row>
+
+       <v-row align="center">
+          <!-- remove prolly -->
+        <p> {{getQuery}} </p>
+       </v-row>
 
     </v-container>
 
@@ -298,20 +309,46 @@
       </v-row>
     </v-container>
 
+    <v-container fluid class="selectQuality" v-if="qualityVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectQuality"
+            :items="quality"
+            item-text=Quality
+            item-value=Quality
+            label="Which Quality are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
     </div>
 </template>
 
 <script> 
+const axios = require('axios');
+
 export default {
      data () {
       return {
+
         //used to track current selections
         apiStr:{url: "init"},
         //used to display results of api call maybe??
         results: {value: "default"},
 
+        queryResults:{},
+
+        doLoad:true,
+
         //prolly set all to false to begin with??
         locationVisible: false,
+        qualityVisible: false,
         abilityVisible: false,
         typeVisible: false,
         secondTypeVisible:false,
@@ -352,6 +389,7 @@ export default {
           { value: 'Moves that are learned by all Pokemon and the method by which they\'re learned', id: '12' },
           { value: 'Moves that are learned by a given Pokemon', id: '13' },
           { value: 'Moves that are learned by a given Pokemon and the method by which they\'re learned', id: '14' },
+          //MISSING QUERY: Lists the moves that have a given effectiveness against a given type
           { value: 'Moves that are supereffective against a given Pokemon', id: '15' },
           { value: 'Moves that are neutral against a given Pokemon', id: '16' },
           { value: 'Moves that are not effective against a given Pokemon', id: '17' },
@@ -399,6 +437,13 @@ export default {
           { value: 'Types with physical damage type', id: '56' },
           { value: 'Types with special damage type', id: '57' },
 
+        ],
+
+        selectQuality:{Quality: null},
+        quality: [
+            {"Quality": "0.5"},
+            {"Quality": "1.0"},
+            {"Quality": "2.0"}
         ],
 
         selectLevel: {Level: null},
@@ -1044,7 +1089,7 @@ export default {
             {"TrainerClass": "Leader"}
         ],
 
-        selectTrainerName: {TrainerName: null},
+        selectTrainerName: {TrainerName: null, TID: null},
         trainerNames:[
         /*{
             TID: "-1",
@@ -14018,7 +14063,7 @@ export default {
         case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
         case '8':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
-        case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
+        case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; this.pokemonNameVisible = true; break;}
         case '11':{ break;} 
         case '12':{ break;}
         case '13':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
@@ -14072,107 +14117,112 @@ export default {
     makeQuery(){ //function validates input and calls api
         let query = this.selectQuery.id;
         let valid = false;
+        this.apiStr.url = "http://127.0.0.1:5000/";
         
         switch(query){
         case '1':{ 
             if(this.selectEggGroup.GroupName != null){ 
-                this.apiStr.url = ""+this.selectEggGroup.GroupName;
+                this.apiStr.url += "breeding/pokemon_in_egg_group/"+this.selectEggGroup.GroupName;
                 valid = true;
             } break;}
         case '2':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName
+                this.apiStr.url += "breeding/pokemon_can_breed_with/"+this.selectPokemon.PokemonName
                 valid = true;
             }break;} 
         case '3':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "locations/locations_pokemon_can_be_found/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '4':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "locations/locations_pokemon_can_be_found_with_method/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '5':{ 
             if(this.selectType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName;
+                this.apiStr.url += "locations/locations_with_pokemon_of_type/"+this.selectType.TypeName;
                 valid = true;
             }break;}
         case '6':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                this.apiStr.url += "locations/locations_with_pokemon_of_dual_type/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '7':{ 
-            if(this.selectTrainerName.TrainerName != null){
-                this.apiStr.url = ""+this.selectTrainerName.TrainerName;
+            if(this.selectTrainerName.TID != null){
+                this.apiStr.url += "locations/locations_with_trainer/"+this.selectTrainerName.TID;//havnt tested with TID??
                 valid = true;
             }break;}
         case '8':{ 
             if(this.selectTrainerClass.TrainerClass != null){
-                this.apiStr.url = ""+this.selectTrainerClass.TrainerClass;
+                this.apiStr.url += "locations/locations_with_trainer_class/"+this.selectTrainerClass.TrainerClass;
                 valid = true;
             }break;}
         case '9':{ 
             if(this.selectTrainerClass.TrainerClass != null){
-                this.apiStr.url = ""+this.selectTrainerClass.TrainerClass;
+                this.apiStr.url += "locations/locations_with_trainer_class_fight/"+this.selectTrainerClass.TrainerClass;
                 valid = true;
             }break;}
         case '10':{ 
-            if(this.selectLevel.Level != null){
-                this.apiStr.url = ""+this.selectLevel.Level;
+            if(this.selectLevel.Level != null && this.selectPokemon.PokemonName !=null){
+                this.apiStr.url += "locations/locations_with_pokemon_of_level/"+this.selectPokemon.PokemonName+"&"+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '11':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "moves/moves_learned_by_all_pokemon";
             valid = true;
             break;} 
         case '12':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "moves/moves_learned_by_pokemon_by_method";
             valid = true;
             break;}
         case '13':{ 
-            if(this != null){
+            if(this.selectPokemon.PokemonName != null){
+                this.apiStr.url += "moves/moves_learned_by_a_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '14':{
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_learned_by_a_pokemon_by_method/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
+
+            //NEED TO ADD MISSING QUERY
         case '15':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_supereffective_against_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
+            //continue adding api urls here
         case '16':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '17':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '18':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '19':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '20':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '21':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '22':{ 
@@ -14182,180 +14232,211 @@ export default {
             }break;}
         case '23':{ 
             if(this.selectType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName;
+                this.apiStr.url += ""+this.selectType.TypeName;
                 valid = true;
             }break;}
         case '24':{ 
             if(this.selectPokemon.PokemonName != null && this.selectBreedingMethod.MoveName !=null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
                 valid = true;
             }break;}
         case '25':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '26':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '27':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '28':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '29':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '30':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '31':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '32':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '33':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '34':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url = ""+this.selectStat.stat;
+                this.apiStr.url += ""+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '35':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url = ""+this.selectStat.stat;
+                this.apiStr.url += ""+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '36':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url = ""+this.selectStat.stat;
+                this.apiStr.url += ""+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '37':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url = ""+this.selectStat.stat;
+                this.apiStr.url += ""+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '38':{ 
             if(this.selectLocation.LocationName != null){
-                this.apiStr.url = ""+this.selectLocation.LocationName;
+                this.apiStr.url += ""+this.selectLocation.LocationName;
                 valid = true;
             }break;}
         case '39':{ 
             if(this.selectLocation.LocationName != null && this.selectEncounter.Encounter != null){
-                this.apiStr.url = ""+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
+                this.apiStr.url += ""+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
                 valid = true;
             }break;} 
         case '40':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '41':{ 
             if(this.selectLocation.LocationName != null && this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectLocation.LocationName + "&"+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectLocation.LocationName + "&"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '42':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '43':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '44':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '45':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '46':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url = ""+this.selectMove.MoveName;
+                this.apiStr.url += ""+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '47':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '48':{ 
             if(this.selectAbility.Ability != null){
-                this.apiStr.url = ""+this.selectAbility.Ability;
+                this.apiStr.url += ""+this.selectAbility.Ability;
                 valid = true;
             }break;}
         case '49':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                this.apiStr.url += ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '50':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                this.apiStr.url += ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '51':{  
             if(this.selectTrainerName.TrainerName != null){
-                this.apiStr.url = ""+this.selectTrainerName.TrainerName;
+                this.apiStr.url += ""+this.selectTrainerName.TrainerName;
                 valid = true;
             }break;}
         case '52':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url = ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += ""+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '53':{ 
             if(this.selectLevel.Level != null){
-                this.apiStr.url = ""+this.selectLevel.Level;
+                this.apiStr.url += ""+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '54':{ 
             if(this.selectLevel.Level != null){
-                this.apiStr.url = ""+this.selectLevel.Level;
+                this.apiStr.url += ""+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '55':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '56':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
         case '57':{ 
-            this.apiStr.url = "no params";
+            this.apiStr.url += "no params";
             valid = true;
             break;} 
        }
 
        if(valid){
+            //enable table loading
+            this.doLoad = true;
+
             this.queryVisible = false;
             this.setAllHidden();
             this.resultsVisible = true;
 
-            this.results.value = "api call("+this.apiStr.url+")";//except for real tho
+            //this is just a label which displays the generated url
+            this.results.value = this.apiStr.url;//will be removed
 
+            //this is the same label - just displaying json return to see if working (its not)
+            this.results.value = axios(this.apiStr.url);
+            //^^ i also dont know if im using axios right ._.
+
+            this.queryResults = { // PASS API JSON RETURN HERE
+                data: [
+                    {
+                    name: 'Item',
+                    item1: 0,
+                    item2: 0,
+                    item3: 0,
+                    },
+                    
+                ],
+                headers: [
+                    {
+                    text: 'Item)',
+                    align: 'start',
+                    sortable: true,
+                    value: 'name',
+                    },
+                    { text: 'Header1', value: 'item1' },
+                    { text: 'Header2', value: 'item2' },
+                    { text: 'Header3', value: 'item3' },
+                ],}
+            //disable table loading
+            this.doLoad = false;
        }else{
            this.errorMessageVisible = true;
        }
@@ -14378,6 +14459,7 @@ export default {
         this.dropdownMessageVisible = false; 
         this.errorMessageVisible = false;
         this.statVisible = false;
+        this.qualityVisible = false;
     }
   },
 
