@@ -41,6 +41,20 @@ def move_names():
     return jsonify(d)
 
 
+@bp.route('/hatch_times')
+def hatch_times():
+    """Lists all of the Pokemons' hatch times """
+    con = get_db()
+    cur = con.cursor()
+    cur.execute('select PokemonName, Dex, HatchTime from Pokemon')
+
+    d = {}
+    for row in cur.fetchall():
+        d[row[0]] = {row.keys()[1]: row[1], row.keys()[2]: row[2]}
+
+    return jsonify(d)
+
+
 @bp.route('/dex_pokemon_names')
 def dex_pokemon_names():
     """Lists all of the pokemon names and their position in the Pokedex"""
