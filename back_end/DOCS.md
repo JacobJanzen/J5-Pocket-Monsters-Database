@@ -14,6 +14,7 @@ This contains the names of all the implemented API methods in the Flask app.
 |---|---|---|---|
 | dex_pokemon_names | GET |  | Lists all of the Pokemon names and their position in the Pokedex|
 | trainer_data | GET |  | Lists all data from all trainers|
+| hatch_times | GET |  | Lists all of the Pokemons' hatch times |
 | pokemon_stats | GET | pokemon_name | Lists the stats of a Pokemon |
 | pokemon_evolutions | GET | pokemon_name | Lists the evolutions of a Pokemon |
 | pokemon_with_move | GET | move_name | Lists the Pokemon with a given move |
