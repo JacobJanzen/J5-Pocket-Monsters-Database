@@ -56,16 +56,7 @@
       </v-row>
 
     <v-row align="center">
-        <!-- Display results here -->
-        <v-data-table
-            dense
-            :items="queryResults.data"
-            :headers="queryResults.headers"
-            item-key="name"
-            class="elevation-1"
-            :loading= "doLoad"
-            loading-text="Loading Results... Please wait"
-        ></v-data-table>
+        <!-- Display results here?? -->
     </v-row>
 
        <v-row align="center">
@@ -376,11 +367,7 @@ export default {
         //used to track current selections
         apiStr:{url: "init"},
         //used to display results of api call maybe??
-        results: {value: "default"},
-
-        queryResults:{},
-
-        doLoad:true,
+        results: {value:[ "default"]},
 
         //prolly set all to false to begin with??
         locationVisible: false,
@@ -14702,9 +14689,6 @@ export default {
        }
 
        if(valid){
-            //enable table loading
-            this.doLoad = true;
-
             //hide query boxes, display results container
             this.queryVisible = false;
             this.setAllHidden();
@@ -14713,45 +14697,19 @@ export default {
             //this is just a label which displays the generated url
             this.results.value = this.apiStr.url;//will be removed
 
+            //let temp = null
             //Display the api return below (somehow)          
             axios.get(this.apiStr.url)
             .then(function (response) {
                 // handle success
                 console.log(response.data);
-                //this.queryResults.data = response.data; //???
-    
+                //SOMEHOW DISPLAY RESPONSE
             })
             .catch(function (error) {
                 // handle error
                 console.log(error);
             })
 
-            
-            this.queryResults = { // PASS API JSON RETURN HERE
-                data: [
-                    {
-                    name: 'Item',
-                    item1: 0,
-                    item2: 0,
-                    item3: 0,
-                    },
-                    
-                ],
-                headers: [
-                    {
-                    text: 'Item)',
-                    align: 'start',
-                    sortable: true,
-                    value: 'name',
-                    },
-                    { text: 'Header1', value: 'item1' },
-                    { text: 'Header2', value: 'item2' },
-                    { text: 'Header3', value: 'item3' },
-                ],}
-                
-
-            //disable table loading
-            this.doLoad = false;
        }else{
            this.errorMessageVisible = true;
        }
