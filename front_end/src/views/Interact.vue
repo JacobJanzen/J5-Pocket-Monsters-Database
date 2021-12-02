@@ -56,16 +56,7 @@
       </v-row>
 
     <v-row align="center">
-        <!-- Display results here -->
-        <v-data-table
-            dense
-            :items="queryResults.data"
-            :headers="queryResults.headers"
-            item-key="name"
-            class="elevation-1"
-            :loading= "doLoad"
-            loading-text="Loading Results... Please wait"
-        ></v-data-table>
+        <!-- Display results here?? -->
     </v-row>
 
        <v-row align="center">
@@ -317,7 +308,43 @@
             :items="quality"
             item-text=Quality
             item-value=Quality
-            label="Which Quality are you looking for?"
+            label="Which Effectiveness are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
+      <v-container fluid class="selectValue" v-if="valueVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectValue"
+            :items="values"
+            item-text=Value
+            item-value=Value
+            label="Which Value are you looking for?"
+            persistent-hint
+            return-object
+            single-line
+            filled
+          ></v-autocomplete>
+        </v-col>
+      </v-row>
+    </v-container>
+
+        <v-container fluid class="selectFather" v-if="fatherVisible">
+      <v-row align="center">
+        <v-col cols="6">
+          <v-autocomplete
+            v-model="selectFather"
+            :items="pokemon"
+            item-text=PokemonName
+            item-value=PokemonName
+            label="Which Father are you looking for?"
             persistent-hint
             return-object
             single-line
@@ -331,7 +358,7 @@
 </template>
 
 <script> 
-const axios = require('axios');
+const axios = require('axios').default;
 
 export default {
      data () {
@@ -340,16 +367,13 @@ export default {
         //used to track current selections
         apiStr:{url: "init"},
         //used to display results of api call maybe??
-        results: {value: "default"},
-
-        queryResults:{},
-
-        doLoad:true,
+        results: {value:[ "default"]},
 
         //prolly set all to false to begin with??
         locationVisible: false,
         qualityVisible: false,
         abilityVisible: false,
+        fatherVisible: false,
         typeVisible: false,
         secondTypeVisible:false,
         trainerNameVisible: false,
@@ -365,6 +389,7 @@ export default {
         resultsVisible: false,
         errorMessageVisible: false,
         statVisible: false,
+        valueVisible:false,
 
 
         //add all other params here
@@ -389,16 +414,16 @@ export default {
           { value: 'Moves that are learned by all Pokemon and the method by which they\'re learned', id: '12' },
           { value: 'Moves that are learned by a given Pokemon', id: '13' },
           { value: 'Moves that are learned by a given Pokemon and the method by which they\'re learned', id: '14' },
-          //MISSING QUERY: Lists the moves that have a given effectiveness against a given type
+          { value: 'Moves that have a given Effectiveness against a given Type', id:'14.5'},
           { value: 'Moves that are supereffective against a given Pokemon', id: '15' },
           { value: 'Moves that are neutral against a given Pokemon', id: '16' },
           { value: 'Moves that are not effective against a given Pokemon', id: '17' },
           { value: 'Moves that are non-effective against a given Pokemon', id: '18' },
           { value: 'All moves\' effectiveness against a given Pokemon', id: '19' },
           { value: 'List all status moves', id: '20' },
-          { value: 'Ways a Pokemon learns a given move', id: '21' },
-          { value: 'Moves of a given type that a Pokemon can learn', id: '22' },
-          { value: 'Moves of a given type that a Pokemon can learn and the method by which they\'re learned', id: '23' },
+          { value: 'Ways a given Pokemon learns a given move', id: '21' },
+          { value: 'Moves of a given type that a given Pokemon can learn', id: '22' },
+          { value: 'Moves of a given type that a given Pokemon can learn and the method by which they\'re learned', id: '23' },
           { value: 'Moves a given Pokemon learns with a given breeding method', id: '24' },
           { value: 'Moves a Pokemon learns through breeding', id: '25' },
           { value: 'Moves a Pokemon can learn through breeding with a given father', id: '26' },
@@ -444,6 +469,266 @@ export default {
             {"Quality": "0.5"},
             {"Quality": "1.0"},
             {"Quality": "2.0"}
+        ],
+
+        selectValue:{Value: null},
+        values: [
+            {Value: 0},
+            {Value: 1},
+            {Value: 2},
+            {Value: 3},
+            {Value: 4},
+            {Value: 5},
+            {Value: 6},
+            {Value: 7},
+            {Value: 8},
+            {Value: 9},
+            {Value: 10},
+            {Value: 11},
+            {Value: 12},
+            {Value: 13},
+            {Value: 14},
+            {Value: 15},
+            {Value: 16},
+            {Value: 17},
+            {Value: 18},
+            {Value: 19},
+            {Value: 20},
+            {Value: 21},
+            {Value: 22},
+            {Value: 23},
+            {Value: 24},
+            {Value: 25},
+            {Value: 26},
+            {Value: 27},
+            {Value: 28},
+            {Value: 29},
+            {Value: 30},
+            {Value: 31},
+            {Value: 32},
+            {Value: 33},
+            {Value: 34},
+            {Value: 35},
+            {Value: 36},
+            {Value: 37},
+            {Value: 38},
+            {Value: 39},
+            {Value: 40},
+            {Value: 41},
+            {Value: 42},
+            {Value: 43},
+            {Value: 44},
+            {Value: 45},
+            {Value: 46},
+            {Value: 47},
+            {Value: 48},
+            {Value: 49},
+            {Value: 50},
+            {Value: 51},
+            {Value: 52},
+            {Value: 53},
+            {Value: 54},
+            {Value: 55},
+            {Value: 56},
+            {Value: 57},
+            {Value: 58},
+            {Value: 59},
+            {Value: 60},
+            {Value: 61},
+            {Value: 62},
+            {Value: 63},
+            {Value: 64},
+            {Value: 65},
+            {Value: 66},
+            {Value: 67},
+            {Value: 68},
+            {Value: 69},
+            {Value: 70},
+            {Value: 71},
+            {Value: 72},
+            {Value: 73},
+            {Value: 74},
+            {Value: 75},
+            {Value: 76},
+            {Value: 77},
+            {Value: 78},
+            {Value: 79},
+            {Value: 80},
+            {Value: 81},
+            {Value: 82},
+            {Value: 83},
+            {Value: 84},
+            {Value: 85},
+            {Value: 86},
+            {Value: 87},
+            {Value: 88},
+            {Value: 89},
+            {Value: 90},
+            {Value: 91},
+            {Value: 92},
+            {Value: 93},
+            {Value: 94},
+            {Value: 95},
+            {Value: 96},
+            {Value: 97},
+            {Value: 98},
+            {Value: 99},
+            {Value: 100},
+            {Value: 101},
+            {Value: 102},
+            {Value: 103},
+            {Value: 104},
+            {Value: 105},
+            {Value: 106},
+            {Value: 107},
+            {Value: 108},
+            {Value: 109},
+            {Value: 110},
+            {Value: 111},
+            {Value: 112},
+            {Value: 113},
+            {Value: 114},
+            {Value: 115},
+            {Value: 116},
+            {Value: 117},
+            {Value: 118},
+            {Value: 119},
+            {Value: 120},
+            {Value: 121},
+            {Value: 122},
+            {Value: 123},
+            {Value: 124},
+            {Value: 125},
+            {Value: 126},
+            {Value: 127},
+            {Value: 128},
+            {Value: 129},
+            {Value: 130},
+            {Value: 131},
+            {Value: 132},
+            {Value: 133},
+            {Value: 134},
+            {Value: 135},
+            {Value: 136},
+            {Value: 137},
+            {Value: 138},
+            {Value: 139},
+            {Value: 140},
+            {Value: 141},
+            {Value: 142},
+            {Value: 143},
+            {Value: 144},
+            {Value: 145},
+            {Value: 146},
+            {Value: 147},
+            {Value: 148},
+            {Value: 149},
+            {Value: 150},
+            {Value: 151},
+            {Value: 152},
+            {Value: 153},
+            {Value: 154},
+            {Value: 155},
+            {Value: 156},
+            {Value: 157},
+            {Value: 158},
+            {Value: 159},
+            {Value: 160},
+            {Value: 161},
+            {Value: 162},
+            {Value: 163},
+            {Value: 164},
+            {Value: 165},
+            {Value: 166},
+            {Value: 167},
+            {Value: 168},
+            {Value: 169},
+            {Value: 170},
+            {Value: 171},
+            {Value: 172},
+            {Value: 173},
+            {Value: 174},
+            {Value: 175},
+            {Value: 176},
+            {Value: 177},
+            {Value: 178},
+            {Value: 179},
+            {Value: 180},
+            {Value: 181},
+            {Value: 182},
+            {Value: 183},
+            {Value: 184},
+            {Value: 185},
+            {Value: 186},
+            {Value: 187},
+            {Value: 188},
+            {Value: 189},
+            {Value: 190},
+            {Value: 191},
+            {Value: 192},
+            {Value: 193},
+            {Value: 194},
+            {Value: 195},
+            {Value: 196},
+            {Value: 197},
+            {Value: 198},
+            {Value: 199},
+            {Value: 200},
+            {Value: 201},
+            {Value: 202},
+            {Value: 203},
+            {Value: 204},
+            {Value: 205},
+            {Value: 206},
+            {Value: 207},
+            {Value: 208},
+            {Value: 209},
+            {Value: 210},
+            {Value: 211},
+            {Value: 212},
+            {Value: 213},
+            {Value: 214},
+            {Value: 215},
+            {Value: 216},
+            {Value: 217},
+            {Value: 218},
+            {Value: 219},
+            {Value: 220},
+            {Value: 221},
+            {Value: 222},
+            {Value: 223},
+            {Value: 224},
+            {Value: 225},
+            {Value: 226},
+            {Value: 227},
+            {Value: 228},
+            {Value: 229},
+            {Value: 230},
+            {Value: 231},
+            {Value: 232},
+            {Value: 233},
+            {Value: 234},
+            {Value: 235},
+            {Value: 236},
+            {Value: 237},
+            {Value: 238},
+            {Value: 239},
+            {Value: 240},
+            {Value: 241},
+            {Value: 242},
+            {Value: 243},
+            {Value: 244},
+            {Value: 245},
+            {Value: 246},
+            {Value: 247},
+            {Value: 248},
+            {Value: 249},
+            {Value: 250},
+            {Value: 251},
+            {Value: 252},
+            {Value: 253},
+            {Value: 254},
+            {Value: 255},
         ],
 
         selectLevel: {Level: null},
@@ -3564,6 +3849,7 @@ export default {
         ],
 
         selectPokemon:{PokemonName: null},
+        selectFather:{PokemonName: null},
         pokemon: [
         //{PokemonName: "Which Pokemon are you looking for?"},
         {
@@ -14068,18 +14354,19 @@ export default {
         case '12':{ break;}
         case '13':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '14':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '14.5':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.qualityVisible = true; break;}
         case '15':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '16':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '17':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '18':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
         case '19':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
         case '20':{ break;} 
-        case '21':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
-        case '22':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
-        case '23':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
+        case '21':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.moveVisible = true; break;}
+        case '22':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.typeVisible = true; break;}
+        case '23':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.typeVisible = true; break;}
         case '24':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.breedingMethodVisible = true; break;}
         case '25':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '26':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+        case '26':{ this.dropdownMessageVisible = true; this.fatherVisible = true; this.pokemonNameVisible = true; break;}
         case '27':{ break;} 
         case '28':{ break;} 
         case '29':{ break;} 
@@ -14089,8 +14376,8 @@ export default {
         case '33':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
         case '34':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
         case '35':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
-        case '36':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
-        case '37':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
+        case '36':{ this.dropdownMessageVisible = true; this.valueVisible = true; this.statVisible = true; break;} 
+        case '37':{ this.dropdownMessageVisible = true; this.valueVisible = true; this.statVisible = true; break;} 
         case '38':{ this.dropdownMessageVisible = true; this.locationVisible = true; break;}
         case '39':{ this.dropdownMessageVisible = true; this.locationVisible = true; this.encounterVisible = true; break;} 
         case '40':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
@@ -14188,221 +14475,221 @@ export default {
                 this.apiStr.url += "moves/moves_learned_by_a_pokemon_by_method/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
-
-            //NEED TO ADD MISSING QUERY
+        case "14.5":{
+            if(this.selectType.TypeName != null && this.selectQuality.Quality != null){
+                this.apiStr.url += "moves/moves_with_effectiveness_against_type/"+this.selectType.TypeName+"&"+this.selectQuality.Quality;
+                valid = true;
+            }break;}            
         case '15':{ 
             if(this.selectPokemon.PokemonName != null){
                 this.apiStr.url += "moves/moves_supereffective_against_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
-            //continue adding api urls here
         case '16':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_neutral_against_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '17':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_noteffective_against_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '18':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_non_effective_against_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '19':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_effectiveness_against_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '20':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "moves/status_moves/";
             valid = true;
             break;} 
         case '21':{ 
-            if(this.selectMove.MoveName != null){
-                this.apiStr.url += ""+this.selectMove.MoveName;
+            if(this.selectPokemon.PokemonName != null && this.selectMove.MoveName != null){
+                this.apiStr.url += "moves/methods_pokemon_can_learn_move/"+this.selectPokemon.PokemonName+"&"+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '22':{ 
-            if(this.selectType.TypeName != null){
-                this.apiStr.url = ""+this.selectType.TypeName;
+            if(this.selectPokemon.PokemonName != null && this.selectType.TypeName != null){
+                this.apiStr.url = "moves/moves_of_type_that_pokemon_can_learn/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
                 valid = true;
             }break;}
         case '23':{ 
-            if(this.selectType.TypeName != null){
-                this.apiStr.url += ""+this.selectType.TypeName;
+            if(this.selectPokemon.PokemonName != null &&this.selectType.TypeName != null){
+                this.apiStr.url += "moves/moves_of_type_that_pokemon_can_learn_by_method/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
                 valid = true;
             }break;}
         case '24':{ 
             if(this.selectPokemon.PokemonName != null && this.selectBreedingMethod.MoveName !=null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
+                this.apiStr.url += "moves/moves_pokemon_learns_with_method/"+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
                 valid = true;
             }break;}
         case '25':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "moves/moves_pokemon_learns_by_breeding/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '26':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+            if(this.selectPokemon.PokemonName != null && this.selectFather.PokemonName != null){
+                this.apiStr.url += "moves/moves_pokemon_learns_by_breeding_with_father/"+this.selectPokemon.PokemonName+"&"+this.selectFather.PokemonName;
                 valid = true;
             }break;}
         case '27':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "pokemon/pokemon_names";
             valid = true;
             break;} 
         case '28':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "pokemon/move_names";
             valid = true;
             break;} 
         case '29':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "pokemon/dex_pokemon_names";
             valid = true;
             break;} 
         case '30':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "pokemon/trainer_data";
             valid = true;
             break;} 
         case '31':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "pokemon/pokemon_stats/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '32':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "pokemon/pokemon_evolutions/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '33':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url += ""+this.selectMove.MoveName;
+                this.apiStr.url += "pokemon/pokemon_with_move/"+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '34':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url += ""+this.selectStat.stat;
+                this.apiStr.url += "pokemon/pokemon_from_types_with_highest_stat/"+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '35':{ 
             if(this.selectStat.stat != null){
-                this.apiStr.url += ""+this.selectStat.stat;
+                this.apiStr.url += "pokemon/pokemon_from_types_with_lowest_stat/"+this.selectStat.stat;
                 valid = true;
             }break;} 
         case '36':{ 
-            if(this.selectStat.stat != null){
-                this.apiStr.url += ""+this.selectStat.stat;
+            if(this.selectValue.Value != null && this.selectStat.stat != null){
+                this.apiStr.url += "pokemon/pokemon_with_stat_greater_than/"+this.selectStat.stat+"&"+this.selectValue.Value;
                 valid = true;
             }break;} 
         case '37':{ 
-            if(this.selectStat.stat != null){
-                this.apiStr.url += ""+this.selectStat.stat;
+            if(this.selectValue.Value != null && this.selectStat.stat != null){
+                this.apiStr.url += "pokemon/pokemon_with_stat_less_than/"+this.selectStat.stat+"&"+this.selectValue.Value;
                 valid = true;
             }break;} 
         case '38':{ 
             if(this.selectLocation.LocationName != null){
-                this.apiStr.url += ""+this.selectLocation.LocationName;
+                this.apiStr.url += "pokemon/pokemon_can_be_caught_at_location/"+this.selectLocation.LocationName;
                 valid = true;
             }break;}
         case '39':{ 
             if(this.selectLocation.LocationName != null && this.selectEncounter.Encounter != null){
-                this.apiStr.url += ""+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
+                this.apiStr.url += "pokemon/pokemon_can_be_caught_at_location_from_encounter/"+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
                 valid = true;
             }break;} 
         case '40':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "pokemon/pokemon_with_supereffective_against_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;} 
         case '41':{ 
             if(this.selectLocation.LocationName != null && this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectLocation.LocationName + "&"+this.selectPokemon.PokemonName;
+                this.apiStr.url += "pokemon/pokemon_from_location_with_supereffective_against_pokemon/"+this.selectPokemon.PokemonName+"&"+this.selectLocation.LocationName;
                 valid = true;
             }break;}
         case '42':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url += ""+this.selectMove.MoveName;
+                this.apiStr.url += "pokemon/pokemon_that_move_is_supereffective_against/"+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '43':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url += ""+this.selectMove.MoveName;
+                this.apiStr.url += "pokemon/pokemon_that_move_is_neutral_against/"+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '44':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url += ""+this.selectMove.MoveName;
+                this.apiStr.url += "pokemon/pokemon_that_move_is_weak_against/"+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '45':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url += ""+this.selectMove.MoveName;
+                this.apiStr.url += "pokemon/pokemon_that_move_is_noteffective_against/"+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '46':{ 
             if(this.selectMove.MoveName != null){
-                this.apiStr.url += ""+this.selectMove.MoveName;
+                this.apiStr.url += "pokemon/effects_on_pokemon_by_move/"+this.selectMove.MoveName;
                 valid = true;
             }break;}
         case '47':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "/pokemon_abilities";
             valid = true;
             break;} 
         case '48':{ 
             if(this.selectAbility.Ability != null){
-                this.apiStr.url += ""+this.selectAbility.Ability;
+                this.apiStr.url += "pokemon/pokemon_with_ability/"+this.selectAbility.Ability;
                 valid = true;
             }break;}
-        case '49':{ 
+        case '49':{ //idk if these are the right types(?)
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url += ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                this.apiStr.url += "pokemon/pokemon_of_type_can_learn_other_type/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '50':{ 
             if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url += ""+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                this.apiStr.url += "pokemon/pokemon_of_type_can_learn_other_type_from_method/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                 valid = true;
             }break;}
         case '51':{  
-            if(this.selectTrainerName.TrainerName != null){
-                this.apiStr.url += ""+this.selectTrainerName.TrainerName;
+            if(this.selectTrainerName.TID != null){
+                this.apiStr.url += "teams/teams_with_trainer/"+this.selectTrainerName.TID;
                 valid = true;
             }break;}
         case '52':{ 
             if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += ""+this.selectPokemon.PokemonName;
+                this.apiStr.url += "teams/teams_with_pokemon/"+this.selectPokemon.PokemonName;
                 valid = true;
             }break;}
         case '53':{ 
             if(this.selectLevel.Level != null){
-                this.apiStr.url += ""+this.selectLevel.Level;
+                this.apiStr.url += "teams/teams_with_minimum_level/"+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '54':{ 
             if(this.selectLevel.Level != null){
-                this.apiStr.url += ""+this.selectLevel.Level;
+                this.apiStr.url += "teams/teams_with_maximum_level/"+this.selectLevel.Level;
                 valid = true;
             }break;}
         case '55':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "types/number_of_pokemon_per_type";
             valid = true;
             break;} 
         case '56':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "types/types_with_physical_damage";
             valid = true;
             break;} 
         case '57':{ 
-            this.apiStr.url += "no params";
+            this.apiStr.url += "types/types_with_special_damage";
             valid = true;
             break;} 
        }
 
        if(valid){
-            //enable table loading
-            this.doLoad = true;
-
+            //hide query boxes, display results container
             this.queryVisible = false;
             this.setAllHidden();
             this.resultsVisible = true;
@@ -14410,33 +14697,19 @@ export default {
             //this is just a label which displays the generated url
             this.results.value = this.apiStr.url;//will be removed
 
-            //this is the same label - just displaying json return to see if working (its not)
-            this.results.value = axios(this.apiStr.url);
-            //^^ i also dont know if im using axios right ._.
+            //let temp = null
+            //Display the api return below (somehow)          
+            axios.get(this.apiStr.url)
+            .then(function (response) {
+                // handle success
+                console.log(response.data);
+                //SOMEHOW DISPLAY RESPONSE
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
 
-            this.queryResults = { // PASS API JSON RETURN HERE
-                data: [
-                    {
-                    name: 'Item',
-                    item1: 0,
-                    item2: 0,
-                    item3: 0,
-                    },
-                    
-                ],
-                headers: [
-                    {
-                    text: 'Item)',
-                    align: 'start',
-                    sortable: true,
-                    value: 'name',
-                    },
-                    { text: 'Header1', value: 'item1' },
-                    { text: 'Header2', value: 'item2' },
-                    { text: 'Header3', value: 'item3' },
-                ],}
-            //disable table loading
-            this.doLoad = false;
        }else{
            this.errorMessageVisible = true;
        }
@@ -14460,6 +14733,8 @@ export default {
         this.errorMessageVisible = false;
         this.statVisible = false;
         this.qualityVisible = false;
+        this.fatherVisible = false;
+        this.valueVisible = false;
     }
   },
 
