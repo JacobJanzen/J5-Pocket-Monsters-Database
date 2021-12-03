@@ -170,6 +170,22 @@ Pok\'emon Emerald.
 \end{itemize}
 
 \section{Interface}
+The project was created with an Electron front-end written in JavaScript with VueJS. The back-end
+is a Flask application written in Python. The back-end runs the queries which are requested 
+through API calls from the front-end. The application can be set up by\dots
 \todo{add details about how to set up}
+The interface is fairly simple. There are four tabs at the top of the screen. Starting from left
+to right, they are: a homepage containing information about us, a link to our repository, and
+details about how to navigate through the application; a copy of this report; our 
+Enhanced Entity Relation Diagram; and finally, the database interaction page.
+
+Interacting with the database is quite simple. You can start by clicking the drop-down menu saying
+``What do you want to know?'' Afterwards, you can start typing to search for a specific query or 
+to filter down the list, or just scroll down the list of queries until you find your desired 
+query. After selecting a query, it may open up new drop-down menus to select specific parameters
+of the query. When all the fields have been selected, you can click ``QUERY!'' to execute the 
+query and the results will appear on the page. 
+If you want to save a CSV file containing the results of the query, you can click download. To 
+execute another query, click ``NEW QUERY.''
 
 \end{document}
