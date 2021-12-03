@@ -9,12 +9,6 @@ In order to install Vue2
 ```
 npm install --save @vue/cli
 ```
-In order to install Axios 
-```
-npm install --save axios
-```
-
-**It'll probably have a some errors**
 
 ## Compiles and hot-reloads to a LocalHost
 ```
