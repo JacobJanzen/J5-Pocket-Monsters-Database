@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{microtype}
+\usepackage[binary-units]{siunitx}
+\usepackage{todonotes}
+\usepackage{booktabs}
+
+\title{Pok\'emon Emerald Database}
+\author{
+    Jacob Janzen\\
+    \texttt{janzenj2@myumanitoba.ca} \and 
+    Daniel La Rocque\\
+    \texttt{larocq17@myumanitoba.ca} \and 
+    Jared Webber\\
+    \texttt{webberj1@myumanitoba.ca} \and 
+    Colin Johnson\\
+    \texttt{johns233@myumanitoba.ca}
+}
+
+\begin{document}
+\maketitle
+\section{Data Summary}
+Pok\'emon was fresh on our minds when we began the project because our instructor, Adam Pazdor,
+had brought up his interest in the game several times during class. We very quickly realized that
+a database containing information about Pok\'emon would be a great way to have lots of data with
+very interesting relationships.
+
+We ultimately decided to constrain our idea to one specific game in the franchise while building
+our data model because we wanted to track data about non-player characters and locations in the
+games which would quickly get very complicated when discussing multiple games. It would introduce
+even more complications when considering the fact that many relationships between entities would
+change depending on the specific game. To solve this, we chose one specific game rather 
+arbitrarily: Pok\'emon Emerald.
+
+The Data consists of the set of Pok\'emon that are present in Pok\'emon Emerald, the locations, 
+moves, and non-player \emph{trainers} in the game, as well as the \emph{types} that Pok\'emon 
+and moves can have. We tracked the methods in which each Pok\'emon can learn each move as well as 
+the location of all non-player characters and the locations where each Pok\'emon can be found.
+
+In the end, we had a \SI{1.4}{\mega\byte} database. Our largest table, \verb+Learns+, had 15280
+records while our smallest table, \verb+HM+, had only 8. In total, there were 24547 records in
+the database.
+
+\section{Data Model}
+We gathered data based on the data model we created, which was created from brainstorming every
+type of data we could gather about the game that we deemed interesting and then linked together
+in every way that we could think of.
+
+Most of the challenges in creating the data model were in fine tuning the details after working
+out exactly which data we would use. For instance, originally the \verb+Learns+ table contained
+every move that every Pok\'emon could learn without any distinction of method. Later, we decided
+to add the method and split it into one relationship for each method in which a Pok\'emon could
+learn a move. This added a lot of unnecessary complications to the data set and made queries
+far more difficult than they needed to be. Thus, we combined them back into a single relationship 
+with a method attribute being a primary key on the relationship. Unfortunately, learning a move by
+breeding is a little more complicated than other methods of learning a move. It is dependent not
+only upon the Pok\'emon learning the move and the move itself, but also the father of the 
+Pok\'emon learning the move. Therefore, we separated that ternary relationship between two
+Pok\'emon and move from the rest of the learn methods.
+
+Another challenge that came up in the project was the relationship between a trainer and the 
+Pok\'emon that they used in their team. Originally, we had \verb+Team+ as a weak entity that 
+depended on \verb+Trainer+ and \verb+TeamMember+ as a weak entity that depended on \verb+Team+.
+This two-layer weak entity added a lot of unnecessary complication, so we changed 
+\verb+TeamMember+ to be a relationship instead which has an ID as a part of its primary key.
+
+A tricky participation ratio was surrounding the \verb+HasTypes+ relationship. The ??? type
+which existed in Pok\'emon Emerald was a type only used for the move \emph{Curse}.
+Thus, we had only partial participation from \verb+Type+ to \verb+Pokemon+ and total participation
+from the other side because every Pok\'emon has at least one type and can have two.
+
+A tricky cardinality ratio is through the \verb+EvolvesFrom+ relationship. While generally, when
+a Pok\'emon evolves, it can only evolve into one Pok\'emon, there are rare situations where
+one Pok\'emon can evolve into multiple different ones. For instance, \emph{Eevee} can evolve into 
+\emph{Vaporeon}, \emph{Jolteon}, \emph{Flareon}, \emph{Espeon}, or \emph{Umbreon} depending on the
+specific circumstances that it evolves under. This relationship does not work in the opposite 
+direction. There are no cases where one Pok\'emon evolves from two different Pok\'emon in 
+Pok\'emon Emerald.
+
+\section{Database Summary}
+\begin{center}
+    \begin{tabular}{ccc}
+        \toprule
+        Table & Cardinality & Arity\\
+        \midrule
+        Pokemon & 386 & 17\\
+        Abilities & 610 & 2\\
+        EggGroups & 504 & 2\\
+        Location & 106 & 1\\
+        Move & 354 & 6\\
+        Trainer & 493 & 3\\
+        Type & 18 & 2\\
+        FoughtAt & 520 & 2\\
+        FoundAt & 647 & 6\\
+        HasTypes & 557 & 2\\
+        HM & 8 & 2\\
+        Learns & 15280 & 3\\
+        LearnsByBreeding & 2007 & 3\\
+        Team & 887 & 3\\
+        TeamMember & 1795 & 6\\
+        TM & 50 & 2\\
+        Effectiveness & 324 & 3\\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\section{Queries}
+
+\section{Interface}
+\todo{add details about how to set up}
+
+\end{document}
