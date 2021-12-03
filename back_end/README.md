@@ -68,6 +68,7 @@ Run the flask app
 ```
 
 *Windows*
+
 Set flaskr to be the app directory
 ```
 (venv) ...\3380_Project\back_end > set FLASK_APP=flaskr
