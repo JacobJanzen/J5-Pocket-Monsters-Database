@@ -409,7 +409,7 @@ export default {
           { value: 'The locations a Pokemon of given type can be found', id: '5' },
           { value: 'The locations that a Pokemon with two given types can be found', id: '6' },
           { value: 'The locations with a given trainer', id: '7' },
-          { value: 'The locations with trainers of a given trainer class', id: '8' },
+          //{ value: 'The locations with trainers of a given trainer class', id: '8' }, //removed as redundant
           { value: 'The locations where a certain trainer class can be fought', id: '9' },
           { value: 'The locations where a certain Pokemon of at least a certain level can be found', id: '10' },
           //Moves File
@@ -14366,7 +14366,7 @@ export default {
         case '5':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
         case '6':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
         case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
-        case '8':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
+        //case '8':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; this.pokemonNameVisible = true; break;}
         case '11':{ break;} 
@@ -14462,11 +14462,11 @@ export default {
                     this.apiStr.url += "locations/locations_with_trainer/"+this.selectTrainerName.TID;//havnt tested with TID??
                     valid = true;
                 }break;}
-            case '8':{ 
+            /*case '8':{ 
                 if(this.selectTrainerClass.TrainerClass != null){
                     this.apiStr.url += "locations/locations_with_trainer_class/"+this.selectTrainerClass.TrainerClass;
                     valid = true;
-                }break;}
+                }break;}*/
             case '9':{ 
                 if(this.selectTrainerClass.TrainerClass != null){
                     this.apiStr.url += "locations/locations_with_trainer_class_fight/"+this.selectTrainerClass.TrainerClass;
