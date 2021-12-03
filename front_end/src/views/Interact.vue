@@ -57,6 +57,8 @@
 
     <v-row align="center">
         <!-- Display results here?? -->
+        <pre>{{ JSON.stringify(apiObj, null, 2) }}</pre>
+
     </v-row>
 
        <v-row align="center">
@@ -367,7 +369,8 @@ export default {
         //used to track current selections
         apiStr:{url: "init"},
         //used to display results of api call maybe??
-        results: {value:[ "default"]},
+        results: {value: "default"},
+        apiObj:{},
 
         //prolly set all to false to begin with??
         locationVisible: false,
@@ -14325,8 +14328,22 @@ export default {
    methods:{
 
     newQuery(){
-        //FIGURE OUT HOW TO:
-        //Reset all selected param dropdowns???? 
+        //Reset all selected param dropdowns
+        this.selectPokemon = null;
+        this.selectQuality = null;
+        this.selectLevel = null;
+        this.selectLocation = null;
+        this.selectAbility = null;
+        this.selectSecondType = null;
+        this.selectType = null;
+        this.selectTrainerClass = null;
+        this.selectTrainerName = null;
+        this.selectFather = null;
+        this.selectEggGroup = null;
+        this.selectMove = null;
+        this.selectBreedingMethod = null;
+        this.selectStat = null;
+        this.selectEncounter = null;
 
         //Reset Query selection && api string
         this.selectQuery = this.queries[0];
@@ -14340,7 +14357,8 @@ export default {
 
     setVisibilty(query){ //use this function to make required dropdowns visible for appropriate queries
       this.setAllHidden();
-      switch(query){
+    
+    switch(query){
         case '1':{ this.dropdownMessageVisible = true; this.eggGroupVisible = true; break;}
         case '2':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
         case '3':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
@@ -14399,7 +14417,7 @@ export default {
         case '55':{ break;} 
         case '56':{ break;} 
         case '57':{ break;} 
-       }
+        }
     },
 
     makeQuery(){ //function validates input and calls api
@@ -14407,291 +14425,298 @@ export default {
         let valid = false;
         this.apiStr.url = "http://127.0.0.1:5000/";
         
-        switch(query){
-        case '1':{ 
-            if(this.selectEggGroup.GroupName != null){ 
-                this.apiStr.url += "breeding/pokemon_in_egg_group/"+this.selectEggGroup.GroupName;
+        try{
+            switch(query){
+            case '1':{ 
+                if(this.selectEggGroup.GroupName != null){ 
+                    this.apiStr.url += "breeding/pokemon_in_egg_group/"+this.selectEggGroup.GroupName;
+                    valid = true;
+                } break;}
+            case '2':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "breeding/pokemon_can_breed_with/"+this.selectPokemon.PokemonName
+                    valid = true;
+                }break;} 
+            case '3':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "locations/locations_pokemon_can_be_found/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;} 
+            case '4':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "locations/locations_pokemon_can_be_found_with_method/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '5':{ 
+                if(this.selectType.TypeName != null){
+                    this.apiStr.url += "locations/locations_with_pokemon_of_type/"+this.selectType.TypeName;
+                    valid = true;
+                }break;}
+            case '6':{ 
+                if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
+                    this.apiStr.url += "locations/locations_with_pokemon_of_dual_type/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                    valid = true;
+                }break;}
+            case '7':{ 
+                if(this.selectTrainerName.TID != null){
+                    this.apiStr.url += "locations/locations_with_trainer/"+this.selectTrainerName.TID;//havnt tested with TID??
+                    valid = true;
+                }break;}
+            case '8':{ 
+                if(this.selectTrainerClass.TrainerClass != null){
+                    this.apiStr.url += "locations/locations_with_trainer_class/"+this.selectTrainerClass.TrainerClass;
+                    valid = true;
+                }break;}
+            case '9':{ 
+                if(this.selectTrainerClass.TrainerClass != null){
+                    this.apiStr.url += "locations/locations_with_trainer_class_fight/"+this.selectTrainerClass.TrainerClass;
+                    valid = true;
+                }break;}
+            case '10':{ 
+                if(this.selectLevel.Level != null && this.selectPokemon.PokemonName !=null){
+                    this.apiStr.url += "locations/locations_with_pokemon_of_level/"+this.selectPokemon.PokemonName+"&"+this.selectLevel.Level;
+                    valid = true;
+                }break;}
+            case '11':{ 
+                this.apiStr.url += "moves/moves_learned_by_all_pokemon";
                 valid = true;
-            } break;}
-        case '2':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "breeding/pokemon_can_breed_with/"+this.selectPokemon.PokemonName
+                break;} 
+            case '12':{ 
+                this.apiStr.url += "moves/moves_learned_by_pokemon_by_method";
                 valid = true;
-            }break;} 
-        case '3':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "locations/locations_pokemon_can_be_found/"+this.selectPokemon.PokemonName;
+                break;}
+            case '13':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "moves/moves_learned_by_a_pokemon/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '14':{
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "moves/moves_learned_by_a_pokemon_by_method/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case "14.5":{
+                if(this.selectType.TypeName != null && this.selectQuality.Quality != null){
+                    this.apiStr.url += "moves/moves_with_effectiveness_against_type/"+this.selectType.TypeName+"&"+this.selectQuality.Quality;
+                    valid = true;
+                }break;}            
+            case '15':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "moves/moves_supereffective_against_pokemon/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '16':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "moves/moves_neutral_against_pokemon/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '17':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "moves/moves_noteffective_against_pokemon/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '18':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "moves/moves_non_effective_against_pokemon/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;} 
+            case '19':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "moves/moves_effectiveness_against_pokemon/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;} 
+            case '20':{ 
+                this.apiStr.url += "moves/status_moves/";
                 valid = true;
-            }break;} 
-        case '4':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "locations/locations_pokemon_can_be_found_with_method/"+this.selectPokemon.PokemonName;
+                break;} 
+            case '21':{ 
+                if(this.selectPokemon.PokemonName != null && this.selectMove.MoveName != null){
+                    this.apiStr.url += "moves/methods_pokemon_can_learn_move/"+this.selectPokemon.PokemonName+"&"+this.selectMove.MoveName;
+                    valid = true;
+                }break;}
+            case '22':{ 
+                if(this.selectPokemon.PokemonName != null && this.selectType.TypeName != null){
+                    this.apiStr.url = "moves/moves_of_type_that_pokemon_can_learn/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
+                    valid = true;
+                }break;}
+            case '23':{ 
+                if(this.selectPokemon.PokemonName != null &&this.selectType.TypeName != null){
+                    this.apiStr.url += "moves/moves_of_type_that_pokemon_can_learn_by_method/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
+                    valid = true;
+                }break;}
+            case '24':{ 
+                if(this.selectPokemon.PokemonName != null && this.selectBreedingMethod.MoveName !=null){
+                    this.apiStr.url += "moves/moves_pokemon_learns_with_method/"+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
+                    valid = true;
+                }break;}
+            case '25':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "moves/moves_pokemon_learns_by_breeding/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '26':{ 
+                if(this.selectPokemon.PokemonName != null && this.selectFather.PokemonName != null){
+                    this.apiStr.url += "moves/moves_pokemon_learns_by_breeding_with_father/"+this.selectPokemon.PokemonName+"&"+this.selectFather.PokemonName;
+                    valid = true;
+                }break;}
+            case '27':{ 
+                this.apiStr.url += "pokemon/pokemon_names";
                 valid = true;
-            }break;}
-        case '5':{ 
-            if(this.selectType.TypeName != null){
-                this.apiStr.url += "locations/locations_with_pokemon_of_type/"+this.selectType.TypeName;
+                break;} 
+            case '27.5':{ 
+                this.apiStr.url += "pokemon/hatch_times";
                 valid = true;
-            }break;}
-        case '6':{ 
-            if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url += "locations/locations_with_pokemon_of_dual_type/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                break;} 
+            case '28':{ 
+                this.apiStr.url += "pokemon/move_names";
                 valid = true;
-            }break;}
-        case '7':{ 
-            if(this.selectTrainerName.TID != null){
-                this.apiStr.url += "locations/locations_with_trainer/"+this.selectTrainerName.TID;//havnt tested with TID??
+                break;} 
+            case '29':{ 
+                this.apiStr.url += "pokemon/dex_pokemon_names";
                 valid = true;
-            }break;}
-        case '8':{ 
-            if(this.selectTrainerClass.TrainerClass != null){
-                this.apiStr.url += "locations/locations_with_trainer_class/"+this.selectTrainerClass.TrainerClass;
+                break;} 
+            case '30':{ 
+                this.apiStr.url += "pokemon/trainer_data";
                 valid = true;
-            }break;}
-        case '9':{ 
-            if(this.selectTrainerClass.TrainerClass != null){
-                this.apiStr.url += "locations/locations_with_trainer_class_fight/"+this.selectTrainerClass.TrainerClass;
+                break;} 
+            case '31':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "pokemon/pokemon_stats/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '32':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "pokemon/pokemon_evolutions/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '33':{ 
+                if(this.selectMove.MoveName != null){
+                    this.apiStr.url += "pokemon/pokemon_with_move/"+this.selectMove.MoveName;
+                    valid = true;
+                }break;}
+            case '34':{ 
+                if(this.selectStat.stat != null){
+                    this.apiStr.url += "pokemon/pokemon_from_types_with_highest_stat/"+this.selectStat.stat;
+                    valid = true;
+                }break;} 
+            case '35':{ 
+                if(this.selectStat.stat != null){
+                    this.apiStr.url += "pokemon/pokemon_from_types_with_lowest_stat/"+this.selectStat.stat;
+                    valid = true;
+                }break;} 
+            case '36':{ 
+                if(this.selectValue.Value != null && this.selectStat.stat != null){
+                    this.apiStr.url += "pokemon/pokemon_with_stat_greater_than/"+this.selectStat.stat+"&"+this.selectValue.Value;
+                    valid = true;
+                }break;} 
+            case '37':{ 
+                if(this.selectValue.Value != null && this.selectStat.stat != null){
+                    this.apiStr.url += "pokemon/pokemon_with_stat_less_than/"+this.selectStat.stat+"&"+this.selectValue.Value;
+                    valid = true;
+                }break;} 
+            case '38':{ 
+                if(this.selectLocation.LocationName != null){
+                    this.apiStr.url += "pokemon/pokemon_can_be_caught_at_location/"+this.selectLocation.LocationName;
+                    valid = true;
+                }break;}
+            case '39':{ 
+                if(this.selectLocation.LocationName != null && this.selectEncounter.Encounter != null){
+                    this.apiStr.url += "pokemon/pokemon_can_be_caught_at_location_from_encounter/"+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
+                    valid = true;
+                }break;} 
+            case '40':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "pokemon/pokemon_with_supereffective_against_pokemon/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;} 
+            case '41':{ 
+                if(this.selectLocation.LocationName != null && this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "pokemon/pokemon_from_location_with_supereffective_against_pokemon/"+this.selectPokemon.PokemonName+"&"+this.selectLocation.LocationName;
+                    valid = true;
+                }break;}
+            case '42':{ 
+                if(this.selectMove.MoveName != null){
+                    this.apiStr.url += "pokemon/pokemon_that_move_is_supereffective_against/"+this.selectMove.MoveName;
+                    valid = true;
+                }break;}
+            case '43':{ 
+                if(this.selectMove.MoveName != null){
+                    this.apiStr.url += "pokemon/pokemon_that_move_is_neutral_against/"+this.selectMove.MoveName;
+                    valid = true;
+                }break;}
+            case '44':{ 
+                if(this.selectMove.MoveName != null){
+                    this.apiStr.url += "pokemon/pokemon_that_move_is_weak_against/"+this.selectMove.MoveName;
+                    valid = true;
+                }break;}
+            case '45':{ 
+                if(this.selectMove.MoveName != null){
+                    this.apiStr.url += "pokemon/pokemon_that_move_is_noteffective_against/"+this.selectMove.MoveName;
+                    valid = true;
+                }break;}
+            case '46':{ 
+                if(this.selectMove.MoveName != null){
+                    this.apiStr.url += "pokemon/effects_on_pokemon_by_move/"+this.selectMove.MoveName;
+                    valid = true;
+                }break;}
+            case '47':{ 
+                this.apiStr.url += "/pokemon_abilities";
                 valid = true;
-            }break;}
-        case '10':{ 
-            if(this.selectLevel.Level != null && this.selectPokemon.PokemonName !=null){
-                this.apiStr.url += "locations/locations_with_pokemon_of_level/"+this.selectPokemon.PokemonName+"&"+this.selectLevel.Level;
+                break;} 
+            case '48':{ 
+                if(this.selectAbility.Ability != null){
+                    this.apiStr.url += "pokemon/pokemon_with_ability/"+this.selectAbility.Ability;
+                    valid = true;
+                }break;}
+            case '49':{ //idk if these are the right types(?)
+                if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
+                    this.apiStr.url += "pokemon/pokemon_of_type_can_learn_other_type/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                    valid = true;
+                }break;}
+            case '50':{ 
+                if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
+                    this.apiStr.url += "pokemon/pokemon_of_type_can_learn_other_type_from_method/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
+                    valid = true;
+                }break;}
+            case '51':{  
+                if(this.selectTrainerName.TID != null){
+                    this.apiStr.url += "teams/teams_with_trainer/"+this.selectTrainerName.TID;
+                    valid = true;
+                }break;}
+            case '52':{ 
+                if(this.selectPokemon.PokemonName != null){
+                    this.apiStr.url += "teams/teams_with_pokemon/"+this.selectPokemon.PokemonName;
+                    valid = true;
+                }break;}
+            case '53':{ 
+                if(this.selectLevel.Level != null){
+                    this.apiStr.url += "teams/teams_with_minimum_level/"+this.selectLevel.Level;
+                    valid = true;
+                }break;}
+            case '54':{ 
+                if(this.selectLevel.Level != null){
+                    this.apiStr.url += "teams/teams_with_maximum_level/"+this.selectLevel.Level;
+                    valid = true;
+                }break;}
+            case '55':{ 
+                this.apiStr.url += "types/number_of_pokemon_per_type";
                 valid = true;
-            }break;}
-        case '11':{ 
-            this.apiStr.url += "moves/moves_learned_by_all_pokemon";
-            valid = true;
-            break;} 
-        case '12':{ 
-            this.apiStr.url += "moves/moves_learned_by_pokemon_by_method";
-            valid = true;
-            break;}
-        case '13':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "moves/moves_learned_by_a_pokemon/"+this.selectPokemon.PokemonName;
+                break;} 
+            case '56':{ 
+                this.apiStr.url += "types/types_with_physical_damage";
                 valid = true;
-            }break;}
-        case '14':{
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "moves/moves_learned_by_a_pokemon_by_method/"+this.selectPokemon.PokemonName;
+                break;} 
+            case '57':{ 
+                this.apiStr.url += "types/types_with_special_damage";
                 valid = true;
-            }break;}
-        case "14.5":{
-            if(this.selectType.TypeName != null && this.selectQuality.Quality != null){
-                this.apiStr.url += "moves/moves_with_effectiveness_against_type/"+this.selectType.TypeName+"&"+this.selectQuality.Quality;
-                valid = true;
-            }break;}            
-        case '15':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "moves/moves_supereffective_against_pokemon/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;}
-        case '16':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "moves/moves_neutral_against_pokemon/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;}
-        case '17':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "moves/moves_noteffective_against_pokemon/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;}
-        case '18':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "moves/moves_non_effective_against_pokemon/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;} 
-        case '19':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "moves/moves_effectiveness_against_pokemon/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;} 
-        case '20':{ 
-            this.apiStr.url += "moves/status_moves/";
-            valid = true;
-            break;} 
-        case '21':{ 
-            if(this.selectPokemon.PokemonName != null && this.selectMove.MoveName != null){
-                this.apiStr.url += "moves/methods_pokemon_can_learn_move/"+this.selectPokemon.PokemonName+"&"+this.selectMove.MoveName;
-                valid = true;
-            }break;}
-        case '22':{ 
-            if(this.selectPokemon.PokemonName != null && this.selectType.TypeName != null){
-                this.apiStr.url = "moves/moves_of_type_that_pokemon_can_learn/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
-                valid = true;
-            }break;}
-        case '23':{ 
-            if(this.selectPokemon.PokemonName != null &&this.selectType.TypeName != null){
-                this.apiStr.url += "moves/moves_of_type_that_pokemon_can_learn_by_method/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
-                valid = true;
-            }break;}
-        case '24':{ 
-            if(this.selectPokemon.PokemonName != null && this.selectBreedingMethod.MoveName !=null){
-                this.apiStr.url += "moves/moves_pokemon_learns_with_method/"+this.selectPokemon.PokemonName+"&"+this.selectBreedingMethod.MoveName;
-                valid = true;
-            }break;}
-        case '25':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "moves/moves_pokemon_learns_by_breeding/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;}
-        case '26':{ 
-            if(this.selectPokemon.PokemonName != null && this.selectFather.PokemonName != null){
-                this.apiStr.url += "moves/moves_pokemon_learns_by_breeding_with_father/"+this.selectPokemon.PokemonName+"&"+this.selectFather.PokemonName;
-                valid = true;
-            }break;}
-        case '27':{ 
-            this.apiStr.url += "pokemon/pokemon_names";
-            valid = true;
-            break;} 
-        case '27.5':{ 
-            this.apiStr.url += "pokemon/hatch_times";
-            valid = true;
-            break;} 
-        case '28':{ 
-            this.apiStr.url += "pokemon/move_names";
-            valid = true;
-            break;} 
-        case '29':{ 
-            this.apiStr.url += "pokemon/dex_pokemon_names";
-            valid = true;
-            break;} 
-        case '30':{ 
-            this.apiStr.url += "pokemon/trainer_data";
-            valid = true;
-            break;} 
-        case '31':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "pokemon/pokemon_stats/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;}
-        case '32':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "pokemon/pokemon_evolutions/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;}
-        case '33':{ 
-            if(this.selectMove.MoveName != null){
-                this.apiStr.url += "pokemon/pokemon_with_move/"+this.selectMove.MoveName;
-                valid = true;
-            }break;}
-        case '34':{ 
-            if(this.selectStat.stat != null){
-                this.apiStr.url += "pokemon/pokemon_from_types_with_highest_stat/"+this.selectStat.stat;
-                valid = true;
-            }break;} 
-        case '35':{ 
-            if(this.selectStat.stat != null){
-                this.apiStr.url += "pokemon/pokemon_from_types_with_lowest_stat/"+this.selectStat.stat;
-                valid = true;
-            }break;} 
-        case '36':{ 
-            if(this.selectValue.Value != null && this.selectStat.stat != null){
-                this.apiStr.url += "pokemon/pokemon_with_stat_greater_than/"+this.selectStat.stat+"&"+this.selectValue.Value;
-                valid = true;
-            }break;} 
-        case '37':{ 
-            if(this.selectValue.Value != null && this.selectStat.stat != null){
-                this.apiStr.url += "pokemon/pokemon_with_stat_less_than/"+this.selectStat.stat+"&"+this.selectValue.Value;
-                valid = true;
-            }break;} 
-        case '38':{ 
-            if(this.selectLocation.LocationName != null){
-                this.apiStr.url += "pokemon/pokemon_can_be_caught_at_location/"+this.selectLocation.LocationName;
-                valid = true;
-            }break;}
-        case '39':{ 
-            if(this.selectLocation.LocationName != null && this.selectEncounter.Encounter != null){
-                this.apiStr.url += "pokemon/pokemon_can_be_caught_at_location_from_encounter/"+this.selectLocation.LocationName+"&"+this.selectEncounter.Encounter;
-                valid = true;
-            }break;} 
-        case '40':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "pokemon/pokemon_with_supereffective_against_pokemon/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;} 
-        case '41':{ 
-            if(this.selectLocation.LocationName != null && this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "pokemon/pokemon_from_location_with_supereffective_against_pokemon/"+this.selectPokemon.PokemonName+"&"+this.selectLocation.LocationName;
-                valid = true;
-            }break;}
-        case '42':{ 
-            if(this.selectMove.MoveName != null){
-                this.apiStr.url += "pokemon/pokemon_that_move_is_supereffective_against/"+this.selectMove.MoveName;
-                valid = true;
-            }break;}
-        case '43':{ 
-            if(this.selectMove.MoveName != null){
-                this.apiStr.url += "pokemon/pokemon_that_move_is_neutral_against/"+this.selectMove.MoveName;
-                valid = true;
-            }break;}
-        case '44':{ 
-            if(this.selectMove.MoveName != null){
-                this.apiStr.url += "pokemon/pokemon_that_move_is_weak_against/"+this.selectMove.MoveName;
-                valid = true;
-            }break;}
-        case '45':{ 
-            if(this.selectMove.MoveName != null){
-                this.apiStr.url += "pokemon/pokemon_that_move_is_noteffective_against/"+this.selectMove.MoveName;
-                valid = true;
-            }break;}
-        case '46':{ 
-            if(this.selectMove.MoveName != null){
-                this.apiStr.url += "pokemon/effects_on_pokemon_by_move/"+this.selectMove.MoveName;
-                valid = true;
-            }break;}
-        case '47':{ 
-            this.apiStr.url += "/pokemon_abilities";
-            valid = true;
-            break;} 
-        case '48':{ 
-            if(this.selectAbility.Ability != null){
-                this.apiStr.url += "pokemon/pokemon_with_ability/"+this.selectAbility.Ability;
-                valid = true;
-            }break;}
-        case '49':{ //idk if these are the right types(?)
-            if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url += "pokemon/pokemon_of_type_can_learn_other_type/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
-                valid = true;
-            }break;}
-        case '50':{ 
-            if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                this.apiStr.url += "pokemon/pokemon_of_type_can_learn_other_type_from_method/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
-                valid = true;
-            }break;}
-        case '51':{  
-            if(this.selectTrainerName.TID != null){
-                this.apiStr.url += "teams/teams_with_trainer/"+this.selectTrainerName.TID;
-                valid = true;
-            }break;}
-        case '52':{ 
-            if(this.selectPokemon.PokemonName != null){
-                this.apiStr.url += "teams/teams_with_pokemon/"+this.selectPokemon.PokemonName;
-                valid = true;
-            }break;}
-        case '53':{ 
-            if(this.selectLevel.Level != null){
-                this.apiStr.url += "teams/teams_with_minimum_level/"+this.selectLevel.Level;
-                valid = true;
-            }break;}
-        case '54':{ 
-            if(this.selectLevel.Level != null){
-                this.apiStr.url += "teams/teams_with_maximum_level/"+this.selectLevel.Level;
-                valid = true;
-            }break;}
-        case '55':{ 
-            this.apiStr.url += "types/number_of_pokemon_per_type";
-            valid = true;
-            break;} 
-        case '56':{ 
-            this.apiStr.url += "types/types_with_physical_damage";
-            valid = true;
-            break;} 
-        case '57':{ 
-            this.apiStr.url += "types/types_with_special_damage";
-            valid = true;
-            break;} 
-       }
+                break;} 
+            }
+        }catch(error){
+            //handle failures from evaluating null object 
+            //ex if selectLevel is null - cant evaluate selectLevel.Level
+
+            //error message from missing selection is made visible below
+        }
 
        if(valid){
             //hide query boxes, display results container
@@ -14702,23 +14727,21 @@ export default {
             //this is just a label which displays the generated url
             this.results.value = this.apiStr.url;//will be removed
 
-            //let temp = null
-            //Display the api return below (somehow)          
-            axios.get(this.apiStr.url)
-            .then(function (response) {
-                // handle success
+            axios.get(this.apiStr.url).then((response) => {
                 console.log(response.data);
-                //SOMEHOW DISPLAY RESPONSE
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
+                this.updateOutput(response.data);
+                });
+
 
        }else{
            this.errorMessageVisible = true;
        }
     },
+
+    updateOutput(response){
+        this.apiObj = response;
+    },
+
 
     setAllHidden(){
         //set all Visible tags to false
