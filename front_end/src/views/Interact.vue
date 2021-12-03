@@ -57,6 +57,8 @@
 
     <v-row align="center">
         <!-- Display results here?? -->
+        <pre>{{ JSON.stringify(apiObj, null, 2) }}</pre>
+
     </v-row>
 
        <v-row align="center">
@@ -367,7 +369,8 @@ export default {
         //used to track current selections
         apiStr:{url: "init"},
         //used to display results of api call maybe??
-        results: {value:[ "default"]},
+        results: {value: "default"},
+        apiObj:{},
 
         //prolly set all to false to begin with??
         locationVisible: false,
@@ -14724,23 +14727,21 @@ export default {
             //this is just a label which displays the generated url
             this.results.value = this.apiStr.url;//will be removed
 
-            //Display the api return below (somehow)          
-            axios.get(this.apiStr.url)
-            .then(function (response) {
-                // handle success
+            axios.get(this.apiStr.url).then((response) => {
                 console.log(response.data);
+                this.updateOutput(response.data);
+                });
 
-                //SOMEHOW DISPLAY RESPONSE
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
 
        }else{
            this.errorMessageVisible = true;
        }
     },
+
+    updateOutput(response){
+        this.apiObj = response;
+    },
+
 
     setAllHidden(){
         //set all Visible tags to false
