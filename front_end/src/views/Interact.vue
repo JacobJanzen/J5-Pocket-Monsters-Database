@@ -429,6 +429,7 @@ export default {
           { value: 'Moves a Pokemon can learn through breeding with a given father', id: '26' },
           //Pokemon File
           { value: 'All Pokemon names', id: '27' },
+          { value: 'All Pokemon hatch times', id:'27.5'},
           { value: 'All Move names', id: '28' },
           { value: 'Pokemon and their pokedex position', id: '29' },
           { value: 'All Trainer data', id: '30' },
@@ -14541,6 +14542,10 @@ export default {
             }break;}
         case '27':{ 
             this.apiStr.url += "pokemon/pokemon_names";
+            valid = true;
+            break;} 
+        case '27.5':{ 
+            this.apiStr.url += "pokemon/hatch_times";
             valid = true;
             break;} 
         case '28':{ 
