@@ -53,6 +53,9 @@
 
 <script>
 export default {
+  title: "3380 Project",
+
+
   data: () => ({
      value: 0
      }),

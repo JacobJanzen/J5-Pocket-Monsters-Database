@@ -13,11 +13,10 @@
       >
         <div class="cardInner">
           <h2>Group Info</h2>
-          <h4>Colin Johnson -- johns233@myumanitoba.ca</h4>
-          <h4>Jacob Janzen -- janzenj2@myumanitoba.ca</h4>
-          <h4>Daniel La Rocque -- larocq17@myumanitoba.ca</h4>
-          <h4>Jared Webber -- webberj1@myumanitoba.ca</h4>
-          <h4>rip josh :(</h4>
+          <pre><h4>Colin Johnson    -- johns233@myumanitoba.ca</h4></pre>
+          <pre><h4>Jacob Janzen     -- janzenj2@myumanitoba.ca</h4></pre>
+          <pre><h4>Daniel La Rocque -- larocq17@myumanitoba.ca</h4></pre>
+          <pre><h4>Jared Webber     -- webberj1@myumanitoba.ca</h4></pre>
         </div>
       </v-card>
 
@@ -28,7 +27,7 @@
       >
         <div class="cardInner">
           <h2>Github Repo</h2>
-          <h4>All our source files are available in our Github repo <a target="_blank" href = "https://github.com/JacobJanzen/3380_Project"> HERE</a> assuming we'll make the repo public??</h4>
+          <h4>All source files are available in our Github repo <a target="_blank" href = "https://github.com/JacobJanzen/3380_Project"> HERE</a></h4>
         </div>
       </v-card>
 
@@ -39,10 +38,14 @@
       >
         <div class="cardInner">
           <h2>Navigation</h2>
-          <h4>Use the menu at the top to</h4>
+          <h4>Use the top menu to:</h4>
           <li>Read our project write-up</li>
-          <li>View the ER Diagram</li>
-          <li>Interact with the database! ADD MORE DETAILED INSTRUCTIONS???</li>
+          <li>View the ER Diagram & assumptions</li>
+          <li>Interact with the database!</li>
+          <ul class="tabcontent">
+            <li>ADD MORE DETAILED INSTRUCTIONS HERE</li>
+            <li>ADD MORE DETAILED INSTRUCTIONS HERE</li>
+          </ul>
         </div>
       </v-card>
 
@@ -62,6 +65,10 @@
 
 
 <style lang="scss" scoped>
+
+  .tabcontent{
+    padding-left:50px;
+  }
 
   .HOMEhome{
     background-image: url("../assets/bkg.png");
