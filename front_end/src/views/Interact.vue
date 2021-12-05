@@ -50,8 +50,8 @@
 
         <v-col cols="4" >
              <v-btn class="button" @click="newQuery()">New Query</v-btn>
-             <!-- THIS BUTTON DOESNT WORK - DOWNLOAD POPS UP BUT NOTHING HAPPENS -->
-             <a class="button" target = "_blank" href = "../../example.csv" download="results.csv"><v-btn>Download</v-btn></a>
+             <!-- Download CSV results -->
+             <a class="button" target = "_blank" href = "front_end/public/example.csv" download="results.csv"><v-btn>Download</v-btn></a>
         </v-col>
       </v-row>
 
@@ -518,6 +518,22 @@ export default {
   },
 
    methods:{
+    downloadFile(){
+            axios({
+                  url: '../example.csv',
+                  method: 'GET',
+                  responseType: 'blob',
+              }).then((response) => {
+                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                   var fileLink = document.createElement('a');
+
+                   fileLink.href = fileURL;
+                   fileLink.setAttribute('download', 'file.pdf');
+                   document.body.appendChild(fileLink);
+
+                   fileLink.click();
+              });
+    },
 
     newQuery(){
         //Reset all selected param dropdowns
