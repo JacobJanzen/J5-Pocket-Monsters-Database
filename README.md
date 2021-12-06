@@ -18,3 +18,4 @@ Press CTRL+C to close the server.
 ```
 Press CTRL+C in each cmd window to close the server.
 ### Mac (not set up yet)
+Use Linux version for now. Run `pkill flask` after closing the server.
