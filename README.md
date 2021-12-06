@@ -2,7 +2,7 @@
 
 Tracking data about Pokémon Emerald.
 
-![EER](./diagrams/EER.png)
+![EER](./other_files/diagrams/EER.png)
 
 Collected from [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).
 
