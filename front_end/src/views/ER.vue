@@ -93,7 +93,7 @@
   }
 
   .ERdiagram{
-    background-image: url("../../../diagrams/EER.svg");
+    background-image: url("../../../other_files/diagrams/EER.svg");
     height: 100%;
     width: 100%;
     background-position: center;
