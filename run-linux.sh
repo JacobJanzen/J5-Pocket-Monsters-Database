@@ -3,7 +3,7 @@
 trap ctrl_c INT
 function ctrl_c()
 {
-    pkill flask
+    kill $(ps -o pid= --ppid $$)
     exit
 }
 
