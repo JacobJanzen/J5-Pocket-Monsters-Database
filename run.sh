@@ -1,4 +1,5 @@
 #!/bin/bash
+# exit and kill flask when ctrl+c is pressed
 trap ctrl_c INT
 function ctrl_c()
 {
@@ -6,6 +7,7 @@ function ctrl_c()
     exit
 }
 
+# start back end
 cd back_end
 python3 -m venv venv
 . venv/bin/activate
@@ -14,7 +16,7 @@ export FLASK_APP=flaskr
 export FLASK_ENV=development
 flask run &
 
-
+# start front end
 cd ../front_end
 npm install
 npm run serve
