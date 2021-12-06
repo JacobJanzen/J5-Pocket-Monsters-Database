@@ -2,12 +2,11 @@
 set -m
 
 # exit and kill flask when ctrl+c is pressed
-trap ctrl_c INT
+trap ctrl_c EXIT
 function ctrl_c()
 {
     echo
     echo "**THIS SHOULD APPEAR**"
-    fg
     pkill flask
     exit
 }
@@ -24,4 +23,4 @@ flask run &
 # start front end
 cd ../front_end
 npm ci
-npm run serve & wait
+npm run serve
