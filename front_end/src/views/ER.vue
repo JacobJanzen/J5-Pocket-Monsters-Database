@@ -77,7 +77,9 @@
         We used Bulbapedia because it is under a creative commons license and
         it lists moves for team members of “boss” trainers, but not for most. For
         consistency’s sake, we decided to include no team member’s moves.
-        2</p>
+        </p>
+        <!-- spacer -->
+        <br>
     </div>
   </div>
 </template>
