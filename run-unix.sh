@@ -1,9 +1,11 @@
 #!/bin/bash
+set -m
+
 # exit and kill flask when ctrl+c is pressed
 trap ctrl_c INT
 function ctrl_c()
 {
-    kill $(ps -o pid= --ppid $$)
+    fg
     exit
 }
 
