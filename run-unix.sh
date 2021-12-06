@@ -5,6 +5,8 @@ set -m
 trap ctrl_c INT
 function ctrl_c()
 {
+    echo
+    echo "**THIS SHOULD APPEAR**"
     fg
     exit
 }
