@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "flask": "^0.2.10",
-    "sqlite3": "^5.0.2"
-  }
-}
