@@ -3,6 +3,8 @@
 \usepackage[binary-units]{siunitx}
 \usepackage{todonotes}
 \usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
 
 \title{Pok\'emon Emerald Database}
 \author{
@@ -172,8 +174,15 @@ Pok\'emon Emerald.
 The project was created with an Electron front-end written in JavaScript with Vue.js. The back-end
 is a Flask application written in Python. The back-end runs the queries which are requested 
 through API calls from the front-end using Axios as an HTTP client. 
-The application can be set up by\dots
-\todo{add details about how to set up}
+The application can be started with the following on Linux/macOS\todo{add separate macOS startup}:
+\begin{verbatim}
+    .../3380_Project $ ./run-linux.sh
+\end{verbatim}
+on Windows:
+\begin{verbatim}
+    ...\3380_Project>./run-windows.bat
+\end{verbatim}
+
 The interface is fairly simple. There are four tabs at the top of the screen. Starting from left
 to right, they are: a homepage containing information about us, a link to our repository, and
 details about how to navigate through the application; a copy of this report; our 
