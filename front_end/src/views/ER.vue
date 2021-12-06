@@ -10,6 +10,8 @@
         Participation Explanations:
       </h2>
 
+        Note: this is a consultatory database and the user is not intended to add items to the 
+            databse. Thus, it will not include user-added teams.
         <h3>LearnsByBreeding</h3>
         <p>This is separate from the Learns table because learning 
         by breeding is a special case that has special requirements. Ternary
@@ -17,12 +19,12 @@
         This is because for some moves, a Pokemon can learn it when the father,
         which is not necessarily the same species as the child, knows the move
         and breeds with a mother who is of the same species as the child. Not all
-        Pokemon can learn moves this way, not all moves can be learned this way,
+        Pokemon can learn moves this way, not all moves can be learnt this way,
         and not all Pokemon can pass on moves to their children. Furthermore,
         many Pokemon can pass on many moves to many different Pokemon.</p>
         <h3>Learns</h3>
         <p>All Pokemon can learn at least one move and all moves can be
-        learned. The same move can be learned in several different ways, so the
+        learnt. The same move can be learnt in several different ways, so the
         learn method is included as a part of the primary key to distinguish more
         than one instance of Learns between the same Pokemon and move.</p>
         <h3>IsType</h3>
