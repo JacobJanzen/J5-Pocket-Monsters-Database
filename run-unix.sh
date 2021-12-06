@@ -23,4 +23,4 @@ flask run &
 # start front end
 cd ../front_end
 npm ci
-npm run serve
+npm run serve & wait
