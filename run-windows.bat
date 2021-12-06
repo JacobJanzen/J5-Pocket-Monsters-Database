@@ -5,5 +5,5 @@ pip install -r requirements
 start cmd.exe /c run.bat
 
 cd ..\front_end
-call cmd.exe /c npm install
+call cmd.exe /c npm ci
 npm run serve

@@ -18,5 +18,5 @@ flask run &
 
 # start front end
 cd ../front_end
-npm install
+npm ci
 npm run serve
