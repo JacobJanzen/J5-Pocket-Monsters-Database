@@ -2,6 +2,7 @@
   <div class="HOMEhome">
 
       <!-- maybe replace with plaintext?? -->
+      <p></p>
       <div class=headerImage></div>
 
       <p> </p> <!-- spacer -->
