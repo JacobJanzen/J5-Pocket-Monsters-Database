@@ -744,7 +744,7 @@ export default {
                 }break;}
             case '22':{ 
                 if(this.selectPokemon.PokemonName != null && this.selectType.TypeName != null){
-                    this.apiStr.url = "moves/moves_of_type_that_pokemon_can_learn/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
+                    this.apiStr.url += "moves/moves_of_type_that_pokemon_can_learn/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
                     valid = true;
                 }break;}
             case '23':{ 
