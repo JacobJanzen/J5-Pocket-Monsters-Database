@@ -18,7 +18,7 @@ python3 -m venv venv
 pip install -r requirements
 export FLASK_APP=flaskr
 export FLASK_ENV=development
-flask run &
+flask run & 
 
 # start front end
 cd ../front_end
