@@ -494,7 +494,7 @@ export default {
         trainerClasses: dropdown["trainerClasses"],
 
         selectTrainerName: {TrainerName: null, TID: null},
-        trainerNames: dropdown["trainernames"],
+        trainerNames: dropdown["trainerNames"],
 
         selectPokemon:{PokemonName: null},
         selectFather:{PokemonName: null},
