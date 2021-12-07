@@ -868,7 +868,7 @@ export default {
                     valid = true;
                 }break;}
             case '47':{ 
-                this.apiStr.url += "/pokemon_abilities";
+                this.apiStr.url += "pokemon/pokemon_abilities";
                 valid = true;
                 break;} 
             case '48':{ 
