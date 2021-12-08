@@ -1,4 +1,6 @@
-from flask import Blueprint, jsonify
+from flaskr.query_to_json import sqlite_to_json as qj
+
+from flask import Blueprint
 
 from flaskr.db import get_db
 
@@ -11,16 +13,7 @@ def pokemon_names():
     con = get_db()
     cur = con.cursor()
     cur.execute('select PokemonName from Pokemon')
-
-    d = {}
-    for row in cur.fetchall():
-        for col in row.keys():
-            if col not in d:
-                d[col] = [str(row[col])]
-            else:
-                d[col].append(str(row[col]))
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/move_names')
@@ -29,16 +22,7 @@ def move_names():
     con = get_db()
     cur = con.cursor()
     cur.execute('select MoveName from Move')
-
-    d = {}
-    for row in cur.fetchall():
-        for col in row.keys():
-            if col not in d:
-                d[col] = [str(row[col])]
-            else:
-                d[col].append(str(row[col]))
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/hatch_times')
@@ -47,12 +31,7 @@ def hatch_times():
     con = get_db()
     cur = con.cursor()
     cur.execute('select PokemonName, Dex, HatchTime from Pokemon')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = {row.keys()[1]: row[1], row.keys()[2]: row[2]}
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/dex_pokemon_names')
@@ -61,12 +40,7 @@ def dex_pokemon_names():
     con = get_db()
     cur = con.cursor()
     cur.execute('select Dex, PokemonName from Pokemon')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/trainer_data')
@@ -75,12 +49,7 @@ def trainer_data():
     con = get_db()
     cur = con.cursor()
     cur.execute('select * from Trainer')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = {row.keys()[1]: row[1], row.keys()[2]: row[2]}  # TID -> TrainerName, TrainerClass
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_stats/<pokemon_name>')
@@ -92,13 +61,7 @@ def pokemon_stats(pokemon_name: str):
                 select HP, Atk, Def, SpA, SpD, Spe from Pokemon
                 where PokemonName = "{pokemon_name}"
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        for col in row.keys():
-            d[col] = row[col]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_evolutions/<pokemon_name>')
@@ -110,16 +73,7 @@ def pokemon_evolutions(pokemon_name: str):
                 select P2.Dex, P2.PokemonName from Pokemon P1, Pokemon P2
                 where P2.EvolvesFrom = P1.Dex and P1.PokemonName = "{pokemon_name}"
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        for col in row.keys():
-            if col not in d:
-                d[col] = [row[col]]
-            else:
-                d[col].append(row[col])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_with_move/<move_name>')
@@ -134,16 +88,7 @@ def pokemon_with_move(move_name: str):
                 select PokemonName from Pokemon natural join LearnsByBreeding natural join Move 
                  where Move.MoveName = "{move_name}"
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        for col in row.keys():
-            if col not in d:
-                d[col] = [row[col]]
-            else:
-                d[col].append(row[col])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_from_types_with_highest_stat/<stat_name>')
@@ -157,12 +102,7 @@ def pokemon_from_types_with_highest_stat(stat_name: str):
                 having max("{stat_name}")
                 order by "{stat_name}" desc
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_from_types_with_lowest_stat/<stat_name>')
@@ -176,12 +116,7 @@ def pokemon_from_types_with_lowest_stat(stat_name: str):
                 having min("{stat_name}")
                 order by "{stat_name}" desc
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_with_stat_greater_than/<stat_name>&<min_value>')
@@ -194,12 +129,7 @@ def pokemon_with_stat_greater_than(stat_name: str, min_value: int):
                 where "{stat_name}" >= "{min_value}"
                 order by "{stat_name}"
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_with_stat_less_than/<stat_name>&<max_value>')
@@ -212,12 +142,7 @@ def pokemon_with_stat_less_than(stat_name: str, max_value: int):
                 where "{stat_name}" <= "{max_value}"
                 order by "{stat_name}"
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_can_be_caught_at_location/<location_name>')
@@ -229,12 +154,7 @@ def pokemon_can_be_caught_at_location(location_name: str):
                 select Dex, PokemonName, Encounter from Pokemon natural join FoundAt
                 where FoundAt.LocationName = "{location_name}"
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[1]] = {row.keys()[0]: row[0], row.keys()[2]: row[2]}
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_can_be_caught_at_location_from_encounter/<location_name>&<encounter_name>')
@@ -246,12 +166,7 @@ def pokemon_can_be_caught_at_location_from_encounter(location_name: str, encount
                 select Dex, PokemonName, Encounter from Pokemon natural join FoundAt
                 where FoundAt.LocationName = "{location_name}" and Encounter = "{encounter_name}";   
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[1]] = {row.keys()[0]: row[0], row.keys()[2]: row[2]}
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_with_supereffective_against_pokemon/<pokemon_name>')
@@ -285,16 +200,7 @@ def pokemon_with_supereffective_against_pokemon(pokemon_name: str):
                 ) 
                 order by PokemonName;  
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        # Moves: [{MoveName, TypeName, Method}, ... ]
-        if row[0] not in d:
-            d[row[0]] = {'Moves': [{row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3]}]}
-        else:
-            d[row[0]]['Moves'].append({row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3]})
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_from_location_with_supereffective_against_pokemon/<pokemon_name>&<location_name>')
@@ -330,16 +236,7 @@ def pokemon_from_location_with_supereffective_against_pokemon(pokemon_name: str,
                 ) 
                 order by PokemonName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        # Moves: [{MoveName, TypeName, Method}, ... ]
-        if row[0] not in d:
-            d[row[0]] = {'Moves': [{row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3]}]}
-        else:
-            d[row[0]]['Moves'].append({row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3]})
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_that_move_is_supereffective_against/<move_name>')
@@ -357,12 +254,8 @@ def pokemon_that_move_is_supereffective_against(move_name: str):
                 having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
                 order by PokemonName;
                 ''')
+    return qj.sqlite_to_json(cur.fetchall())
 
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
 
 @bp.route('/pokemon_that_move_is_neutral_against/<move_name>')
 def pokemon_that_move_is_neutral_against(move_name: str):
@@ -379,12 +272,7 @@ def pokemon_that_move_is_neutral_against(move_name: str):
                 having (sum(Quality)/count(Quality) = 1 or sum(Quality)/count(Quality) = 1.25) and min(Quality) <> 0
                 order by PokemonName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_that_move_is_weak_against/<move_name>')
@@ -402,12 +290,7 @@ def pokemon_that_move_is_weak_against(move_name: str):
                 having (sum(Quality)/count(Quality) = 0.75 or sum(Quality)/count(Quality) = 0.5) and min(Quality) <> 0
                 order by PokemonName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_that_move_is_noteffective_against/<move_name>')
@@ -425,12 +308,7 @@ def pokemon_that_move_is_noteffective_against(move_name: str):
                 having min(Quality) = 0
                 order by PokemonName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/effects_on_pokemon_by_move/<move_name>')
@@ -478,12 +356,7 @@ def effects_on_pokemon_by_move(move_name: str):
                 having min(Quality) = 0
                 order by PokemonName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_abilities')
@@ -494,12 +367,7 @@ def pokemon_abilities():
     cur.execute(f'''
                 select PokemonName, Ability from Pokemon natural join Abilities;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_with_ability/<ability_name>')
@@ -511,12 +379,7 @@ def pokemon_with_ability(ability_name: str):
                 select PokemonName, Ability from Pokemon natural join Abilities
                 where Ability = "{ability_name}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_of_type_can_learn_other_type/<pokemon_type_name>&<move_type_name>')
@@ -534,15 +397,7 @@ def pokemon_of_type_can_learn_other_type(pokemon_type_name: str, move_type_name:
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
                 where HasTypes.TypeName = "{pokemon_type_name}" and Move.TypeName = "{move_type_name}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [row[1]]
-        else:
-            d[row[0]].append(row[1])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_of_type_can_learn_other_type_from_method/<pokemon_type_name>&<move_type_name>')
@@ -560,12 +415,4 @@ def pokemon_of_type_can_learn_other_type_from_method(pokemon_type_name: str, mov
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
                 where HasTypes.TypeName = "{pokemon_type_name}" and Move.TypeName = "{move_type_name}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [[row[1], row[2]]]
-        else:
-            d[row[0]].append([row[1], row[2]])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
