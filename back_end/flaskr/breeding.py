@@ -29,10 +29,13 @@ def pokemon_can_breed_with(pokemon_name: str):
     cur = con.cursor()
     cur.execute(f'''
                 select distinct PokemonName from Pokemon natural join EggGroups
-                where PokemonName = 'Ditto' or GroupName in(
+                where case when "{pokemon_name}" <> 'Ditto' THEN
+                    PokemonName = 'Ditto' or GroupName in(
                     select GroupName from Pokemon natural join EggGroups
-                    where PokemonName = "{pokemon_name}"
-                )
+                    where PokemonName = "{pokemon_name}" )
+                ELSE
+                    PokemonName <> 'Ditto' and GroupName <> 'Undiscovered'
+                END
                 order by PokemonName;
                 ''')
 
