@@ -416,6 +416,22 @@ select Number, MoveName from TM order by Number;
 -- all HM moves
 select Number, MoveName from HM order by Number;
 
+-- all moves all pokemon learns by TM
+select MoveName, Method from Pokemon natural join Learns natural join TM
+where Method like 'TM%';
+
+-- all moves all pokemon learns by HM
+select MoveName, Method from Pokemon natural join Learns natural join HM
+where Method like 'HM%';
+
+-- all moves a given pokemon learns by TM
+select MoveName, Method from Pokemon natural join Learns natural join TM
+where PokemonName = pkmn and Method like 'TM%';
+
+-- all moves a given pokemon learns by HM
+select MoveName, Method from Pokemon natural join Learns natural join HM
+where PokemonName = pkmn and Method like 'HM%';
+
 --====================================================================================================================================
 
 --== Location Selection ==--
