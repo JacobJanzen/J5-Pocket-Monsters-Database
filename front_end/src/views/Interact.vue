@@ -569,7 +569,7 @@ export default {
         case '1':{ this.dropdownMessageVisible = true; this.eggGroupVisible = true; break;}
         case '2':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
         case '3':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
-        case '4':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+        case '4':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.encounterVisible = true; break;} 
         case '5':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
         case '6':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
         case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
@@ -651,7 +651,7 @@ export default {
                 }break;} 
             case '4':{ 
                 if(this.selectPokemon.PokemonName != null){
-                    this.apiStr.url += "locations/locations_pokemon_can_be_found_with_method/"+this.selectPokemon.PokemonName;
+                    this.apiStr.url += "locations/locations_pokemon_can_be_found_with_method/"+this.selectPokemon.PokemonName+"&"+this.selectEncounter.Encounter;
                     valid = true;
                 }break;}
             case '5':{ 
