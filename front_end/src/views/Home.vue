@@ -44,8 +44,12 @@
           <li>View the ER Diagram & assumptions</li>
           <li>Interact with the database!</li>
           <ul class="tabcontent">
-            <li>ADD MORE DETAILED INSTRUCTIONS HERE</li>
-            <li>ADD MORE DETAILED INSTRUCTIONS HERE</li>
+            <li>Click dropdown that says "What do you want to know?"</li>
+            <li>Start typing or scroll through the list of queries</li>
+            <li>New dropdown menus may appear after selecting the query</li>
+            <li>Once all dropdowns are filled, click "QUERY!" to run the query</li>
+            <li>To save the results of the query, click "DOWNLOAD"</li>
+            <li>To run a new query, click "NEW QUERY"</li>
           </ul>
         </div>
       </v-card>

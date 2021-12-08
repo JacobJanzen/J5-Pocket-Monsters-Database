@@ -198,8 +198,19 @@ Pokémon Emerald.
 The project was created with an Electron front-end written in JavaScript with Vue.js. The back-end
 is a Flask application written in Python. The back-end runs the queries which are requested 
 through API calls from the front-end using Axios as an HTTP client. 
-The application can be set up by...
-<u>add details about how to set up</u>
+The application can be started with the following on Linux/macOS:
+<pre>
+    <code>.../3380_Project $ ./run-linux.sh</code>
+</pre>
+and on Windows:
+<pre>
+    <code>...\3380_Project>./run-windows.bat</code>
+</pre>
+On both, you can then visit <code>http://localhost:8080/</code> to see the application.
+To close the application, press CTRL+C to close the front-end and then again to close the 
+back-end.
+</p>
+<p>
 The interface is fairly simple. There are four tabs at the top of the screen. Starting from left
 to right, they are: a homepage containing information about us, a link to our repository, and
 details about how to navigate through the application; a copy of this report; our 
