@@ -408,6 +408,29 @@ select MoveName from Pokemon P1 natural join LearnsByBreeding natural join Move
 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
 where P1.PokemonName = pkmn and Father = ftr;
 
+-- Wave 3 --
+
+-- all TM moves
+select Number, MoveName from TM order by Number;
+
+-- all HM moves
+select Number, MoveName from HM order by Number;
+
+-- all moves all pokemon learns by TM
+select MoveName, Method from Pokemon natural join Learns natural join TM
+where Method like 'TM%';
+
+-- all moves all pokemon learns by HM
+select MoveName, Method from Pokemon natural join Learns natural join HM
+where Method like 'HM%';
+
+-- all moves a given pokemon learns by TM
+select MoveName, Method from Pokemon natural join Learns natural join TM
+where PokemonName = pkmn and Method like 'TM%';
+
+-- all moves a given pokemon learns by HM
+select MoveName, Method from Pokemon natural join Learns natural join HM
+where PokemonName = pkmn and Method like 'HM%';
 
 --====================================================================================================================================
 
