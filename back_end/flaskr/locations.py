@@ -144,14 +144,12 @@ def locations_with_pokemon_of_level(pokemon_name: str, minimum_level: int):
                 select LocationName, Encounter, Min as StartingLevel
                 from Pokemon natural join FoundAt
                 where PokemonName = "{pokemon_name}" and Min >= "{minimum_level}"
+                group by LocationName
                 order by LocationName;
                 ''')
 
-    d = {}
+    l = []
     for row in cur.fetchall():
-        if row[0] in d:
-            d[row[0]] = [{row.keys()[1]: row[1], row.keys()[2]: row[2]}]
-        else:
-            d[row[0]].append({row.keys()[1]: row[1], row.keys()[2]: row[2]})
+        l.append(row[0])
 
-    return jsonify(d)
+    return jsonify(l)
