@@ -124,17 +124,15 @@ def locations_with_trainer_class_fight(trainer_class: str):
     cur.execute(f'''
                 select LocationName, TrainerName, TrainerClass
                 from FoughtAt natural join Trainer
-                where TrainerClass = "{trainer_class}";
+                where TrainerClass = "{trainer_class}"
+                group by LocationName;
                 ''')
 
-    d = {}
+    l = []
     for row in cur.fetchall():
-        if row[0] in d:
-            d[row[0]] = [{row.keys()[1]: row[1], row.keys()[2]: row[2]}]
-        else:
-            d[row[0]].append({row.keys()[1]: row[1], row.keys()[2]: row[2]})
+        l.append(row[0])
 
-    return jsonify(d)
+    return jsonify(l)
 
 
 @bp.route('/locations_with_pokemon_of_level/<pokemon_name>&<minimum_level>')
