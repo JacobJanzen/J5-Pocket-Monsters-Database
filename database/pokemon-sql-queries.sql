@@ -408,6 +408,13 @@ select MoveName from Pokemon P1 natural join LearnsByBreeding natural join Move
 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
 where P1.PokemonName = pkmn and Father = ftr;
 
+-- Wave 3 --
+
+-- all TM moves
+select Number, MoveName from TM order by Number;
+
+-- all HM moves
+select Number, MoveName from HM order by Number;
 
 --====================================================================================================================================
 
