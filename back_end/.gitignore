@@ -13,3 +13,6 @@ __pycache__/
 
 # PyCharm
 .idea/
+
+# instance
+query_output.csv
