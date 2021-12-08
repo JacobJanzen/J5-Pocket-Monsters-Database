@@ -1,4 +1,6 @@
-from flask import Blueprint, jsonify
+from flaskr.query_to_json import sqlite_to_json as qj
+
+from flask import Blueprint
 
 from flaskr.db import get_db
 
@@ -15,12 +17,7 @@ def number_of_pokemon_per_type():
                 from HasTypes natural join Pokemon
                 group by TypeName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/types_with_physical_damage')
@@ -31,12 +28,7 @@ def types_with_physical_damage():
     cur.execute(f'''
                 select TypeName from Type where Category = 'Physical';
                 ''')
-
-    l = []
-    for row in cur.fetchall():
-        l.append(row[0])
-
-    return jsonify(l)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/types_with_special_damage')
@@ -47,9 +39,4 @@ def types_with_special_damage():
     cur.execute(f'''
                 select TypeName from Type where Category = 'Special';
                 ''')
-
-    l = []
-    for row in cur.fetchall():
-        l.append(row[0])
-
-    return jsonify(l)
+    return qj.sqlite_to_json(cur.fetchall())

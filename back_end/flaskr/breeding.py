@@ -1,4 +1,6 @@
-from flask import Blueprint, jsonify
+from flaskr.query_to_json import sqlite_to_json as qj
+
+from flask import Blueprint
 
 from flaskr.db import get_db
 
@@ -14,12 +16,7 @@ def pokemon_in_egg_group(egg_group_name: str):
                 select PokemonName from Pokemon natural join EggGroups
                 where GroupName = "{egg_group_name}";
                 ''')
-
-    l = []
-    for row in cur.fetchall():
-        l.append(row[0])
-
-    return jsonify(l)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/pokemon_can_breed_with/<pokemon_name>')
@@ -38,9 +35,4 @@ def pokemon_can_breed_with(pokemon_name: str):
                 END
                 order by PokemonName;
                 ''')
-
-    l = []
-    for row in cur.fetchall():
-        l.append(row[0])
-
-    return jsonify(l)
+    return qj.sqlite_to_json(cur.fetchall())

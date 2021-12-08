@@ -1,4 +1,6 @@
-from flask import Blueprint, jsonify
+from flaskr.query_to_json import sqlite_to_json as qj
+
+from flask import Blueprint
 
 from flaskr.db import get_db
 
@@ -15,15 +17,7 @@ def moves_learned_by_all_pokemon():
                 union
                 select MoveName, PokemonName from Pokemon natural join LearnsByBreeding natural join Move;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [row[1]]
-        else:
-            d[row[0]].append(row[1])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_learned_by_pokemon_by_method')
@@ -37,15 +31,7 @@ def moves_learned_by_pokemon_by_method():
                 select MoveName, P1.PokemonName, 'Breeding: ' || P2.PokemonName from Pokemon P1 natural join LearnsByBreeding natural join Move 
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [[row[1], row[2]]]
-        else:
-            d[row[0]].append([row[1], row[2]])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_learned_by_a_pokemon/<pokemon_name>')
@@ -60,12 +46,7 @@ def moves_learned_by_a_pokemon(pokemon_name: str):
                 select MoveName from Pokemon natural join LearnsByBreeding natural join Move
                 where Pokemon.PokemonName = "{pokemon_name}";
                 ''')
-
-    l = []
-    for row in cur.fetchall():
-        l.append(row[0])
-
-    return jsonify(l)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_learned_by_a_pokemon_by_method/<pokemon_name>')
@@ -81,15 +62,7 @@ def moves_learned_by_a_pokemon_by_method(pokemon_name: str):
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
                 where P1.PokemonName = "{pokemon_name}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [row[1]]
-        else:
-            d[row[0]].append(row[1])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_with_effectiveness_against_type/<type_name>&<quality>')
@@ -102,12 +75,7 @@ def moves_with_effectiveness_against_type(type_name: str, quality):
                 join Type TDef on Effectiveness.Defender = TDef.TypeName
                 where TDef.TypeName = "{type_name}" and Quality = "{quality}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_supereffective_against_pokemon/<pokemon_name>')
@@ -125,12 +93,7 @@ def moves_supereffective_against_pokemon(pokemon_name: str):
                 having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
                 order by MoveName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = [row[1], row[2]]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_neutral_against_pokemon/<pokemon_name>')
@@ -148,12 +111,7 @@ def moves_neutral_against_pokemon(pokemon_name: str):
                 having (sum(Quality)/count(Quality) = 1 or sum(Quality)/count(Quality) = 1.25) and min(Quality) <> 0
                 order by MoveName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = [row[1], row[2]]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_noteffective_against_pokemon/<pokemon_name>')
@@ -171,12 +129,7 @@ def moves_not_very_effective_against_pokemon(pokemon_name: str):
                 having (sum(Quality)/count(Quality) = 0.75 or sum(Quality)/count(Quality) = 0.5) and min(Quality) <> 0
                 order by MoveName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = [row[1], row[2]]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_non_effective_against_pokemon/<pokemon_name>')
@@ -193,12 +146,7 @@ def moves_non_effective_against_pokemon(pokemon_name: str):
                 having min(Quality) = 0
                 order by MoveName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = [row[1], row[2]]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_effectiveness_against_pokemon/<pokemon_name>')
@@ -245,12 +193,7 @@ def moves_effectiveness_against_pokemon(pokemon_name: str):
                 having min(Quality) = 0
                 order by MoveName;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = [row[1], row[2]]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/status_moves/')
@@ -261,12 +204,7 @@ def status_moves():
     cur.execute(f'''
                 select MoveName from Move where Status = 1;
                 ''')
-
-    l = []
-    for row in cur.fetchall():
-        l.append(row[0])
-
-    return jsonify(l)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/methods_pokemon_can_learn_move/<pokemon_name>&<move_name>')
@@ -282,15 +220,7 @@ def methods_pokemon_can_learn_move(pokemon_name: str, move_name: str):
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
                 where P1.PokemonName = "{pokemon_name}" and MoveName = "{move_name}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [row[1]]
-        else:
-            d[row[0]].append(row[1])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_of_type_that_pokemon_can_learn/<pokemon_name>&<type_name>')
@@ -305,12 +235,7 @@ def moves_of_type_that_pokemon_can_learn(pokemon_name: str, type_name: str):
                 select MoveName from Pokemon natural join LearnsByBreeding natural join Move
                 where Pokemon.PokemonName = "{pokemon_name}" and TypeName = "{type_name}";
                 ''')
-
-    l = []
-    for row in cur.fetchall():
-        l.append(row[0])
-
-    return jsonify(l)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_of_type_that_pokemon_can_learn_by_method/<pokemon_name>&<type_name>')
@@ -326,15 +251,7 @@ def moves_of_type_that_pokemon_can_learn_by_method(pokemon_name: str, type_name:
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
                 where P1.PokemonName = "{pokemon_name}" and TypeName = "{type_name}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [row[1]]
-        else:
-            d[row[0]].append(row[1])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_pokemon_learns_with_method/<pokemon_name>&<method_name>')
@@ -346,12 +263,7 @@ def moves_pokemon_learns_with_method(pokemon_name: str, method_name: str):
                 select MoveName, Method from Pokemon natural join Learns natural join Move
                 where Pokemon.PokemonName = "{pokemon_name}" and Method = "{method_name}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        d[row[0]] = row[1]
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_pokemon_learns_by_breeding/<pokemon_name>')
@@ -364,15 +276,7 @@ def moves_pokemon_learns_by_breeding(pokemon_name: str):
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
                 where P1.PokemonName = "{pokemon_name}";
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [row[1]]
-        else:
-            d[row[0]].append(row[1])
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/moves_pokemon_learns_by_breeding_with_father/<pokemon_name>&<father_name>')
@@ -385,9 +289,4 @@ def moves_pokemon_learns_by_breeding_with_father(pokemon_name: str, father_name:
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
                 where P1.PokemonName = "{pokemon_name}" and Father = "{father_name}";
                 ''')
-
-    l = []
-    for row in cur.fetchall():
-        l.append(row[0])
-
-    return jsonify(l)
+    return qj.sqlite_to_json(cur.fetchall())

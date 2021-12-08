@@ -1,4 +1,6 @@
-from flask import Blueprint, jsonify
+from flaskr.query_to_json import sqlite_to_json as qj
+
+from flask import Blueprint
 
 from flaskr.db import get_db
 
@@ -16,18 +18,7 @@ def teams_with_trainer(trainer_id: str):
                 where TID = "{trainer_id}"
                 order by TeamID, MemberID;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [{row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3], row.keys()[4]: row[4],
-                          row.keys()[5]: row[5]}]
-        else:
-            d[row[0]].append(
-                {row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3], row.keys()[4]: row[4],
-                 row.keys()[5]: row[5]})
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/teams_with_pokemon/<pokemon_name>')
@@ -45,18 +36,7 @@ def teams_with_pokemon(pokemon_name: str):
                 )
                 order by TrainerName, TrainerClass, TeamID, MemberID;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [{row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3], row.keys()[4]: row[4],
-                          row.keys()[5]: row[5]}]
-        else:
-            d[row[0]].append(
-                {row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3], row.keys()[4]: row[4],
-                 row.keys()[5]: row[5]})
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/teams_with_minimum_level/<minimum_level>')
@@ -75,18 +55,7 @@ def teams_with_minimum_level(minimum_level: int):
                 )
                 order by TrainerName, TrainerClass, TeamID, MemberID;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [{row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3], row.keys()[4]: row[4],
-                          row.keys()[5]: row[5]}]
-        else:
-            d[row[0]].append(
-                {row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3], row.keys()[4]: row[4],
-                 row.keys()[5]: row[5]})
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
 
 
 @bp.route('/teams_with_maximum_level/<maximum_level>')
@@ -105,15 +74,4 @@ def teams_with_maximum_level(maximum_level: int):
                 )
                 order by TrainerName, TrainerClass, TeamID, MemberID;
                 ''')
-
-    d = {}
-    for row in cur.fetchall():
-        if row[0] not in d:
-            d[row[0]] = [{row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3], row.keys()[4]: row[4],
-                          row.keys()[5]: row[5]}]
-        else:
-            d[row[0]].append(
-                {row.keys()[1]: row[1], row.keys()[2]: row[2], row.keys()[3]: row[3], row.keys()[4]: row[4],
-                 row.keys()[5]: row[5]})
-
-    return jsonify(d)
+    return qj.sqlite_to_json(cur.fetchall())
