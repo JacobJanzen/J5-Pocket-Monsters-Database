@@ -114,7 +114,10 @@ def pokemon_evolutions(pokemon_name: str):
     d = {}
     for row in cur.fetchall():
         for col in row.keys():
-            d[col] = row[col]
+            if col not in d:
+                d[col] = [row[col]]
+            else:
+                d[col].append(row[col])
 
     return jsonify(d)
 
