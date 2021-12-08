@@ -481,10 +481,13 @@ where GroupName = egggrp;
 
 -- All pokemon that can breed with a certain pokemon
 select distinct PokemonName from Pokemon natural join EggGroups
-where PokemonName = 'Ditto' or GroupName in(
+where case when pkmn <> 'Ditto' THEN
+    PokemonName = 'Ditto' or GroupName in(
     select GroupName from Pokemon natural join EggGroups
-    where PokemonName = pkmn
-)
+    where PokemonName = pkmn )
+ELSE
+    PokemonName <> 'Ditto' and GroupName <> 'Undiscovered'
+END
 order by PokemonName;
 
 
