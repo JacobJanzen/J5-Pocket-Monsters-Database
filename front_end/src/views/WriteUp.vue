@@ -155,7 +155,6 @@ Pokémon Emerald.
     <li> Moves of a given type that a given Pokémon can learn.</li>
     <li>Moves of a given type that a given Pokémon can learn and the method by which they are
         learnt.</li>
-    <li>Moves a given Pokémon learns with a given breeding method.</li>
     <li>Moves a Pokémon learns through breeding.</li>
     <li>Moves a Pokémon can learn through breeding with a given father.</li>
     <li>All Pokémon names.</li>

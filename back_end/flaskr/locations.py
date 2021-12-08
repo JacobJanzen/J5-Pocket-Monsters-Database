@@ -90,7 +90,8 @@ def locations_with_trainer_class_fight(trainer_class: str):
     cur.execute(f'''
                 select LocationName, TrainerName, TrainerClass
                 from FoughtAt natural join Trainer
-                where TrainerClass = "{trainer_class}";
+                where TrainerClass = "{trainer_class}"
+                group by LocationName;
                 ''')
     return qj.sqlite_to_json(cur.fetchall())
 
@@ -104,6 +105,7 @@ def locations_with_pokemon_of_level(pokemon_name: str, minimum_level: int):
                 select LocationName, Encounter, Min as StartingLevel
                 from Pokemon natural join FoundAt
                 where PokemonName = "{pokemon_name}" and Min >= "{minimum_level}"
+                group by LocationName
                 order by LocationName;
                 ''')
     return qj.sqlite_to_json(cur.fetchall())
