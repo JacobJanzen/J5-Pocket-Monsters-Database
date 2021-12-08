@@ -287,6 +287,6 @@ def moves_pokemon_learns_by_breeding_with_father(pokemon_name: str, father_name:
     cur.execute(f'''
                 select MoveName from Pokemon P1 natural join LearnsByBreeding natural join Move 
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
-                where P1.PokemonName = "{pokemon_name}" and Father = "{father_name}";
+                where P1.PokemonName = "{pokemon_name}" and P2.PokemonName = "{father_name}";
                 ''')
     return qj.sqlite_to_json(cur.fetchall())

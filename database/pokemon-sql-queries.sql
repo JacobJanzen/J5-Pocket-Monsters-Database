@@ -406,7 +406,7 @@ where P1.PokemonName = pkmn;
 -- prev query with a specific Father
 select MoveName from Pokemon P1 natural join LearnsByBreeding natural join Move 
 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
-where P1.PokemonName = pkmn and Father = ftr;
+where P1.PokemonName = pkmn and P2.PokemonName = ftr;
 
 -- Wave 3 --
 
