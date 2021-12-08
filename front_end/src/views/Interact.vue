@@ -430,7 +430,6 @@ export default {
           { value: 'Ways a given Pokemon learns a given move', id: '21' },
           { value: 'Moves of a given type that a given Pokemon can learn', id: '22' },
           { value: 'Moves of a given type that a given Pokemon can learn and the method by which they\'re learned', id: '23' },
-          { value: 'Moves a given Pokemon learns with a given breeding method', id: '24' },
           { value: 'Moves a Pokemon learns through breeding', id: '25' },
           { value: 'Moves a Pokemon can learn through breeding with a given father', id: '26' },
           //Pokemon File
