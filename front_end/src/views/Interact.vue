@@ -1,9 +1,7 @@
 <template>
     <div class="INTERACThome">
 
-        <!-- this title forces polling of the query box and triggers
-        the param dropdowns to appear ik its terrible go away -->
-        <h1>{{vaidateQuery}}</h1>
+    <h1>Select which info you're looking for in the drop-down below</h1>
     
     <v-container fluid class="querySelect" v-if="queryVisible">
           
@@ -17,9 +15,6 @@
            <v-col cols="3">
             <h3>Filter Common Queries:</h3>
             <v-btn class="filterClear" @click="showAllQueries()">Show All Queries</v-btn>
-            <!--
-            <p>(Nothing selected: all visible)</p>
-            -->
            </v-col>
 
            <v-col cols="2">
@@ -57,9 +52,6 @@
               <label class = "checkboxLabel" for="otherCheckbox">Other</label>
             </div>
             </v-col>
-
-    
-
          </v-row>
 
       <v-row align="center">
@@ -73,14 +65,14 @@
             persistent-hint
             return-object
             single-line
+            @change="this.setVisibilty(this.selectQuery.id)"
           ></v-autocomplete>
           </v-col>
 
         <v-col cols="4">
              <v-btn @click="makeQuery()">Query!</v-btn>
              <p v-if="errorMessageVisible" style="color:red;"> Selection Required </p>
-        </v-col>
-            
+        </v-col> 
       </v-row>
 
     <v-row align="center" v-if="dropdownMessageVisible">
@@ -88,7 +80,6 @@
         <h3>Select the specific data you're requesting below...</h3>    
     </v-col>
     </v-row>
-
     </v-container>
 
     <v-container fluid class="resultView" v-if="resultsVisible">
@@ -99,26 +90,17 @@
 
         <v-col cols="4" >
              <v-btn class="button" @click="newQuery()">New Query</v-btn>
-
              <v-btn class="button" v-if="downloadButtonVisible" @click="downloadFile()">Download</v-btn>
-
         </v-col>
       </v-row>
 
-    <v-row align="center">
-        <!-- Display results here 
-        <pre>{{ JSON.stringify(apiObj, null, 2) }}</pre> -->
-        <p class = "output" id='showData'></p>
-    </v-row>
-
-       <v-row align="center">
-          <!-- remove prolly 
-        <p> {{getQuery}} </p> -->
-       </v-row>
-
+      <v-row align="center">
+          <!-- display query result table -->
+          <p class = "output" id='showData'></p>
+      </v-row>
     </v-container>
 
-       <v-container fluid class="selectLocation" v-if="locationVisible">
+      <v-container fluid class="selectLocation" v-if="locationVisible">
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
@@ -262,7 +244,7 @@
       </v-row>
     </v-container>
 
-        <v-container fluid class="selectBreedingMethod" v-if="breedingMethodVisible">
+    <v-container fluid class="selectBreedingMethod" v-if="breedingMethodVisible">
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
@@ -298,7 +280,7 @@
       </v-row>
     </v-container>
 
-        <v-container fluid class="selectMove" v-if="moveVisible">
+    <v-container fluid class="selectMove" v-if="moveVisible">
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
@@ -370,7 +352,7 @@
       </v-row>
     </v-container>
 
-      <v-container fluid class="selectValue" v-if="valueVisible">
+    <v-container fluid class="selectValue" v-if="valueVisible">
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
@@ -418,14 +400,8 @@ import dropdown from '../Dropdown.json'
 export default {
      data () {
       return {
-        //used for result file download - not anymore?
-        publicPath: process.env.BASE_URL,
-
         //used to track current selections
         apiStr:{url: "init"},
-        //used to display results of api call maybe??
-        results: {value: "default"},
-        apiObj:{},
 
         //visibility modifiers
         locationVisible: false,
@@ -450,7 +426,7 @@ export default {
         valueVisible:false,
         downloadButtonVisible:true,
 
-
+        //checkbox selections
         pokemonCheckbox: true,
         moveCheckbox: true,
         typeCheckbox: true,
@@ -458,8 +434,7 @@ export default {
         locationCheckbox:true,
         otherCheckbox: true,
 
-        //add all other params here
-
+        //dropdown selections
         selectQuery: { value: 'query', id: '0' },
         queries: [
           { value: 'What do you want to know?', id: '0' },//default query value
@@ -627,19 +602,19 @@ export default {
         this.locationCheckbox =true;
         this.otherCheckbox = true;
 
-         //make all queries visible
-          var json = dropdown["pokemonQueries"];
-          for(var i=0; i<json.length; i++){ this.queries.push(json[i]); }
-          json = dropdown["moveQueries"];
-          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
-          json = dropdown["typeQueries"];
-          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
-          json = dropdown["teamQueries"];
-          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
-          json = dropdown["locationQueries"];
-          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
-          json = dropdown["otherQueries"];
-          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+        //make all queries visible
+        var json = dropdown["pokemonQueries"];
+        for(var i=0; i<json.length; i++){ this.queries.push(json[i]); }
+        json = dropdown["moveQueries"];
+        for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+        json = dropdown["typeQueries"];
+        for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+        json = dropdown["teamQueries"];
+        for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+        json = dropdown["locationQueries"];
+        for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+        json = dropdown["otherQueries"];
+        for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
      },
 
      downloadFile(){
@@ -708,65 +683,65 @@ export default {
     setVisibilty(query){ //use this function to make required dropdowns visible for appropriate queries
       this.setAllHidden();
     
-    switch(query){
-        case '1':{ this.dropdownMessageVisible = true; this.eggGroupVisible = true; break;}
-        case '2':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
-        case '3':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
-        case '4':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.encounterVisible = true; break;} 
-        case '5':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
-        case '6':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
-        case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
-        case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
-        case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; this.pokemonNameVisible = true; break;}
-        case '12':{ break;}
-        case '14':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '14.5':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.qualityVisible = true; break;}
-        case '15':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '16':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '17':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '18':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
-        case '19':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
-        case '20':{ break;} 
-        case '21':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.moveVisible = true; break;}
-        case '23':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.typeVisible = true; break;}
-        case '24':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.breedingMethodVisible = true; break;}
-        case '25':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '26':{ this.dropdownMessageVisible = true; this.fatherVisible = true; this.pokemonNameVisible = true; break;}
-        case '28':{ break;} 
-        case '29':{ break;} 
-        case '30':{ break;} 
-        case '31':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '32':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '33':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
-        case '34':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
-        case '35':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
-        case '36':{ this.dropdownMessageVisible = true; this.valueVisible = true; this.statVisible = true; break;} 
-        case '37':{ this.dropdownMessageVisible = true; this.valueVisible = true; this.statVisible = true; break;} 
-        case '38':{ this.dropdownMessageVisible = true; this.locationVisible = true; break;}
-        case '39':{ this.dropdownMessageVisible = true; this.locationVisible = true; this.encounterVisible = true; break;} 
-        case '40':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
-        case '41':{ this.dropdownMessageVisible = true; this.locationVisible = true; this.pokemonNameVisible = true; break;}
-        case '42':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
-        case '43':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
-        case '44':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
-        case '45':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
-        case '46':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
-        case '47':{ break;} 
-        case '48':{ this.dropdownMessageVisible = true; this.abilityVisible = true; break;}
-        case '50':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
-        case '51':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;} //idk if this should be name or class?
-        case '52':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
-        case '53':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
-        case '54':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
-        case '55':{ break;} 
-        case '56':{ break;} 
-        case '57':{ break;} 
-        case '58':{ break;} 
-        case '59':{ break;} 
-        case '60':{ break;} 
-        case '61':{ break;} 
-        case '62':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
-        case '63':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+      switch(query){
+          case '1':{ this.dropdownMessageVisible = true; this.eggGroupVisible = true; break;}
+          case '2':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+          case '3':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+          case '4':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.encounterVisible = true; break;} 
+          case '5':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
+          case '6':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
+          case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
+          case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
+          case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; this.pokemonNameVisible = true; break;}
+          case '12':{ break;}
+          case '14':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+          case '14.5':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.qualityVisible = true; break;}
+          case '15':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+          case '16':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+          case '17':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+          case '18':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+          case '19':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+          case '20':{ break;} 
+          case '21':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.moveVisible = true; break;}
+          case '23':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.typeVisible = true; break;}
+          case '24':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.breedingMethodVisible = true; break;}
+          case '25':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+          case '26':{ this.dropdownMessageVisible = true; this.fatherVisible = true; this.pokemonNameVisible = true; break;}
+          case '28':{ break;} 
+          case '29':{ break;} 
+          case '30':{ break;} 
+          case '31':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+          case '32':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+          case '33':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+          case '34':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
+          case '35':{ this.dropdownMessageVisible = true; this.statVisible = true; break;} 
+          case '36':{ this.dropdownMessageVisible = true; this.valueVisible = true; this.statVisible = true; break;} 
+          case '37':{ this.dropdownMessageVisible = true; this.valueVisible = true; this.statVisible = true; break;} 
+          case '38':{ this.dropdownMessageVisible = true; this.locationVisible = true; break;}
+          case '39':{ this.dropdownMessageVisible = true; this.locationVisible = true; this.encounterVisible = true; break;} 
+          case '40':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+          case '41':{ this.dropdownMessageVisible = true; this.locationVisible = true; this.pokemonNameVisible = true; break;}
+          case '42':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+          case '43':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+          case '44':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+          case '45':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+          case '46':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
+          case '47':{ break;} 
+          case '48':{ this.dropdownMessageVisible = true; this.abilityVisible = true; break;}
+          case '50':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
+          case '51':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;} //idk if this should be name or class?
+          case '52':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
+          case '53':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
+          case '54':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; break;}
+          case '55':{ break;} 
+          case '56':{ break;} 
+          case '57':{ break;} 
+          case '58':{ break;} 
+          case '59':{ break;} 
+          case '60':{ break;} 
+          case '61':{ break;} 
+          case '62':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+          case '63':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
         }
     },
 
@@ -1084,7 +1059,6 @@ export default {
                 .catch(() => {
                   document.getElementById("showData").innerText = "No Results";
                 });
-
        }else{
            this.errorMessageVisible = true;
        }
@@ -1167,20 +1141,6 @@ export default {
     })
   },
 
-  computed: {
-        //make sure all appropriate values are selected for selected query
-        vaidateQuery(){
-        this.setVisibilty(this.selectQuery.id);
-        //this is a stupid way to force polling on the visibility
-        if(this.selectQuery.id!=0){return "Interact with the Database!";}
-        return "Interact with the Database!";
-        },
-
-        getQuery(){
-        return this.results.value;
-        },
-    }, 
-
 }
 </script>
 
@@ -1210,13 +1170,12 @@ export default {
       text-decoration: none;
   }
 
-.checkboxLabel {
-    margin: .4rem;
-    font-weight: bold;
-}
+  .checkboxLabel {
+      margin: .4rem;
+      font-weight: bold;
+  }
 
-.filterClear{
-  margin-left:10px;
-}
-
+  .filterClear{
+    margin-left:10px;
+  }
 </style>
