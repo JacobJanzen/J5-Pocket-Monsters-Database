@@ -1,4 +1,4 @@
--- This document contains SQL commands for navigating the J5 Pokemon DB 3380 --
+-- This document contains SQL commands for navigating the J5 Pokemon DB --
 --===========================================================================--
 
 --== Variable Names ==--
