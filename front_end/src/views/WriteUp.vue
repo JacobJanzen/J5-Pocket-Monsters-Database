@@ -129,6 +129,7 @@ Pokémon Emerald.
     <th>Effectiveness</th><th>324</th><th>3</th>
     </tr>
 </table>
+<br>
 <h2>Queries</h2>
 <ul>
     <li>The Pokémon in a given egg group.</li>
@@ -192,6 +193,7 @@ Pokémon Emerald.
     <li>Types with physical damage.</li>
     <li>Types with special damage.</li>
 </ul>
+<p>
 <h2>Interface</h2>
 <p>
 The project was created with an Electron front-end written in JavaScript with Vue.js. The back-end
