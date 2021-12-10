@@ -57,6 +57,13 @@ This contains the names of all the implemented API methods in the Flask app.
 | moves_pokemon_learns_with_method | GET | pokemon_name, method_name | Lists all moves a given Pokemon learns with a given breeding method |
 | moves_pokemon_learns_by_breeding | GET | pokemon_name | Lists all moves a Pokemon learns through breeding |
 | moves_pokemon_learns_by_breeding_with_father | GET | pokemon_name, father_name | Lists all moves that a given Pokemon can learn through breeding with a given father |
+| tm_moves | GET |  | Lists all TM moves |
+| hm_moves | GET |  | Lists all HM moves |
+| tm_moves_all_pokemon | GET |  | Lists all moves all Pokemon learn by TM |
+| hm_moves_all_pokemon | GET |  | Lists all moves all Pokemon learn by HM |
+| tm_moves_pokemon | GET | pokemon_name | Lists all moves a given Pokemon learns by TM |
+| hm_moves_pokemon | GET | pokemon_name| Lists all moves a given Pokemon learns by HM |
+
 
 ## Location Selection
 
