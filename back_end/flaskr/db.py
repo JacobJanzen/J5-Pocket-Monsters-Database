@@ -5,7 +5,7 @@ from flask import g
 
 def get_db():
     if 'db' not in g:
-        g.db = sqlite3.connect('../database/3380_project.db')
+        g.db = sqlite3.connect('../database/database.db')
         g.db.row_factory = sqlite3.Row
 
     return g.db
