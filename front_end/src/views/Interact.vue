@@ -744,9 +744,7 @@ export default {
         case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
         case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; this.pokemonNameVisible = true; break;}
-        case '11':{ break;} 
         case '12':{ break;}
-        case '13':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '14':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '14.5':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.qualityVisible = true; break;}
         case '15':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
@@ -756,12 +754,10 @@ export default {
         case '19':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
         case '20':{ break;} 
         case '21':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.moveVisible = true; break;}
-        case '22':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.typeVisible = true; break;}
         case '23':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.typeVisible = true; break;}
         case '24':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; this.breedingMethodVisible = true; break;}
         case '25':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
         case '26':{ this.dropdownMessageVisible = true; this.fatherVisible = true; this.pokemonNameVisible = true; break;}
-        case '27':{ break;} 
         case '28':{ break;} 
         case '29':{ break;} 
         case '30':{ break;} 
@@ -783,7 +779,6 @@ export default {
         case '46':{ this.dropdownMessageVisible = true; this.moveVisible = true; break;}
         case '47':{ break;} 
         case '48':{ this.dropdownMessageVisible = true; this.abilityVisible = true; break;}
-        case '49':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
         case '50':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
         case '51':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;} //idk if this should be name or class?
         case '52':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;}
@@ -847,19 +842,10 @@ export default {
                     this.apiStr.url += "locations/locations_with_pokemon_of_level/"+this.selectPokemon.PokemonName+"&"+this.selectLevel.Level;
                     valid = true;
                 }break;}
-            case '11':{ 
-                this.apiStr.url += "moves/moves_learned_by_all_pokemon";
-                valid = true;
-                break;} 
             case '12':{ 
                 this.apiStr.url += "moves/moves_learned_by_pokemon_by_method";
                 valid = true;
                 break;}
-            case '13':{ 
-                if(this.selectPokemon.PokemonName != null){
-                    this.apiStr.url += "moves/moves_learned_by_a_pokemon/"+this.selectPokemon.PokemonName;
-                    valid = true;
-                }break;}
             case '14':{
                 if(this.selectPokemon.PokemonName != null){
                     this.apiStr.url += "moves/moves_learned_by_a_pokemon_by_method/"+this.selectPokemon.PokemonName;
@@ -904,11 +890,6 @@ export default {
                     this.apiStr.url += "moves/methods_pokemon_can_learn_move/"+this.selectPokemon.PokemonName+"&"+this.selectMove.MoveName;
                     valid = true;
                 }break;}
-            case '22':{ 
-                if(this.selectPokemon.PokemonName != null && this.selectType.TypeName != null){
-                    this.apiStr.url += "moves/moves_of_type_that_pokemon_can_learn/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
-                    valid = true;
-                }break;}
             case '23':{ 
                 if(this.selectPokemon.PokemonName != null &&this.selectType.TypeName != null){
                     this.apiStr.url += "moves/moves_of_type_that_pokemon_can_learn_by_method/"+this.selectPokemon.PokemonName+"&"+this.selectType.TypeName;
@@ -929,10 +910,6 @@ export default {
                     this.apiStr.url += "moves/moves_pokemon_learns_by_breeding_with_father/"+this.selectPokemon.PokemonName+"&"+this.selectFather.PokemonName;
                     valid = true;
                 }break;}
-            case '27':{ 
-                this.apiStr.url += "pokemon/pokemon_names";
-                valid = true;
-                break;} 
             case '27.5':{ 
                 this.apiStr.url += "pokemon/hatch_times";
                 valid = true;
@@ -1036,11 +1013,6 @@ export default {
             case '48':{ 
                 if(this.selectAbility.Ability != null){
                     this.apiStr.url += "pokemon/pokemon_with_ability/"+this.selectAbility.Ability;
-                    valid = true;
-                }break;}
-            case '49':{ //idk if these are the right types(?)
-                if(this.selectType.TypeName != null && this.selectSecondType.TypeName != null){
-                    this.apiStr.url += "pokemon/pokemon_of_type_can_learn_other_type/"+this.selectType.TypeName+"&"+this.selectSecondType.TypeName;
                     valid = true;
                 }break;}
             case '50':{ 
