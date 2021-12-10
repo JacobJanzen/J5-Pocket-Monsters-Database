@@ -13,6 +13,50 @@
           </v-col>
          </v-row>
 
+         <v-row align="center">
+           <v-col cols="3">
+            <h3>Filter Queries:</h3>
+            <p>(None selected shows all)</p>
+           </v-col>
+
+           <v-col cols="2">
+            <div>
+              <input type="checkbox" @change="pokemonCheckboxUpdate()" id="pokemonCheckbox">
+              <label class = "checkboxLabel" for="pokemonCheckbox">Pokemon</label>
+            </div>
+
+            <div>
+              <input type="checkbox" @change="moveCheckboxUpdate()" id="moveCheckbox">
+              <label class = "checkboxLabel" for="moveCheckbox">Moves</label>
+            </div>
+           </v-col>
+
+           <v-col cols="2">
+            <div>
+              <input type="checkbox" @change="typeCheckboxUpdate()" id="typeCheckbox">
+              <label class = "checkboxLabel" for="typeCheckbox">Types</label>
+            </div>
+
+            <div>
+              <input type="checkbox" @change="trainerCheckboxUpdate()" id="trainerCheckbox">
+              <label class = "checkboxLabel" for="trainerCheckbox">Trainers</label>
+            </div>
+            </v-col>
+
+          <v-col cols="2">
+            <div>
+              <input type="checkbox" @change="teamCheckboxUpdate()" id="teamCheckbox">
+              <label class = "checkboxLabel" for="teamCheckbox">Teams</label>
+            </div>
+
+            <div>
+              <input type="checkbox" @change="locationCheckboxUpdate()" id="locationCheckbox">
+              <label class = "checkboxLabel" for="locationCheckbox">Locations</label>
+            </div>
+            </v-col>
+
+         </v-row>
+
       <v-row align="center">
           <v-col cols="8">
           <v-autocomplete 
@@ -61,7 +105,7 @@
     <v-row align="center">
         <!-- Display results here?? 
         <pre>{{ JSON.stringify(apiObj, null, 2) }}</pre> -->
-        <p id='showData'></p>
+        <p class = "output" id='showData'></p>
     </v-row>
 
        <v-row align="center">
@@ -71,7 +115,7 @@
 
     </v-container>
 
-    <v-container fluid class="selectLocation" v-if="locationVisible">
+       <v-container fluid class="selectLocation" v-if="locationVisible">
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
@@ -371,7 +415,7 @@ import dropdown from '../Dropdown.json'
 export default {
      data () {
       return {
-        //used for result file download
+        //used for result file download - not anymore?
         publicPath: process.env.BASE_URL,
 
         //used to track current selections
@@ -380,7 +424,7 @@ export default {
         results: {value: "default"},
         apiObj:{},
 
-        //prolly set all to false to begin with??
+        //visibility modifiers
         locationVisible: false,
         qualityVisible: false,
         abilityVisible: false,
@@ -402,6 +446,30 @@ export default {
         statVisible: false,
         valueVisible:false,
         downloadButtonVisible:true,
+
+
+        pokemonCheckbox: false,
+        moveCheckbox: false,
+        typeCheckbox: false,
+        trainerCheckbox: false,
+        teamCheckbox: false,
+        locationCheckbox:false,
+
+
+        /*
+        Based on the selected filters, choose make'queries' list point to different combinations of queries?
+
+        make an updateFilters() function which updates the queries visible inside the dropdown
+        none selected: show all queries
+        if >=1 selected, add relevant Queries to queries dropdown list
+
+
+        */
+
+
+
+
+
 
 
         //add all other params here
@@ -523,6 +591,105 @@ export default {
   },
 
    methods:{
+     updateFilteredQueries(){
+       //clear all 'queries' in queries
+
+       var noneSelected = true;
+
+       if(this.pokemonCheckbox){
+         //add pokemon queries to queries
+         noneSelected = false;
+       }
+       if(this.moveCheckbox){
+         //add move queries to queries
+         noneSelected = false;
+       }
+       if(this.typeCheckbox){
+         //add type queries to queries
+         noneSelected = false;
+       }
+       if(this.trainerCheckbox){
+         //add trainer queries to queries
+         noneSelected = false;
+       }
+       if(this.teamCheckbox){
+         //add team queries to queries
+         noneSelected = false;
+       }
+       if(this.locationCheckbox){
+         //add locaion queries to queries
+         noneSelected = false;
+       }
+
+       if(noneSelected){
+         //make all queries visible
+       }
+       
+
+      console.log("pokemon: "+this.pokemonCheckbox);
+      console.log("moves: "+this.moveCheckbox);
+      console.log("types: "+this.typeCheckbox);
+      console.log("trainers: "+this.trainerCheckbox);
+      console.log("teams: "+this.teamCheckbox);
+      console.log("locations: "+this.locationCheckbox);
+
+     },
+
+
+     pokemonCheckboxUpdate(){
+        if(this.pokemonCheckbox){
+         this.pokemonCheckbox = false
+        }else{
+          this.pokemonCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     moveCheckboxUpdate(){
+        if(this.moveCheckbox){
+         this.moveCheckbox = false
+        }else{
+          this.moveCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     typeCheckboxUpdate(){
+        if(this.typeCheckbox){
+         this.typeCheckbox = false
+        }else{
+          this.typeCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     trainerCheckboxUpdate(){
+        if(this.trainerCheckbox){
+         this.trainerCheckbox = false
+        }else{
+          this.trainerCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     teamCheckboxUpdate(){
+        if(this.teamCheckbox){
+         this.teamCheckbox = false
+        }else{
+          this.teamCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     locationCheckboxUpdate(){
+        if(this.locationCheckbox){
+         this.locationCheckbox = false
+        }else{
+          this.locationCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     }, 
+
      downloadFile(){
            axios.get(this.apiStr.url)
           .then((response) => {
@@ -1074,6 +1241,10 @@ export default {
       font-weight:bold;
   }
 
+  .output{
+    margin-left:10px;
+  }
+
   .INTERACThome{
       padding:25px;
   }  
@@ -1082,5 +1253,9 @@ export default {
       margin: 5px;
       text-decoration: none;
   }
+
+.checkboxLabel {
+    margin: .4rem;
+}
 
 </style>
