@@ -1,4 +1,4 @@
-# Pokémon Database
+# J5 Pocket Monsters Database
 
 Tracking data about Pokémon Emerald.
 
