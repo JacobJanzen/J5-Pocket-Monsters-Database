@@ -42,7 +42,7 @@
 
             <div>
               <input type="checkbox" @change="trainerCheckboxUpdate()" id="trainerCheckbox">
-              <label class = "checkboxLabel" for="trainerCheckbox">Trainers</label>
+              <label class = "checkboxLabel" for="trainerCheckbox">Trainers (empty)</label>
             </div>
             </v-col>
 
@@ -750,6 +750,7 @@ export default {
         this.resultsVisible = false;
 
         this.queryVisible = true;
+        this.queries.splice(1);
         this.setAllHidden();
             
     },
