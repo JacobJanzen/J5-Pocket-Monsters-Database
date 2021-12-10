@@ -272,7 +272,7 @@ def moves_pokemon_learns_by_breeding(pokemon_name: str):
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''
-                select MoveName, 'Father: ' || P2.PokemonName from Pokemon P1 natural join LearnsByBreeding natural join Move 
+                select MoveName, 'Father: ' || P2.PokemonName as Father from Pokemon P1 natural join LearnsByBreeding natural join Move 
                 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
                 where P1.PokemonName = "{pokemon_name}";
                 ''')
