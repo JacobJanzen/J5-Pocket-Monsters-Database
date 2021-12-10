@@ -524,70 +524,50 @@ export default {
         this.queries.splice(1);
        
         var i = 0;//loop iterator
-        var noneSelected = true;
         var json;//json obj
 
        if(this.pokemonCheckbox){
-         //add pokemon queries to queries
           json = dropdown["pokemonQueries"];
           for(i=0; i<json.length; i++){
               this.queries.push(json[i]);
           }
-         noneSelected = false;
        }
        if(this.moveCheckbox){
-          //add move queries to queries
           json = dropdown["moveQueries"];
           for(i=0; i<json.length; i++){
               this.queries.push(json[i]);
           }
-          noneSelected = false;
        }
        if(this.typeCheckbox){
-         //add type queries to queries
           json = dropdown["typeQueries"];
           for(i=0; i<json.length; i++){
               this.queries.push(json[i]);
           }
-          noneSelected = false;
        }
        if(this.trainerCheckbox){
-         //add move queries to queries
           json = dropdown["trainerQueries"];
           for(i=0; i<json.length; i++){
               this.queries.push(json[i]);
           }
-          noneSelected = false;
        }
        if(this.teamCheckbox){
-         //add move queries to queries
           json = dropdown["teamQueries"];
           for(i=0; i<json.length; i++){
               this.queries.push(json[i]);
           }
-          noneSelected = false;
        }
        if(this.locationCheckbox){
-         //add move queries to queries
           json = dropdown["locationQueries"];
           for(i=0; i<json.length; i++){
               this.queries.push(json[i]);
           }
-          noneSelected = false;
        }
        if(this.otherCheckbox){
-         //add move queries to queries
           json = dropdown["otherQueries"];
           for(i=0; i<json.length; i++){
               this.queries.push(json[i]);
           }
-          noneSelected = false;
        }
-
-       if(noneSelected){
-         this.showAllQueries()
-       }
-
      },
 
      pokemonCheckboxUpdate(){
@@ -746,7 +726,7 @@ export default {
         this.resultsVisible = false;
 
         this.queryVisible = true;
-        this.queries.splice(1);
+        this.showAllQueries();
         this.setAllHidden();
             
     },
