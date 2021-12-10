@@ -787,6 +787,12 @@ export default {
         case '55':{ break;} 
         case '56':{ break;} 
         case '57':{ break;} 
+        case '58':{ break;} 
+        case '59':{ break;} 
+        case '60':{ break;} 
+        case '61':{ break;} 
+        case '62':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+        case '63':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
         }
     },
 
@@ -1052,12 +1058,38 @@ export default {
                 this.apiStr.url += "types/types_with_special_damage";
                 valid = true;
                 break;} 
+            case '58':{ 
+                this.apiStr.url += "moves/tm_moves/";
+                valid = true;
+                break;} 
+            case '59':{ 
+                this.apiStr.url += "moves/hm_moves/";
+                valid = true;
+                break;} 
+            case '60':{ 
+                this.apiStr.url += "moves/tm_moves_all_pokemon/";
+                valid = true;
+                break;} 
+            case '61':{ 
+                this.apiStr.url += "moves/hm_moves_all_pokemon";
+                valid = true;
+                break;} 
+            case '62':{ 
+              if(this.selectPokemon.PokemonName != null){
+                  this.apiStr.url += "moves/tm_moves_pokemon/"+this.selectPokemon.PokemonName;
+                  valid = true;
+              } break;} 
+            case '63':{ 
+                if(this.selectPokemon.PokemonName != null){
+                  this.apiStr.url += "moves/hm_moves_pokemon/"+this.selectPokemon.PokemonName;
+                  valid = true;
+              } break;} 
             }
         }catch(error){
             //handle failures from evaluating null object 
             //ex if selectLevel is null - cant evaluate selectLevel.Level
 
-            //error message from missing selection is made visible below
+            //error message from missing selection is made visible below in if(valid)
         }
 
        if(valid){
@@ -1085,11 +1117,8 @@ export default {
     },
 
     updateOutput(response){
-        //this.apiObj = response;
-
         /* code from https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript */
 
-        //idk if this if-statement is doing anything
         if(response.length!=0){
           // Extract value from table header. 
           var col = [];
@@ -1195,7 +1224,7 @@ export default {
   }
 
   .output{
-    margin-left:10px;
+    margin-left:12px;
   }
 
   .INTERACThome{

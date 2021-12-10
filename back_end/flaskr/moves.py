@@ -290,3 +290,37 @@ def moves_pokemon_learns_by_breeding_with_father(pokemon_name: str, father_name:
                 where P1.PokemonName = "{pokemon_name}" and P2.PokemonName = "{father_name}";
                 ''')
     return qj.sqlite_to_json(cur.fetchall())
+
+
+
+# TM/HM Queries to add:
+# front end is referencing routes listed for each
+# lemme know if u change routing
+
+#-- all TM moves
+#@bp.route('/tm_moves/')
+#select Number, MoveName from TM order by Number;
+
+#-- all HM moves
+#@bp.route('/hm_moves/')
+#select Number, MoveName from HM order by Number;
+
+#-- all moves all pokemon learns by TM
+#@bp.route('/tm_moves_all_pokemon/')
+#select MoveName, Method from Pokemon natural join Learns natural join TM
+#where Method like 'TM%';
+
+#-- all moves all pokemon learns by HM
+#@bp.route('/hm_moves_all_pokemon/')
+#select MoveName, Method from Pokemon natural join Learns natural join HM
+#where Method like 'HM%';
+
+#-- all moves a given pokemon learns by TM
+#@bp.route('/tm_moves_pokemon/<pokemon_name>')
+#select MoveName, Method from Pokemon natural join Learns natural join TM
+#where PokemonName = pkmn and Method like 'TM%';
+
+#-- all moves a given pokemon learns by HM
+#@bp.route('/hm_moves_pokemon/<pokemon_name>')
+#select MoveName, Method from Pokemon natural join Learns natural join HM
+#where PokemonName = pkmn and Method like 'HM%';
