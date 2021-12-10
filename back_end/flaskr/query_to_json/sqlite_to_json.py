@@ -15,7 +15,7 @@ def sqlite_to_json(query_output):
 
 
 def write_to_csv(query_output):
-    with open('query_output.csv', 'w', newline='') as csvfile:
+    with open('../front_end/public/query_output.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, dialect='excel') 
         # writer.writerow(query_output[0]) # column names
 
