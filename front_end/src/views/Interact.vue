@@ -13,6 +13,60 @@
           </v-col>
          </v-row>
 
+         <v-row align="center">
+           <v-col cols="3">
+            <h3>Filter Common Queries:</h3>
+            <v-btn class="filterClear" @click="showAllQueries()">Show All Queries</v-btn>
+            <!--
+            <p>(Nothing selected: all visible)</p>
+            -->
+           </v-col>
+
+           <v-col cols="2">
+            <div>
+              <input type="checkbox" @change="pokemonCheckboxUpdate()" id="pokemonCheckbox">
+              <label class = "checkboxLabel" for="pokemonCheckbox">Pokemon</label>
+            </div>
+
+            <div>
+              <input type="checkbox" @change="moveCheckboxUpdate()" id="moveCheckbox">
+              <label class = "checkboxLabel" for="moveCheckbox">Moves</label>
+            </div>
+           </v-col>
+
+           <v-col cols="2">
+            <div>
+              <input type="checkbox" @change="typeCheckboxUpdate()" id="typeCheckbox">
+              <label class = "checkboxLabel" for="typeCheckbox">Types</label>
+            </div>
+
+            <div>
+              <input type="checkbox" @change="trainerCheckboxUpdate()" id="trainerCheckbox">
+              <label class = "checkboxLabel" for="trainerCheckbox">Trainers (empty)</label>
+            </div>
+            </v-col>
+
+          <v-col cols="2">
+            <div>
+              <input type="checkbox" @change="teamCheckboxUpdate()" id="teamCheckbox">
+              <label class = "checkboxLabel" for="teamCheckbox">Teams</label>
+            </div>
+
+            <div>
+              <input type="checkbox" @change="locationCheckboxUpdate()" id="locationCheckbox">
+              <label class = "checkboxLabel" for="locationCheckbox">Locations</label>
+            </div>
+            </v-col>
+
+            <v-col cols="2">
+            <div>
+              <input type="checkbox" @change="otherCheckboxUpdate()" id="otherCheckbox">
+              <label class = "checkboxLabel" for="otherCheckbox">Other</label>
+            </div>
+            </v-col>
+
+         </v-row>
+
       <v-row align="center">
           <v-col cols="8">
           <v-autocomplete 
@@ -52,16 +106,14 @@
              <v-btn class="button" @click="newQuery()">New Query</v-btn>
 
              <v-btn class="button" v-if="downloadButtonVisible" @click="downloadFile()">Download</v-btn>
-            <!--
-            <v-btn class="button" ><a class="button" :href="`${publicPath}query_output.csv`" style="color:black;" download>Download</a></v-btn>
-            -->
+
         </v-col>
       </v-row>
 
     <v-row align="center">
-        <!-- Display results here?? 
+        <!-- Display results here 
         <pre>{{ JSON.stringify(apiObj, null, 2) }}</pre> -->
-        <p id='showData'></p>
+        <p class = "output" id='showData'></p>
     </v-row>
 
        <v-row align="center">
@@ -71,7 +123,7 @@
 
     </v-container>
 
-    <v-container fluid class="selectLocation" v-if="locationVisible">
+       <v-container fluid class="selectLocation" v-if="locationVisible">
       <v-row align="center">
         <v-col cols="6">
           <v-autocomplete
@@ -371,7 +423,7 @@ import dropdown from '../Dropdown.json'
 export default {
      data () {
       return {
-        //used for result file download
+        //used for result file download - not anymore?
         publicPath: process.env.BASE_URL,
 
         //used to track current selections
@@ -380,7 +432,11 @@ export default {
         results: {value: "default"},
         apiObj:{},
 
-        //prolly set all to false to begin with??
+        //on load variable
+        //used to set initial dropdown options
+        load: true,
+
+        //visibility modifiers
         locationVisible: false,
         qualityVisible: false,
         abilityVisible: false,
@@ -404,76 +460,20 @@ export default {
         downloadButtonVisible:true,
 
 
+        pokemonCheckbox: false,
+        moveCheckbox: false,
+        typeCheckbox: false,
+        trainerCheckbox: false,
+        teamCheckbox: false,
+        locationCheckbox:false,
+        otherCheckbox: false,
+
         //add all other params here
 
         selectQuery: { value: 'query', id: '0' },
         queries: [
-          { value: 'What do you want to know?', id: '0' },
-          //Breeding File
-          { value: 'The Pokemon in a given egg group', id: '1' },
-          { value: 'The Pokemon a given Pokemon can breed with', id: '2' },
-          //Locations File
-          { value: 'The locations a Pokemon may be found at', id: '3' },
-          { value: 'The locations a Pokemon may be found and the method which they can be found', id: '4' },
-          { value: 'The locations a Pokemon of given type can be found', id: '5' },
-          { value: 'The locations that a Pokemon with two given types can be found', id: '6' },
-          { value: 'Every location you fight a given trainer', id: '7' },
-          //{ value: 'The locations with trainers of a given trainer class', id: '8' }, //removed as redundant
-          { value: 'The locations where a certain trainer class can be fought', id: '9' },
-          { value: 'The locations where a certain Pokemon of at least a certain level can be found', id: '10' },
-          //Moves File
-          { value: 'List the moves that are learned by all Pokemon', id: '11' },
-          { value: 'Moves that are learned by all Pokemon and the method by which they\'re learned', id: '12' },
-          { value: 'Moves that are learned by a given Pokemon', id: '13' },
-          { value: 'Moves that are learned by a given Pokemon and the method by which they\'re learned', id: '14' },
-          { value: 'Moves that have a given Effectiveness against a given Type', id:'14.5'},
-          { value: 'Moves that are super-effective against a given Pokemon', id: '15' },
-          { value: 'Moves that are neutral against a given Pokemon', id: '16' },
-          { value: 'Moves that are not-very-effective against a given Pokemon', id: '17' },
-          { value: 'Moves that a given Pokemon is immune to', id: '18' },
-          { value: 'All moves\' effectiveness against a given Pokemon', id: '19' },
-          { value: 'List all status moves', id: '20' },
-          { value: 'Ways a given Pokemon learns a given move', id: '21' },
-          { value: 'Moves of a given type that a given Pokemon can learn', id: '22' },
-          { value: 'Moves of a given type that a given Pokemon can learn and the method by which they\'re learned', id: '23' },
-          { value: 'Moves a Pokemon learns through breeding', id: '25' },
-          { value: 'Moves a Pokemon can learn through breeding with a given father', id: '26' },
-          //Pokemon File
-          { value: 'All Pokemon names', id: '27' },
-          { value: 'All Pokemon hatch times', id:'27.5'},
-          { value: 'All Move names', id: '28' },
-          { value: 'Pokemon and their pokedex position', id: '29' },
-          { value: 'All Trainer data', id: '30' },
-          { value: 'Stats of a given Pokemon', id: '31' },
-          { value: 'Evolutions of a given Pokemon', id: '32' },
-          { value: 'Pokemon with a given move', id: '33' },
-          { value: 'Pokemon from each type with the highest value in a given stat', id: '34' },
-          { value: 'Pokemon from each type with the lowest value in a given stat', id: '35' },
-          { value: 'Pokemon having minimum value of a given stat', id: '36' },     
-          { value: 'Pokemon having a maximum value of a given stat', id: '37' },  
-          { value: 'Pokemon which can be caught at a given location', id: '38' },  
-          { value: 'Pokemon which can be caught at a given location from a given encounter', id: '39' },  
-          { value: 'Pokemon which can learn a move that is super-effective against a given Pokemon', id: '40' },  
-          { value: 'Pokemon that can be caught at a given location that can learn a move that is super-effective against a given Pokemon', id: '41' },    
-          { value: 'Pokemon that a given move is super-effective against', id: '42' }, 
-          { value: 'Pokemon that a given move is neutral against', id: '43' },  
-          { value: 'Pokemon that a given move is not-very-effective against', id: '44' },  
-          { value: 'Pokemon that are immune to a given move', id: '45' },  
-          { value: 'Effectiveness of a given move on all Pokemon', id: '46' },  
-          { value: 'All Abilities Pokemon have', id: '47' },  
-          { value: 'Pokemon with a given ability', id: '48' },
-          { value: 'Pokemon of a given type that can learn moves of a given type', id: '49' },
-          { value: 'Pokemon of a given type that can learn moves of a given type and the methods by which they\'re learned', id: '50' },
-          //Teams File
-          { value: 'All teams of a given Trainer', id: '51' },
-          { value: 'All teams with a given Pokemon', id: '52' },
-          { value: 'All teams with minimum level', id: '53' },
-          { value: 'All teams with a maximum level', id: '54' },
-          //Types File
-          { value: 'Number of Pokemon per type', id: '55' },
-          { value: 'Types with physical damage type', id: '56' },
-          { value: 'Types with special damage type', id: '57' },
-
+          { value: 'What do you want to know?', id: '0' },//default query value
+          //other values loaded via dropdown.json
         ],
 
         selectQuality:{Quality: null},
@@ -523,6 +523,175 @@ export default {
   },
 
    methods:{
+     updateFilteredQueries(){
+        //clear all 'queries' in queries
+        this.queries.splice(1);
+       
+        var i = 0;//loop iterator
+        var noneSelected = true;
+        var json;//json obj
+
+       if(this.pokemonCheckbox){
+         //add pokemon queries to queries
+          json = dropdown["pokemonQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+         noneSelected = false;
+       }
+       if(this.moveCheckbox){
+          //add move queries to queries
+          json = dropdown["moveQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
+       }
+       if(this.typeCheckbox){
+         //add type queries to queries
+          json = dropdown["typeQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
+       }
+       if(this.trainerCheckbox){
+         //add move queries to queries
+          json = dropdown["trainerQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
+       }
+       if(this.teamCheckbox){
+         //add move queries to queries
+          json = dropdown["teamQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
+       }
+       if(this.locationCheckbox){
+         //add move queries to queries
+          json = dropdown["locationQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
+       }
+       if(this.otherCheckbox){
+         //add move queries to queries
+          json = dropdown["otherQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
+       }
+
+       if(noneSelected){
+         this.showAllQueries()
+       }
+
+     },
+
+     pokemonCheckboxUpdate(){
+        if(this.pokemonCheckbox){
+         this.pokemonCheckbox = false
+        }else{
+          this.pokemonCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     moveCheckboxUpdate(){
+        if(this.moveCheckbox){
+         this.moveCheckbox = false
+        }else{
+          this.moveCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     typeCheckboxUpdate(){
+        if(this.typeCheckbox){
+         this.typeCheckbox = false
+        }else{
+          this.typeCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     trainerCheckboxUpdate(){
+        if(this.trainerCheckbox){
+         this.trainerCheckbox = false
+        }else{
+          this.trainerCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     teamCheckboxUpdate(){
+        if(this.teamCheckbox){
+         this.teamCheckbox = false
+        }else{
+          this.teamCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     locationCheckboxUpdate(){
+        if(this.locationCheckbox){
+         this.locationCheckbox = false
+        }else{
+          this.locationCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     }, 
+
+     otherCheckboxUpdate(){
+        if(this.otherCheckbox){
+         this.otherCheckbox = false
+        }else{
+          this.otherCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     showAllQueries(){
+        document.getElementById("pokemonCheckbox").checked = false;
+        document.getElementById("moveCheckbox").checked = false;
+        document.getElementById("typeCheckbox").checked = false;
+        document.getElementById("teamCheckbox").checked = false;
+        document.getElementById("trainerCheckbox").checked = false;
+        document.getElementById("locationCheckbox").checked = false;
+        document.getElementById("otherCheckbox").checked = false;
+
+        this.pokemonCheckbox = false;
+        this.moveCheckbox = false;
+        this.typeCheckbox = false;
+        this.trainerCheckbox = false;
+        this.teamCheckbox = false;
+        this.locationCheckbox =false;
+        this.otherCheckbox = false;
+        //this.updateFilteredQueries();
+
+         //make all queries visible
+          var json = dropdown["pokemonQueries"];
+          for(var i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["moveQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["typeQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["trainerQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["teamQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["locationQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["otherQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+     },
+
      downloadFile(){
            axios.get(this.apiStr.url)
           .then((response) => {
@@ -579,8 +748,9 @@ export default {
 
         this.downloadButtonVisible = true;
         this.resultsVisible = false;
-        
+
         this.queryVisible = true;
+        this.queries.splice(1);
         this.setAllHidden();
             
     },
@@ -596,7 +766,6 @@ export default {
         case '5':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
         case '6':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
         case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
-        //case '8':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; this.pokemonNameVisible = true; break;}
         case '11':{ break;} 
@@ -692,11 +861,6 @@ export default {
                     this.apiStr.url += "locations/locations_with_trainer/"+this.selectTrainerName.TID;//havnt tested with TID??
                     valid = true;
                 }break;}
-            /*case '8':{ 
-                if(this.selectTrainerClass.TrainerClass != null){
-                    this.apiStr.url += "locations/locations_with_trainer_class/"+this.selectTrainerClass.TrainerClass;
-                    valid = true;
-                }break;}*/
             case '9':{ 
                 if(this.selectTrainerClass.TrainerClass != null){
                     this.apiStr.url += "locations/locations_with_trainer_class_fight/"+this.selectTrainerClass.TrainerClass;
@@ -1074,6 +1238,10 @@ export default {
       font-weight:bold;
   }
 
+  .output{
+    margin-left:10px;
+  }
+
   .INTERACThome{
       padding:25px;
   }  
@@ -1082,5 +1250,14 @@ export default {
       margin: 5px;
       text-decoration: none;
   }
+
+.checkboxLabel {
+    margin: .4rem;
+    font-weight: bold;
+}
+
+.filterClear{
+  margin-left:10px;
+}
 
 </style>
