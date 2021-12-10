@@ -182,7 +182,7 @@ def pokemon_with_supereffective_against_pokemon(pokemon_name: str):
                     Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
                     join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
                     join Pokemon on HasTypes.Dex = Pokemon.Dex
-                    where Move.Status = 0 and Pokemon.PokemonName = {pokemon_name}
+                    where Move.Status = 0 and Pokemon.PokemonName = "{pokemon_name}"
                     group by MoveName
                     having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
                 ) 
@@ -194,7 +194,7 @@ def pokemon_with_supereffective_against_pokemon(pokemon_name: str):
                     Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
                     join Type TDef on Effectiveness.Defender = TDef.TypeName join HasTypes on TDef.TypeName = HasTypes.TypeName
                     join Pokemon on HasTypes.Dex = Pokemon.Dex
-                    where Move.Status = 0 and Pokemon.PokemonName = {pokemon_name}
+                    where Move.Status = 0 and Pokemon.PokemonName = "{pokemon_name}"
                     group by MoveName
                     having (sum(Quality)/count(Quality) = 1.5 or sum(Quality)/count(Quality) = 2) and min(Quality) <> 0
                 ) 
