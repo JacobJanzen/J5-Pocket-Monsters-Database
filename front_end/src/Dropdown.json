@@ -65,7 +65,7 @@
 
 	"locationQueries":[
 		{ "value": "The locations a Pokemon may be found at", "id": "3" },
-		{ "value": "The locations a Pokemon may be found and the method which they can be found", "id": "4" },
+		{ "value": "The locations a Pokemon may be found with a given method", "id": "4" },
 		{ "value": "The locations a Pokemon of given type can be found", "id": "5" },
 		{ "value": "The locations that a Pokemon with two given types can be found", "id": "6" },
 		{ "value": "Every location you fight a given trainer", "id": "7" },
