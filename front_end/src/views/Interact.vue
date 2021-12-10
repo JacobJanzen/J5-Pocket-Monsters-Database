@@ -1,7 +1,7 @@
 <template>
     <div class="INTERACThome">
 
-    <h1>Select which info you're looking for in the drop-down below</h1>
+    <h1>{{vaidateQuery}}</h1>
     
     <v-container fluid class="querySelect" v-if="queryVisible">
           
@@ -65,7 +65,7 @@
             persistent-hint
             return-object
             single-line
-            @change="this.setVisibilty(this.selectQuery.id)"
+            v-on:click="this.setVisibilty(this.selectQuery.id)"
           ></v-autocomplete>
           </v-col>
 
@@ -400,6 +400,10 @@ import dropdown from '../Dropdown.json'
 export default {
      data () {
       return {
+
+        //used to display results of api call
+        results: {value: "default"},
+
         //used to track current selections
         apiStr:{url: "init"},
 
@@ -1132,6 +1136,15 @@ export default {
         this.downloadButtonVisible = false;
     }
   },
+
+  computed: {
+      //make sure all appropriate values are selected for selected query
+      vaidateQuery(){
+      this.setVisibilty(this.selectQuery.id); //force polling on the parameter dropdown visibility
+      if(this.selectQuery.id!=0){return "Interact with the Database!";}
+      return "Interact with the Database!";
+      },
+  }, 
 
   //called on page load
   mounted: function () {
