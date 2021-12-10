@@ -33,7 +33,7 @@
 		{ "value": "Moves that are neutral against a given Pokemon", "id": "16" },
 		{ "value": "Moves that are not-very-effective against a given Pokemon", "id": "17" },
 		{ "value": "Moves that a given Pokemon is immune to", "id": "18" },
-		{ "value": "All moves\\' effectiveness against a given Pokemon", "id": "19" },
+		{ "value": "All moves' effectiveness against a given Pokemon", "id": "19" },
 		{ "value": "List all status moves", "id": "20" },
 		{ "value": "Ways a given Pokemon learns a given move", "id": "21" },
 		{ "value": "Moves of a given type that a given Pokemon can learn and the method by which they\"re learned", "id": "23" },
