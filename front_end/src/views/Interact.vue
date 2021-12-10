@@ -15,8 +15,11 @@
 
          <v-row align="center">
            <v-col cols="3">
-            <h3>Filter Queries:</h3>
-            <p>(None selected shows all)</p>
+            <h3>Filter Common Queries:</h3>
+            <v-btn class="filterClear" @click="clearAllCheckboxes()">Clear All Filters</v-btn>
+            <!--
+            <p>(Nothing selected: all visible)</p>
+            -->
            </v-col>
 
            <v-col cols="2">
@@ -52,6 +55,13 @@
             <div>
               <input type="checkbox" @change="locationCheckboxUpdate()" id="locationCheckbox">
               <label class = "checkboxLabel" for="locationCheckbox">Locations</label>
+            </div>
+            </v-col>
+
+            <v-col cols="2">
+            <div>
+              <input type="checkbox" @change="otherCheckboxUpdate()" id="otherCheckbox">
+              <label class = "checkboxLabel" for="otherCheckbox">Other</label>
             </div>
             </v-col>
 
@@ -96,14 +106,12 @@
              <v-btn class="button" @click="newQuery()">New Query</v-btn>
 
              <v-btn class="button" v-if="downloadButtonVisible" @click="downloadFile()">Download</v-btn>
-            <!--
-            <v-btn class="button" ><a class="button" :href="`${publicPath}query_output.csv`" style="color:black;" download>Download</a></v-btn>
-            -->
+
         </v-col>
       </v-row>
 
     <v-row align="center">
-        <!-- Display results here?? 
+        <!-- Display results here 
         <pre>{{ JSON.stringify(apiObj, null, 2) }}</pre> -->
         <p class = "output" id='showData'></p>
     </v-row>
@@ -454,6 +462,7 @@ export default {
         trainerCheckbox: false,
         teamCheckbox: false,
         locationCheckbox:false,
+        otherCheckbox: false,
 
 
         /*
@@ -465,11 +474,6 @@ export default {
 
 
         */
-
-
-
-
-
 
 
         //add all other params here
@@ -486,7 +490,6 @@ export default {
           { value: 'The locations a Pokemon of given type can be found', id: '5' },
           { value: 'The locations that a Pokemon with two given types can be found', id: '6' },
           { value: 'Every location you fight a given trainer', id: '7' },
-          //{ value: 'The locations with trainers of a given trainer class', id: '8' }, //removed as redundant
           { value: 'The locations where a certain trainer class can be fought', id: '9' },
           { value: 'The locations where a certain Pokemon of at least a certain level can be found', id: '10' },
           //Moves File
@@ -620,18 +623,24 @@ export default {
          //add locaion queries to queries
          noneSelected = false;
        }
+       if(this.otherCheckbox){
+         //add locaion queries to queries
+         noneSelected = false;
+       }
 
        if(noneSelected){
          //make all queries visible
        }
        
-
+      /*
       console.log("pokemon: "+this.pokemonCheckbox);
       console.log("moves: "+this.moveCheckbox);
       console.log("types: "+this.typeCheckbox);
       console.log("trainers: "+this.trainerCheckbox);
       console.log("teams: "+this.teamCheckbox);
       console.log("locations: "+this.locationCheckbox);
+      console.log("locations: "+this.otherCheckbox);
+      */
 
      },
 
@@ -689,6 +698,34 @@ export default {
         }
         this.updateFilteredQueries();
      }, 
+
+     otherCheckboxUpdate(){
+        if(this.otherCheckbox){
+         this.otherCheckbox = false
+        }else{
+          this.otherCheckbox = true;
+        }
+        this.updateFilteredQueries();
+     },
+
+     clearAllCheckboxes(){
+        console.log("what");
+        document.getElementById("pokemonCheckbox").checked = false;
+        document.getElementById("moveCheckbox").checked = false;
+        document.getElementById("typeCheckbox").checked = false;
+        document.getElementById("trainerCheckbox").checked = false;
+        document.getElementById("locationCheckbox").checked = false;
+        document.getElementById("otherCheckbox").checked = false;
+
+        this.pokemonCheckbox = false;
+        this.moveCheckbox = false;
+        this.typeCheckbox = false;
+        this.trainerCheckbox = false;
+        this.teamCheckbox = false;
+        this.locationCheckbox =false;
+        this.otherCheckbox = false;
+        this.updateFilteredQueries();
+     },
 
      downloadFile(){
            axios.get(this.apiStr.url)
@@ -763,7 +800,6 @@ export default {
         case '5':{ this.dropdownMessageVisible = true; this.typeVisible = true; break;}
         case '6':{ this.dropdownMessageVisible = true; this.typeVisible = true; this.secondTypeVisible = true; break;}
         case '7':{ this.dropdownMessageVisible = true; this.trainerNameVisible = true; break;}
-        //case '8':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '9':{ this.dropdownMessageVisible = true; this.trainerClassVisible = true; break;}
         case '10':{ this.dropdownMessageVisible = true; this.levelSelectVisible = true; this.pokemonNameVisible = true; break;}
         case '11':{ break;} 
@@ -859,11 +895,6 @@ export default {
                     this.apiStr.url += "locations/locations_with_trainer/"+this.selectTrainerName.TID;//havnt tested with TID??
                     valid = true;
                 }break;}
-            /*case '8':{ 
-                if(this.selectTrainerClass.TrainerClass != null){
-                    this.apiStr.url += "locations/locations_with_trainer_class/"+this.selectTrainerClass.TrainerClass;
-                    valid = true;
-                }break;}*/
             case '9':{ 
                 if(this.selectTrainerClass.TrainerClass != null){
                     this.apiStr.url += "locations/locations_with_trainer_class_fight/"+this.selectTrainerClass.TrainerClass;
@@ -1256,6 +1287,11 @@ export default {
 
 .checkboxLabel {
     margin: .4rem;
+    font-weight: bold;
+}
+
+.filterClear{
+  margin-left:10px;
 }
 
 </style>
