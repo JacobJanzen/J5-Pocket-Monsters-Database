@@ -24,43 +24,43 @@
 
            <v-col cols="2">
             <div>
-              <input type="checkbox" @change="pokemonCheckboxUpdate()" id="pokemonCheckbox">
+              <input type="checkbox" @change="pokemonCheckboxUpdate()" id="pokemonCheckbox" checked>
               <label class = "checkboxLabel" for="pokemonCheckbox">Pokemon</label>
             </div>
 
             <div>
-              <input type="checkbox" @change="moveCheckboxUpdate()" id="moveCheckbox">
+              <input type="checkbox" @change="moveCheckboxUpdate()" id="moveCheckbox" checked>
               <label class = "checkboxLabel" for="moveCheckbox">Moves</label>
             </div>
            </v-col>
 
            <v-col cols="2">
             <div>
-              <input type="checkbox" @change="typeCheckboxUpdate()" id="typeCheckbox">
+              <input type="checkbox" @change="typeCheckboxUpdate()" id="typeCheckbox" checked>
               <label class = "checkboxLabel" for="typeCheckbox">Types</label>
             </div>
 
             <div>
-              <input type="checkbox" @change="trainerCheckboxUpdate()" id="trainerCheckbox">
+              <input type="checkbox" @change="trainerCheckboxUpdate()" id="trainerCheckbox" checked>
               <label class = "checkboxLabel" for="trainerCheckbox">Trainers (empty)</label>
             </div>
             </v-col>
 
           <v-col cols="2">
             <div>
-              <input type="checkbox" @change="teamCheckboxUpdate()" id="teamCheckbox">
+              <input type="checkbox" @change="teamCheckboxUpdate()" id="teamCheckbox" checked>
               <label class = "checkboxLabel" for="teamCheckbox">Teams</label>
             </div>
 
             <div>
-              <input type="checkbox" @change="locationCheckboxUpdate()" id="locationCheckbox">
+              <input type="checkbox" @change="locationCheckboxUpdate()" id="locationCheckbox" checked>
               <label class = "checkboxLabel" for="locationCheckbox">Locations</label>
             </div>
             </v-col>
 
             <v-col cols="2">
             <div>
-              <input type="checkbox" @change="otherCheckboxUpdate()" id="otherCheckbox">
+              <input type="checkbox" @change="otherCheckboxUpdate()" id="otherCheckbox" checked>
               <label class = "checkboxLabel" for="otherCheckbox">Other</label>
             </div>
             </v-col>
@@ -432,10 +432,6 @@ export default {
         results: {value: "default"},
         apiObj:{},
 
-        //on load variable
-        //used to set initial dropdown options
-        load: true,
-
         //visibility modifiers
         locationVisible: false,
         qualityVisible: false,
@@ -460,13 +456,13 @@ export default {
         downloadButtonVisible:true,
 
 
-        pokemonCheckbox: false,
-        moveCheckbox: false,
-        typeCheckbox: false,
-        trainerCheckbox: false,
-        teamCheckbox: false,
-        locationCheckbox:false,
-        otherCheckbox: false,
+        pokemonCheckbox: true,
+        moveCheckbox: true,
+        typeCheckbox: true,
+        trainerCheckbox: true,
+        teamCheckbox: true,
+        locationCheckbox:true,
+        otherCheckbox: true,
 
         //add all other params here
 
@@ -658,21 +654,21 @@ export default {
      },
 
      showAllQueries(){
-        document.getElementById("pokemonCheckbox").checked = false;
-        document.getElementById("moveCheckbox").checked = false;
-        document.getElementById("typeCheckbox").checked = false;
-        document.getElementById("teamCheckbox").checked = false;
-        document.getElementById("trainerCheckbox").checked = false;
-        document.getElementById("locationCheckbox").checked = false;
-        document.getElementById("otherCheckbox").checked = false;
+        document.getElementById("pokemonCheckbox").checked = true;
+        document.getElementById("moveCheckbox").checked = true;
+        document.getElementById("typeCheckbox").checked = true;
+        document.getElementById("teamCheckbox").checked = true;
+        document.getElementById("trainerCheckbox").checked = true;
+        document.getElementById("locationCheckbox").checked = true;
+        document.getElementById("otherCheckbox").checked = true;
 
-        this.pokemonCheckbox = false;
-        this.moveCheckbox = false;
-        this.typeCheckbox = false;
-        this.trainerCheckbox = false;
-        this.teamCheckbox = false;
-        this.locationCheckbox =false;
-        this.otherCheckbox = false;
+        this.pokemonCheckbox = true;
+        this.moveCheckbox = true;
+        this.typeCheckbox = true;
+        this.trainerCheckbox = true;
+        this.teamCheckbox = true;
+        this.locationCheckbox =true;
+        this.otherCheckbox = true;
         //this.updateFilteredQueries();
 
          //make all queries visible
@@ -1206,6 +1202,14 @@ export default {
         this.valueVisible = false;
         this.downloadButtonVisible = false;
     }
+  },
+
+  //called on page load
+  mounted: function () {
+    this.$nextTick(function () {
+      //make all queries visible initially
+      this.showAllQueries();
+    })
   },
 
   computed: {
