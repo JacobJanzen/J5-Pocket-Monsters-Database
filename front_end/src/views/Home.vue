@@ -28,7 +28,7 @@
       >
         <div class="cardInner">
           <h2>Github Repo</h2>
-          <h4>All source files are available in our Github repo <a target="_blank" href = "https://github.com/JacobJanzen/3380_Project"> HERE</a></h4>
+          <h4>All source files are available in our Github repo <a target="_blank" href = "https://github.com/JacobJanzen/J5-Pocket-Monsters-Database"> HERE</a></h4>
         </div>
       </v-card>
 
