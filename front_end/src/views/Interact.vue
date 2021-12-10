@@ -1,7 +1,8 @@
 <template>
     <div class="INTERACThome">
 
-    <h1>{{vaidateQuery}}</h1>
+      <!-- forces polling on query parameter dropdowns -->
+      <h1>{{vaidateQuery}}</h1>
     
     <v-container fluid class="querySelect" v-if="queryVisible">
           
