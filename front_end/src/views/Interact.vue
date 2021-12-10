@@ -50,20 +50,21 @@
 
         <v-col cols="4" >
              <v-btn class="button" @click="newQuery()">New Query</v-btn>
-             <!-- Download CSV results -->
-             <a class="button" target = "_blank" href = "front_end/public/example.csv" download="results.csv"><v-btn>Download</v-btn></a>
+           
+            <v-btn class="button"><a class="button" :href="`${publicPath}query_output.csv`" style="color:black;" download>Download</a></v-btn>
+             
         </v-col>
       </v-row>
 
     <v-row align="center">
-        <!-- Display results here?? -->
-        <pre>{{ JSON.stringify(apiObj, null, 2) }}</pre>
-
+        <!-- Display results here?? 
+        <pre>{{ JSON.stringify(apiObj, null, 2) }}</pre> -->
+        <p id='showData'></p>
     </v-row>
 
        <v-row align="center">
-          <!-- remove prolly -->
-        <p> {{getQuery}} </p>
+          <!-- remove prolly 
+        <p> {{getQuery}} </p> -->
        </v-row>
 
     </v-container>
@@ -368,6 +369,8 @@ import dropdown from '../Dropdown.json'
 export default {
      data () {
       return {
+        //used for result file download
+        publicPath: process.env.BASE_URL,
 
         //used to track current selections
         apiStr:{url: "init"},
@@ -517,23 +520,7 @@ export default {
   },
 
    methods:{
-    downloadFile(){
-            axios({
-                  url: '../example.csv',
-                  method: 'GET',
-                  responseType: 'blob',
-              }).then((response) => {
-                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
-                   var fileLink = document.createElement('a');
-
-                   fileLink.href = fileURL;
-                   fileLink.setAttribute('download', 'file.pdf');
-                   document.body.appendChild(fileLink);
-
-                   fileLink.click();
-              });
-    },
-
+    
     newQuery(){
         //Reset all selected param dropdowns
         this.selectPokemon = null;
@@ -935,16 +922,62 @@ export default {
             this.results.value = this.apiStr.url;//will be removed
 
             axios.get(this.apiStr.url).then((response) => {
-                console.log(response.data);
-                this.updateOutput(response.data);
+                  //console.log(response.data);
+                  document.getElementById("showData").innerText = "ready";
+                  this.updateOutput(response.data);
+                })
+                .catch(() => {
+                  document.getElementById("showData").innerText = "No Results";
                 });
+
        }else{
            this.errorMessageVisible = true;
        }
     },
 
     updateOutput(response){
-        this.apiObj = response;
+        //this.apiObj = response;
+
+        /* code from https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript */
+
+        //idk if this if-statement is doing anything
+        if(document.getElementById("showData").innerText != "No Results"){
+          // Extract value from table header. 
+          var col = [];
+          for (var i = 0; i < response.length; i++) {
+              for (var key in response[i]) {
+                  if (col.indexOf(key) === -1) {
+                      col.push(key);
+                  }
+              }
+          }
+
+          // Create a table.
+          var table = document.createElement("table");
+
+          // Create table header row using the extracted headers above.
+          var tr = table.insertRow(-1);                   // table row.
+
+          for (var j = 0; j < col.length; j++) {
+              var th = document.createElement("th");      // table header.
+              th.innerHTML = col[j];
+              tr.appendChild(th);
+          }
+
+          // add json data to the table as rows.
+          for (var k = 0; k < response.length; k++) {
+              tr = table.insertRow(-1);
+              for (var m = 0; m < col.length; m++) {
+                  var tabCell = tr.insertCell(-1);
+                  tabCell.innerHTML = response[k][col[m]];
+              }
+          }
+
+          // Now, add the newly created table with json data, to a container.
+          var divShowData = document.getElementById('showData');
+          divShowData.innerHTML = "";
+          divShowData.appendChild(table);
+        }
     },
 
     setAllHidden(){
@@ -990,6 +1023,15 @@ export default {
 
 
 <style>
+  table, th, td {
+    border: solid 1px #ddd;
+      border-collapse: collapse;
+      padding: 1px 10px;
+      text-align: center;
+  }
+  th {
+      font-weight:bold;
+  }
 
   .INTERACThome{
       padding:25px;
