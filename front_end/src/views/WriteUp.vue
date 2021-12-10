@@ -201,11 +201,11 @@ is a Flask application written in Python. The back-end runs the queries which ar
 through API calls from the front-end using Axios as an HTTP client. 
 The application can be started with the following on Linux/macOS:
 <pre>
-    <code>.../3380_Project $ ./run-linux.sh</code>
+    <code>.../J5-Pocket-Monsters-Database $ ./run-linux.sh</code>
 </pre>
 and on Windows:
 <pre>
-    <code>...\3380_Project>./run-windows.bat</code>
+    <code>...\J5-Pocket-Monsters-Database>./run-windows.bat</code>
 </pre>
 On both, you can then visit <code>http://localhost:8080/</code> to see the application.
 To close the application, press CTRL+C to close the front-end and then again to close the 
