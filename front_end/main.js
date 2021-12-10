@@ -13,7 +13,7 @@ function createWindow() {
     height: 1080,
     minWidth: 1080,
     minHeight: 720,
-    title: 'Pokemon Database - COMP3380',
+    title: 'J5-Pocket-Monsters-Database',
     webPreferences: {
       nodeIntegration: true,
       nodeIntegrationInWorker: true,
