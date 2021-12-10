@@ -70,8 +70,13 @@ def pokemon_evolutions(pokemon_name: str):
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''
-                select P2.Dex, P2.PokemonName from Pokemon P1, Pokemon P2
-                where P2.EvolvesFrom = P1.Dex and P1.PokemonName = "{pokemon_name}"
+                SELECT P2.Dex, P2.PokemonName, P2.evoMethod FROM Pokemon P1, Pokemon P2
+                WHERE P2.EvolvesFrom = P1.Dex AND P1.PokemonName = "{pokemon_name}" 
+                UNION
+                SELECT P3.Dex, P3.PokemonName, P3.evoMethod FROM Pokemon P1
+                JOIN Pokemon P2 ON P1.Dex = P2.EvolvesFrom
+                JOIN Pokemon P3 ON P2.Dex = P3.EvolvesFrom
+                WHERE P1.PokemonName = "{pokemon_name}";
                 ''')
     return qj.sqlite_to_json(cur.fetchall())
 
