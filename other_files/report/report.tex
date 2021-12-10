@@ -6,7 +6,7 @@
 \usepackage{listings}
 \usepackage{xcolor}
 
-\title{Pok\'emon Emerald Database}
+\title{J5 Pocket Monsters Database}
 \author{
     Jacob Janzen\\
     \texttt{janzenj2@myumanitoba.ca} \and 
@@ -21,8 +21,8 @@
 \begin{document}
 \maketitle
 \section{Data Summary}
-Pok\'emon was fresh on our minds when we began the project because our instructor, Adam Pazdor,
-had brought up his interest in the game several times during class. We very quickly realized that
+Pok\'emon was fresh on our minds when we began the project because it had been mentioned in a 
+class we have together several times during it. We very quickly realized that
 a database containing information about Pok\'emon would be a great way to have lots of data with
 very interesting relationships.
 
@@ -109,14 +109,12 @@ Pok\'emon Emerald.
 \begin{itemize}
     \item The Pok\'emon in a given egg group.
     \item The Pok\'emon a given Pok\'emon can breed with.
-    \item The locations a Pok\'emon may be found at.
     \item The locations a Pok\'emon may be found at and the method which they can be found with.
     \item The locations a Pok\'emon of a given type can be found.
     \item The locations that a Pok\'emon with two given types can be found.
     \item The locations with a given trainer.
     \item The locations where a certain trainer class can be fought.
     \item The locations where a certain Pok\'emon of at least a certain level can be found.
-    \item List the moves that are learnt by all Pok\'emon.
     \item Moves that are learnt by all Pok\'emon and the method by which they are learnt.
     \item Moves that are learnt by a given Pok\'emon.
     \item Moves that are learnt by a given Pok\'emon and the method by which they are learnt.
@@ -128,12 +126,10 @@ Pok\'emon Emerald.
     \item All moves' effectiveness against a given Pok\'emon.
     \item List all status moves.
     \item Ways a given Pok\'emon can learn a given move.
-    \item  Moves of a given type that a given Pok\'emon can learn.
     \item Moves of a given type that a given Pok\'emon can learn and the method by which they are
         learnt.
     \item Moves a Pok\'emon learns through breeding.
     \item Moves a Pok\'emon can learn through breeding with a given father.
-    \item All Pok\'emon names.
     \item All Pok\'emon hatch times.
     \item All move names.
     \item Pok\'emon and their Pok\'edex position.
@@ -157,7 +153,6 @@ Pok\'emon Emerald.
     \item Effects a given move has on a Pok\'emon.
     \item All abilities Pok\'emon have.
     \item Pok\'emon with a given ability.
-    \item Pok\'emon of a given type that can learn moves of a given type.
     \item Pok\'emon of a given type that can learn moves of a given type and the methods by which
         they are learnt.
     \item All teams of a given trainer.
@@ -167,6 +162,12 @@ Pok\'emon Emerald.
     \item Number of Pok\'emon per type.
     \item Types with physical damage.
     \item Types with special damage.
+    \item All TM moves
+    \item All HM moves
+    \item All moves all Pok\'emon learn by TM
+    \item All moves all Pok\'emon learn by HM
+    \item All moves a given Pok\'emon learns by TM
+    \item All moves a given Pok\'emon learns by HM
 \end{itemize}
 
 \section{Interface}
@@ -193,7 +194,8 @@ Enhanced Entity Relation Diagram; and finally, the database interaction page.
 Interacting with the database is quite simple. You can start by clicking the drop-down menu saying
 ``What do you want to know?'' Afterwards, you can start typing to search for a specific query or 
 to filter down the list, or just scroll down the list of queries until you find your desired 
-query. After selecting a query, it may open up new drop-down menus to select specific parameters
+query. You can also use the checkboxes to narrow the search down to specific types of queries. 
+After selecting a query, it may open up new drop-down menus to select specific parameters
 of the query. When all the fields have been selected, you can click ``QUERY!'' to execute the 
 query and the results will appear on the page. 
 If you want to save a CSV file containing the results of the query, you can click download. To 
