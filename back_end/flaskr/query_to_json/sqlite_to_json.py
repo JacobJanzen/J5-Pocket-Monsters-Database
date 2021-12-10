@@ -10,7 +10,7 @@ def sqlite_to_json(query_output):
             mapped_row[row.keys()[idx]] = row[idx]
         out.append(mapped_row)
 
-    write_to_csv(out)
+    #write_to_csv(out)
     return jsonify(out)
 
 
