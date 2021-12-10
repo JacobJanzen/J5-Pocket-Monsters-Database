@@ -53,10 +53,6 @@
 		{ "value": "Types with special damage type", "id": "57" }
 	],
 
-	"trainerQueries":[
-
-	],
-
 	"teamQueries":[
 		{ "value": "All teams of a given Trainer", "id": "51" },
 		{ "value": "All teams with a given Pokemon", "id": "52" },

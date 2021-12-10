@@ -34,19 +34,7 @@
             </div>
            </v-col>
 
-           <v-col cols="2">
-            <div>
-              <input type="checkbox" @change="typeCheckboxUpdate()" id="typeCheckbox" checked>
-              <label class = "checkboxLabel" for="typeCheckbox">Types</label>
-            </div>
-
-            <div>
-              <input type="checkbox" @change="trainerCheckboxUpdate()" id="trainerCheckbox" checked>
-              <label class = "checkboxLabel" for="trainerCheckbox">Trainers (empty)</label>
-            </div>
-            </v-col>
-
-          <v-col cols="2">
+             <v-col cols="2">
             <div>
               <input type="checkbox" @change="teamCheckboxUpdate()" id="teamCheckbox" checked>
               <label class = "checkboxLabel" for="teamCheckbox">Teams</label>
@@ -58,12 +46,19 @@
             </div>
             </v-col>
 
-            <v-col cols="2">
+           <v-col cols="2">
             <div>
+              <input type="checkbox" @change="typeCheckboxUpdate()" id="typeCheckbox" checked>
+              <label class = "checkboxLabel" for="typeCheckbox">Types</label>
+            </div>
+
+             <div>
               <input type="checkbox" @change="otherCheckboxUpdate()" id="otherCheckbox" checked>
               <label class = "checkboxLabel" for="otherCheckbox">Other</label>
             </div>
             </v-col>
+
+    
 
          </v-row>
 
@@ -459,7 +454,6 @@ export default {
         pokemonCheckbox: true,
         moveCheckbox: true,
         typeCheckbox: true,
-        trainerCheckbox: true,
         teamCheckbox: true,
         locationCheckbox:true,
         otherCheckbox: true,
@@ -544,12 +538,6 @@ export default {
               this.queries.push(json[i]);
           }
        }
-       if(this.trainerCheckbox){
-          json = dropdown["trainerQueries"];
-          for(i=0; i<json.length; i++){
-              this.queries.push(json[i]);
-          }
-       }
        if(this.teamCheckbox){
           json = dropdown["teamQueries"];
           for(i=0; i<json.length; i++){
@@ -597,15 +585,6 @@ export default {
         this.updateFilteredQueries();
      },
 
-     trainerCheckboxUpdate(){
-        if(this.trainerCheckbox){
-         this.trainerCheckbox = false
-        }else{
-          this.trainerCheckbox = true;
-        }
-        this.updateFilteredQueries();
-     },
-
      teamCheckboxUpdate(){
         if(this.teamCheckbox){
          this.teamCheckbox = false
@@ -638,18 +617,15 @@ export default {
         document.getElementById("moveCheckbox").checked = true;
         document.getElementById("typeCheckbox").checked = true;
         document.getElementById("teamCheckbox").checked = true;
-        document.getElementById("trainerCheckbox").checked = true;
         document.getElementById("locationCheckbox").checked = true;
         document.getElementById("otherCheckbox").checked = true;
 
         this.pokemonCheckbox = true;
         this.moveCheckbox = true;
         this.typeCheckbox = true;
-        this.trainerCheckbox = true;
         this.teamCheckbox = true;
         this.locationCheckbox =true;
         this.otherCheckbox = true;
-        //this.updateFilteredQueries();
 
          //make all queries visible
           var json = dropdown["pokemonQueries"];
@@ -657,8 +633,6 @@ export default {
           json = dropdown["moveQueries"];
           for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
           json = dropdown["typeQueries"];
-          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
-          json = dropdown["trainerQueries"];
           for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
           json = dropdown["teamQueries"];
           for(i=0; i<json.length; i++){ this.queries.push(json[i]); }

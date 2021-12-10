@@ -44,11 +44,12 @@
           <li>View the ER Diagram & assumptions</li>
           <li>Interact with the database!</li>
           <ul class="tabcontent">
-            <li>Click dropdown that says "What do you want to know?"</li>
+            <li><h4>Use the filter checkboxes to narrow down your focus if desired</h4></li>
+            <li>Click the dropdown stating "What do you want to know?"</li>
             <li>Start typing or scroll through the list of queries</li>
             <li>New dropdown menus may appear after selecting the query</li>
-            <li>Once all dropdowns are filled, click "QUERY!" to run the query</li>
-            <li>To save the results of the query, click "DOWNLOAD"</li>
+            <li>Once all dropdowns are filled, click "QUERY!" to run the search</li>
+            <li>To save the results of the query to CSV, click "DOWNLOAD"</li>
             <li>To run a new query, click "NEW QUERY"</li>
           </ul>
         </div>
