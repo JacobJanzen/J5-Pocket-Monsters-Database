@@ -50,9 +50,11 @@
 
         <v-col cols="4" >
              <v-btn class="button" @click="newQuery()">New Query</v-btn>
-           
-            <v-btn class="button"><a class="button" :href="`${publicPath}query_output.csv`" style="color:black;" download>Download</a></v-btn>
-             
+
+             <v-btn class="button" v-if="downloadButtonVisible" @click="downloadFile()">Download</v-btn>
+            <!--
+            <v-btn class="button" ><a class="button" :href="`${publicPath}query_output.csv`" style="color:black;" download>Download</a></v-btn>
+            -->
         </v-col>
       </v-row>
 
@@ -399,6 +401,7 @@ export default {
         errorMessageVisible: false,
         statVisible: false,
         valueVisible:false,
+        downloadButtonVisible:true,
 
 
         //add all other params here
@@ -520,6 +523,37 @@ export default {
   },
 
    methods:{
+     downloadFile(){
+           axios.get(this.apiStr.url)
+          .then((response) => {
+
+            //convert json to csv formatting
+            var json = response.data;
+            var fields = Object.keys(json[0])
+            //var replacer = function(key, value) { return value === null ? '' : value } 
+            var csv = json.map(function(row){
+              return fields.map(function(fieldName){
+                //return JSON.stringify(row[fieldName], replacer)+ "\r\n"
+                return row[fieldName];
+              }).join(',')
+            })
+            csv.unshift(fields.join(',')) // add header column
+            csv = csv.join('\n');
+    
+            //write csv file
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "results.csv";
+            link.click();
+            URL.revokeObjectURL(link.href); 
+            
+         })
+        .catch(() => {
+          console.log("error");
+        });        
+
+     },
     
     newQuery(){
         //Reset all selected param dropdowns
@@ -543,7 +577,9 @@ export default {
         this.selectQuery = this.queries[0];
         this.apiStr.url = "reset";
 
+        this.downloadButtonVisible = true;
         this.resultsVisible = false;
+        
         this.queryVisible = true;
         this.setAllHidden();
             
@@ -917,6 +953,7 @@ export default {
             this.queryVisible = false;
             this.setAllHidden();
             this.resultsVisible = true;
+            this.downloadButtonVisible = true;
 
             //this is just a label which displays the generated url
             this.results.value = this.apiStr.url;//will be removed
@@ -941,7 +978,7 @@ export default {
         /* code from https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript */
 
         //idk if this if-statement is doing anything
-        if(document.getElementById("showData").innerText != "No Results"){
+        if(response.length!=0){
           // Extract value from table header. 
           var col = [];
           for (var i = 0; i < response.length; i++) {
@@ -977,6 +1014,9 @@ export default {
           var divShowData = document.getElementById('showData');
           divShowData.innerHTML = "";
           divShowData.appendChild(table);
+        }else{
+          document.getElementById("showData").innerText = "No Results";
+          this.downloadButtonVisible = false;
         }
     },
 
@@ -1000,6 +1040,7 @@ export default {
         this.qualityVisible = false;
         this.fatherVisible = false;
         this.valueVisible = false;
+        this.downloadButtonVisible = false;
     }
   },
 
@@ -1015,7 +1056,7 @@ export default {
         getQuery(){
         return this.results.value;
         },
-    },  
+    }, 
 
 }
 </script>
