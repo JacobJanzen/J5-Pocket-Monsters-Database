@@ -16,7 +16,7 @@
          <v-row align="center">
            <v-col cols="3">
             <h3>Filter Common Queries:</h3>
-            <v-btn class="filterClear" @click="clearAllCheckboxes()">Clear All Filters</v-btn>
+            <v-btn class="filterClear" @click="showAllQueries()">Show All Queries</v-btn>
             <!--
             <p>(Nothing selected: all visible)</p>
             -->
@@ -432,6 +432,10 @@ export default {
         results: {value: "default"},
         apiObj:{},
 
+        //on load variable
+        //used to set initial dropdown options
+        load: true,
+
         //visibility modifiers
         locationVisible: false,
         qualityVisible: false,
@@ -464,87 +468,12 @@ export default {
         locationCheckbox:false,
         otherCheckbox: false,
 
-
-        /*
-        Based on the selected filters, choose make'queries' list point to different combinations of queries?
-
-        make an updateFilters() function which updates the queries visible inside the dropdown
-        none selected: show all queries
-        if >=1 selected, add relevant Queries to queries dropdown list
-
-
-        */
-
-
         //add all other params here
 
         selectQuery: { value: 'query', id: '0' },
         queries: [
-          { value: 'What do you want to know?', id: '0' },
-          //Breeding File
-          { value: 'The Pokemon in a given egg group', id: '1' },
-          { value: 'The Pokemon a given Pokemon can breed with', id: '2' },
-          //Locations File
-          { value: 'The locations a Pokemon may be found at', id: '3' },
-          { value: 'The locations a Pokemon may be found and the method which they can be found', id: '4' },
-          { value: 'The locations a Pokemon of given type can be found', id: '5' },
-          { value: 'The locations that a Pokemon with two given types can be found', id: '6' },
-          { value: 'Every location you fight a given trainer', id: '7' },
-          { value: 'The locations where a certain trainer class can be fought', id: '9' },
-          { value: 'The locations where a certain Pokemon of at least a certain level can be found', id: '10' },
-          //Moves File
-          { value: 'List the moves that are learned by all Pokemon', id: '11' },
-          { value: 'Moves that are learned by all Pokemon and the method by which they\'re learned', id: '12' },
-          { value: 'Moves that are learned by a given Pokemon', id: '13' },
-          { value: 'Moves that are learned by a given Pokemon and the method by which they\'re learned', id: '14' },
-          { value: 'Moves that have a given Effectiveness against a given Type', id:'14.5'},
-          { value: 'Moves that are super-effective against a given Pokemon', id: '15' },
-          { value: 'Moves that are neutral against a given Pokemon', id: '16' },
-          { value: 'Moves that are not-very-effective against a given Pokemon', id: '17' },
-          { value: 'Moves that a given Pokemon is immune to', id: '18' },
-          { value: 'All moves\' effectiveness against a given Pokemon', id: '19' },
-          { value: 'List all status moves', id: '20' },
-          { value: 'Ways a given Pokemon learns a given move', id: '21' },
-          { value: 'Moves of a given type that a given Pokemon can learn', id: '22' },
-          { value: 'Moves of a given type that a given Pokemon can learn and the method by which they\'re learned', id: '23' },
-          { value: 'Moves a Pokemon learns through breeding', id: '25' },
-          { value: 'Moves a Pokemon can learn through breeding with a given father', id: '26' },
-          //Pokemon File
-          { value: 'All Pokemon names', id: '27' },
-          { value: 'All Pokemon hatch times', id:'27.5'},
-          { value: 'All Move names', id: '28' },
-          { value: 'Pokemon and their pokedex position', id: '29' },
-          { value: 'All Trainer data', id: '30' },
-          { value: 'Stats of a given Pokemon', id: '31' },
-          { value: 'Evolutions of a given Pokemon', id: '32' },
-          { value: 'Pokemon with a given move', id: '33' },
-          { value: 'Pokemon from each type with the highest value in a given stat', id: '34' },
-          { value: 'Pokemon from each type with the lowest value in a given stat', id: '35' },
-          { value: 'Pokemon having minimum value of a given stat', id: '36' },     
-          { value: 'Pokemon having a maximum value of a given stat', id: '37' },  
-          { value: 'Pokemon which can be caught at a given location', id: '38' },  
-          { value: 'Pokemon which can be caught at a given location from a given encounter', id: '39' },  
-          { value: 'Pokemon which can learn a move that is super-effective against a given Pokemon', id: '40' },  
-          { value: 'Pokemon that can be caught at a given location that can learn a move that is super-effective against a given Pokemon', id: '41' },    
-          { value: 'Pokemon that a given move is super-effective against', id: '42' }, 
-          { value: 'Pokemon that a given move is neutral against', id: '43' },  
-          { value: 'Pokemon that a given move is not-very-effective against', id: '44' },  
-          { value: 'Pokemon that are immune to a given move', id: '45' },  
-          { value: 'Effectiveness of a given move on all Pokemon', id: '46' },  
-          { value: 'All Abilities Pokemon have', id: '47' },  
-          { value: 'Pokemon with a given ability', id: '48' },
-          { value: 'Pokemon of a given type that can learn moves of a given type', id: '49' },
-          { value: 'Pokemon of a given type that can learn moves of a given type and the methods by which they\'re learned', id: '50' },
-          //Teams File
-          { value: 'All teams of a given Trainer', id: '51' },
-          { value: 'All teams with a given Pokemon', id: '52' },
-          { value: 'All teams with minimum level', id: '53' },
-          { value: 'All teams with a maximum level', id: '54' },
-          //Types File
-          { value: 'Number of Pokemon per type', id: '55' },
-          { value: 'Types with physical damage type', id: '56' },
-          { value: 'Types with special damage type', id: '57' },
-
+          { value: 'What do you want to know?', id: '0' },//default query value
+          //other values loaded via dropdown.json
         ],
 
         selectQuality:{Quality: null},
@@ -595,55 +524,75 @@ export default {
 
    methods:{
      updateFilteredQueries(){
-       //clear all 'queries' in queries
-
-       var noneSelected = true;
+        //clear all 'queries' in queries
+        this.queries.splice(1);
+       
+        var i = 0;//loop iterator
+        var noneSelected = true;
+        var json;//json obj
 
        if(this.pokemonCheckbox){
          //add pokemon queries to queries
+          json = dropdown["pokemonQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
          noneSelected = false;
        }
        if(this.moveCheckbox){
-         //add move queries to queries
-         noneSelected = false;
+          //add move queries to queries
+          json = dropdown["moveQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
        }
        if(this.typeCheckbox){
          //add type queries to queries
-         noneSelected = false;
+          json = dropdown["typeQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
        }
        if(this.trainerCheckbox){
-         //add trainer queries to queries
-         noneSelected = false;
+         //add move queries to queries
+          json = dropdown["trainerQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
        }
        if(this.teamCheckbox){
-         //add team queries to queries
-         noneSelected = false;
+         //add move queries to queries
+          json = dropdown["teamQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
        }
        if(this.locationCheckbox){
-         //add locaion queries to queries
-         noneSelected = false;
+         //add move queries to queries
+          json = dropdown["locationQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
        }
        if(this.otherCheckbox){
-         //add locaion queries to queries
-         noneSelected = false;
+         //add move queries to queries
+          json = dropdown["otherQueries"];
+          for(i=0; i<json.length; i++){
+              this.queries.push(json[i]);
+          }
+          noneSelected = false;
        }
 
        if(noneSelected){
-         //make all queries visible
+         this.showAllQueries()
        }
-       
-      /*
-      console.log("pokemon: "+this.pokemonCheckbox);
-      console.log("moves: "+this.moveCheckbox);
-      console.log("types: "+this.typeCheckbox);
-      console.log("trainers: "+this.trainerCheckbox);
-      console.log("teams: "+this.teamCheckbox);
-      console.log("locations: "+this.locationCheckbox);
-      console.log("locations: "+this.otherCheckbox);
-      */
 
      },
-
 
      pokemonCheckboxUpdate(){
         if(this.pokemonCheckbox){
@@ -708,11 +657,11 @@ export default {
         this.updateFilteredQueries();
      },
 
-     clearAllCheckboxes(){
-        console.log("what");
+     showAllQueries(){
         document.getElementById("pokemonCheckbox").checked = false;
         document.getElementById("moveCheckbox").checked = false;
         document.getElementById("typeCheckbox").checked = false;
+        document.getElementById("teamCheckbox").checked = false;
         document.getElementById("trainerCheckbox").checked = false;
         document.getElementById("locationCheckbox").checked = false;
         document.getElementById("otherCheckbox").checked = false;
@@ -724,7 +673,23 @@ export default {
         this.teamCheckbox = false;
         this.locationCheckbox =false;
         this.otherCheckbox = false;
-        this.updateFilteredQueries();
+        //this.updateFilteredQueries();
+
+         //make all queries visible
+          var json = dropdown["pokemonQueries"];
+          for(var i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["moveQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["typeQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["trainerQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["teamQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["locationQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
+          json = dropdown["otherQueries"];
+          for(i=0; i<json.length; i++){ this.queries.push(json[i]); }
      },
 
      downloadFile(){
@@ -783,7 +748,7 @@ export default {
 
         this.downloadButtonVisible = true;
         this.resultsVisible = false;
-        
+
         this.queryVisible = true;
         this.setAllHidden();
             
