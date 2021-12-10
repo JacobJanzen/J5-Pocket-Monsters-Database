@@ -71,9 +71,9 @@ def moves_with_effectiveness_against_type(type_name: str, quality):
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''
-                select MoveName, TAtt.TypeName from Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
-                join Type TDef on Effectiveness.Defender = TDef.TypeName
-                where TDef.TypeName = "{type_name}" and Quality = "{quality}";
+    select MoveName, TAtt.TypeName from Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
+    join Type TDef on Effectiveness.Defender = TDef.TypeName
+    where TDef.TypeName = "{type_name}" and Quality = "{quality}" and Move.Status = 0;
                 ''')
     return qj.sqlite_to_json(cur.fetchall())
 
