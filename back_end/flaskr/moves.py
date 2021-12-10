@@ -292,35 +292,72 @@ def moves_pokemon_learns_by_breeding_with_father(pokemon_name: str, father_name:
     return qj.sqlite_to_json(cur.fetchall())
 
 
+@bp.route('/tm_moves/')
+def tm_moves():
+    """Lists all TM moves """
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select Number, MoveName from TM order by Number;
+                ''')
+    return qj.sqlite_to_json(cur.fetchall())
 
-# TM/HM Queries to add:
-# front end is referencing routes listed for each
-# lemme know if u change routing
 
-#-- all TM moves
-#@bp.route('/tm_moves/')
-#select Number, MoveName from TM order by Number;
+@bp.route('/hm_moves/')
+def hm_moves():
+    """Lists all HM moves """
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select Number, MoveName from HM order by Number;
+                ''')
+    return qj.sqlite_to_json(cur.fetchall())
 
-#-- all HM moves
-#@bp.route('/hm_moves/')
-#select Number, MoveName from HM order by Number;
 
-#-- all moves all pokemon learns by TM
-#@bp.route('/tm_moves_all_pokemon/')
-#select MoveName, Method from Pokemon natural join Learns natural join TM
-#where Method like 'TM%';
+@bp.route('/tm_moves_all_pokemon/')
+def tm_moves_all_pokemon():
+    """Lists all moves all Pokemon learn by TM """
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select MoveName, Method from Pokemon natural join Learns natural join TM
+                where Method like 'TM%';
+                ''')
+    return qj.sqlite_to_json(cur.fetchall())
 
-#-- all moves all pokemon learns by HM
-#@bp.route('/hm_moves_all_pokemon/')
-#select MoveName, Method from Pokemon natural join Learns natural join HM
-#where Method like 'HM%';
 
-#-- all moves a given pokemon learns by TM
-#@bp.route('/tm_moves_pokemon/<pokemon_name>')
-#select MoveName, Method from Pokemon natural join Learns natural join TM
-#where PokemonName = pkmn and Method like 'TM%';
+@bp.route('/hm_moves_all_pokemon/')
+def hm_moves_all_pokemon():
+    """Lists all moves all Pokemon learn by HM """
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select MoveName, Method from Pokemon natural join Learns natural join HM
+                where Method like 'HM%';
+                ''')
+    return qj.sqlite_to_json(cur.fetchall())
 
-#-- all moves a given pokemon learns by HM
-#@bp.route('/hm_moves_pokemon/<pokemon_name>')
-#select MoveName, Method from Pokemon natural join Learns natural join HM
-#where PokemonName = pkmn and Method like 'HM%';
+
+@bp.route('/tm_moves_pokemon/<pokemon_name>')
+def tm_moves_pokemon(pokemon_name: str):
+    """Lists all moves a given Pokemon learns by TM """
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select MoveName, Method from Pokemon natural join Learns natural join TM
+                where PokemonName = "{pokemon_name}" and Method like 'TM%';
+                ''')
+    return qj.sqlite_to_json(cur.fetchall())
+
+
+@bp.route('/hm_moves_pokemon/<pokemon_name>')
+def hm_moves_pokemon(pokemon_name: str):
+    """Lists all moves a given Pokemon learns by HM """
+    con = get_db()
+    cur = con.cursor()
+    cur.execute(f'''
+                select MoveName, Method from Pokemon natural join Learns natural join HM
+                where PokemonName = "{pokemon_name}" and Method like 'HM%';
+                ''')
+    return qj.sqlite_to_json(cur.fetchall())
+
