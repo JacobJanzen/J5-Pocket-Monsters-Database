@@ -3,8 +3,8 @@
 <h1>WRITE UP PAGE</h1>
 <h2>Data Summary</h2>
 <p>
-Pokémon was fresh on our minds when we began the project because our instructor, Adam Pazdor,
-had brought up his interest in the game several times during class. We very quickly realized that
+Pokémon was fresh on our minds when we began the project because it had been mentioned in a class
+we have together several times. We very quickly realized that
 a database containing information about Pokémon would be a great way to have lots of data with
 very interesting relationships.
 </p>
@@ -134,14 +134,12 @@ Pokémon Emerald.
 <ul>
     <li>The Pokémon in a given egg group.</li>
     <li>The Pokémon a given Pokémon can breed with.</li>
-    <li>The locations a Pokémon may be found at.</li>
     <li>The locations a Pokémon may be found at and the method which they can be found with.</li>
     <li>The locations a Pokémon of a given type can be found.</li>
     <li>The locations that a Pokémon with two given types can be found.</li>
     <li>The locations with a given trainer.</li>
     <li>The locations where a certain trainer class can be fought.</li>
     <li>The locations where a certain Pokémon of at least a certain level can be found.</li>
-    <li>List the moves that are learnt by all Pokémon.</li>
     <li>Moves that are learnt by all Pokémon and the method by which they are learnt.</li>
     <li>Moves that are learnt by a given Pokémon.</li>
     <li>Moves that are learnt by a given Pokémon and the method by which they are learnt.</li>
@@ -153,12 +151,10 @@ Pokémon Emerald.
     <li>All moves' effectiveness against a given Pokémon.</li>
     <li>List all status moves.</li>
     <li>Ways a given Pokémon can learn a given move.</li>
-    <li> Moves of a given type that a given Pokémon can learn.</li>
     <li>Moves of a given type that a given Pokémon can learn and the method by which they are
         learnt.</li>
     <li>Moves a Pokémon learns through breeding.</li>
     <li>Moves a Pokémon can learn through breeding with a given father.</li>
-    <li>All Pokémon names.</li>
     <li>All Pokémon hatch times.</li>
     <li>All move names.</li>
     <li>Pokémon and their Pokédex position.</li>
@@ -182,7 +178,6 @@ Pokémon Emerald.
     <li>Effects a given move has on a Pokémon.</li>
     <li>All abilities Pokémon have.</li>
     <li>Pokémon with a given ability.</li>
-    <li>Pokémon of a given type that can learn moves of a given type.</li>
     <li>Pokémon of a given type that can learn moves of a given type and the methods by which
         they are learnt.</li>
     <li>All teams of a given trainer.</li>
@@ -191,7 +186,12 @@ Pokémon Emerald.
     <li>All teams with a maximum level.</li>
     <li>Number of Pokémon per type.</li>
     <li>Types with physical damage.</li>
-    <li>Types with special damage.</li>
+    <li>All TM moves.</li>
+    <li>All HM moves.</li>
+    <li>All moves all Pokémon learn by TM.</li>
+    <li>All moves all Pokémon learn by HM.</li>
+    <li>All moves a given Pokémon learns by TM.</li>
+    <li>All moves a given Pokémon learns by HM.</li>
 </ul>
 <p>
 <h2>Interface</h2>
@@ -221,7 +221,8 @@ Enhanced Entity Relation Diagram; and finally, the database interaction page.
 Interacting with the database is quite simple. You can start by clicking the drop-down menu saying
 "What do you want to know?" Afterwards, you can start typing to search for a specific query or 
 to filter down the list, or just scroll down the list of queries until you find your desired 
-query. After selecting a query, it may open up new drop-down menus to select specific parameters
+query. You can also use the checkboxes to narrow the serach down to specific types of queries.
+After selecting a query, it may open up new drop-down menus to select specific parameters
 of the query. When all the fields have been selected, you can click "QUERY!" to execute the 
 query and the results will appear on the page. 
 If you want to save a CSV file containing the results of the query, you can click download. To 
