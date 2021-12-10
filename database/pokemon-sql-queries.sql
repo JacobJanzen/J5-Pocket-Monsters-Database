@@ -280,10 +280,10 @@ select MoveName, 'Breeding: ' || P2.PokemonName from Pokemon P1 natural join Lea
 join Pokemon P2 on LearnsByBreeding.Father = P2.Dex
 where P1.PokemonName = pkmn;
 
--- all moves with certain effectiveness against a type
+-- **FIXED** all moves with certain effectiveness against a type
 select MoveName, TAtt.TypeName from Move natural join Type TAtt join Effectiveness on TAtt.TypeName = Effectiveness.Attacker
 join Type TDef on Effectiveness.Defender = TDef.TypeName
-where TDef.TypeName = tp and Quality = qlt;
+where TDef.TypeName = tp and Quality = qlt and Move.Status = 0;
 
 -- all moves with supereffectiveness against a pkmn
 select MoveName, TAtt.TypeName, CAST((sum(Quality)-count(Quality))*2 as varchar) || 'x' as Effect from 
