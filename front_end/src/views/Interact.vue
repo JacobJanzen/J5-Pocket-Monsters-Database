@@ -50,8 +50,9 @@
 
         <v-col cols="4" >
              <v-btn class="button" @click="newQuery()">New Query</v-btn>
-             <!-- Download CSV results -->
-             <a class="button" target = "_blank" href = "front_end/public/example.csv" download="results.csv"><v-btn>Download</v-btn></a>
+           
+            <v-btn class="button"><a class="button" :href="`${publicPath}query_output.csv`" style="color:black;" download>Download</a></v-btn>
+             
         </v-col>
       </v-row>
 
@@ -368,6 +369,8 @@ import dropdown from '../Dropdown.json'
 export default {
      data () {
       return {
+        //used for result file download
+        publicPath: process.env.BASE_URL,
 
         //used to track current selections
         apiStr:{url: "init"},
@@ -517,23 +520,7 @@ export default {
   },
 
    methods:{
-    downloadFile(){
-            axios({
-                  url: '../example.csv',
-                  method: 'GET',
-                  responseType: 'blob',
-              }).then((response) => {
-                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
-                   var fileLink = document.createElement('a');
-
-                   fileLink.href = fileURL;
-                   fileLink.setAttribute('download', 'file.pdf');
-                   document.body.appendChild(fileLink);
-
-                   fileLink.click();
-              });
-    },
-
+    
     newQuery(){
         //Reset all selected param dropdowns
         this.selectPokemon = null;
@@ -965,8 +952,6 @@ export default {
               }
           }
 
-          //console.log(response.length);
-
           // Create a table.
           var table = document.createElement("table");
 
@@ -981,9 +966,7 @@ export default {
 
           // add json data to the table as rows.
           for (var k = 0; k < response.length; k++) {
-
               tr = table.insertRow(-1);
-
               for (var m = 0; m < col.length; m++) {
                   var tabCell = tr.insertCell(-1);
                   tabCell.innerHTML = response[k][col[m]];
@@ -1041,8 +1024,9 @@ export default {
 
 <style>
   table, th, td {
+    border: solid 1px #ddd;
       border-collapse: collapse;
-      padding: 1px 12px;
+      padding: 1px 10px;
       text-align: center;
   }
   th {
