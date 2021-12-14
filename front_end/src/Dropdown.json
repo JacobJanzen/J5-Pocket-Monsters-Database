@@ -1,9 +1,7 @@
 {
 	"pokemonQueries":[
 		{ "value": "All Pokemon hatch times", "id":"27.5"},
-		{ "value": "All Move names", "id": "28" },
 		{ "value": "Pokemon and their pokedex position", "id": "29" },
-		{ "value": "All Trainer data", "id": "30" },
 		{ "value": "Stats of a given Pokemon", "id": "31" },
 		{ "value": "Evolutions of a given Pokemon", "id": "32" },
 		{ "value": "Pokemon with a given move", "id": "33" },
@@ -26,6 +24,7 @@
 	],
 
 	"moveQueries":[
+		{ "value": "All Move names", "id": "28" },
 		{ "value": "Moves that are learned by all Pokemon and the method by which they\"re learned", "id": "12" },
 		{ "value": "Moves that are learned by a given Pokemon and the method by which they\"re learned", "id": "14" },
 		{ "value": "Moves that have a given Effectiveness against a given Type", "id":"14.5"},
@@ -72,7 +71,8 @@
 
 	"otherQueries":[
 		{ "value": "The Pokemon in a given egg group", "id": "1" },
-		{ "value": "The Pokemon a given Pokemon can breed with", "id": "2" }
+		{ "value": "The Pokemon a given Pokemon can breed with", "id": "2" },
+		{ "value": "All Trainer data", "id": "30" }
 	],
 
 
