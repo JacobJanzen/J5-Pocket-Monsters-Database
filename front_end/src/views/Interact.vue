@@ -747,6 +747,24 @@ export default {
           case '61':{ break;} 
           case '62':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
           case '63':{ this.dropdownMessageVisible = true; this.pokemonNameVisible = true; break;} 
+
+          case '64':{ break;}    
+          case '65':{ break;}  
+          case '66':{ break;}  
+          case '67':{ break;}  
+          case '68':{ break;}  
+          case '69':{ break;}  
+          case '70':{ break;}  
+          case '71':{ break;}  
+          case '72':{ break;}  
+          case '73':{ break;}  
+          case '74':{ break;}  
+          case '75':{ break;}  
+          case '76':{ break;}  
+          case '77':{ break;}   
+          case '78':{ break;}
+          case '79':{ break;}
+          case '80':{ break;}  
         }
     },
 
@@ -1038,6 +1056,74 @@ export default {
                   this.apiStr.url += "moves/hm_moves_pokemon/"+this.selectPokemon.PokemonName;
                   valid = true;
               } break;} 
+            case '64':{ 
+                this.apiStr.url += "dump/pokemon/";
+                valid = true;
+                break;} 
+            case '65':{ 
+                this.apiStr.url += "dump/move/";
+                valid = true;
+                break;} 
+            case '66':{ 
+                this.apiStr.url += "dump/trainer/";
+                valid = true;
+                break;} 
+            case '67':{ 
+                this.apiStr.url += "dump/type/";
+                valid = true;
+                break;} 
+            case '68':{ 
+                this.apiStr.url += "dump/effective/";
+                valid = true;
+                break;} 
+            case '69':{ 
+                this.apiStr.url += "dump/team/";
+                valid = true;
+                break;} 
+            case '70':{ 
+                this.apiStr.url += "dump/tm/";
+                valid = true;
+                break;} 
+            case '71':{ 
+                this.apiStr.url += "dump/hm/";
+                valid = true;
+                break;} 
+            case '72':{ 
+                this.apiStr.url += "dump/learns";
+                valid = true;
+                break;} 
+            case '73':{ 
+                this.apiStr.url += "dump/learnsbybreeding/";
+                valid = true;
+                break;} 
+            case '74':{ 
+                this.apiStr.url += "dump/egggroups/";
+                valid = true;
+                break;} 
+            case '75':{ 
+                this.apiStr.url += "dump/abilities/";
+                valid = true;
+                break;} 
+            case '76':{ 
+                this.apiStr.url += "dump/location/";
+                valid = true;
+                break;} 
+            case '77':{ 
+                this.apiStr.url += "dump/foundat/";
+                valid = true;
+                break;} 
+            case '78':{ 
+                this.apiStr.url += "dump/foughtat/";
+                valid = true;
+                break;} 
+            case '79':{ 
+                this.apiStr.url += "dump/hastypes/";
+                valid = true;
+                break;} 
+            case '80':{ 
+                this.apiStr.url += "dump/teammember/";
+                valid = true;
+                break;} 
             }
         }catch(error){
             //handle failures from evaluating null object 
