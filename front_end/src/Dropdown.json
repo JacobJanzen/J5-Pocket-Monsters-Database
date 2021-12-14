@@ -72,7 +72,24 @@
 	"otherQueries":[
 		{ "value": "The Pokemon in a given egg group", "id": "1" },
 		{ "value": "The Pokemon a given Pokemon can breed with", "id": "2" },
-		{ "value": "All Trainer data", "id": "30" }
+		{ "value": "All Trainer data", "id": "30" },
+		{ "value": "Dump Pokemon Table", "id": "64" },
+		{ "value": "Dump Move Table", "id": "65" },
+		{ "value": "Dump Trainer Table", "id": "66" },
+		{ "value": "Dump Type Table", "id": "67" },
+		{ "value": "Dump Effectiveness Table", "id": "68" },
+		{ "value": "Dump Team Table", "id": "69" },
+		{ "value": "Dump TM Table", "id": "70" },
+		{ "value": "Dump HM Table", "id": "71" },
+		{ "value": "Dump Learns Table", "id": "72" },
+		{ "value": "Dump LearnsByBreeding Table", "id": "73" },
+		{ "value": "Dump EggGroups Table", "id": "74" },
+		{ "value": "Dump Abilities Table", "id": "75" },
+		{ "value": "Dump Locations Table", "id": "76" },
+		{ "value": "Dump FoundAt Table", "id": "77" },
+		{ "value": "Dump FoughtAt Table", "id": "78" },
+		{ "value": "Dump HasTypes", "id": "79" },
+		{ "value": "Dump TeamMember", "id": "80" }
 	],
 
 
