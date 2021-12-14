@@ -1081,11 +1081,11 @@ export default {
                 valid = true;
                 break;} 
             case '70':{ 
-                this.apiStr.url += "bigdump/tm";
+                this.apiStr.url += "bigdump/TM";
                 valid = true;
                 break;} 
             case '71':{ 
-                this.apiStr.url += "bigdump/hm";
+                this.apiStr.url += "bigdump/HM";
                 valid = true;
                 break;} 
             case '72':{ 
