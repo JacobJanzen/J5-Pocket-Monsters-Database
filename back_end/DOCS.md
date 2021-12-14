@@ -101,3 +101,24 @@ This contains the names of all the implemented API methods in the Flask app.
 | teams_with_pokemon | GET | pokemon_name | Lists all of the teams with a given Pokemon |
 | teams_with_minimum_level | GET | minimum_level | Lists all of the teams with a given minimum level |
 | teams_with_maximum_level | GET | maximum_level | Lists all of the teams with a given maximum level |
+
+## Table Selection
+|Method Name |HTTP Method | Parameters | Description|
+|---|---|---|---|
+| pokemon |   |   | Lists everything in the Pokemon table  |
+| move |   |   | Lists everything in the Move table  |
+| trainer |   |   | Lists everything in the Trainer table  |
+| type |   |   | Lists everything in the Type table  |
+| effective |   |   | Lists everything in the Effective table  |
+| team |   |   | Lists everything in the Team table  |
+| tm |   |   | Lists everything in the TM table  |
+| hm |   |   | Lists everything in the HM table  |
+| learns |   |   | Lists everything in the Learns table  |
+| learnsbybreeding |   |   | Lists everything in the LearnsByBreeding table  |
+| egggroups |   |   | Lists everything in the EggGroups table  |
+| abilities |   |   | Lists everything in the Abilities table  |
+| locations |   |   | Lists everything in the Locations table  |
+| foundat |   |   | Lists everything in the FoughtAt table  |
+| foughtat |   |   | Lists everything in the FoughtAt table  |
+| hastypes |   |   | Lists everything in the HasTypes table  |
+| teammember |   |   | Lists everything in the TeamMember table  |
