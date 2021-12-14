@@ -109,7 +109,7 @@ This contains the names of all the implemented API methods in the Flask app.
 | move |   |   | Lists everything in the Move table  |
 | trainer |   |   | Lists everything in the Trainer table  |
 | type |   |   | Lists everything in the Type table  |
-| effective |   |   | Lists everything in the Effective table  |
+| effectiveness |   |   | Lists everything in the Effectiveness table  |
 | team | GET |   | Lists everything in the Team table  |
 | tm | GET |   | Lists everything in the TM table  |
 | hm | GET |   | Lists everything in the HM table  |

@@ -51,13 +51,13 @@ def type():
     return qj.sqlite_to_json(cur.fetchall())
 
 
-@bp.route('/effective')
+@bp.route('/effectiveness')
 def effective():
-    """Lists everything in the Effective table """
+    """Lists everything in the Effectiveness table """
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''
-                select * from Effective;
+                select * from Effectiveness;
                 ''')
     return qj.sqlite_to_json(cur.fetchall())
 
@@ -119,7 +119,7 @@ def learnsbybreeding():
     return qj.sqlite_to_json(cur.fetchall())
 
 
-@bp.route('/eggroups')
+@bp.route('/egggroups')
 def egggroups():
     """Lists everything in the egg groups table """
     con = get_db()
@@ -147,7 +147,7 @@ def location():
     con = get_db()
     cur = con.cursor()
     cur.execute(f'''
-                select * from location;
+                select * from Location;
                 ''')
     return qj.sqlite_to_json(cur.fetchall())
 
