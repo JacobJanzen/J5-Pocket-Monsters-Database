@@ -1073,7 +1073,7 @@ export default {
                 valid = true;
                 break;} 
             case '68':{ 
-                this.apiStr.url += "bigdump/effective";
+                this.apiStr.url += "bigdump/effectiveness";
                 valid = true;
                 break;} 
             case '69':{ 
