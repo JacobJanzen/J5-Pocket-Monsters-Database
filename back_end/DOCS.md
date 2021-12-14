@@ -110,15 +110,15 @@ This contains the names of all the implemented API methods in the Flask app.
 | trainer |   |   | Lists everything in the Trainer table  |
 | type |   |   | Lists everything in the Type table  |
 | effective |   |   | Lists everything in the Effective table  |
-| team |   |   | Lists everything in the Team table  |
-| tm |   |   | Lists everything in the TM table  |
-| hm |   |   | Lists everything in the HM table  |
-| learns |   |   | Lists everything in the Learns table  |
-| learnsbybreeding |   |   | Lists everything in the LearnsByBreeding table  |
-| egggroups |   |   | Lists everything in the EggGroups table  |
-| abilities |   |   | Lists everything in the Abilities table  |
-| locations |   |   | Lists everything in the Locations table  |
-| foundat |   |   | Lists everything in the FoughtAt table  |
-| foughtat |   |   | Lists everything in the FoughtAt table  |
-| hastypes |   |   | Lists everything in the HasTypes table  |
-| teammember |   |   | Lists everything in the TeamMember table  |
+| team | GET |   | Lists everything in the Team table  |
+| tm | GET |   | Lists everything in the TM table  |
+| hm | GET |   | Lists everything in the HM table  |
+| learns | GET |   | Lists everything in the Learns table  |
+| learnsbybreeding | GET |   | Lists everything in the LearnsByBreeding table  |
+| egggroups | GET |   | Lists everything in the EggGroups table  |
+| abilities |  GET   |   | Lists everything in the Abilities table  |
+| locations |  GET   |   | Lists everything in the Locations table  |
+| foundat |  GET   |   | Lists everything in the FoughtAt table  |
+| foughtat |   GET   |  | Lists everything in the FoughtAt table  |
+| hastypes |  GET  |   | Lists everything in the HasTypes table  |
+| teammember | GET |   | Lists everything in the TeamMember table  |
