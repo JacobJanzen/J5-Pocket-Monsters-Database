@@ -1057,71 +1057,71 @@ export default {
                   valid = true;
               } break;} 
             case '64':{ 
-                this.apiStr.url += "dump/pokemon/";
+                this.apiStr.url += "bigdump/pokemon/";
                 valid = true;
                 break;} 
             case '65':{ 
-                this.apiStr.url += "dump/move/";
+                this.apiStr.url += "bigdump/move/";
                 valid = true;
                 break;} 
             case '66':{ 
-                this.apiStr.url += "dump/trainer/";
+                this.apiStr.url += "bigdump/trainer/";
                 valid = true;
                 break;} 
             case '67':{ 
-                this.apiStr.url += "dump/type/";
+                this.apiStr.url += "bigdump/type/";
                 valid = true;
                 break;} 
             case '68':{ 
-                this.apiStr.url += "dump/effective/";
+                this.apiStr.url += "bigdump/effective/";
                 valid = true;
                 break;} 
             case '69':{ 
-                this.apiStr.url += "dump/team/";
+                this.apiStr.url += "bigdump/team/";
                 valid = true;
                 break;} 
             case '70':{ 
-                this.apiStr.url += "dump/tm/";
+                this.apiStr.url += "bigdump/tm/";
                 valid = true;
                 break;} 
             case '71':{ 
-                this.apiStr.url += "dump/hm/";
+                this.apiStr.url += "bigdump/hm/";
                 valid = true;
                 break;} 
             case '72':{ 
-                this.apiStr.url += "dump/learns";
+                this.apiStr.url += "bigdump/learns";
                 valid = true;
                 break;} 
             case '73':{ 
-                this.apiStr.url += "dump/learnsbybreeding/";
+                this.apiStr.url += "bigdump/learnsbybreeding/";
                 valid = true;
                 break;} 
             case '74':{ 
-                this.apiStr.url += "dump/egggroups/";
+                this.apiStr.url += "bigdump/egggroups/";
                 valid = true;
                 break;} 
             case '75':{ 
-                this.apiStr.url += "dump/abilities/";
+                this.apiStr.url += "bigdump/abilities/";
                 valid = true;
                 break;} 
             case '76':{ 
-                this.apiStr.url += "dump/location/";
+                this.apiStr.url += "bigdump/location/";
                 valid = true;
                 break;} 
             case '77':{ 
-                this.apiStr.url += "dump/foundat/";
+                this.apiStr.url += "bigdump/foundat/";
                 valid = true;
                 break;} 
             case '78':{ 
-                this.apiStr.url += "dump/foughtat/";
+                this.apiStr.url += "bigdump/foughtat/";
                 valid = true;
                 break;} 
             case '79':{ 
-                this.apiStr.url += "dump/hastypes/";
+                this.apiStr.url += "bigdump/hastypes/";
                 valid = true;
                 break;} 
             case '80':{ 
-                this.apiStr.url += "dump/teammember/";
+                this.apiStr.url += "bigdump/teammember/";
                 valid = true;
                 break;} 
             }
