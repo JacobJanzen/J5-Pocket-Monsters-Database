@@ -5,5 +5,6 @@ pip install -r requirements
 start cmd.exe /c run.bat
 
 cd ..\front_end
+set NODE_OPTIONS=--openssl-legacy-provider
 call cmd.exe /c npm ci
 npm run serve
